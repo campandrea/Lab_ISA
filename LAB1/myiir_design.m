@@ -7,7 +7,7 @@ function [bi, ai, bq, aq]=myiir_design(N,nb)
 
 close all;
 
-f_cut_off = 2000; % 1kHz
+f_cut_off = 2000; % 2kHz
 f_sampling = 10000; % 10kHz
 
 f_nyq = f_sampling/2; %% Nyquist frequenc

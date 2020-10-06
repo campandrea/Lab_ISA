@@ -2,8 +2,8 @@ fs=10000 %% sampling frequency
 f1=500;  %% first sinewave freq (in band)
 f2=4500; %% second sinnewave freq (out band)
 
-N=2; %% filter order
-nb=8; %% number of bits
+N=8; %% filter order
+nb=10; %% number of bits
 
 T=1/500; %% maximum period
 tt=0:1/fs:10*T; %% time samples
@@ -19,11 +19,11 @@ y=filter(bq, aq, x); %% apply filter
 
 %% plots
 figure
-plot(tt,x1,'--d');
+plot(tt,x1,'-d');
 hold on
-plot(tt,x2,'r--s');
-plot(tt,x, 'g--+');
-plot(tt, y, 'c--o');
+plot(tt,x2,'r-s');
+plot(tt,x, 'g-+');
+plot(tt, y, 'c-o');
 
 legend('x1', 'x2', 'x', 'y')
 
