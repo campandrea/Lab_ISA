@@ -1,7 +1,15 @@
 clear
 close all
 clc
-
+total_sample = 201
+for i=4:10
+    s1="resultsC_";
+    s2=int2str(i);
+    filename=strcat(s1,s2);
+    fid=fopen(filename,'r');
+    x=zeros(total_sample);
+    for 
+end
 X = [0
 0
 2
