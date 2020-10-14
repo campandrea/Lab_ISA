@@ -4,7 +4,7 @@ clc
 format short
 
 f_out=fopen("thd_values.txt",'w');
-for i=4:10
+for i=10:10
     s1="resultsC_";
     s2=int2str(i);
     filename=strcat(s1,s2,'.txt');
