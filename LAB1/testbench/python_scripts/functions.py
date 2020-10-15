@@ -1,7 +1,9 @@
 import math
 import numpy
-import sfp
+from sfp import SFP
 
+
+# input generation functions
 def openFile(filename, mode):
     try:
         file = open(filename, mode)
@@ -30,7 +32,7 @@ def convertToSFP(list_to_convert, m, n):
     """ convert the list in SFP with m integer bits and n decimal bits"""
     sum_SFP=[]
     for x in list_to_convert:
-        sfp_num = sfp.SFP(m,n,x)
+        sfp_num = SFP(m,n,x)
         sum_SFP.append(sfp_num.to_std_logic())
     return sum_SFP
 
@@ -39,3 +41,23 @@ def writeListOnFile(filename, list_to_print):
     for x in list_to_print:
         fp.write("{}\n".format(x))
     fp.close()
+
+
+
+
+#output functions
+def generateErrorFile(DUT_filename, ideal_filename, error_filename):
+    """ reads the results from the dut and the ideal modfel and generates a file
+        with the difference line per line"""
+
+    DUT_file = openFile("prova1.txt",'r')
+    ideal_file = openFile("prova2.txt", 'r')
+    error_file = openFile("prova3.txt", 'w')
+    error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
+    for DUT_line, ideal_line1 in zip(DUT_file, ideal_file):
+        DUT_num = from_binary(DUT_line)
+        ideal_num = from_binary(ideal_line)
+        error_file.write(DUT_num - ideal_num + "\n")
+    DUT_file.close()
+    ideal_file.close()
+    error_file.close()
