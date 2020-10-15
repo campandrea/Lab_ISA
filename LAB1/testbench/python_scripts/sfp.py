@@ -12,6 +12,18 @@ class SFP:
         self.n = n
         self._val = self._convert_val(val)
 
+    @classmethod
+    def from_binary(cls, binary_string):
+        """Convert a string representing a binary number to a SFP.
+        Args:
+            binary_string (str): a string containing binary numbers with '.' as decimal separator. For example,
+                '101.001010'
+        Return:
+            SFP: corresponding SFP number with the same amount of digits
+        """
+        integer_part, decimal_part = binary_string.split('.')
+        return cls(len(integer_part), len(decimal_part), int(integer_part + decimal_part, 2))
+
     def _mask(self, number):
         """Masks a number in order to have it representable with the set amounts of bits"""
         return number & ((1 << (self.m + self.n)) - 1)
