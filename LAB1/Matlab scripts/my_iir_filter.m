@@ -2,7 +2,7 @@ fs=10000 %% sampling frequency
 f1=500;  %% first sinewave freq (in band)
 f2=4500; %% second sinnewave freq (out band)
 
-for i=4:10
+for i=10:10
     N=8; %% filter order
     nb=i; %% number of bits
 
