@@ -50,9 +50,9 @@ def generateErrorFile(DUT_filename, ideal_filename, error_filename):
     """ reads the results from the dut and the ideal modfel and generates a file
         with the difference line per line"""
 
-    DUT_file = openFile("prova1.txt",'r')
-    ideal_file = openFile("prova2.txt", 'r')
-    error_file = openFile("prova3.txt", 'w')
+    DUT_file = openFile(DUT_filename,'r')
+    ideal_file = openFile(ideal_filename, 'r')
+    error_file = openFile(error_filename, 'w')
     error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
     for DUT_line, ideal_line1 in zip(DUT_file, ideal_file):
         DUT_num = from_binary(DUT_line)
