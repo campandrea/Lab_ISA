@@ -70,11 +70,11 @@ architecture structure of IIR_filter is
 	
 	
 	--signals
-	type sign_array_9 is array (8 downto 0) of signed (Nb-1 downto 0);
+	type sign_array_9 is array (8 downto 0) of signed (Nb downto 0);
 		all_a, all_b : sign_array_9; --a and b coefficients
 		prod_a : sign_array_9; --multiplication results
 		
-	type sign_array_8 is array (7 downto 0) of signed (Nb-1 downto 0);
+	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
 		 prod_b : sign_array_8;
 		 reg_in, reg_out : sign_array_8;
 		 sum_a, sum_b : sign_array_8; --sum results
@@ -82,21 +82,29 @@ architecture structure of IIR_filter is
 	signal rst : std_logic;
 	signal count_tc : std_logic;
 	signal VIN_samp : std_logic;
-	signal DIN_samp : signed(Nb-1 downto 0);
+	signal DIN_samp : signed(Nb downto 0);
 		 
 begin	
 	
-	all_a <= a0 & a1 & a2 & a3 & a4 & a5 & a6 & a7 & a8;
-	all_b <= b0 & b1 & b2 & b3 & b4 & b5 & b6 & b7 & b8;
+	all_a <= a0(Nb-1) & a0 & a1(Nb-1) & a1 &
+			 a2(Nb-1) & a2 & a3(Nb-1) & a3 & 
+			 a4(Nb-1) & a4 & a5(Nb-1) & a5 &
+			 a6(Nb-1) & a6 & a7(Nb-1) & a7 &
+			 a8(Nb-1) & a8;
+	all_b <= b0(Nb-1) & b0 & b1(Nb-1) & b1 &
+			 b2(Nb-1) & b2 & b3(Nb-1) & b3 &
+			 b4(Nb-1) & b4 & b5(Nb-1) & b5 &
+			 b6(Nb-1) & b6 & b7(Nb-1) & b7 &
+			 b8(Nb-1) & b8;
 	rst <= not RST_n;
 	
 	DIN_reg : RegisterSigned
-		generic map (N => Nb)
+		generic map (N => Nb+1)
 		port map (
 			clk => CLK,
 			en => '1',
 			rst => rst,
-			D => DIN,
+			D => DIN(Nb-1) & DIN,
 			Q => DIN_samp
 		);
 	
@@ -112,7 +120,7 @@ begin
 	reg_gen : for i in 0 to 7 generate
 		first_reg : if ( i = 0 ) generate
 			reg0 : RegisterSigned
-				generic map (N => Nb)
+				generic map (N => Nb+1)
 				port map (
 					clk => CLK,
 					en => VIN_samp,
@@ -124,7 +132,7 @@ begin
 		
 		other_reg : if ( i > 0 ) generate			
 			reg_x : RegisterSigned 
-				generic map (N => Nb)
+				generic map (N => Nb+1)
 				port map (
 					clk => CLK,
 					en => VIN_samp,
@@ -137,7 +145,7 @@ begin
 	
 	mult_b_gen : for i in 0 to 7 generate
 		mult_b : multiplier
-			generic map (N => Nb)
+			generic map (N => Nb+1)
 			port map (
 				A => reg_out(i),
 				B => all_b(i),
@@ -148,7 +156,7 @@ begin
 	add_b_gen : for i in 0 to 7 generate
 		first_add_b : if ( i = 0 ) generate
 			sum_b0 : adder
-			generic map (N => Nb)
+			generic map (N => Nb+1)
 			port map (
 				A => DIN_samp,
 				B => sum_b(1),
@@ -158,7 +166,7 @@ begin
 		
 		mid_add_b : if ( i > 0 and i < 7 ) generate
 			sum_bx : adder
-			generic map (N => Nb)
+			generic map (N => Nb+1)
 			port map (
 				A => prod_b(i-1),
 				B => sum_b(i+1),
@@ -168,7 +176,7 @@ begin
 		
 		last_add_b : if ( i = 7 ) generate
 			sum_b7 : adder
-			generic map (N => Nb)
+			generic map (N => Nb+1)
 			port map (
 				A => prod_b(i-1),
 				B => prod_b(i),
@@ -180,7 +188,7 @@ begin
 	mult_a_gen : for i in 0 to 8 generate
 		first_mult_a : if ( i = 0 ) generate
 			mult_a0 : multiplier
-			generic map ( N => Nb )
+			generic map ( N => Nb+1 )
 			port map (
 				A => all_a(0),
 				B => sum_b(0),
@@ -190,7 +198,7 @@ begin
 		
 		other_mult_a : if ( i > 0 ) generate
 			mult_ax : multiplier
-			generic map ( N => Nb )
+			generic map ( N => Nb+1 )
 			port map (
 				A => all_a(i),
 				B => sum_b(reg_out(i-1)),
@@ -202,7 +210,7 @@ begin
 	add_a_gen : for i in 0 to 7 generate
 		other_add_a : if ( i < 7 ) generate
 			addx : adder
-				generic map (N => Nb)
+				generic map (N => Nb+1)
 				port map (
 					A => mult_a(i),
 					B => sum_a(i+1),
@@ -212,7 +220,7 @@ begin
 		
 		last_add_a : if (i = 7) generate
 			add_a7 : adder
-			generic map (N => Nb)
+			generic map (N => Nb+1)
 				port map (
 					A => mult_a(i),
 					B => mult_a(i+1),
@@ -237,7 +245,7 @@ begin
 			clk => CLK,
 			en => VIN_samp,
 			rst => rst,
-			D => sum_a(0),
+			D => sum_a(0)(Nb downto 1),
 			Q => DOUT
 		);
 		
