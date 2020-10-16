@@ -77,7 +77,7 @@ architecture structure of IIR_filter is
 	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
 	signal	 prod_b : sign_array_8;
 	signal	 reg_in, reg_out : sign_array_8;
-	signal	 sum_a, sum_b : sign_array_8; --sum results
+	signal	 sum_a, sum_b, mult_a : sign_array_8; --sum results
 		 
 	signal rst : std_logic;
 	signal count_tc : std_logic;
@@ -128,7 +128,7 @@ begin
 					D => sum_b(0),
 					Q => reg_out(0)
 				);
-		end generate first;
+		end generate first_reg;
 		
 		other_reg : if ( i > 0 ) generate			
 			reg_x : RegisterSigned 
@@ -141,7 +141,7 @@ begin
 					Q => reg_out(i)
 				);
 		end generate other_reg;
-	end generate
+	end generate reg_gen;
 	
 	mult_b_gen : for i in 0 to 7 generate
 		mult_b : multiplier
@@ -162,7 +162,7 @@ begin
 				B => sum_b(1),
 				R => sum_b(0)
 			);
-		end generate first;
+		end generate first_add_b;
 		
 		mid_add_b : if ( i > 0 and i < 7 ) generate
 			sum_bx : adder
@@ -183,7 +183,7 @@ begin
 				R => sum_b(i)
 			);
 		end generate last_add_b;
-	end generate;
+	end generate add_b_gen;
 	
 	mult_a_gen : for i in 0 to 8 generate
 		first_mult_a : if ( i = 0 ) generate
@@ -226,11 +226,11 @@ begin
 					B => mult_a(i+1),
 					R => sum_a(i)
 				);
-		end generate other_add_a;
-	end generate;
+		end generate last_add_a;
+	end generate add_a_gen;
 	
 	count : Counter
-		generic map (N => 4);
+		generic map (N => 4)
 		port map (
 			clk => CLK,
 			CE => VIN_samp,
