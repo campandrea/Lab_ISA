@@ -201,7 +201,7 @@ begin
 			generic map ( N => Nb+1 )
 			port map (
 				A => all_a(i),
-				B => reg_out(i),
+				B => sum_b(reg_out(i-1)),
 				R => mult_a(i)
 			);
 		end generate other_mult_a;
