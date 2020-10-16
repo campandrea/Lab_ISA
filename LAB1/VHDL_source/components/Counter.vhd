@@ -13,32 +13,27 @@ entity Counter is
 end entity Counter;
 
 architecture Behavior of Counter is
-
-	component Comparator is
-		generic(
-			N: natural);
-		port(
-			A, B : IN unsigned(N-1 downto 0);
-			EQ	  : OUT std_logic);
-	end component;
 	
 	signal count : unsigned(N-1 downto 0);
 BEGIN
-	incProc: process(clk)
+	incProc: process(clk, COUNT_MAX)
+		variable term : std_logic := '0';
+		variable cnt : unsigned(N-1 downto 0);
 	BEGIN
 		if clk'event and clk = '1' then
 			if RST = '1' then
-				count <= (others=>'0');
-			elsif CE = '1' and TC /= 1 then
-				count <= count + 1;
+				cnt := (others=>'0');
+				term := '0';
+			elsif CE = '1' and term /= '1' then
+				cnt := cnt + 1;
 			end if;
 		end if;
+		if cnt = COUNT_MAX then
+			term := '1';
+		else
+			term := '0';
+		end if;
+		TC <= term;
 	END process;
-	terminal_count_gen: Comparator
-		generic map(
-			N => N)
-		port map(
-			A => count,
-			B => COUNT_MAX,
-			EQ => TC);
+	
 END architecture Behavior;
