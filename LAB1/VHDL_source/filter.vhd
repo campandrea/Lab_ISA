@@ -71,13 +71,13 @@ architecture structure of IIR_filter is
 	
 	--signals
 	type sign_array_9 is array (8 downto 0) of signed (Nb downto 0);
-		all_a, all_b : sign_array_9; --a and b coefficients
-		prod_a : sign_array_9; --multiplication results
+	signal	all_a, all_b : sign_array_9; --a and b coefficients
+	signal	prod_a : sign_array_9; --multiplication results
 		
 	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
-		 prod_b : sign_array_8;
-		 reg_in, reg_out : sign_array_8;
-		 sum_a, sum_b : sign_array_8; --sum results
+	signal	 prod_b : sign_array_8;
+	signal	 reg_in, reg_out : sign_array_8;
+	signal	 sum_a, sum_b : sign_array_8; --sum results
 		 
 	signal rst : std_logic;
 	signal count_tc : std_logic;
