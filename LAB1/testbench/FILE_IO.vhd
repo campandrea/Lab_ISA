@@ -13,8 +13,8 @@ entity File_IO is
 
   port( clk      : IN  std_logic;
         en       : IN  std_logic;
-        data_in  : IN  -- insert the correct type of data
-        data_out : OUT -- also here
+        data_in  : IN  signed(6 downto 0);
+        data_out : OUT signed(6 downto 0);
         eof      : OUT std_logic
       );
 end entity File_IO;
@@ -25,7 +25,7 @@ architecture Behavior of File_IO is
 BEGIN
     interface_proc: process(clk)
         variable buf : line;
-        variable n   : --insert the correct type
+        variable n   : natural := 7;--insert the correct type
         -- variable i   : integer := 0;
         variable eof_var : std_logic := '0';
 
