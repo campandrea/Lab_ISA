@@ -12,9 +12,10 @@ wire VOUT;
 
 ///Net
 
+//input_reader
 File_IO		
-#(	.filename("C:/INSERT_PATH/FILENAME"),
-	.mode("")
+#(	.filename("../Files/input.txt"),
+	.mode(read_mode)
  )
 	IN_GEN_OUT_SINK_Module(
 		.clk(CLK),
@@ -43,5 +44,18 @@ IIR_filter
 		.DOUT(DOUT),
 		.VOUT(VOUT)
 			);
+
+//outut_writer
+File_IO		
+#(	.filename("../Files/output_DUT.txt"),
+	.mode(read_mode)
+ )
+	IN_GEN_OUT_SINK_Module(
+		.clk(CLK),
+		.en(),		///AGGIUNGERE
+		.data_in(DIN),
+		.data_out(DOUT),
+		.eof()  	///AGGIUNGERE
+	);
 endmodule
 

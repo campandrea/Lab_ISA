@@ -1,6 +1,7 @@
 import math
 import numpy
 from sfp import SFP
+from math import floor
 
 
 # input generation functions
@@ -25,7 +26,7 @@ def genInputSignal(x1, x2):
     """ generates the sum vector """
     sum=[]
     for a,b in zip(x1,x2):
-        sum.append((a+b)/2)
+        sum.append(floor((a+b)/2*(2**9)))
     return sum
 
 def convertToSFP(list_to_convert, m, n):
@@ -55,8 +56,8 @@ def generateErrorFile(DUT_filename, ideal_filename, error_filename):
     error_file = openFile(error_filename, 'w')
     error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
     for DUT_line, ideal_line1 in zip(DUT_file, ideal_file):
-        DUT_num = from_binary(DUT_line)
-        ideal_num = from_binary(ideal_line)
+        DUT_num = SFP.from_binary(DUT_line)
+        ideal_num = SFP(int(ideal_line),1,9)
         error_file.write(DUT_num - ideal_num + "\n")
     DUT_file.close()
     ideal_file.close()
