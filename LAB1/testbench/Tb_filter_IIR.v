@@ -4,34 +4,58 @@ module Tb_filter_IIR
 //Input commands
 wire CLK;
 wire RST_n;
-wire [Nb-1] DIN ;
+wire [Nb-1:0] DIN_IO_GEN_TO_Filter ;
 wire VIN;
 //Output commands
-wire [Nb-1] DOUT;
+wire [Nb-1:0] DOUT_Filter_TO_OUT_module;
 wire VOUT;
-
+wire EOF;
 ///Net
 
-//input_reader
+clk_gen 
+	CLK_Module(
+		.END_SIM(EOF),
+		.CLK(CLK),
+		.RST_n(RST_n)
+		);
+		
+		
+///Read mode module
 File_IO		
-#(	.filename("../Files/input.txt"),
-	.mode(read_mode)
+#(	.filename("../Files/input_DUT.txt"),
+	.mode("read_mode")
+ )
+	IN_GEN_SINK_Module(
+		.clk(CLK),
+		.en(RST_n),		///AGGIUNGERE
+		.data_in("0000000000"),
+		.data_out(DIN_IO_GEN_TO_Filter),
+		.eof(EOF)  	///AGGIUNGERE
+	);
+	
+
+///Write mode module
+File_IO		
+#(	.filename("../Files/output_DUT.txt"),
+	.mode("write_mode")
  )
 	IN_GEN_OUT_SINK_Module(
 		.clk(CLK),
-		.en(),		///AGGIUNGERE
-		.data_in(DIN),
-		.data_out(DOUT),
+		.en(VOUT),		///AGGIUNGERE
+		.data_in(DOUT_Filter_TO_OUT_module),
+		.data_out(),
 		.eof()  	///AGGIUNGERE
 	);
+	
+	
 
 IIR_filter 
 #(10) 
 	DUT(
 		.CLK(CLK),
 		.RST_n(RST_n),
-		.DIN(DIN),
-		.VIN(VIN),
+		.DIN(DIN_IO_GEN_TO_Filter),
+		.VIN(~EOF),
 		///A coefficients
 		.a0(512), .a1(-815), .a2(1066), 
 		.a3(-785), .a4(445), .a5(-164), 
@@ -41,21 +65,8 @@ IIR_filter
 		.b3(65), .b4(81), .b5(65), 
 		.b6(32), .b7(9), .b8(1),
 		///Output
-		.DOUT(DOUT),
+		.DOUT(DOUT_Filter_TO_OUT_module),
 		.VOUT(VOUT)
 			);
-
-//outut_writer
-File_IO		
-#(	.filename("../Files/output_DUT.txt"),
-	.mode(read_mode)
- )
-	IN_GEN_OUT_SINK_Module(
-		.clk(CLK),
-		.en(),		///AGGIUNGERE
-		.data_in(DIN),
-		.data_out(DOUT),
-		.eof()  	///AGGIUNGERE
-	);
 endmodule
 
