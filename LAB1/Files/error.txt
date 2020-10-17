@@ -1,0 +1,2 @@
+In this file is computed:
+DUT_result - C_prog_result
