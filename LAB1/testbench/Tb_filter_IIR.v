@@ -23,12 +23,12 @@ clk_gen
 ///Read mode module
 File_IO		
 #(	.filename("../Files/input_DUT.txt"),
-	.mode("read_mode")
+	.mode(0)
  )
 	IN_GEN_SINK_Module(
 		.clk(CLK),
 		.en(RST_n),		///AGGIUNGERE
-		.data_in("0000000000"),
+		.data_in(),
 		.data_out(DIN_IO_GEN_TO_Filter),
 		.eof(EOF)  	///AGGIUNGERE
 	);
@@ -37,7 +37,7 @@ File_IO
 ///Write mode module
 File_IO		
 #(	.filename("../Files/output_DUT.txt"),
-	.mode("write_mode")
+	.mode(1)
  )
 	IN_GEN_OUT_SINK_Module(
 		.clk(CLK),
