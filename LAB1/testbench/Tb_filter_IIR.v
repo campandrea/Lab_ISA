@@ -12,26 +12,26 @@ wire VOUT;
 wire EOF;
 
 ///A coefficients
-wire signed [Nb-1:0] a0 =  10'd512;
-wire signed [Nb-1:0] a1 =  -10'd815;
-wire signed [Nb-1:0] a2 =  10'd1066;
-wire signed [Nb-1:0] a3 =  -10'd785;
-wire signed [Nb-1:0] a4 =  10'd445;
-wire signed [Nb-1:0] a5 =  -10'd164;
-wire signed [Nb-1:0] a6 =  10'd42;
-wire signed [Nb-1:0] a7 =  -10'd7;
+wire signed [Nb-1:0] a0 =  10'd245;
+wire signed [Nb-1:0] a1 =  -10'd391;
+wire signed [Nb-1:0] a2 =  10'd511;
+wire signed [Nb-1:0] a3 =  -10'd377;
+wire signed [Nb-1:0] a4 =  10'd213;
+wire signed [Nb-1:0] a5 =  -10'd79;
+wire signed [Nb-1:0] a6 =  10'd20;
+wire signed [Nb-1:0] a7 =  -10'd4;
 wire signed [Nb-1:0] a8 =  10'd0;
 
 ///B coefficients
-wire signed [Nb-1:0] b0 =  10'd1;
-wire signed [Nb-1:0] b1 =  10'd9;
-wire signed [Nb-1:0] b2 =  10'd32;
-wire signed [Nb-1:0] b3 =  10'd65;
-wire signed [Nb-1:0] b4 =  10'd81;
-wire signed [Nb-1:0] b5 =  10'd65;
-wire signed [Nb-1:0] b6 =  10'd32;
-wire signed [Nb-1:0] b7 =  10'd9;
-wire signed [Nb-1:0] b8 =  10'd1;
+wire signed [Nb-1:0] b0 =  10'd0;
+wire signed [Nb-1:0] b1 =  10'd4;
+wire signed [Nb-1:0] b2 =  10'd15;
+wire signed [Nb-1:0] b3 =  10'd31;
+wire signed [Nb-1:0] b4 =  10'd39;
+wire signed [Nb-1:0] b5 =  10'd31;
+wire signed [Nb-1:0] b6 =  10'd15;
+wire signed [Nb-1:0] b7 =  10'd4;
+wire signed [Nb-1:0] b8 =  10'd0;
 
 
 ///Net

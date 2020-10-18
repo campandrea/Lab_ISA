@@ -84,6 +84,7 @@ architecture structure of IIR_filter is
 	signal count_tc : std_logic;
 	signal VIN_samp : std_logic;
 	signal DIN_samp : signed(Nb downto 0);
+	signal din_merged : signed (Nb downto 0);
 		 
 begin	
 	
@@ -108,14 +109,14 @@ begin
 	all_b(8) <= b8(Nb-1) & b8;
 	
 	rst <= not RST_n;
-	
+	din_merged <= DIN(Nb-1) & DIN;
 	DIN_reg : RegisterSigned
 		generic map (N => Nb+1)
 		port map (
 			clk => CLK,
 			en => '1',
 			rst => rst,
-			D => DIN(Nb-1) & DIN,
+			D => din_merged,
 			Q => DIN_samp
 		);
 	
