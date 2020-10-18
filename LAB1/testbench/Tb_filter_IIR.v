@@ -35,46 +35,38 @@ wire signed [Nb-1:0] b8 =  10'd1;
 
 
 ///Net
-
+/*
 clk_gen 
 	CLK_Module(
 		.END_SIM(EOF),
 		.CLK(CLK),
 		.RST_n(RST_n)
 		);
-		
-		
+		*/
 ///Read mode module
-File_IO		
-#(	.filename("../Files/input_DUT.txt"),
-	.mode(0)
- )
+Stimuli_generator		
+#(.filename("input_DUT.txt"))
 	IN_GEN_SINK_Module(
 		.clk(CLK),
-		.en(RST_n),		///AGGIUNGERE
-		.data_in(),
+		.en(RST_n),
 		.data_out(DIN_IO_GEN_TO_Filter),
-		.eof(EOF)  	///AGGIUNGERE
+		.eof(EOF)
 	);
-	
+
 
 ///Write mode module
-File_IO		
-#(	.filename("../Files/output_DUT.txt"),
-	.mode(1)
- )
+Output_Sink		
+#(.filename("output_DUT.txt"))
 	IN_GEN_OUT_SINK_Module(
 		.clk(CLK),
 		.en(VOUT),		///AGGIUNGERE
 		.data_in(DOUT_Filter_TO_OUT_module),
-		.data_out(),
 		.eof()  	///AGGIUNGERE
 	);
 	
-	
+
 
 IIR_filter 
-#(10) 
 	DUT(
 		.CLK(CLK),
 		.RST_n(RST_n),
