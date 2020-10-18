@@ -14,6 +14,7 @@ f_nyq = f_sampling/2; %% Nyquist frequenc
 f0 = f_cut_off/f_nyq; %% Normalized cut-off frequency
 
 [b,a]=butter(N, f0); %% get filter coefficients
+[h0, w0] = freqz(b,a);
 red=max(a);
 b=b./red
 a=a./red
@@ -28,6 +29,8 @@ aq=ai/2^(nb-1); %% convert back a coefficients as nb-bit real values
 
 %% show the transfer functions
 plot(w1/pi, 20*log10(abs(h1)));
+hold on;
+plot(w0/pi, 20*log10(abs(h0)), 'g');
 hold on;
 plot(w2/pi, 20*log10(abs(h2)),'r--');
 grid on;
