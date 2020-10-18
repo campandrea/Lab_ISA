@@ -72,8 +72,7 @@ architecture structure of IIR_filter is
 	--signals
 	type sign_array_9 is array (8 downto 0) of signed (Nb downto 0);
 	signal	all_a, all_b : sign_array_9; --a and b coefficients
-	signal	prod_a : sign_array_9; --multiplication results
-	signal mult_a : sign_array_9;
+	signal mult_a : sign_array_9; --multiplication results
 		
 	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
 	signal	 prod_b : sign_array_8;
@@ -161,7 +160,7 @@ begin
 			generic map (N => Nb+1)
 			port map (
 				A => reg_out(i),
-				B => all_b(i),
+				B => all_b(i+1),
 				R => prod_b(i)
 			);
 	end generate;

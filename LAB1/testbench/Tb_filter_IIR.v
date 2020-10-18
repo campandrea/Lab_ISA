@@ -35,17 +35,16 @@ wire signed [Nb-1:0] b8 =  10'd0;
 
 
 ///Net
-/*
+
 clk_gen 
 	CLK_Module(
-		.END_SIM(EOF),
 		.CLK(CLK),
 		.RST_n(RST_n)
 		);
-		*/
+		
 ///Read mode module
 Stimuli_generator		
-#(.filename("input_DUT.txt"))
+#(.filename("../Files/input_DUT.txt"))
 	IN_GEN_SINK_Module(
 		.clk(CLK),
 		.en(RST_n),
@@ -56,7 +55,7 @@ Stimuli_generator
 
 ///Write mode module
 Output_Sink		
-#(.filename("output_DUT.txt"))
+#(.filename("../Files/output_DUT.txt"))
 	IN_GEN_OUT_SINK_Module(
 		.clk(CLK),
 		.en(VOUT),		///AGGIUNGERE

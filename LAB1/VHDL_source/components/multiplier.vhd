@@ -14,5 +14,5 @@ architecture Behavior of multiplier is
 	signal R_temp : signed (2*N -1 downto 0);
 begin
     R_temp <= A*B;
-	R <= R_temp(2*N -1 downto N);
+	R <= R_temp(2*N -3 downto N-2);
 end architecture Behavior;

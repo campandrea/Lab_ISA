@@ -22,8 +22,7 @@ architecture Behavior of Stimuli_generator is
 BEGIN
     interface_proc: process(clk)
         variable buf : line;
-        variable n   : signed(9 downto 0);--insert the correct type
-        variable i   : integer := 0;
+        variable n   : std_logic_vector(9 downto 0);
         variable eof_var : std_logic := '0';
 
     BEGIN
@@ -33,9 +32,8 @@ BEGIN
                         if not endfile(f) then
                             eof <= '0';
                             readline(f, buf);
-                            read(buf, i);
-                            n := to_signed(i, n'length);
-                            data_out <= n;
+                            read(buf, n);
+                            data_out <= signed(n);
                         else
                             eof <= '1';
                         end if;
