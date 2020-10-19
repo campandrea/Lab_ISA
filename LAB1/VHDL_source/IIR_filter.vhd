@@ -90,7 +90,7 @@ architecture structure of IIR_filter is
 	signal VIN_samp : std_logic;
 	signal DIN_samp : signed(N_par -1 downto 0);
 	signal DIN_reg_signed : signed(N_par -1 downto 0);
-    signal sat_out : signed(N_b-1 downto 0);
+    signal sat_out : signed(Nb-1 downto 0);
 
 begin
 
@@ -279,9 +279,9 @@ begin
 
     saturation: Saturator
         generic map ( N_in => N_par,
-                      N_out => N_b)
+                      N_out => Nb)
         port map(
-            NUM_IN => sum(0),
+            NUM_IN => sum_a(0),
             NUM_OUT => sat_out
         );
 
