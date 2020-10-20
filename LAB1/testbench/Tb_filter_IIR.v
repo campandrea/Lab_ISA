@@ -12,13 +12,13 @@ wire VOUT;
 wire EOF;
 
 ///A coefficients
-wire signed [Nb-1:0] a0 =  -Nb'd512;
-wire signed [Nb-1:0] a1 =  Nb'd82;
+wire signed [Nb-1:0] a0 =  -10'd512;
+wire signed [Nb-1:0] a1 =  10'd82;
 
 
 ///B coefficients
-wire signed [Nb-1:0] b0 =  Nb'd215;
-wire signed [Nb-1:0] b1 =  Nb'd215;
+wire signed [Nb-1:0] b0 =  10'd215;
+wire signed [Nb-1:0] b1 =  10'd215;
 
 
 
