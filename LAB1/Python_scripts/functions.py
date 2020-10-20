@@ -58,7 +58,9 @@ def generateErrorFile(DUT_filename, ideal_filename, error_filename):
     ideal_file = openFile(ideal_filename, 'r')
     error_file = openFile(error_filename, 'w')
     error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
+    ideal_file.read()
     for DUT_line, ideal_line in zip(DUT_file, ideal_file):
+        print("ciao")
         error = int(DUT_line) - int(ideal_line)
         error_file.write(str(error) + "\n")
     DUT_file.close()

@@ -80,6 +80,7 @@ architecture structure of IIR_filter is
 	
 	signal prod_a1 : signed(N_par -1 downto 0); --multiplication results
 	signal prod_b0, prod_b1 : signed(N_par -1 downto 0);
+	signal prod_b0_2N, prod_a1_2N, prod_b1_2N : signed(2*N_par-1 downto 0);
 	
 	signal reg_out : signed(N_par -1 downto 0);
 	signal sum_a0, sum_b0 : signed(N_par -1 downto 0); --sum results
@@ -137,17 +138,20 @@ begin
 		port map (
 			A => sum_a0,
 			B => b0_in,
-			R => prod_b0
+			R => prod_b0_2N
 		);
-		
+	-- tolti gli MSB derivanti dalla moltiplicazione e gli LSB
+	prod_b0 <= prod_b0_2N(N_par +Nb -2 downto Nb -1); 
+	
 	mult_b1 : multiplier
 		generic map (N => N_par)
 		port map (
 			A => reg_out,
 			B => b1_in,
-			R => prod_b1
+			R => prod_b1_2N
 		);
-
+	prod_b1 <= prod_b1_2N(N_par +Nb -2 downto Nb -1);
+	
 	add_b0 : adder
 	generic map (N => N_par)
 	port map (
@@ -162,9 +166,9 @@ begin
 	port map (
 		A => reg_out,
 		B => a1_in,
-		R => prod_a1
+		R => prod_a1_2N
 	);
-
+	prod_a1 <= prod_a1_2N(N_par +Nb -2 downto Nb -1);
 
 	add_a0 : adder
 		generic map (N => N_par)
@@ -175,12 +179,12 @@ begin
 		);
 
 	count : Counter
-		generic map (N => 4)
+		generic map (N => 2)
 		port map (
 			clk => CLK,
 			CE => VIN_samp,
 			RST => rst,
-			COUNT_MAX => "1001",
+			COUNT_MAX => "01",
 			TC => count_tc
 		);
 
