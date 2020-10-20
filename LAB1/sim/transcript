@@ -8,12 +8,6 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# vsim work.TB_filter_IIR 
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Error: Failed to find design unit work.TB_filter_IIR.
-# Optimization failed
-# Error loading design
-vsim work.Tb_filter_IIR
 # vsim work.Tb_filter_IIR 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.Tb_filter_IIR(fast)
@@ -34,169 +28,7 @@ vsim work.Tb_filter_IIR
 # Loading work.adder(behavior)#1
 # Loading work.counter(behavior)#1
 # Loading work.registersigned(rtl)#2
-add wave sim:/Tb_filter_IIR/DUT/*
-run 10 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of counter
-# -- Loading entity counter
-# ** Error: ../VHDL_source/components/Saturator.vhd(15): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(15): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): (vcom-1136) Unknown identifier "n_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): Bad expression in right bound of range expression.
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): Cannot resolve expression type.
-# ** Warning: ../VHDL_source/components/Saturator.vhd(16): (vcom-1147) Range in FOR GENERATE must be static.
-# ** Error: ../VHDL_source/components/Saturator.vhd(17): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(17): Type error resolving infix expression "and" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(20): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(20): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): (vcom-1136) Unknown identifier "n_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): Bad expression in right bound of range expression.
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): Cannot resolve expression type.
-# ** Warning: ../VHDL_source/components/Saturator.vhd(21): (vcom-1147) Range in FOR GENERATE must be static.
-# ** Error: ../VHDL_source/components/Saturator.vhd(22): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(22): Type error resolving infix expression "nor" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(25): near ":": expecting: BEGIN
-# ** Error: ../VHDL_source/components/Saturator.vhd(27): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(30): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(36): near "process": expecting: ';'
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of counter
-# -- Loading entity counter
-# ** Error: ../VHDL_source/components/Saturator.vhd(15): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(15): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): (vcom-1136) Unknown identifier "n_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): Bad expression in right bound of range expression.
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): Cannot resolve expression type.
-# ** Warning: ../VHDL_source/components/Saturator.vhd(16): (vcom-1147) Range in FOR GENERATE must be static.
-# ** Error: ../VHDL_source/components/Saturator.vhd(17): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(17): Type error resolving infix expression "and" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(20): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(20): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): (vcom-1136) Unknown identifier "n_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): (vcom-1136) Unknown identifier "n_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): Bad expression in right bound of range expression.
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): Cannot resolve expression type.
-# ** Warning: ../VHDL_source/components/Saturator.vhd(21): (vcom-1147) Range in FOR GENERATE must be static.
-# ** Error: ../VHDL_source/components/Saturator.vhd(22): (vcom-1136) Unknown identifier "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(22): Type error resolving infix expression "nor" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(25): near ":": expecting: BEGIN
-# ** Error: ../VHDL_source/components/Saturator.vhd(27): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(30): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(36): near "process": expecting: ';'
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(25): near ":": expecting: BEGIN
-# ** Error: ../VHDL_source/components/Saturator.vhd(27): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(30): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(36): near "process": expecting: ';'
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(27): near "=": syntax error
-# ** Error: ../VHDL_source/components/Saturator.vhd(30): near "=": syntax error
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(30): Cannot read output "num_out".
-# ** Error: ../VHDL_source/components/Saturator.vhd(31): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(33): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(37): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(31): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(33): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(37): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(34): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(38): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-vcom -93 -work ./work ../VHDL_source/IIR_filter.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity iir_filter
-# -- Compiling architecture structure of iir_filter
-# ** Error: ../VHDL_source/IIR_filter.vhd(93): (vcom-1136) Unknown identifier "n_b".
-# ** Error: ../VHDL_source/IIR_filter.vhd(93): Bad expression in left bound of range expression.
-# ** Error: ../VHDL_source/IIR_filter.vhd(93): Type error in range expression.
-# ** Error: ../VHDL_source/IIR_filter.vhd(282): (vcom-1136) Unknown identifier "n_b".
-# ** Error: ../VHDL_source/IIR_filter.vhd(284): (vcom-1136) Unknown identifier "sum".
-# ** Error: ../VHDL_source/IIR_filter.vhd(284): Actual (indexed name) for formal "num_in" is not a globally static expression.
-# ** Error: ../VHDL_source/IIR_filter.vhd(288): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/IIR_filter.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity iir_filter
-# -- Compiling architecture structure of iir_filter
-# ** Error: ../VHDL_source/IIR_filter.vhd(284): (vcom-1136) Unknown identifier "sum".
-# ** Error: ../VHDL_source/IIR_filter.vhd(284): Actual (indexed name) for formal "num_in" is not a globally static expression.
-# ** Error: ../VHDL_source/IIR_filter.vhd(288): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/IIR_filter.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity iir_filter
-# -- Compiling architecture structure of iir_filter
+# Loading work.saturator(behavior)#1
 vlog -work /home/isa24/Lab_ISA/LAB1/sim/work -refresh
 # Model Technology ModelSim SE vlog 6.2g Compiler 2007.02 Feb 21 2007
 # -- Skipping entity adder
@@ -241,423 +73,98 @@ vcom -work /home/isa24/Lab_ISA/LAB1/sim/work -refresh
 # -- Compiling architecture behavior of stimuli_generator
 # -- Skipping module Tb_filter_IIR
 restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 5 us
+run 2.5 us
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
 add wave sim:/Tb_filter_IIR/DUT/*
-restart 
-# Loading work.Tb_filter_IIR(fast)
-run 5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-add wave sim:/Tb_filter_IIR/DUT/saturation/*
 restart
 # Loading work.Tb_filter_IIR(fast)
-run 4 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(13): Index constraint cannot be applied to non-array type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(16): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(18): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(18): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(21): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(23): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(23): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(26): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(26): Prefix of indexed name must be an array.
-# ** Error: ../VHDL_source/components/Saturator.vhd(26): Type error resolving infix expression "or" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(41): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 4 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(17): near ":": expecting: BEGIN
-# ** Error: ../VHDL_source/components/Saturator.vhd(19): near "BEGIN": expecting: END
-# ** Error: ../VHDL_source/components/Saturator.vhd(24): near "process": expecting: ';'
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(23): Variable "res_and" is type ieee.std_logic_1164.std_logic; expecting type ieee.std_logic_1164.std_logic_vector.
-# ** Warning: [9] ../VHDL_source/components/Saturator.vhd(18): (vcom-1013) Initial value of "res_and" depends on value of signal "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(32): Variable "res_nor" is type ieee.std_logic_1164.std_logic; expecting type ieee.std_logic_1164.std_logic_vector.
-# ** Warning: [9] ../VHDL_source/components/Saturator.vhd(27): (vcom-1013) Initial value of "res_nor" depends on value of signal "num_in".
-# ** Error: ../VHDL_source/components/Saturator.vhd(35): Type error resolving infix expression "or" as type ieee.std_logic_1164.std_logic.
-# ** Error: ../VHDL_source/components/Saturator.vhd(52): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Warning: [9] ../VHDL_source/components/Saturator.vhd(18): (vcom-1013) Initial value of "res_and" depends on value of signal "num_in".
-# ** Warning: [9] ../VHDL_source/components/Saturator.vhd(27): (vcom-1013) Initial value of "res_nor" depends on value of signal "num_in".
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 4 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
 run 2.5 us
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
+vlog -work ./work /home/isa24/Lab_ISA/LAB1/testbench/Tb_filter_IIR.v
+# Model Technology ModelSim SE vlog 6.2g Compiler 2007.02 Feb 21 2007
+# -- Compiling module Tb_filter_IIR
+# 
+# Top level modules:
+# 	Tb_filter_IIR
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/adder.vhd
 # Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
+# -- Compiling entity adder
+# -- Compiling architecture behavior of adder
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/testbench/clk_gen.vhd
+# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity clk_gen
+# -- Compiling architecture beh of clk_gen
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/Counter.vhd
 # Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-vsim work.Tb_filter_IIR
-# vsim work.Tb_filter_IIR 
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-add dataflow sim:/Tb_filter_IIR/DUT/*
-add wave sim:/Tb_filter_IIR/DUT/*
-add wave sim:/Tb_filter_IIR/DUT/saturation/*
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
+# -- Compiling entity counter
+# -- Compiling architecture behavior of counter
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/FF.vhd
 # Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
+# -- Compiling entity ff
+# -- Compiling architecture rtl of ff
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/IIR_filter.vhd
 # Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(46): Incompatible types for variable assignment.
-# ** Error: ../VHDL_source/components/Saturator.vhd(46): (vcom-1076) OTHERS choice can not be used in unconstrained array aggregate.
-# ** Error: ../VHDL_source/components/Saturator.vhd(52): Target of signal assignment is not a signal.
-# ** Error: ../VHDL_source/components/Saturator.vhd(52): Variable "output" is type ieee.numeric_std.signed; expecting type std.standard.integer.
-# ** Error: ../VHDL_source/components/Saturator.vhd(55): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-# ** Error: ../VHDL_source/components/Saturator.vhd(53): Target of signal assignment is not a signal.
-# ** Error: ../VHDL_source/components/Saturator.vhd(53): Variable "output" is type ieee.numeric_std.signed; expecting type std.standard.integer.
-# ** Error: ../VHDL_source/components/Saturator.vhd(56): VHDL Compiler exiting
-# /software/mentor/modelsim_6.2g/linux/vcom failed.
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/Saturator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Compiling entity saturator
-# -- Compiling architecture behavior of saturator
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
-vcom -93 -work ./work ../VHDL_source/components/multiplier.vhd
+# -- Compiling entity iir_filter
+# -- Compiling architecture structure of iir_filter
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/multiplier.vhd
 # Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package numeric_std
 # -- Compiling entity multiplier
 # -- Compiling architecture behavior of multiplier
-restart
-# window ".restart" was deleted before its visibility changed
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.Tb_filter_IIR(fast)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading work.output_sink(behavior)
-# Loading work.iir_filter(structure)#1
-# Loading work.registersigned(rtl)#1
-# Loading work.ff(rtl)
-# Loading work.multiplier(behavior)#1
-# Loading work.adder(behavior)#1
-# Loading work.counter(behavior)#1
-# Loading work.registersigned(rtl)#2
-# Loading work.saturator(behavior)#1
-run 2.5 us
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 0  Instance: /Tb_filter_IIR/DUT/count
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 2  Instance: /Tb_filter_IIR/DUT/count
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/testbench/Output_Sink.vhd
+# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity output_sink
+# -- Compiling architecture behavior of output_sink
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/RegisterSigned.vhd
+# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling entity registersigned
+# -- Compiling architecture rtl of registersigned
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/VHDL_source/components/Saturator.vhd
+# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling entity saturator
+# -- Compiling architecture behavior of saturator
+vcom -93 -work ./work /home/isa24/Lab_ISA/LAB1/testbench/Stimuli_generator.vhd
+# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity stimuli_generator
+# -- Compiling architecture behavior of stimuli_generator

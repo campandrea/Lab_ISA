@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define N 8 /// order of the filter
+#define N 1 /// order of the filter
 #define NB 10  /// number of bits
 
-const int b0 = 245; /// coefficient b0
-const int b[N]={-391, 511, -377, 213, -79, 20, -4, 0}; /// b array
-const int a[N]={4, 15, 31, 39, 31, 15, 4, 0}; /// a array
+const int b0 = 215; /// coefficient b0
+const int b[N]={215}; /// b array
+const int a[N]={-82}; /// a array
 
 /// Perform fixed point filtering assuming direct form II
 ///\param x is the new input sample

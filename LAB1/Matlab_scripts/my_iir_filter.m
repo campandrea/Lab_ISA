@@ -2,7 +2,8 @@ fs=10000 %% sampling frequency
 f1=500;  %% first sinewave freq (in band)
 f2=4500; %% second sinnewave freq (out band)
 
-for i=10:10
+for i=5:5
+
     N=1; %% filter order
     nb=i; %% number of bits
 
@@ -20,11 +21,11 @@ for i=10:10
 
     %% plots
     figure
-    plot(tt,x1,'-d');
+    plot(tt,x1,'-');
     hold on
-    plot(tt,x2,'r-s');
-    plot(tt,x, 'g-+');
-    plot(tt, y, 'c-o');
+    plot(tt,x2,'r-');
+    plot(tt,x, 'b-');
+    plot(tt, y, 'c-');
 
     legend('x1', 'x2', 'x', 'y')
 
