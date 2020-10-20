@@ -3,7 +3,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity IIR_filter is
-	generic ( Nb : natural ); --Numero di bit
+	generic ( Nb : natural := 10;
+			  N_par : natural := 14); --Numero di bit
 	port (
 			CLK : IN std_logic;
 			RST_n : IN std_logic;
@@ -70,41 +71,53 @@ architecture structure of IIR_filter is
 	
 	
 	--signals
-	type sign_array_9 is array (8 downto 0) of signed (Nb downto 0);
+	type sign_array_9 is array (8 downto 0) of signed (N_par downto 0);
 	signal	all_a, all_b : sign_array_9; --a and b coefficients
-	signal	prod_a : sign_array_9; --multiplication results
+	signal mult_a : sign_array_9; --multiplication results
 		
-	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
+	type sign_array_8 is array (7 downto 0) of signed (N_par downto 0);
 	signal	 prod_b : sign_array_8;
 	signal	 reg_in, reg_out : sign_array_8;
-	signal	 sum_a, sum_b, mult_a : sign_array_8; --sum results
+	signal	 sum_a, sum_b : sign_array_8; --sum results
 		 
 	signal rst : std_logic;
 	signal count_tc : std_logic;
 	signal VIN_samp : std_logic;
 	signal DIN_samp : signed(Nb downto 0);
+	signal DIN_reg_signed : signed(Nb downto 0);
 		 
 begin	
 	
-	all_a <= a0(Nb-1) & a0 & a1(Nb-1) & a1 &
-			 a2(Nb-1) & a2 & a3(Nb-1) & a3 & 
-			 a4(Nb-1) & a4 & a5(Nb-1) & a5 &
-			 a6(Nb-1) & a6 & a7(Nb-1) & a7 &
-			 a8(Nb-1) & a8;
-	all_b <= b0(Nb-1) & b0 & b1(Nb-1) & b1 &
-			 b2(Nb-1) & b2 & b3(Nb-1) & b3 &
-			 b4(Nb-1) & b4 & b5(Nb-1) & b5 &
-			 b6(Nb-1) & b6 & b7(Nb-1) & b7 &
-			 b8(Nb-1) & b8;
+	all_a(0) <= (N_par-1 downto Nb) => a0(Nb-1) & a0;
+	all_a(1) <= a1(Nb-1) & a1;
+	all_a(2) <= a2(Nb-1) & a2;
+	all_a(3) <= a3(Nb-1) & a3;
+	all_a(4) <= a4(Nb-1) & a4;
+	all_a(5) <= a5(Nb-1) & a5;
+	all_a(6) <= a6(Nb-1) & a6;
+	all_a(7) <= a7(Nb-1) & a7;
+	all_a(8) <= a8(Nb-1) & a8;
+	
+	all_b(0) <= b0(Nb-1) & b0;
+	all_b(1) <= b1(Nb-1) & b1;
+	all_b(2) <= b2(Nb-1) & b2;
+	all_b(3) <= b3(Nb-1) & b3;
+	all_b(4) <= b4(Nb-1) & b4;
+	all_b(5) <= b5(Nb-1) & b5;
+	all_b(6) <= b6(Nb-1) & b6;
+	all_b(7) <= b7(Nb-1) & b7;
+	all_b(8) <= b8(Nb-1) & b8;
+	
 	rst <= not RST_n;
 	
+	DIN_reg_signed <= DIN(Nb-1) & DIN;
 	DIN_reg : RegisterSigned
 		generic map (N => Nb+1)
 		port map (
 			clk => CLK,
 			en => '1',
 			rst => rst,
-			D => DIN(Nb-1) & DIN,
+			D => DIN_reg_signed,
 			Q => DIN_samp
 		);
 	
@@ -148,7 +161,7 @@ begin
 			generic map (N => Nb+1)
 			port map (
 				A => reg_out(i),
-				B => all_b(i),
+				B => all_b(i+1),
 				R => prod_b(i)
 			);
 	end generate;
@@ -201,7 +214,7 @@ begin
 			generic map ( N => Nb+1 )
 			port map (
 				A => all_a(i),
-				B => sum_b(reg_out(i-1)),
+				B => reg_out(i-1),
 				R => mult_a(i)
 			);
 		end generate other_mult_a;

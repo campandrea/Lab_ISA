@@ -3,7 +3,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity IIR_filter is
-	generic ( Nb : natural := 10 ); --Numero di bit
+	generic ( Nb : natural := 10;
+			  N_par : natural := 14); --Numero di bit
 	port (
 			CLK : IN std_logic;
 			RST_n : IN std_logic;
@@ -11,7 +12,7 @@ entity IIR_filter is
 			VIN : IN std_logic;
 			a0, a1, a2, a3, a4, a5, a6, a7, a8 : IN signed (Nb-1 downto 0);
 			b0, b1, b2, b3, b4, b5, b6, b7, b8 : IN signed (Nb-1 downto 0);
-			
+
 			DOUT : OUT signed(Nb-1 downto 0);
 			VOUT : OUT std_logic
 		);
@@ -30,7 +31,7 @@ architecture structure of IIR_filter is
 			Q   : out signed(N-1 downto 0)
 		);
 	end component;
-	
+
 	component multiplier is
 		generic( N: natural );
 		port(
@@ -38,7 +39,7 @@ architecture structure of IIR_filter is
 			R   : out signed(N -1 downto 0)
 			);
 	end component;
-	
+
 	component adder is
 		generic(N: natural);
 		port(
@@ -46,7 +47,7 @@ architecture structure of IIR_filter is
 			R   : out signed(N-1 downto 0)
 		);
 	end component;
-	
+
 	component Counter is
 	generic(N: natural);
 	port(
@@ -56,7 +57,7 @@ architecture structure of IIR_filter is
 		TC 	  : OUT std_logic
 		);
 	end component;
-	
+
 	component FF is
     port(
         clk : in std_logic;
@@ -66,53 +67,58 @@ architecture structure of IIR_filter is
         Q   : out std_logic
 		);
 	end component;
-	
-	
-	
+
+    component Saturator is
+        generic(N_in : natural;
+                N_out : natural);
+        port(NUM_IN : IN signed(N_in-1 downto 0);
+             NUM_OUT : OUT signed(N_out-1 downto 0));
+    end component;
+
 	--signals
-	type sign_array_9 is array (8 downto 0) of signed (Nb downto 0);
+	type sign_array_9 is array (8 downto 0) of signed (N_par-1 downto 0);
 	signal	all_a, all_b : sign_array_9; --a and b coefficients
-	signal	prod_a : sign_array_9; --multiplication results
-	signal mult_a : sign_array_9;
-		
-	type sign_array_8 is array (7 downto 0) of signed (Nb downto 0);
+	signal mult_a : sign_array_9; --multiplication results
+
+	type sign_array_8 is array (7 downto 0) of signed (N_par-1 downto 0);
 	signal	 prod_b : sign_array_8;
 	signal	 reg_in, reg_out : sign_array_8;
 	signal	 sum_a, sum_b : sign_array_8; --sum results
-		 
+
 	signal rst : std_logic;
 	signal count_tc : std_logic;
 	signal VIN_samp : std_logic;
-	signal DIN_samp : signed(Nb downto 0);
-	signal DIN_reg_signed : signed(Nb downto 0);
-		 
-begin	
-	
-	all_a(0) <= a0(Nb-1) & a0;
-	all_a(1) <= a1(Nb-1) & a1;
-	all_a(2) <= a2(Nb-1) & a2;
-	all_a(3) <= a3(Nb-1) & a3;
-	all_a(4) <= a4(Nb-1) & a4;
-	all_a(5) <= a5(Nb-1) & a5;
-	all_a(6) <= a6(Nb-1) & a6;
-	all_a(7) <= a7(Nb-1) & a7;
-	all_a(8) <= a8(Nb-1) & a8;
-	
-	all_b(0) <= b0(Nb-1) & b0;
-	all_b(1) <= b1(Nb-1) & b1;
-	all_b(2) <= b2(Nb-1) & b2;
-	all_b(3) <= b3(Nb-1) & b3;
-	all_b(4) <= b4(Nb-1) & b4;
-	all_b(5) <= b5(Nb-1) & b5;
-	all_b(6) <= b6(Nb-1) & b6;
-	all_b(7) <= b7(Nb-1) & b7;
-	all_b(8) <= b8(Nb-1) & b8;
-	
+	signal DIN_samp : signed(N_par -1 downto 0);
+	signal DIN_reg_signed : signed(N_par -1 downto 0);
+    signal sat_out : signed(Nb-1 downto 0);
+
+begin
+
+	all_a(0) <= resize(a0, N_par);
+	all_a(1) <= resize(a1, N_par);
+	all_a(2) <= resize(a2, N_par);
+	all_a(3) <= resize(a3, N_par);
+	all_a(4) <= resize(a4, N_par);
+	all_a(5) <= resize(a5, N_par);
+	all_a(6) <= resize(a6, N_par);
+	all_a(7) <= resize(a7, N_par);
+	all_a(8) <= resize(a8, N_par);
+
+	all_b(0) <= resize(b0, N_par);
+	all_b(1) <= resize(b1, N_par);
+	all_b(2) <= resize(b2, N_par);
+	all_b(3) <= resize(b3, N_par);
+	all_b(4) <= resize(b4, N_par);
+	all_b(5) <= resize(b5, N_par);
+	all_b(6) <= resize(b6, N_par);
+	all_b(7) <= resize(b7, N_par);
+	all_b(8) <= resize(b8, N_par);
+
 	rst <= not RST_n;
-	
-	DIN_reg_signed <= DIN(Nb-1) & DIN;
+
+	DIN_reg_signed <= resize(DIN, N_par);
 	DIN_reg : RegisterSigned
-		generic map (N => Nb+1)
+		generic map (N => N_par)
 		port map (
 			clk => CLK,
 			en => '1',
@@ -120,7 +126,7 @@ begin
 			D => DIN_reg_signed,
 			Q => DIN_samp
 		);
-	
+
 	VIN_reg : FF
 		port map (
 			clk => CLK,
@@ -129,11 +135,11 @@ begin
 			D => VIN,
 			Q => VIN_samp
 		);
-	
+
 	reg_gen : for i in 0 to 7 generate
 		first_reg : if ( i = 0 ) generate
 			reg0 : RegisterSigned
-				generic map (N => Nb+1)
+				generic map (N => N_par)
 				port map (
 					clk => CLK,
 					en => VIN_samp,
@@ -142,10 +148,10 @@ begin
 					Q => reg_out(0)
 				);
 		end generate first_reg;
-		
-		other_reg : if ( i > 0 ) generate			
-			reg_x : RegisterSigned 
-				generic map (N => Nb+1)
+
+		other_reg : if ( i > 0 ) generate
+			reg_x : RegisterSigned
+				generic map (N => N_par)
 				port map (
 					clk => CLK,
 					en => VIN_samp,
@@ -155,41 +161,41 @@ begin
 				);
 		end generate other_reg;
 	end generate reg_gen;
-	
+
 	mult_b_gen : for i in 0 to 7 generate
 		mult_b : multiplier
-			generic map (N => Nb+1)
+			generic map (N => N_par)
 			port map (
 				A => reg_out(i),
-				B => all_b(i),
+				B => all_b(i+1),
 				R => prod_b(i)
 			);
 	end generate;
-	
+
 	add_b_gen : for i in 0 to 7 generate
 		first_add_b : if ( i = 0 ) generate
 			sum_b0 : adder
-			generic map (N => Nb+1)
+			generic map (N => N_par)
 			port map (
 				A => DIN_samp,
 				B => sum_b(1),
 				R => sum_b(0)
 			);
 		end generate first_add_b;
-		
+
 		mid_add_b : if ( i > 0 and i < 7 ) generate
 			sum_bx : adder
-			generic map (N => Nb+1)
+			generic map (N => N_par)
 			port map (
 				A => prod_b(i-1),
 				B => sum_b(i+1),
 				R => sum_b(i)
 			);
 		end generate mid_add_b;
-		
+
 		last_add_b : if ( i = 7 ) generate
 			sum_b7 : adder
-			generic map (N => Nb+1)
+			generic map (N => N_par)
 			port map (
 				A => prod_b(i-1),
 				B => prod_b(i),
@@ -197,21 +203,21 @@ begin
 			);
 		end generate last_add_b;
 	end generate add_b_gen;
-	
+
 	mult_a_gen : for i in 0 to 8 generate
 		first_mult_a : if ( i = 0 ) generate
 			mult_a0 : multiplier
-			generic map ( N => Nb+1 )
+			generic map ( N => N_par )
 			port map (
 				A => all_a(0),
 				B => sum_b(0),
 				R => mult_a(0)
 			);
 		end generate first_mult_a;
-		
+
 		other_mult_a : if ( i > 0 ) generate
 			mult_ax : multiplier
-			generic map ( N => Nb+1 )
+			generic map ( N => N_par )
 			port map (
 				A => all_a(i),
 				B => reg_out(i-1),
@@ -223,17 +229,17 @@ begin
 	add_a_gen : for i in 0 to 7 generate
 		other_add_a : if ( i < 7 ) generate
 			addx : adder
-				generic map (N => Nb+1)
+				generic map (N => N_par)
 				port map (
 					A => mult_a(i),
 					B => sum_a(i+1),
 					R => sum_a(i)
 				);
 		end generate other_add_a;
-		
+
 		last_add_a : if (i = 7) generate
 			add_a7 : adder
-			generic map (N => Nb+1)
+			generic map (N => N_par)
 				port map (
 					A => mult_a(i),
 					B => mult_a(i+1),
@@ -241,7 +247,7 @@ begin
 				);
 		end generate last_add_a;
 	end generate add_a_gen;
-	
+
 	count : Counter
 		generic map (N => 4)
 		port map (
@@ -251,17 +257,17 @@ begin
 			COUNT_MAX => "1001",
 			TC => count_tc
 		);
-	
+
 	DOUT_reg : RegisterSigned
 		generic map ( N => Nb )
 		port map (
 			clk => CLK,
 			en => VIN_samp,
 			rst => rst,
-			D => sum_a(0)(Nb downto 1),
+			D => sat_out,
 			Q => DOUT
 		);
-		
+
 	VOUT_reg : FF
 		port map (
 			clk => CLK,
@@ -270,6 +276,13 @@ begin
 			D => count_tc,
 			Q => VOUT
 		);
-	
-	
+
+    saturation: Saturator
+        generic map ( N_in => N_par,
+                      N_out => Nb)
+        port map(
+            NUM_IN => sum_a(0),
+            NUM_OUT => sat_out
+        );
+
 end architecture structure;

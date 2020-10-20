@@ -2,8 +2,8 @@
 python3 input_gen.py
 
 #to run the simulation
-cd simulation/
-source /software/scripts/init msim6.2g.
+cd sim/
+source /software/scripts/init_msim6.2g 
 vlib work
 #compile vhdl files
 vcom -93 -work ./work #path of the file

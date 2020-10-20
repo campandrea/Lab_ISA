@@ -21,12 +21,10 @@ begin
     proc_reg: process(clk)
     begin
         if rising_edge(clk) then
-            if en = '1' then
-                if rst = '1' then
-                    Q <= (others => '0');
-                else
-                    Q <= D;
-                end if;
+        	if rst = '1' then
+        	    Q <= (others => '0');
+            elsif en = '1' then
+                Q <= D;
             end if;
         end if;
     end process;
