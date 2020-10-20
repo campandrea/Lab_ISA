@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define N 8 /// order of the filter
+#define N 1 /// order of the filter
 #define NB 10  /// number of bits
 
 const int b0 = 215; /// coefficient b0
