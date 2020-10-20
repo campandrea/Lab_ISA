@@ -3,7 +3,7 @@ f1=500;  %% first sinewave freq (in band)
 f2=4500; %% second sinnewave freq (out band)
 
 for i=10:10
-    N=8; %% filter order
+    N=1; %% filter order
     nb=i; %% number of bits
 
     T=1/500; %% maximum period
