@@ -36,7 +36,7 @@ architecture structure of IIR_filter is
 		generic( N: natural );
 		port(
 			A, B: in signed(N-1 downto 0);
-			R   : out signed(N -1 downto 0)
+			R   : out signed(2*N -1 downto 0)
 			);
 	end component;
 
