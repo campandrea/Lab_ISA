@@ -1,6 +1,7 @@
 module Tb_filter_IIR
 #(parameter Nb=10)
-();
+(	output End_Sim_i
+);
 //Input commands
 wire CLK;
 wire RST_n;
@@ -20,6 +21,8 @@ wire signed [Nb-1:0] a1 =  10'd82;
 wire signed [Nb-1:0] b0 =  10'd215;
 wire signed [Nb-1:0] b1 =  10'd215;
 
+
+.End_Sim_i(EOF);
 
 
 ///Net
