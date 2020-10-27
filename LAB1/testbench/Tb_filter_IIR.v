@@ -45,6 +45,7 @@ end
 
 clk_gen 
 	CLK_Module(
+		.EN(END_SIM_i),
 		.CLK(CLK),
 		.RST_n(RST_n)
 		);

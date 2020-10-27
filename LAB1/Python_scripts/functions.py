@@ -50,6 +50,22 @@ def writeListOnFile(filename, list_to_print):
 
 
 #output functions
+
+def eliminateLineFile(filename, n):
+	"eliminate the first n line from a file"""
+	filein = openFile(filename, 'r')
+	fields = filename.split(".")
+	filename_out = fields[0] + "mod" + ".txt"
+	fileout = openFile(filename_out, 'w')
+	i=0
+	for line in filein:
+		if i>n:
+			fileout.write(line)
+		i+=1
+	filein.close()
+	fileout.close()
+	return filename_out
+	
 def generateErrorFile(DUT_filename, ideal_filename, error_filename):
     """ reads the results from the dut and the ideal modfel and generates a file
         with the difference line per line"""
@@ -58,11 +74,9 @@ def generateErrorFile(DUT_filename, ideal_filename, error_filename):
     ideal_file = openFile(ideal_filename, 'r')
     error_file = openFile(error_filename, 'w')
     error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
-    ideal_file.read()
     for DUT_line, ideal_line in zip(DUT_file, ideal_file):
-        print("ciao")
         error = int(DUT_line) - int(ideal_line)
-        error_file.write(str(error) + "\n")
+        error_file.write("{} - {} = {}\n".format(int(DUT_line), int(ideal_line), error))
     DUT_file.close()
     ideal_file.close()
     error_file.close()
