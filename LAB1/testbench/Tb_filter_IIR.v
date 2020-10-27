@@ -1,6 +1,6 @@
 module Tb_filter_IIR
 #(parameter Nb=10)
-(	output End_Sim_i
+(	output END_SIM_i
 );
 //Input commands
 wire CLK;
@@ -22,7 +22,23 @@ wire signed [Nb-1:0] b0 =  10'd215;
 wire signed [Nb-1:0] b1 =  10'd215;
 
 
-.End_Sim_i(EOF);
+reg integer count = 0;
+
+
+always @(posedge CLK)
+	begin 
+	END_SIM_i <= 0;
+	count <= count +1;
+	if (count >= 150)
+		begin
+			count <= 0;
+			END_SIM_i <= 1;
+		end
+end
+
+
+
+
 
 
 ///Net
