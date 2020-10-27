@@ -11,8 +11,7 @@ entity Output_Sink is
 
   port( clk      : IN  std_logic;
         en       : IN  std_logic;
-        data_in  : IN  signed(9 downto 0);
-        eof      : OUT std_logic
+        data_in  : IN  signed(9 downto 0)
       );
 end entity Output_Sink;
 
@@ -30,7 +29,6 @@ BEGIN
         if clk'event and clk = '1' then
             if en = '1' then
 				-- Write on file
-				eof <= '0';
                 n := data_in;
                 i := to_integer(n);
                 write(buf, i);

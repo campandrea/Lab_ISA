@@ -3,9 +3,9 @@ m255
 cModel Technology
 d/home/isa24/Lab_ISA/LAB1/sim
 T_opt
-V2foUWDjN9in4oNjA?QGGb0
+VzF;1]iHbjz4GPYD45X7^T1
 06 13 4 ./work Tb_filter_IIR fast 0
-o-quiet -auto_acc_if_foreign -work work
+o-quiet -auto_acc_if_foreign -work work -L /software/dk/nangate45/verilog/msim6.2g
 tExplicit 1
 OE;O;6.2g;35
 Eadder
@@ -35,7 +35,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Eclk_gen
-w1603040693
+w1603789053
 DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
@@ -43,7 +43,7 @@ DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 F../testbench/clk_gen.vhd
 l0
 L6
-Va3DK]<1TfUanIW6SGC:KY0
+V>nm2Ma@F@`mFa65L^DgCW3
 OE;C;6.2g;35
 31
 o-93 -work ./work
@@ -52,10 +52,10 @@ Abeh
 DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
-DE work clk_gen a3DK]<1TfUanIW6SGC:KY0
-l18
-L12
-VlH>>M3>Cl9c6iF;emeWS[1
+DE work clk_gen >nm2Ma@F@`mFa65L^DgCW3
+l19
+L13
+Vi>3cd:]Mk6NBIaSg25Z_k2
 OE;C;6.2g;35
 31
 M3 ieee std_logic_1164
@@ -116,7 +116,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Eiir_filter
-w1603207410
+w1603708948
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 8../VHDL_source/IIR_filter.vhd
@@ -134,13 +134,26 @@ DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 DE work iir_filter E:5C<6mo^9YXUL9H3SU_U1
 l95
 L21
-Vbi]R=_7D0iOPJh=mJV6=91
+V4WOYQLATKke`UNCeLzFmB2
 OE;C;6.2g;35
 31
 M2 ieee std_logic_1164
 M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
+vIIR_filter
+Ie9YJ`OZZiEIEDgS`b1SzB1
+V<WGg64JQ8<?mgM3CaJNKd1
+w1603710393
+8../syn/netlist/IIR_filter.v
+F../syn/netlist/IIR_filter.v
+L0 8
+V<WGg64JQ8<?mgM3CaJNKd1
+OE;L;6.2g;35
+r1
+31
+o-work ./work
+n@i@i@r_filter
 Emultiplier
 w1603186178
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
@@ -168,7 +181,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Eoutput_sink
-w1603031919
+w1603793019
 DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
@@ -177,7 +190,7 @@ DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 F../testbench/Output_Sink.vhd
 l0
 L9
-VNJi][_C>idC9DO[>7H;Zl1
+Vf766gN2`Tok97GX8Cc_m>3
 OE;C;6.2g;35
 31
 o-93 -work ./work
@@ -187,10 +200,10 @@ DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
-DE work output_sink NJi][_C>idC9DO[>7H;Zl1
-l22
-L19
-Vm26Am7H?SSgNbchTLXXkl3
+DE work output_sink f766gN2`Tok97GX8Cc_m>3
+l21
+L18
+V;;Ml7>@T^GUB260Yn^3UU3
 OE;C;6.2g;35
 31
 M4 ieee std_logic_1164
@@ -284,13 +297,13 @@ M1 std textio
 o-93 -work ./work
 tExplicit 1
 vTb_filter_IIR
-IcjnXzFcOHoEUol5:nZDcK2
-VP`4?IWNEUXYcBNjMo0_Jh2
-w1603185159
+I=3lIUT4LEYD:6BOF::zhZ2
+Vl9RXARM2;oAOddKz6`iGf1
+w1603793044
 8../testbench/Tb_filter_IIR.v
 F../testbench/Tb_filter_IIR.v
 L0 1
-VP`4?IWNEUXYcBNjMo0_Jh2
+Vl9RXARM2;oAOddKz6`iGf1
 OE;L;6.2g;35
 r1
 31
