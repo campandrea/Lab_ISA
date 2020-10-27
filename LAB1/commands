@@ -13,8 +13,11 @@ vlog -work ./work #path of the file
 vsim work.tb_iir
 #other commands from graphical interface
 
-
 #run the C model in Programma_C folder
 
 #run error checker in Python_scripts folder
 python3 error_check.py
+
+
+
+
