@@ -1,3 +1,4 @@
+
 analyze -f vhdl -lib WORK ../src/*.vhd
 
 set power_preserve_rtl_hier_names true	
