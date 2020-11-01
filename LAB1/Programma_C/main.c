@@ -33,7 +33,7 @@ int myfilter(int x)
   ff = 0;
   for (i=0; i<N; i++)
   {
-    fb -= (sw[i]*a[i]) >> (NB-1);
+    fb += (sw[i]*(-a[i])) >> (NB-1);
     ff += (sw[i]*b[i]) >> (NB-1);
   }
 

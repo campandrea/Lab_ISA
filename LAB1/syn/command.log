@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version O-2018.06-SP4 for linux64 -- Nov 27, 2018
-#@ # Date:   Mon Oct 26 11:34:42 2020
+#@ # Date:   Wed Oct 28 10:39:19 2020
 #@ # Run by: isa24@localhost.localdomain
 #@ 
 
@@ -42999,27 +42999,31 @@ gui_start
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64.18/auxx/tcllib/lib/iwidgets4.1/watch.itk
 
+analyze -f vhdl -lib WORK ../VHDL_source/components/"*.vhd"
+analyze -f vhdl -lib WORK ../VHDL_source/components/Counter.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/Saturator.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/FF.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/adder.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/RegisterSigned.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/multiplier.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/IIR_filter.vhd
 set power_preserve_rtl_hier_names true
 elaborate IIR_filter -arch structure -lib WORK
-analyze -f vhdl -lib WORK ../VHDL_source/IIR_filter.vhd
-elaborate IIR_filter -arch structure -lib WORK
-elaborate IIR_filter -arch structure -lib WORK > elaborate.txt
-link
-create_clock -name CLK -period 10.0 CLK
-set_dont_touch_network CLK
-set_clock_uncertainty 0.07 [get_clocks CLK]
-set_input_delay 0.5 -max -clock CLK [remove_from_collection [all_inputs] CLK]
-set_output_delay 0.5 -max -clock CLK [all_outputs]
+create clock -name CLK_min -period 4.1 CLK
+create_clock -name CLK_min -period 4.1 CLK
+set_dont_touch_network CLK_min
+set_clock_uncertainty 0.07 [get_clocks CLK_min]
+set_input_delay 0.5 -max -clock CLK_min [remove_from_collection [all_inputs] CLK]
+set_output_delay 0.5 -max -clock CLK_min [all_outputs]
 set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
 set_load $OLOAD [all_outputs]
 compile
-report_timing > report_timing_1.txt
-report_area > report_area_1.txt
+report_timing
+report_timing > report_timing_period_min.txt
+report_area > report_area_period_min.txt
 ungroup -all -flatten
 change_names -hierarchy -rules verilog
-write_sdf ./netlist/IIR_filter.sdf
-mkdir netlist
-write_sdf ./netlist/IIR_filter.sdf
-write -f verilog -hierarchy -output ./netlist/IIR_filter.v
-write_sdc ./netlist/IIR_filter.sdc
+write_sdf ./netlist/IIR_filter_period_min.sdf
+write -f verilog -hierarchy -output ./netlist/IIR_filter_period_min.v
+write_sdc ./netlist/IIR_filter_period_min.sdc
 quit
