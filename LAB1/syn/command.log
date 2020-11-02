@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version O-2018.06-SP4 for linux64 -- Nov 27, 2018
-#@ # Date:   Wed Oct 28 10:39:19 2020
+#@ # Date:   Sat Oct 31 11:07:26 2020
 #@ # Run by: isa24@localhost.localdomain
 #@ 
 
@@ -42999,31 +42999,8 @@ gui_start
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64.18/auxx/tcllib/lib/iwidgets4.1/watch.itk
 
-analyze -f vhdl -lib WORK ../VHDL_source/components/"*.vhd"
-analyze -f vhdl -lib WORK ../VHDL_source/components/Counter.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/components/Saturator.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/components/FF.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/components/adder.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/components/RegisterSigned.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/components/multiplier.vhd
-analyze -f vhdl -lib WORK ../VHDL_source/IIR_filter.vhd
-set power_preserve_rtl_hier_names true
-elaborate IIR_filter -arch structure -lib WORK
-create clock -name CLK_min -period 4.1 CLK
-create_clock -name CLK_min -period 4.1 CLK
-set_dont_touch_network CLK_min
-set_clock_uncertainty 0.07 [get_clocks CLK_min]
-set_input_delay 0.5 -max -clock CLK_min [remove_from_collection [all_inputs] CLK]
-set_output_delay 0.5 -max -clock CLK_min [all_outputs]
-set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
-set_load $OLOAD [all_outputs]
-compile
-report_timing
-report_timing > report_timing_period_min.txt
-report_area > report_area_period_min.txt
-ungroup -all -flatten
-change_names -hierarchy -rules verilog
-write_sdf ./netlist/IIR_filter_period_min.sdf
-write -f verilog -hierarchy -output ./netlist/IIR_filter_period_min.v
-write_sdc ./netlist/IIR_filter_period_min.sdc
+read_verilog -netlist ./netlist/IIR_filter_period_x4.v
+read_saif -input ./saif/IIR_filter_period_x4.saif -instance Tb_filter_IIR/DUT -unit ns -scale 1
+create_clock -name CLK_PERIOD_X4 CLK
+report_power > report_power_period_min_x4.txt
 quit
