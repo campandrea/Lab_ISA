@@ -1,90 +1,65 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 
 #define N 1 /// order of the filter
 #define NB 10  /// number of bits
 
-const int b0 = 215; /// coefficient b0
-const int b[N]={215}; /// b array
-const int a[N]={-82}; /// a array
 
-/// Perform fixed point filtering assuming direct form II
-///\param x is the new input sample
-///\return the new output sample
-int myfilter(int x)
+int main()
 {
-  static int sw[N]; /// w shift register
-  static int first_run = 0; /// for cleaning the shift register
-  int i; /// index
-  int w; /// intermediate value (w)
-  int y; /// output sample
-  int fb, ff; /// feed-back and feed-forward results
+    long long int input_sample =0, output_sample=0;
+    long long int C;
+    static  long long int sw[N];
 
-  /// clean the buffer
-  if (first_run == 0)
-  {
-    first_run = 1;
-    for (i=0; i<N; i++)
-      sw[i] = 0;
-  }
+    long long int a_quad = 13, a_b = 35, B0 = 215, b_ab = 249,fb, ff;
+    long long int Pipeline_vector[7] = {0,0,0,0,0,0,0};
 
-  /// compute feed-back and feed-forward
-  fb = 0;
-  ff = 0;
-  for (i=0; i<N; i++)
-  {
-    fb += (sw[i]*(-a[i])) >> (NB-1);
-    ff += (sw[i]*b[i]) >> (NB-1);
-  }
 
-  /// compute intermediate value (w) and output sample
-  w = x + fb;
-  y = (w*b0) >> (NB-1);
-  y += ff;
+    FILE *fp_in, *fp_out;
 
-  /// update the shift register
-  for (i=N-1; i>0; i--)
-    sw[i] = sw[i-1];
-  sw[0] = w;
 
-  return y;
-}
 
-int main (int argc, char **argv)
-{
-  FILE *fp_in;
-  FILE *fp_out;
+    ///open and check
+    fp_in = fopen("samples_10.txt","r");
+    if(fp_in == NULL){
+        printf("Errore apertura file sample_10.txt");
+        return EXIT_FAILURE;
+    }
 
-  int x;
-  int y;
+    fp_out = fopen("output_sample.txt","w");
+    if(fp_in == NULL){
+        printf("Errore apertura file output_sample.txt");
+        return EXIT_FAILURE;
+    }
+    fclose(fp_out);
 
-  /// check the command line
-  if (argc != 3)
-  {
-    printf("Use: %s <input_file> <output_file>\n", argv[0]);
-    exit(1);
-  }
+    fp_out = fopen("output_sample.txt","a");
+    if(fp_out == NULL){
+        printf("Errore apertura file output_sample.txt");
+        return EXIT_FAILURE;
+    }
 
-  /// open files
-  fp_in = fopen(argv[1], "r");
-  if (fp_in == NULL)
-  {
-    printf("Error: cannot open %s\n", argv[1]);
-    exit(2);
-  }
-  fp_out = fopen(argv[2], "w");
-
-  /// get samples and apply filter
-  fscanf(fp_in, "%d", &x);
-  do{
-    y = myfilter(x);
-    fprintf(fp_out,"%d\n", y);
-    fscanf(fp_in, "%d", &x);
-  } while (!feof(fp_in));
-
-  fclose(fp_in);
-  fclose(fp_out);
-
-  return 0;
-
+    ///reading  samples from the file
+    for(uint8_t i=0;i<201;i++){
+        fscanf(fp_in,"%lld", &input_sample);
+        output_sample =  Pipeline_vector[6] + Pipeline_vector[2];
+        Pipeline_vector[2] = Pipeline_vector[0]*B0 >> (NB-1);
+        Pipeline_vector[6] = Pipeline_vector[1] + Pipeline_vector[5];
+        Pipeline_vector[1] = Pipeline_vector[0]*(b_ab) >> (NB-1);
+        Pipeline_vector[5] = Pipeline_vector[3]*(a_b) >> (NB-1);
+        Pipeline_vector[3] = Pipeline_vector[0];
+        Pipeline_vector[4] = Pipeline_vector[0]*(a_quad) >> (NB-1);
+        Pipeline_vector[0] = Pipeline_vector[4] + input_sample;
+        for(uint16_t k=0;k<7;k++){
+            printf("%lld    ", Pipeline_vector[k]);
+        }
+        printf("\n");
+        fprintf(fp_out, "%lld\n", output_sample);
+    }
+    fclose(fp_in);
+    fclose(fp_out);
+    return 0;
 }
