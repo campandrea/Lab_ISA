@@ -178,22 +178,22 @@ BEGIN
    
    IN_reg_A : register_std_logic
     generic map ( N => 32 )
-    PORT (
+    PORT MAP(
         clk => clk,
         en  => '1',
         rst => '0',
         D   => FP_A,
-        Q   FP_A_samp
+        Q   => FP_A_samp
 	);
 	
-   IN_reg_A : register_std_logic
+   IN_reg_B : register_std_logic
     generic map ( N => 32 )
-    PORT (
+    PORT MAP(
         clk => clk,
         en  => '1',
         rst => '0',
         D   => FP_B,
-        Q   FP_B_samp
+        Q   => FP_B_samp
 	);
    
    I1 : FPmul_stage1

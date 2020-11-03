@@ -10,21 +10,10 @@
 # //
 # vsim work.tb_fpmul_pipeline 
 # ** Note: (vsim-3812) Design is being optimized...
-# Loading work.tb_fpmul_pipeline(fast)
-# ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
-#         Region: /tb_fpmul_pipeline
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.output_sink(behavior)
-# ** Fatal: (vsim-3363) ../testbench/tb_fpmul_pipeline.v(31): The array length (10) of VHDL port 'data_in' does not match the width (32) of its Verilog connection (3rd connection).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/IN_GEN_OUT_SINK_Module File: ../testbench/Output_Sink.vhd Line: 15
-# FATAL ERROR while loading design
+# ** Error: ../testbench/tb_fpmul_pipeline.v(21): Module 'clk_gen' is not defined.
+# ** Error: ../testbench/tb_fpmul_pipeline.v(31): Module 'Output_Sink' is not defined.
+# ** Error: ../testbench/tb_fpmul_pipeline.v(42): Module 'Stimuli_generator' is not defined.
+# ** Error: ../fpuvhdl/multiplier/fpmul_pipeline_reg.vhd(45): Vopt Compiler exiting
 # Error loading design
 vlog -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
 # Model Technology ModelSim SE vlog 6.2g Compiler 2007.02 Feb 21 2007
@@ -38,6 +27,7 @@ vlog -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
 # -- Skipping entity fpround
 # -- Skipping entity output_sink
 # -- Skipping entity packfp
+# -- Skipping entity register_std_logic
 # -- Skipping entity stimuli_generator
 # -- Refreshing module tb_fpmul_pipeline
 # -- Skipping entity unpackfp
@@ -55,20 +45,18 @@ vcom -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
 # -- Loading entity fpmul_stage2
 # -- Loading entity fpmul_stage3
 # -- Loading entity fpmul_stage4
-# -- Compiling architecture single_cycle of fpmul
-# -- Loading entity fpmul
-# -- Loading entity fpnormalize
-# -- Loading entity fpround
-# -- Loading entity packfp
-# -- Loading entity unpackfp
 # -- Compiling entity fpmul_stage1
 # -- Compiling architecture struct of fpmul_stage1
+# -- Loading entity unpackfp
 # -- Compiling entity fpmul_stage2
 # -- Compiling architecture struct of fpmul_stage2
 # -- Compiling entity fpmul_stage3
 # -- Compiling architecture struct of fpmul_stage3
+# -- Loading entity fpnormalize
+# -- Loading entity fpround
 # -- Compiling entity fpmul_stage4
 # -- Compiling architecture struct of fpmul_stage4
+# -- Loading entity packfp
 # -- Compiling entity fpnormalize
 # -- Compiling architecture fpnormalize of fpnormalize
 # -- Compiling entity fpround
@@ -80,91 +68,16 @@ vcom -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
 # -- Compiling architecture behavior of output_sink
 # -- Compiling entity packfp
 # -- Compiling architecture packfp of packfp
+# -- Compiling entity register_std_logic
+# -- Compiling architecture rtl of register_std_logic
 # -- Compiling entity stimuli_generator
 # -- Compiling architecture behavior of stimuli_generator
 # -- Skipping module tb_fpmul_pipeline
 # -- Compiling entity unpackfp
 # -- Compiling architecture unpackfp of unpackfp
-vcom -93 -work ./work /home/isa24/Lab_ISA/LAB2/testbench/Output_Sink.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package textio
-# -- Loading package std_logic_textio
-# -- Compiling entity output_sink
-# -- Compiling architecture behavior of output_sink
-vlog -work ./work /home/isa24/Lab_ISA/LAB2/testbench/tb_fpmul_pipeline.v
-# Model Technology ModelSim SE vlog 6.2g Compiler 2007.02 Feb 21 2007
-# -- Compiling module tb_fpmul_pipeline
-# 
-# Top level modules:
-# 	tb_fpmul_pipeline
-restart
-# No Design!
 vsim work.tb_fpmul_pipeline
 # vsim work.tb_fpmul_pipeline 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.tb_fpmul_pipeline(fast)
-# ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
-#         Region: /tb_fpmul_pipeline
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.output_sink(behavior)
-# Loading work.stimuli_generator(behavior)
-# ** Fatal: (vsim-3363) ../testbench/tb_fpmul_pipeline.v(42): The array length (10) of VHDL port 'data_out' does not match the width (32) of its Verilog connection (3rd connection).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/IN_GEN_SINK_Module File: ../testbench/Stimuli_generator.vhd Line: 14
-# FATAL ERROR while loading design
-# Error loading design
-vsim work.tb_fpmul_pipeline
-# vsim work.tb_fpmul_pipeline 
-# Loading work.tb_fpmul_pipeline(fast)
-# ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
-#         Region: /tb_fpmul_pipeline
-# Loading /software/mentor/modelsim_6.2g/linux/../std.standard
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_1164(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_arith(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.numeric_std(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../std.textio(body)
-# Loading /software/mentor/modelsim_6.2g/linux/../ieee.std_logic_textio(body)
-# Loading work.output_sink(behavior)
-# Loading work.stimuli_generator(behavior)
-# ** Fatal: (vsim-3363) ../testbench/tb_fpmul_pipeline.v(42): The array length (10) of VHDL port 'data_out' does not match the width (32) of its Verilog connection (3rd connection).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/IN_GEN_SINK_Module File: ../testbench/Stimuli_generator.vhd Line: 14
-# FATAL ERROR while loading design
-# Error loading design
-vcom -93 -work ./work /home/isa24/Lab_ISA/LAB2/testbench/Output_Sink.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package textio
-# -- Loading package std_logic_textio
-# -- Compiling entity output_sink
-# -- Compiling architecture behavior of output_sink
-vcom -93 -work ./work /home/isa24/Lab_ISA/LAB2/testbench/Stimuli_generator.vhd
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package numeric_std
-# -- Loading package textio
-# -- Loading package std_logic_textio
-# -- Compiling entity stimuli_generator
-# -- Compiling architecture behavior of stimuli_generator
-vsim work.tb_fpmul_pipeline
-# vsim work.tb_fpmul_pipeline 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Error loading design
-vsim work.tb_fpmul_pipeline
-# vsim work.tb_fpmul_pipeline 
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading work.tb_fpmul_pipeline(fast)
 # ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
 #         Region: /tb_fpmul_pipeline
@@ -179,6 +92,7 @@ vsim work.tb_fpmul_pipeline
 # Loading work.output_sink(behavior)
 # Loading work.stimuli_generator(behavior)
 # Loading work.fpmul(pipeline)#1
+# Loading work.register_std_logic(rtl)#1
 # Loading work.fpmul_stage1(struct)
 # Loading work.unpackfp(unpackfp)
 # Loading work.fpmul_stage2(struct)
@@ -188,8 +102,6 @@ vsim work.tb_fpmul_pipeline
 # Loading work.fpmul_stage4(struct)
 # Loading work.packfp(packfp)
 add wave sim:/tb_fpmul_pipeline/DUT/*
-run 100u
-# Invalid time value: 100u
 run 100 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
@@ -222,9 +134,52 @@ run 100 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+#    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+#    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+restart
+# Loading work.tb_fpmul_pipeline(fast)
+# ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
+#         Region: /tb_fpmul_pipeline
+run 100 us
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -233,4 +188,15 @@ run 100 us
 #    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
-quit
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2

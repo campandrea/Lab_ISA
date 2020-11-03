@@ -3,7 +3,7 @@ m255
 cModel Technology
 d/home/isa24/Lab_ISA/LAB2/sim
 T_opt
-VfRUXgSbTkgEGZVFc0ii:H2
+VOchWYlRfcXJ6a?gD49Z;<2
 06 17 4 ./work tb_fpmul_pipeline fast 0
 o-quiet -auto_acc_if_foreign -work work
 tExplicit 1
@@ -41,9 +41,9 @@ Efpmul
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 31
-w1604395765
-8../testbench/fpmul_pipeline.vhd
-F../testbench/fpmul_pipeline.vhd
+w1604399022
+8../fpuvhdl/multiplier/fpmul_pipeline_reg.vhd
+F../fpuvhdl/multiplier/fpmul_pipeline_reg.vhd
 l0
 L16
 Vn>GG7N`A]eZ@LKmeaJ=Qh1
@@ -61,33 +61,12 @@ DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 31
 M2 ieee std_logic_1164
 M1 ieee std_logic_arith
-l158
+l175
 L45
-Vi]l[EoVL^Ql<>G8d=l@X10
+VacF5[aHgfeFoeGN6caWhT2
 OE;C;6.2g;35
 o-93 -work ./work
 tExplicit 1
-Asingle_cycle
-DE work unpackfp ;MTFZjU_:9jjc8GGbM@7S1
-DE work packfp 7I=gD5ni55=6UBF4m>Zk`3
-DE work fpround E?@M@F`JPH^>Y6PAngiQD3
-DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
-DE work fpnormalize l0`8F3g`AW@:?oIP;g^4o1
-DE work fpmul n>GG7N`A]eZ@LKmeaJ=Qh1
-DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
-DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
-31
-M3 ieee std_logic_1164
-M2 ieee std_logic_arith
-M1 ieee std_logic_unsigned
-l142
-L45
-VZCGV@gLYOZ6YimccmgH7X2
-OE;C;6.2g;35
-o-93 -work ./work
-tExplicit 1
-F../fpuvhdl/multiplier/fpmul_single_cycle.vhd
-8../fpuvhdl/multiplier/fpmul_single_cycle.vhd
 Efpmul_stage1
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
@@ -260,18 +239,18 @@ OE;C;6.2g;35
 o-93 -work ./work
 tExplicit 1
 Eoutput_sink
-w1604397057
 DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
-8/home/isa24/Lab_ISA/LAB2/testbench/Output_Sink.vhd
-F/home/isa24/Lab_ISA/LAB2/testbench/Output_Sink.vhd
+31
+w1604397057
+8../testbench/Output_Sink.vhd
+F../testbench/Output_Sink.vhd
 l0
 L9
 VT>CTNMeHQg2jA5_PcGFzQ0
 OE;C;6.2g;35
-31
 o-93 -work ./work
 tExplicit 1
 Abehavior
@@ -280,15 +259,15 @@ DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 DE work output_sink T>CTNMeHQg2jA5_PcGFzQ0
-l21
-L18
-VfQGbj;XL:8B2WfQ9S9CaU1
-OE;C;6.2g;35
 31
 M4 ieee std_logic_1164
 M3 ieee numeric_std
 M2 ieee std_logic_textio
 M1 std textio
+l21
+L18
+VfQGbj;XL:8B2WfQ9S9CaU1
+OE;C;6.2g;35
 o-93 -work ./work
 tExplicit 1
 Epackfp
@@ -317,19 +296,45 @@ V::WW?]=P6L:iPE`3NNO[O0
 OE;C;6.2g;35
 o-93 -work ./work
 tExplicit 1
+Eregister_std_logic
+DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+31
+w1604398434
+8../fpuvhdl/common/register_std_logic.vhd
+F../fpuvhdl/common/register_std_logic.vhd
+l0
+L5
+V:nLH:8=DeMK<n]Oi1>F;j2
+OE;C;6.2g;35
+o-93 -work ./work
+tExplicit 1
+Artl
+DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+DE work register_std_logic :nLH:8=DeMK<n]Oi1>F;j2
+31
+M2 ieee std_logic_1164
+M1 ieee numeric_std
+l20
+L19
+V8g15M[VGJ`iZAKZ7Vg;Ph1
+OE;C;6.2g;35
+o-93 -work ./work
+tExplicit 1
 Estimuli_generator
-w1604396939
 DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
-8/home/isa24/Lab_ISA/LAB2/testbench/Stimuli_generator.vhd
-F/home/isa24/Lab_ISA/LAB2/testbench/Stimuli_generator.vhd
+31
+w1604396939
+8../testbench/Stimuli_generator.vhd
+F../testbench/Stimuli_generator.vhd
 l0
 L9
 VT^RaV]oQFPO8H:f_>c<^U3
 OE;C;6.2g;35
-31
 o-93 -work ./work
 tExplicit 1
 Abehavior
@@ -338,28 +343,27 @@ DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
 DE work stimuli_generator T^RaV]oQFPO8H:f_>c<^U3
-l22
-L19
-VOd;YfWUnMeNUPN3[CBYK11
-OE;C;6.2g;35
 31
 M4 ieee std_logic_1164
 M3 ieee numeric_std
 M2 ieee std_logic_textio
 M1 std textio
+l22
+L19
+VOd;YfWUnMeNUPN3[CBYK11
+OE;C;6.2g;35
 o-93 -work ./work
 tExplicit 1
 vtb_fpmul_pipeline
-IV<cKmFTF=BR1hbI_CihIL2
 V?:VWD279NNn25>C_CZZdX0
-w1604395765
-8/home/isa24/Lab_ISA/LAB2/testbench/tb_fpmul_pipeline.v
-F/home/isa24/Lab_ISA/LAB2/testbench/tb_fpmul_pipeline.v
-L0 1
-V?:VWD279NNn25>C_CZZdX0
-OE;L;6.2g;35
 r1
 31
+IV<cKmFTF=BR1hbI_CihIL2
+w1604395765
+8../testbench/tb_fpmul_pipeline.v
+F../testbench/tb_fpmul_pipeline.v
+L0 1
+OE;L;6.2g;35
 o-work ./work
 Eunpackfp
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
