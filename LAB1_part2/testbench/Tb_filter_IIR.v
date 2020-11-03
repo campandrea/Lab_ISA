@@ -15,12 +15,14 @@ wire EOF;
 
 ///A coefficients
 wire signed [Nb-1:0] a0 =  -10'd512;
-wire signed [Nb-1:0] a1 =  10'd82;
+wire signed [Nb-1:0] a1 =  10'd0;
+wire signed [Nb-1:0] a2 =  10'd13;
 
 
 ///B coefficients
 wire signed [Nb-1:0] b0 =  10'd215;
-wire signed [Nb-1:0] b1 =  10'd215;
+wire signed [Nb-1:0] b1 =  10'd249;
+wire signed [Nb-1:0] b2 =  10'd34;
 
 
 integer count = 0;
@@ -86,9 +88,9 @@ IIR_filter
 		.DIN(DIN_IO_GEN_TO_Filter),
 		.VIN(~EOF),
 		///A coefficients
-		.a0(a0), .a1(a1),
+		.a0(a0), .a1(a1), .a2(a2),
 		///B coefficients
-		.b0(b0), .b1(b1),
+		.b0(b0), .b1(b1), .b2(b2),
 		///Output
 		.DOUT(DOUT_Filter_TO_OUT_module),
 		.VOUT(VOUT)
