@@ -11,7 +11,7 @@ entity Output_Sink is
 
   port( clk      : IN  std_logic;
         en       : IN  std_logic;
-        data_in  : IN  signed(9 downto 0)
+        data_in  : IN  std_logic_vector(31 downto 0)
       );
 end entity Output_Sink;
 
@@ -21,8 +21,7 @@ architecture Behavior of Output_Sink is
 BEGIN
     interface_proc: process(clk)
         variable buf : line;
-        variable n   : signed(9 downto 0);--insert the correct type
-        variable i   : integer := 0;
+        variable n   : std_logic_vector(31 downto 0);--insert the correct type
         variable eof_var : std_logic := '0';
 
     BEGIN
@@ -30,8 +29,7 @@ BEGIN
             if en = '1' then
 				-- Write on file
                 n := data_in;
-                i := to_integer(n);
-                write(buf, i);
+                hwrite(buf, n);
                 writeline(f, buf);
             end if;
         end if;

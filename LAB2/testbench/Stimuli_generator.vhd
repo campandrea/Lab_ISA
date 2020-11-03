@@ -11,7 +11,7 @@ entity Stimuli_generator is
 
   port( clk      : IN  std_logic;
         en       : IN  std_logic;
-        data_out : OUT signed(9 downto 0);
+        data_out : OUT std_logic_vector(31 downto 0);
         eof      : OUT std_logic
       );
 end entity Stimuli_generator;
@@ -22,7 +22,7 @@ architecture Behavior of Stimuli_generator is
 BEGIN
     interface_proc: process(clk)
         variable buf : line;
-        variable n   : std_logic_vector(9 downto 0);
+        variable n   : std_logic_vector(31 downto 0);
         variable eof_var : std_logic := '0';
 
     BEGIN
@@ -32,8 +32,8 @@ BEGIN
                         if not endfile(f) then
                             eof <= '0';
                             readline(f, buf);
-                            read(buf, n);
-                            data_out <= signed(n);
+                            hread(buf, n);
+                            data_out <= n;
                         else
                             eof <= '1';
                         end if;
