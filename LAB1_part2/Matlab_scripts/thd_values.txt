@@ -1,1 +1,0 @@
-order = 8	 n_bit = 10	 thd = -43.8

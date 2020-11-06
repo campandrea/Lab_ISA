@@ -1,6 +1,0 @@
-vcom -93 -work ./work ../testbench/*.vhd
-vcom -93 -work ./work ../VHDL_source/components/*.vhd
-vcom -93 -work ./work ../VHDL_source/IIR_filter.vhd
-vlog -work ./work ../testbench/Tb_filter_IIR.v
-vsim work.Tb_filter_IIR
-run 2 us 

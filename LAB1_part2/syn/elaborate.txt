@@ -1,6 +1,0 @@
-Running PRESTO HDLC
-Presto compilation completed successfully.
-Warning: Overwriting design file '/home/isa24/Lab_ISA/LAB1/syn/IIR_filter.db'. (DDB-24)
-Elaborated 1 design.
-Current design is now 'IIR_filter'.
-1

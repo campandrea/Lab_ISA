@@ -1,8 +1,0 @@
-H 2141964 11 3 0 2 2 0 0 0 0
-L 4 ieee 19 $MODEL_TECH/../ieee
-L 3 std 18 $MODEL_TECH/../std
-L 4 work 6 ./work
-D 19 ./work.clk_gen(beh) `LKnCIMM:2U0@k__2X4:V0 0 1
-D 20 ./work.tb_clock(beh) WEDBU_eakWWBf:Y]KkRhE1 1 1
-2 0  0 51SNdAj:j;jCbM70=M_?]2 0 0 1
-2 0  0 NYi^odZ8z>@1C=82CgR^H1 1 1 1

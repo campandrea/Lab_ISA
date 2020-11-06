@@ -1,2 +1,0 @@
-In questa cartella ci sono dei vecchi programmi python per generare numeri casuali, trasformarli in fixed, fare la comparazione.
-In più dei file vhdl per leggere file e scrivere su file, un generatore di clock e altro da cui prendere spunto.
