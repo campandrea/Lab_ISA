@@ -21,7 +21,7 @@ LAB1/Quartus project
 ./**/*.dvi
 ./**/*.idx
 ./**/*.bak
-./**/*.aux
+**/*.aux
 ./**/*.log
 ./**/main.pdf
 ./**/homebook.pdf
