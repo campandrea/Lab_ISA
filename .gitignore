@@ -19,3 +19,19 @@ LAB1/Quartus project
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
+
+#ignore the file related to latex
+**/.idea/
+**/*.dvi
+**/*.idx
+**/*.bak
+**/*.aux
+**/*.log
+**/main.pdf
+**/homebook.pdf
+**/*.synctex.gz
+**/*.out
+**/*.toc
+**/*.eps
+**/*.new
+**/*.sty
