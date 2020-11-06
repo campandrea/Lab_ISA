@@ -1,3 +1,0 @@
-\babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Reference model development}{1}%
-\contentsline {chapter}{\numberline {2}VLSI implementation}{2}%

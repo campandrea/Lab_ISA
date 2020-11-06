@@ -1,33 +1,17 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-Paper/
-
-
-# Other files and folders
-.settings/
-
-
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-LAB1/Quartus project
+**/Quartus project/
 
 #ignore the file related to latex
-./**/.idea/
-./**/*.dvi
-./**/*.idx
-./**/*.bak
+**/.idea/
+**/*.dvi
+**/*.idx
+**/*.bak
 **/*.aux
 **/*.log
-./**/main.pdf
-./**/homebook.pdf
-./**/*.synctex.gz
-./**/*.out
-./**/*.toc
-./**/*.eps
-./**/*.new
-./**/*.sty
+**/main.pdf
+**/homebook.pdf
+**/*.synctex.gz
+**/*.out
+**/*.toc
+**/*.eps
+**/*.new
+**/*.sty
