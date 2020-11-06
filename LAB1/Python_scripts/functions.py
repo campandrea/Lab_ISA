@@ -51,30 +51,29 @@ def writeListOnFile(filename, list_to_print):
 
 #output functions
 
-def eliminateLineFile(n=1, filename):
+def eliminateLineFile(filename, n=1):
 	"""eliminate the first n line from a file"""
 	filep = openFile(filename, 'r')
-    lines = ideal_file.readlines()
-    filep.close()
+	lines = filep.readlines()
 	filep = openFile(filename, 'w')
-    filep.writelines(ideal_lines[line_to_eliminate:]
-    filep.close()
+	filep.writelines(lines[n:])
+	filep.close()
 	
 	
 
-def generateErrorFile(line_to_eliminate=1,DUT_filename, ideal_filename, error_filename):
-    """ reads the results from the dut and the ideal modfel and generates a file
+def generateErrorFile(DUT_filename, ideal_filename, error_filename, line_to_eliminate=1):
+	""" reads the results from the dut and the ideal modfel and generates a file
         with the difference line per line"""
-
-    eliminateLineFile(line_to_eliminate, ideal_filename)
-    ideal_file = openFile(ideal_filename, 'r')
+	
+	eliminateLineFile(ideal_filename,line_to_eliminate)
+	ideal_file = openFile(ideal_filename, 'r')
 	DUT_file = openFile(DUT_filename,'r')
-    error_file = openFile(error_filename, 'w')
-    error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
-    
-    for DUT_line, ideal_line in zip(DUT_file, ideal_file):
-        error = int(DUT_line) - int(ideal_line)
-        error_file.write("{} - {} = {}\n".format(int(DUT_line), int(ideal_line), error))
-    DUT_file.close()
-    ideal_file.close()
-    error_file.close()
+	error_file = openFile(error_filename, 'w')
+	error_file.write("In this file is computed:\nDUT_result - C_prog_result\n")
+	
+	for DUT_line, ideal_line in zip(DUT_file, ideal_file):
+		error = int(DUT_line) - int(ideal_line)
+		error_file.write("{} - {} = {}\n".format(int(DUT_line), int(ideal_line), error))
+	DUT_file.close()
+	ideal_file.close()
+	error_file.close()
