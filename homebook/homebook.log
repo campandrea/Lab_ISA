@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.21)  5 NOV 2020 19:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.21)  7 NOV 2020 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7,8 +7,8 @@ entering extended mode
 LaTeX2e <2019-10-01> patch level 1
 (c:/texlive/2019/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/08/27 v1.4j Standard LaTeX document class
-(c:/texlive/2019/texmf-dist/tex/latex/base/bk11.clo
-File: bk11.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
+(c:/texlive/2019/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -314,41 +314,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 (c:/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
-) (./master2.tex
+) (./master.tex
 Chapter 1.
 (./cap1/iv.vhd
-Overfull \hbox (14.08379pt too wide) in paragraph at lines 2--3
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
 4.
-(c:/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
+ (c:/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 14.
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <9> not available
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 15.
 )
 File: ./logopoli.jpg Graphic file (type jpg)
 <use ./logopoli.jpg>
 Package pdftex.def Info: ./logopoli.jpg  used on input line 103.
 (pdftex.def)             Requested size: 85.35826pt x 84.06192pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[1
+ [1
 
 
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
-Make it at least 13.59999pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
-
 [2]
 Chapter 2.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
@@ -356,7 +342,7 @@ LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
 (c:/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
  [3
 
@@ -366,31 +352,31 @@ Chapter 3.
 
 ] (./homebook.aux) ) 
 Here is how much of TeX's memory you used:
- 5447 strings out of 492167
- 69973 string characters out of 6129158
- 340941 words of memory out of 5000000
- 9702 multiletter control sequences out of 15000+600000
- 14334 words of font info for 54 fonts, out of 8000000 for 9000
+ 5436 strings out of 492167
+ 69823 string characters out of 6129158
+ 340915 words of memory out of 5000000
+ 9695 multiletter control sequences out of 15000+600000
+ 12303 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,10n,45p,275b,1371s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texl
+b><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2019/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2019/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2019/te
+fb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><c:/texlive/2019/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+e1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on homebook.pdf (7 pages, 402496 bytes).
+Output written on homebook.pdf (7 pages, 401351 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream
