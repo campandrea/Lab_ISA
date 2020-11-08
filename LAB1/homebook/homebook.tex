@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % This file defines the style for your homebook
-% You don't need to edit it any more, if not to 
+% You don't need to edit it any more, if not to
 % change the authors name:
 %
 % Search below for the keyword:   GROUP
@@ -11,21 +11,21 @@
 % insert the name of the authors
 %
 %%%%%%
-% Now to update the dexcription  of your work you will 
+% Now to update the dexcription  of your work you will
 % use the file ``master.tex'' in the current directory
-% following the instructions in it 
+% following the instructions in it
 %
-%%%%%% 
-%%%%%%  
+%%%%%%
+%%%%%%
 %%%%%%
 % If you want to compile your document you have TWO ways
-% depending on the fact that 
-% 	1) you have inserted only postcript images in your tex file 
+% depending on the fact that
+% 	1) you have inserted only postcript images in your tex file
 %		---> then go to MODE 1
 %	2) you have inserted other kind of images (jpg..) in your tec file
 %		---> then go to MODE 2
 %
-% MODE 1 
+% MODE 1
 %simple type:
 % 	latex homebook.tex
 %
@@ -49,7 +49,7 @@
 % and you can see it using the command:
 %       acroread homebook.pdf &
 %
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10pt,  english, makeidx, a4paper, titlepage, oneside]{book}
 \usepackage{babel}
@@ -59,6 +59,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{siunitx}
 \graphicspath{{images/}}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
@@ -145,25 +146,24 @@
 		% Change the name of the Group participants here
 		%
 		\centerline{\large Campanella Andrea, Iacovelli Gianluca, Pala Stefano}
-		
+
 		%
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\end{titlepage}
-	
+
 	\tableofcontents
-	
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% 
+	%
 	\mainmatter
 	\lstset{language=VHDL}
-	
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%%    
+	%%
 	%% HERE IS THE MAIN INCLUSION
 	%%
 	\input{./master}
 	%%
-	%% NOW READ THE FILE master.tex  
+	%% NOW READ THE FILE master.tex
 \end{document}
-
