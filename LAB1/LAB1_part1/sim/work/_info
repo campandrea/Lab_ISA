@@ -3,9 +3,9 @@ m255
 cModel Technology
 d/home/isa24/Lab_ISA/LAB1/sim
 T_opt
-VdG>8=FBVUkOA0clg_AFd<3
+VJICzkMnJAJU4PCfeUi[;c3
 06 13 4 ./work Tb_filter_IIR fast 0
-o-quiet -auto_acc_if_foreign -work work -L /software/dk/nangate45/verilog/msim6.2g -sdftyp /Tb_filter_IIR/DUT=../innovus/IIR_filter_period_min_x4.sdf -suppress 1948
+o-quiet -auto_acc_if_foreign -work work
 tExplicit 1
 OE;O;6.2g;35
 T_opt1
@@ -41,7 +41,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Eclk_gen
-w1604138364
+w1604761800
 DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
 DP ieee std_logic_arith GJbAT?7@hRQU9IQ702DT]2
 DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
@@ -147,19 +147,6 @@ M2 ieee std_logic_1164
 M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
-vIIR_filter
-I6`B8iIPLRJ4_faH0X7zjT3
-V<WGg64JQ8<?mgM3CaJNKd1
-w1604168548
-8../innovus/IIR_filter_period_min_x4.v
-F../innovus/IIR_filter_period_min_x4.v
-L0 15
-V<WGg64JQ8<?mgM3CaJNKd1
-OE;L;6.2g;35
-r1
-31
-o-work ./work/
-n@i@i@r_filter
 Emultiplier
 w1603186178
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
@@ -187,7 +174,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Eoutput_sink
-w1603793019
+w1604761800
 DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
@@ -271,7 +258,7 @@ M1 ieee numeric_std
 o-93 -work ./work
 tExplicit 1
 Estimuli_generator
-w1603045349
+w1604761800
 DP std textio K]Z^fghZ6B=BjnK5NomDT3
 DP ieee std_logic_textio 8YS?iX`WD1REQG`ZRYQGB2
 DP ieee numeric_std =NSdli^?T5OD8;4F<blj<3
@@ -326,15 +313,16 @@ M1 ieee std_logic_1164
 o-93 -work ./work
 tExplicit 1
 vTb_filter_IIR
-IZUaPBWe83KL3gIV[QhncD3
+IVd`9G48lkmF=VzS>VRKGz1
 Vl9RXARM2;oAOddKz6`iGf1
-w1604050790
-8../testbench/Tb_filter_IIR.v
-F../testbench/Tb_filter_IIR.v
+d/home/isa24/Lab_ISA/LAB1/LAB1_part1/sim
+w1604771212
+8/home/isa24/Lab_ISA/LAB1/LAB1_part1/testbench/Tb_filter_IIR.v
+F/home/isa24/Lab_ISA/LAB1/LAB1_part1/testbench/Tb_filter_IIR.v
 L0 1
 Vl9RXARM2;oAOddKz6`iGf1
 OE;L;6.2g;35
 r1
 31
-o-work ./work/
+o-work ./work
 n@tb_filter_@i@i@r

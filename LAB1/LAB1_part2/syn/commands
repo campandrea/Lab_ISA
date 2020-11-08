@@ -1,0 +1,18 @@
+analyze -f vhdl -lib WORK ../VHDL_source/components/Counter.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/FF.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/RegisterSigned.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/Saturator.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/adder.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/components/multiplier.vhd
+analyze -f vhdl -lib WORK ../VHDL_source/IIR_filter.vhd
+set power_preserve_rtl_hier_names true	
+elaborate IIR_filter -arch structure -lib WORK
+create_clock -name MY_CLK -period 8.6 CLK
+set_dont_touch network MY_CLK
+set_clock_uncertainty 0.07 [get_clocks MY_CLK]
+set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] CLK]
+set_output_delay 0.5 -max -clock MY_CLK [all_outputs]
+set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
+set load $OLOAD [all_outputs]
+compile
+report_timing

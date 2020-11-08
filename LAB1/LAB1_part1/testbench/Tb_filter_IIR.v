@@ -41,7 +41,18 @@ always @(posedge CLK)
 
 assign END_SIM_i = END_SIM_reg;
 
-
+reg prova;
+always @(posedge CLK or negedge CLK)
+	begin
+		if(EOF == 0) begin
+			prova <= 1;
+		end
+		if(prova == 1) begin
+			#500 prova <= 0;
+			#50 prova <=1;
+		end
+	end
+	
 
 
 ///Net
@@ -80,7 +91,7 @@ IIR_filter
 		.CLK(CLK),
 		.RST_n(RST_n),
 		.DIN(DIN_IO_GEN_TO_Filter),
-		.VIN(~EOF),
+		.VIN(prova),
 		///A coefficients
 		.a0(a0), .a1(a1),
 		///B coefficients
