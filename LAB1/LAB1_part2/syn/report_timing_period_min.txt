@@ -1,2 +1,30 @@
-Warning: Can't find object 'timing' in design 'IIR_filter'. (UID-95)
+ 
+****************************************
+Report : area
+Design : IIR_filter
+Version: O-2018.06-SP4
+Date   : Mon Nov  9 12:03:41 2020
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm_nowlm.db)
+
+Number of ports:                         1021
+Number of nets:                          3287
+Number of cells:                         2112
+Number of combinational cells:           1945
+Number of sequential cells:               134
+Number of macros/black boxes:               0
+Number of buf/inv:                        334
+Number of references:                      23
+
+Combinational area:               2936.374008
+Buf/Inv area:                      199.234000
+Noncombinational area:             606.479978
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  3542.853986
+Total area:                 undefined
 1
