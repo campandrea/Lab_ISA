@@ -1,4 +1,0 @@
-v1
-DSP_BALANCING_IMPLEMENTATION,LOGIC_ELEMENTS,multiplier:mult_a0|lpm_mult:Mult0|mult_j9t:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,LOGIC_ELEMENTS,multiplier:mult_b1|lpm_mult:Mult0|mult_j9t:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,LOGIC_ELEMENTS,multiplier:mult_b0|lpm_mult:Mult0|mult_j9t:auto_generated|mac_out2,
