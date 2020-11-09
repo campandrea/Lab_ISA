@@ -2,14 +2,14 @@
 In questa sezione viene analizzato il progetto dello stesso filtro IIR visto in precedenza ma con un'architettura avanzata, sviluppata con la tecnica del J-look-ahead. L'equazione di base del filtro è la seguente:
 $$ y[n] = b_0x[n] + b_1x[n-1] + a_1y[n-1]$$
 
-La tecnica del J-look-ahead prevede di riscrivere l'equazione andando a sostituire il termine $y[n-1]$ valutandolo in funzione di $y[n-2]$. 
+La tecnica del J-look-ahead prevede di riscrivere l'equazione andando a sostituire il termine $y[n-1]$ valutandolo in funzione di $y[n-2]$.
 $$ y[n-1] = b_0x[n-1] + b_1x[n-2] + a_1y[n-2]$$
 
 Quindi è possibile sostituire nell'equazione di partenza il risultato ottenuto:
 $$ y[n] = b_0x[n] + b_1x[n-1] + a_1(b_0x[n-1] + b_1x[n-2] + a_1y[n-2])$$
 $$ y[n] = b_0x[n] + (b_1 + a_1)x[n-1] + a_1b_1x[n-2] + {a_1}^{2}y[n-2]$$
 
-Mantenendo l'architettura classica del filtro IIR direct form II, si nota che l'equazione risultante può essere implementata attraverso lo schema di un filtro di secondo ordine. 
+Mantenendo l'architettura classica del filtro IIR direct form II, si nota che l'equazione risultante può essere implementata attraverso lo schema di un filtro di secondo ordine.
 
 \begin{figure}[h]
 	\center
@@ -27,3 +27,51 @@ Questa struttura può essere, al contrario di quella precedente, migliorata in t
 	\label{fig:IIR_advanced_2}
 \end{figure}
 
+\subsection{Simulation}
+Per la simulazione del circuito è stata utilizzato lo stesso testbench precedente in quanto l'entity esterna del cirucito non è cambiata rispetto all'implementazione precedente.
+In \autoref{fig:wave_start_j} è mostrato il con i segnali del DUT. In questo caso quando il segnale $VIN$ diventa valido sono necessari 4 colpi di clock prima che il primo risultato sia disponibile in uscita; il motivo di questa latenza più lunga è dato dal tipo diverso di architettura implementata.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=1\textwidth]{images/wave_start_j_look_ahead.png}
+	\caption{Start of the simulation}
+	\label{fig:wave_start_j}
+\end{figure}
+
+Infine in \autoref{fig:wave_vin_j} si nota il correttamento funzionamento del circuito quando $VIN$ diventa basso e successivamente alto. Infatti il segnale $d\_out$ in un primo momento non cambia e da quando il filtro riprende a campionare passano 4 colpi di clock prima di avere i giusti risultati in uscita.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=1\textwidth]{images/wave_vin_0_1_j_look_ahead.png}
+	\caption{Simulation of the change of $VIN$ signal}
+	\label{fig:wave_vin_j}
+\end{figure}
+
+Appurato il corretto timing del circuito è stato effettutato il controllo dei dati in uscita confrantondoli conla corrispondente implementazione in C del modello realizzato. A fronte dello stesso set di dati usati per il testbench dell'architettura precedente sono stati ottenuti gli stessi risultati in uscita. Si può fare riferimento ai dati mostrati in \autoref{tab:tab_results} per avere un idea dei risultati.
+
+
+\subsection{Logic Synthesis}
+Verificato il corretto funzionamento del filtro con Modelsim si è passati alla sintesi con Synopsys. Gli obiettivi sonno quelli di cercare la frequenza massima di funzionamento e successivamente impostando $T_{CLK} = 4 T_{min}$ cercare l'area e la potenza consumata, utilizzando i dati sulla switching activity prodotti con Modelsim.
+I risultati relativi al periodo di clock, il relativo slack e l'area sono mostrati in \autoref{tab:timing_rep_j}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
+\hline
+10 & 7.39 &  3200\\
+0 & -1.75 &  3834\\
+2.15 & 0 & 3542 \\
+8.6 & 5.99 & 3200 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Results of timing report}
+\label{tab:timing_rep_j}
+\end{table}
+
+Successivamente è stata utilizzata netlist generata per calcolare la switiching activity con Modelsim e ottenere in questo modo una stima accurata della potenza consumata dal circuito. I risultati sono mostrati in
+
+
+\subsection{Place \& Route}

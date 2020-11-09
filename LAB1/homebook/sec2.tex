@@ -22,7 +22,7 @@ In ingresso e in uscita al filtro sono posti dei registri per sincronizzare i da
 
 \subsection{Simulation}
 Per la simulazione del circuito è stata adottata una soluzione simile a quella consigliata con un generatore di dati in ingresso e un error checker in uscita. E' stato utlizzato uno script python per generare una forma d'onda sinusoidale, che viene elaborata in parallelo dal circuito da noi progettato e dall'ideal model descritto in C. I risultati in uscita sono scritti su due file che vengono elaborati da un ulteriore script python che calcola l'errore come differenza tra l'output del DUT e quello del C model.
-In \autoref{fig:wave_sim} è mostrato il wave con i segnali del DUT. Si nota come quando il segnale $VIN$ diventa valido il circuito inizia a campionare i dati in ingressoe dopo una latenza di 2 colpi di clock i risultati sono pronti in uscita, infatti il segnale $VOUT$ diventa alto.
+In \autoref{fig:wave_start} è mostrato il wave con i segnali del DUT. Si nota come quando il segnale $VIN$ diventa valido il circuito inizia a campionare i dati in ingresso e dopo una latenza di 2 colpi di clock i risultati sono pronti in uscita, infatti il segnale $VOUT$ diventa alto.
 
 \begin{figure}[h]
 	\center
@@ -31,7 +31,7 @@ In \autoref{fig:wave_sim} è mostrato il wave con i segnali del DUT. Si nota com
 	\label{fig:wave_start}
 \end{figure}
 
-Infine in \autoref{fig:wave_vin} si nota il corretto funzionamento anche quando $VIN$ va a 0, infatti i dati all'uscita del filtro, $d\_out$, rimangono invariati quando si verifica questa situazione poichè il circuito smette di campionare i dati in ingresso. Ad ulteriore dimostrazione l'evidenza che quando $VIN$ torna ad 1, sopo una latenza di 2 colpi di clock, il segnale $d\_out$ torna a variare.
+Infine in \autoref{fig:wave_vin} si nota il corretto funzionamento anche quando $VIN$ va a 0, infatti i dati all'uscita del filtro, $d\_out$, rimangono invariati quando si verifica questa situazione poichè il circuito smette di campionare i dati in ingresso. Ad ulteriore dimostrazione l'evidenza che quando $VIN$ torna ad 1, dopo una latenza di 2 colpi di clock, il segnale $d\_out$ torna a variare.
 
 \begin{figure}[h]
 	\center
@@ -66,7 +66,6 @@ Input & DUT output & C model output & Error \\
 \end{table}
 
 
-
 \subsection{Logic Synthesis}
 Verificato il corretto comportamento del circuito con Modelsim si è passati alla sintesi con Synopsys. Il primo obiettivo è quello di cercare la frequenza massima che permetta il corretto funzionamento del circuito e la relativa area. Sono state sfruttate le librerie di porte standard fornite che permettono di sintetizzare in automatico anche i blocchi logici più complessi come sommatori e moltiplicatori.
 In una fase preliminare è stato impostato un clock con periodo $T_{clk} = \SI{10}{\nano\second} \pm \SI{0.07}{\nano\second}$. Il risultato della sintesi mostra uno slack di $+\SI{5.14}{\nano\second}$; il fatto che lo slack sia positivo implica che i vincoli sul clock impostati sono stati rispettati con la sintesi ottenuta.
@@ -76,7 +75,7 @@ Per calcolare la frequenza massima è stato impostato in una prima fase il clock
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-$T_{CLK} [ns]$ & slack [ns] & area $[(\SI{}{\micro\meter})^2]$ \\
+$T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 \hline
 10 & 5.14 & 1991 \\
 0 & -3.13 & 2491 \\
@@ -89,7 +88,7 @@ $T_{CLK} [ns]$ & slack [ns] & area $[(\SI{}{\micro\meter})^2]$ \\
 \label{tab:timing_rep}
 \end{table}
 
-Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $T_{CLK} = 4 T_{min}$. Per quanto riguarda l'area si può fare riferimento to \autoref{tab:timing_rep}. Per il calcolo della potenza invece è stato generato in primis un record della switching activity tramite una simulazione Modelsim è salvato su un vcd file, successivamente convertito in saif file. La presenza di questo file serve durante il calcolo del corretto consumo di potenza nell'ambiente Synopsys. I risultati sono mostrati in \autoref{fig:pow_rep_x4}.
+Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $T_{CLK} = 4 T_{min}$. Per quanto riguarda l'area si può fare riferimento to \autoref{tab:timing_rep}. Per il calcolo della potenza invece è stato generato in primis un record della switching activity tramite una simulazione Modelsim è salvato su un vcd file, successivamente convertito in saif file. La presenza di questi dati serve durante il calcolo del corretto consumo di potenza nell'ambiente Synopsys. I risultati sono mostrati in \autoref{fig:pow_rep_x4}.
 
 \begin{figure}[h]
 	\center
@@ -101,7 +100,7 @@ Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $
 Si nota come la potenza sia suddivisa tra i registri e la parte combinatoria con una preponderanza di questo secondo contributo, il $65\%$, per via della presenza di 3 moltiplicatori e 2 sommatori nell'architettura progettata.
 
 \subsection{Place \& Route}
-Finally si è passati di place and route con l'ausilio del software Innovus. E' stata utilizata la netlist generata da Synopsys con $T_{CLK} = 4 T_{min}$ come punto di partenza e le librerie standard fornite. Dopo le varie fasi richieste si è giunti al circuto finale mostrato in \autoref{fig:layout}.
+Finally si è passati al placing and routing con l'ausilio del software Innovus. E' stata utilizata la netlist generata da Synopsys con $T_{CLK} = 4 T_{min}$ come punto di partenza e le librerie standard fornite. Dopo le varie fasi richieste si è giunti al circuto finale mostrato in \autoref{fig:layout}.
 
 \begin{figure}[h]
 	\center
@@ -119,4 +118,4 @@ Il layout prodotto ha un area pari a $\SI{1959}{\micro\meter}^2$, dato concorde 
 	\label{fig:cadence_pow_rep_x4}
 \end{figure}
 
-I valori di potenza ottenuti sono concordi con quelli ottenuti da Synopsys in \autoref{fig:pow_rep_x4}. Inoltre, essendo il calcolo a questo livello molto più accurato in quanto prende in considerazione in layout fisico del circuito, si nota come in realtà il consumo della parte combinatore sia ancora più predominante del previsto.
+I valori di potenza ottenuti sono concordi con quelli ottenuti da Synopsys in \autoref{fig:pow_rep_x4}. Inoltre, essendo il calcolo a questo livello molto più accurato in quanto prende in considerazione il layout fisico del circuito, infatti si nota come in realtà il consumo della parte combinatoria sia predominate.
