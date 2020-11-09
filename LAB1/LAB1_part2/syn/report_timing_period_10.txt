@@ -1,0 +1,81 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : IIR_filter
+Version: O-2018.06-SP4
+Date   : Mon Nov  9 11:54:56 2020
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: a2[2] (input port clocked by MY_CLK)
+  Endpoint: reg_a2_out/Q_reg[11]
+            (rising edge-triggered flip-flop clocked by MY_CLK)
+  Path Group: MY_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  IIR_filter         5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MY_CLK (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 r
+  a2[2] (in)                                              0.00       0.50 r
+  mult_a2/B[2] (multiplier_N12_0)                         0.00       0.50 r
+  mult_a2/mult_15/b[2] (multiplier_N12_0_DW_mult_tc_0)
+                                                          0.00       0.50 r
+  mult_a2/mult_15/U490/ZN (XNOR2_X1)                      0.06       0.56 r
+  mult_a2/mult_15/U489/ZN (OAI22_X1)                      0.04       0.61 f
+  mult_a2/mult_15/U487/ZN (NAND3_X1)                      0.03       0.64 r
+  mult_a2/mult_15/U486/Z (MUX2_X1)                        0.05       0.69 r
+  mult_a2/mult_15/U326/ZN (INV_X1)                        0.02       0.71 f
+  mult_a2/mult_15/U481/ZN (AOI222_X1)                     0.10       0.81 r
+  mult_a2/mult_15/U325/ZN (INV_X1)                        0.03       0.84 f
+  mult_a2/mult_15/U480/ZN (AOI222_X1)                     0.09       0.93 r
+  mult_a2/mult_15/U324/ZN (INV_X1)                        0.03       0.96 f
+  mult_a2/mult_15/U479/ZN (AOI222_X1)                     0.11       1.06 r
+  mult_a2/mult_15/U478/ZN (OAI222_X1)                     0.07       1.13 f
+  mult_a2/mult_15/U477/ZN (AOI222_X1)                     0.11       1.24 r
+  mult_a2/mult_15/U476/ZN (OAI222_X1)                     0.07       1.31 f
+  mult_a2/mult_15/U17/CO (FA_X1)                          0.10       1.40 f
+  mult_a2/mult_15/U16/CO (FA_X1)                          0.09       1.49 f
+  mult_a2/mult_15/U15/CO (FA_X1)                          0.09       1.59 f
+  mult_a2/mult_15/U14/CO (FA_X1)                          0.09       1.68 f
+  mult_a2/mult_15/U13/CO (FA_X1)                          0.09       1.77 f
+  mult_a2/mult_15/U12/CO (FA_X1)                          0.09       1.86 f
+  mult_a2/mult_15/U11/CO (FA_X1)                          0.09       1.95 f
+  mult_a2/mult_15/U10/CO (FA_X1)                          0.09       2.04 f
+  mult_a2/mult_15/U9/CO (FA_X1)                           0.09       2.13 f
+  mult_a2/mult_15/U8/CO (FA_X1)                           0.09       2.22 f
+  mult_a2/mult_15/U7/CO (FA_X1)                           0.09       2.31 f
+  mult_a2/mult_15/U6/S (FA_X1)                            0.13       2.44 r
+  mult_a2/mult_15/product[20] (multiplier_N12_0_DW_mult_tc_0)
+                                                          0.00       2.44 r
+  mult_a2/R[20] (multiplier_N12_0)                        0.00       2.44 r
+  reg_a2_out/D[11] (RegisterSigned_N12_9)                 0.00       2.44 r
+  reg_a2_out/U20/ZN (AOI22_X1)                            0.03       2.47 f
+  reg_a2_out/U19/ZN (INV_X1)                              0.03       2.50 r
+  reg_a2_out/Q_reg[11]/D (DFF_X1)                         0.01       2.51 r
+  data arrival time                                                  2.51
+
+  clock MY_CLK (rise edge)                               10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clock uncertainty                                      -0.07       9.93
+  reg_a2_out/Q_reg[11]/CK (DFF_X1)                        0.00       9.93 r
+  library setup time                                     -0.03       9.90
+  data required time                                                 9.90
+  --------------------------------------------------------------------------
+  data required time                                                 9.90
+  data arrival time                                                 -2.51
+  --------------------------------------------------------------------------
+  slack (MET)                                                        7.39
+
+
+1

@@ -1,0 +1,9 @@
+vcom -93 -work ./work ../testbench/*.vhd
+vcom -93 -work ./work ../VHDL_source/components/*.vhd
+vcom -93 -work ./work ../VHDL_source/IIR_filter.vhd
+vlog -work ./work ../innovus/IIR_filter.v
+vlog -work ./work ../testbench/Tb_filter_IIR.v
+vsim -L /software/dk/nangate45/verilog/msim6.2g work.Tb_filter_IIR 
+vsim -L /software/dk/nangate45/verilog/msim6.2g -sdftyp /Tb_filter_IIR/DUT=../innovus/IIR_filter.sdf work.Tb_filter_IIR
+vcd file ./vcd/IIR_filter_post_route.vcd 
+vcd add /Tb_filter_IIR/DUT/* 
