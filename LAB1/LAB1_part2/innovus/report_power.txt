@@ -36,7 +36,7 @@
 *
 *       Global Comb ClockGate Ratio: N.A.
 *
-*	Power Units = 1mW
+*	
 *
 *	Time Units = 1e-09 secs 
 *
@@ -53,6 +53,7 @@ Total Leakage Power:         0.06437399 	    5.5967%
 Total Power:                 1.15022200 
 -----------------------------------------------------------------------------------------
 
+Power Units = 1mW
 
 Group                           Internal   Switching     Leakage       Total  Percentage 
                                 Power      Power         Power         Power  (%)        

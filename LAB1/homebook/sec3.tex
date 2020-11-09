@@ -71,7 +71,32 @@ $T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 \label{tab:timing_rep_j}
 \end{table}
 
-Successivamente è stata utilizzata netlist generata per calcolare la switiching activity con Modelsim e ottenere in questo modo una stima accurata della potenza consumata dal circuito. I risultati sono mostrati in
+Successivamente è stata utilizzata netlist generata per calcolare la switiching activity con Modelsim e ottenere in questo modo una stima accurata della potenza consumata dal circuito. I risultati sono mostrati in \autoref{fig:pow_rep_x4_j}.
 
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.8\textwidth]{images/report_power_x4_j_mod.png}
+	\caption{Power Report}
+	\label{fig:pow_rep_x4_j}
+\end{figure}
+
+Anche in questo caso si nota come il consumo di potenza sia dato maggiormente dalla parte combinatoria costituita da N sommatori e M moltilicatori.
 
 \subsection{Place \& Route}
+Finally è stato effettutato il placing and routing con il software innovus seguendo la procedura precedente. Il circuito generato è quello mostrato in \autoref{fig:layout_j}, ha un'area pari a $\SI{3186}{\micro\meter}^2$ in accordo con quello ottenuto dal report di Synopsys, con totale di 1588 cells and 3993 gates. I valori ottenuti sono plausibili se rapportati a quelli dell'architettura precedente in quanto in questo caso sono presenti più elementi fisici (registri, sommatori e moltiplicatori) e di conseguenza ci si aspetta la necessità di area maggiore per allocare tutti i gate necessari.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.6\textwidth]{images/IIR_filter_period_min_x4_place_j.jpg}
+	\caption{Resulting layout}
+	\label{fig:layout_j}
+\end{figure}
+
+Successivamente è stata lancia la timing analysis, la verifica della connectivity e della geometria che hanno evidenziato l'assenza di qualsiasi violazione. Infine è stata un ulteriore stima del consumo di potenza utilizzando la switching activity calcolata con Modelsim. I risultati sono mostrati in \autoref{fig:cadence_pow_rep_x4_j}, anche in questo caso i risultati ottenuti sono in linea con quelli ottenuti dal report di potenza di Synopsys.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.8\textwidth]{images/rep_power_x4_cadence_j_mod.png}
+	\caption{Post place \& route power report}
+	\label{fig:cadence_pow_rep_x4_j}
+\end{figure}
