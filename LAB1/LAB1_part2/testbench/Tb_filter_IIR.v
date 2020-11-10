@@ -35,7 +35,7 @@ end
 
 always @(posedge CLK)
 	begin
-		if (count == 3000) begin
+		if (count == 79) begin
 			count <= 0;
 			END_SIM_reg <= 1;
 		end else begin
@@ -45,10 +45,17 @@ always @(posedge CLK)
 
 assign END_SIM_i = END_SIM_reg;
 
-
-
-
-
+/*reg prova;
+always @(posedge CLK or negedge CLK)
+	begin
+		if(EOF == 0) begin
+			prova <= 1;
+		end
+		if(prova == 1) begin
+			#500 prova <= 0;
+			#50 prova <=1;
+		end
+	end*/
 
 ///Net
 
