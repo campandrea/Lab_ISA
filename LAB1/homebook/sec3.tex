@@ -47,7 +47,7 @@ In \autoref{fig:IIR_advanced_3} a feed-forward cut-set has been identified where
 
 The latter transformation in \autoref{fig:IIR_advanced_4} takes into account the feed-forward cut-set on the two input branches at the last adder and through the insertion of a pipeline stage bring the critical path to be equal to the delay of a single multiplier.
 
-In \autoref{fig:IIR_final} the optimized architecture of the IIR filter can be observed, in which a pipeline stage has been inserted between each combinatorial block. These transformations allow the circuit to reach the maximum throughput at the expense of latency, which compared to the initial circuit has increased from $2\,T_{ck}$ to $4\,T_{ck}$. 
+In \autoref{fig:IIR_final} the optimized architecture of the IIR filter can be observed, in which a pipeline stage has been inserted between each combinatorial block. These transformations allow the circuit to reach the maximum throughput at the expense of latency, which compared to the initial circuit has increased from $2\,T_{ck}$ to $4\,T_{ck}$.
 
 \begin{figure}[htb]
 	\center
@@ -69,7 +69,7 @@ In \autoref{fig:wave_start_j} the timing with the signals of the DUT is shown.In
 	\label{fig:wave_start_j}
 \end{figure}
 
-Finally in \autoref{fig:wave_vin_j} it is observed the correct operation of the circuit when $VIN$ becomes low and then high. The internal registers do not sample when $VIN$ is not asserted, so the output data does not change, keeping the output valid. When $VIN$ returns to $1$, only one clock period is required before the output changes value because the registers are already full. 
+Finally in \autoref{fig:wave_vin_j} it is observed the correct operation of the circuit when $VIN$ becomes low and then high. The internal registers do not sample when $VIN$ is not asserted, so the output data does not change, keeping the output valid. When $VIN$ returns to $1$, only one clock period is required before the output changes value because the registers are already full.
 
 \begin{figure}[h]
 	\center
@@ -112,6 +112,7 @@ Subsequently the netlist generated was used to determine the switiching activity
 \end{figure}
 
 Also in this case it is noted that the power consumption is mainly produced by the combinatorial part consisting of 3 adders and 4 multipliers.
+Confrontando i risultati delle due architetture implementate si notano delle notevoli differenze in termini di periodo minimo, infatti nella soluzione classica $T_{min}=\SI{4.10}{\nano\second}$ mentre nella soluzione J-look-ahead $T_{min}=\SI{2.15}{\nano\second}$ che corrisponde ad un incremento della frequenza operativa del $48\%$. Questa riduzione è data dalla diminuzione del critical path che passa da 2 sommatori e 2 moltiplicatori ad un solo moltiplicatore. Il miglioramento delle prestazioni si paga però in termini di area, con un aumento del $40\%$ e in termini di potenza. Mettendo a confronto i dati presenti in \autoref{fig:pow_rep_x4} e \autoref{fig:pow_rep_x4_j} si evince un aumento del $80\%$ della potenza totale; entrando nello specifico i contributi di potenza che cambiano sensibilmente sono quelli legati alla switching power, $\SI{2.3}{\micro\watt}$ contro $\SI{107.1}{\micro\watt}$, e alla internal power, $\SI{18.6}{\micro\watt}$ contro $\SI{149.6}{\micro\watt}$. L'incremento di questi contributi è dato dal fatto che nella seconda architettura sono presenti più blocchi logici.
 
 \subsection{Place \& Route}
 The Place \& Route with the innovus software has been carried out following the previous procedure. The generated circuit is the one shown in \autoref{fig:layout_j}, it has an area equal to $\SI{3186}{\micro\meter}^2$ according to the one obtained from the Synopsys report, with a total of 1588 cells and 3993 gates. The values obtained are plausible if compared to those of the previous architecture because in this case there are more physical elements (registers, summers and multipliers) and consequently the need for more area to allocate all the necessary gates is expected.
