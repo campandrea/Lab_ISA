@@ -1,6 +1,6 @@
 \section{VLSI implementation}
 
-Lo scopo di questa sezione è quello di presentare l'implementazione del filtro IIR progettato, che nella fattispecie è un filtro IIR con precisione di 10 bit e ordine pari a 1. In \autoref{fig:filtro_generic} {\LARGE correggere} è mostrata l'interfaccia del filtro dove il parallelismo $n_b$ è fissato a 10 ed essendo l'ordine del filtro pari a 1, i coefficienti necessari sono $a_0, a_1, b_0, b_1$.
+The purpose of this section is to present the implementation of the designed IIR filter, which in this case is an IIR filter with an accuracy of 10 bits and order of 1. In \autoref{fig:filter_generic} the filter interface is shown, where the parallelism $n_b$ is set to 10 and since the order of the filter is 1, the necessary coefficients are $a_0, a_1, b_0, b_1$.
 
 \begin{figure}[h]
 	\center
@@ -11,7 +11,7 @@ Lo scopo di questa sezione è quello di presentare l'implementazione del filtro 
 
 
 \subsection{VHDL model}
-In ingresso e in uscita al filtro sono posti dei registri per sincronizzare i dati con il clock e due segnali di validazione per i dati, $VIN$ and $VOUT$. In \autoref{fig:IIR_1} è mostrata l'architettura del filtro, dove i registri sono stati trascurati, la forma utilizzata è la direct form II. I dati in ingresso campionati entrano dalla porta $x[n]$, vengono elaborati e i risultati fuoriescono dalla porta $y[n]$. Il parallelismo interno della macchina è diverso da quello esterno, per evitare la possibilità di avere overflow con qualsiasi combinazione di dati in ingresso quando viene effettuata la somma, la precisione è stata estesa a 12 bit effettuando un'estensione del segno a tutti i segnali in ingresso. La moltiplicazione invece non ha problemi di parallelismo perché si riesce ad avere una precisione sufficiente troncando i bit meno significativi ad ogni moltiplicazione e avendo quindi stesso parallelismo tra dati in ingresso e in uscita. Il registro interno alla macchina ha un segnale di enable che viene gestito dal segnale di validazione del dato in ingresso in modo che quando si ricevono dati non validi, esso non campiona mantenendo il dato in uscita corretto.
+At the input and output of the filter there are registers to synchronize the data with the clock and two validation signals for the data, $VIN$ and $VOUT$. In \autoref{fig:IIR_1} is shown the filter architecture, where the input and output registers have been neglected, the form used is the direct form II. The sampled input data enter from the $x[n]$ port, are processed and the results exit from the $y[n]$ port. The internal parallelism of the machine is different from the external one, to avoid the possibility of overflow with any combination of input data when summing, the precision has been extended to 12 bits by extending the sign to all input signals. The multiplier, on the other hand, has no problems of parallelism because it is possible to have sufficient precision by truncating the less significant bits at each multiplication and therefore having the same parallelism between input and output data. The internal register of the machine has an enable signal which is managed by the input data validation signal so that when invalid data is received, it does not sample keeping the correct output data.
 
 \begin{figure}[h]
 	\center
@@ -21,8 +21,8 @@ In ingresso e in uscita al filtro sono posti dei registri per sincronizzare i da
 \end{figure}
 
 \subsection{Simulation}
-Per la simulazione del circuito è stata adottata una soluzione simile a quella consigliata con un generatore di dati in ingresso e un error checker in uscita. E' stato utlizzato uno script python per generare una forma d'onda sinusoidale, che viene elaborata in parallelo dal circuito da noi progettato e dall'ideal model descritto in C. I risultati in uscita sono scritti su due file che vengono elaborati da un ulteriore script python che calcola l'errore come differenza tra l'output del DUT e quello del C model.
-In \autoref{fig:wave_start} è mostrato il wave con i segnali del DUT. Si nota come quando il segnale $VIN$ diventa valido il circuito inizia a campionare i dati in ingresso e dopo una latenza di 2 colpi di clock i risultati sono pronti in uscita, infatti il segnale $VOUT$ diventa alto.
+A solution with an input data generator and an output error checker has been adopted for the simulation of the circuit. A python script has been used to generate a sine waveform, which is processed in parallel by the designed circuit and the ideal model described in C. The output results are written on two files that are processed by an additional python script that computes the error as the difference between the output of the DUT and the C model.
+In \autoref{fig:wave_start} is shown the wave with DUT signals. Note that when the $VIN$ signal becomes valid the circuit starts to sample the input data and after a latency of 2 clock periods the results are ready to output, so the $VOUT$ signal is asserted.
 
 \begin{figure}[h]
 	\center
@@ -31,16 +31,16 @@ In \autoref{fig:wave_start} è mostrato il wave con i segnali del DUT. Si nota c
 	\label{fig:wave_start}
 \end{figure}
 
-Infine in \autoref{fig:wave_vin} si nota il corretto funzionamento anche quando $VIN$ va a 0, infatti i dati all'uscita del filtro, $d\_out$, rimangono invariati quando si verifica questa situazione poichè il circuito smette di campionare i dati in ingresso. Ad ulteriore dimostrazione l'evidenza che quando $VIN$ torna ad 1, dopo una latenza di 2 colpi di clock, il segnale $d\_out$ torna a variare.
+In \autoref{fig:wave_vin} the correct functioning can be noticed even when $VIN$ is negated, in fact the data at the output of the filter, $d\_out$, remain unchanged when this situation occurs because the circuit stops sampling the input data. When $VIN$ returns to 1, after a latency of 1 clock period, the output data changes again.
 
 \begin{figure}[h]
 	\center
 	\includegraphics[width=1\textwidth]{images/wave_vin_0_1.png}
-	\caption{Simulation of the change of $VIN$ signal}
+	\caption{Simulation of the $VIN$ signal transition}
 	\label{fig:wave_vin}
 \end{figure}
 
-Dopo aver verificato il corretto timing del circuito, sono stati controllati i risultati numerici prodotti. In \autoref{tab:tab_results} è mostrato un estratto dei dati in uscita dal modello ideale e dal circuito progettato a fronte dello stesso set di dati in ingresso. Si nota come ci sia una perfetta ugualianza dei risultati che conferma la correttezza di funzinamento del filtro progettato.
+After verification of the correct timing of the circuit, the numerical results produced were checked. In \autoref{tab:tab_results} is shown an extract of the output data from the ideal model and the circuit designed with the same set of input data. It is noticeable that there is a perfect equality of results that confirms the correct operation of the designed filter.
 
 \begin{table}[h]
 \begin{center}
@@ -67,9 +67,9 @@ Input & DUT output & C model output & Error \\
 
 
 \subsection{Logic Synthesis}
-Verificato il corretto comportamento del circuito con Modelsim si è passati alla sintesi con Synopsys. Il primo obiettivo è quello di cercare la frequenza massima che permetta il corretto funzionamento del circuito e la relativa area. Sono state sfruttate le librerie di porte standard fornite che permettono di sintetizzare in automatico anche i blocchi logici più complessi come sommatori e moltiplicatori.
-In una fase preliminare è stato impostato un clock con periodo $T_{clk} = \SI{10}{\nano\second} \pm \SI{0.07}{\nano\second}$. Il risultato della sintesi mostra uno slack di $+\SI{5.14}{\nano\second}$; il fatto che lo slack sia positivo implica che i vincoli sul clock impostati sono stati rispettati con la sintesi ottenuta.
-Per calcolare la frequenza massima è stato impostato in una prima fase il clock nullo, in qusto modo teoricamente lo slack negativo ottenuto dovrebbe corrispondere al minimo periodo clock necessario. Questo però non è vero, infatti impostando il clock al nuovo valore si ottiene ancora uno slack negativo. Questo comportamento è dovuto al fatto che il sintetizzatore cambia la struttura del cirucito interno in base al vincolo fornito sul clock come si nota dai dati sull'area. E' stato necessario iterare questo procedimento più volte per ottenere uno slack nullo. In \autoref{tab:timing_rep} è mostrata una sintesi dei risultati ottenuti.
+The synthesis of the circuit was done with the Synopsys software. The first objective is to determine the maximum frequency that will allow the correct operation of the circuit and its area. The standard port libraries provided have been used to automatically synthesize even the complex logical blocks such as adders and multipliers.
+In a preliminary phase a clock with period $T_{clk} = \SI{10}{\nano\second} \pm \SI{0.07}{\nano\second}$ has been set. The result of the synthesis shows a slack of $+\SI{5.14}{\nano\second}$; the fact that the slack is positive implies that the clock constraints set have been met with the synthesis obtained.
+To evaluate the maximum operating frequency of the circuit, a clock period of 0 has been set, so theoretically the negative slack obtained should correspond to the minimum necessary clock period. However, this is only partially true, since setting the clock period to the new value will still result in a negative slack. This behavior is due to the fact that the synthesizer changes the structure of the internal slack according to the constraint provided on the clock as you can see from the data on the area. It was necessary to iterate this procedure several times to obtain a slack equal to 0 and therefore the maximum operating frequency of the circuit. In \autoref{tab:timing_rep} a summary of the results obtained is shown.
 
 \begin{table}[h]
 \begin{center}
@@ -88,7 +88,7 @@ $T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 \label{tab:timing_rep}
 \end{table}
 
-Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $T_{CLK} = 4 T_{min}$. Per quanto riguarda l'area si può fare riferimento to \autoref{tab:timing_rep}. Per il calcolo della potenza invece è stato generato in primis un record della switching activity tramite una simulazione Modelsim è salvato su un vcd file, successivamente convertito in saif file. La presenza di questi dati serve durante il calcolo del corretto consumo di potenza nell'ambiente Synopsys. I risultati sono mostrati in \autoref{fig:pow_rep_x4}.
+The second goal is to find area and power consumption by setting $T_{CLK} = 4 T_{min}$. For the area you can refer to \autoref{tab:timing_rep}. For the power computation, a record of the switching activity has been generated through a Modelsim simulation and saved on a vcd file, subsequently converted in saif file. The presence of these data serves during the calculation of the correct power consumption in the Synopsys environment. The results are shown in \autoref{fig:pow_rep_x4}.
 
 \begin{figure}[htb]
 	\center
@@ -97,10 +97,10 @@ Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $
 	\label{fig:pow_rep_x4}
 \end{figure}
 
-Si nota come la potenza sia suddivisa tra i registri e la parte combinatoria con una preponderanza di questo secondo contributo, il $65\%$, per via della presenza di 3 moltiplicatori e 2 sommatori nell'architettura progettata.
+It can be seen that the power is divided between the registers and the combinatorial part with a preponderance of this second contribution, $65\%$, due to the presence of 3 multipliers and 2 adders in the designed architecture.
 
 \subsection{Place \& Route}
-Finally si è passati al placing and routing con l'ausilio del software Innovus. E' stata utilizata la netlist generata da Synopsys con $T_{CLK} = 4 T_{min}$ come punto di partenza e le librerie standard fornite. Dopo le varie fasi richieste si è giunti al circuto finale mostrato in \autoref{fig:layout}.
+The last operation is the place and route of the circuit using the Innovus software. The netlist generated by Synopsys with $T_{CLK} = 4 T_{min}$ and the standard libraries have been used as a starting point. After the various required steps the final circuit shown in \autoref{fig:layout} has been obtained.
 
 \begin{figure}[htb]
 	\center
@@ -116,9 +116,9 @@ Finally si è passati al placing and routing con l'ausilio del software Innovus.
 	\label{fig:layout}
 \end{figure}
 
-Il layout prodotto ha un area pari a $\SI{1959}{\micro\meter}^2$, dato concorde con quello stimato da Synopsys mostrato in \autoref{tab:timing_rep}, con un totale di 986 cells and 2455 gates. Succesivamente è stata lanciata la timing analysis per verificare che i timing constraints fossero corretti, con esito positivo quindi è stata verificata la connectivity e la geometria anch'esse con esito positivo. Infine sfruttando la switching activity calcolata con Modelsim è stato stimato nuovamente il consumo di potenza. I risultati ottenuti sono mostrati in \autoref{fig:cadence_pow_rep_x4}.
+The product layout has an area of $\SI{1959}{\micro\meter}^2$, which is in agreement with the estimated Synopsys' estimate shown in \autoref{tab:timing_rep}, with a total of 986 cells and 2455 gates. Then the timing analysis was launched to verify that the timing constraints were correct, then the connectivity and geometry was verified. Finally, using the switching activity calculated with Modelsim, the power consumption has been re-estimated. The results obtained are shown in \autoref{fig:cadence_pow_rep_x4}.
 
 
-I valori di potenza ottenuti sono concordi con quelli ottenuti da Synopsys in \autoref{fig:pow_rep_x4}. Inoltre, essendo il calcolo a questo livello molto più accurato in quanto prende in considerazione il layout fisico del circuito, infatti si nota come in realtà il consumo della parte combinatoria sia predominate.
+The power values obtained are in agreement with those obtained by Synopsys in \autoref{fig:pow_rep_x4}. Moreover, since the calculation at this level is much more accurate as it takes into account the physical layout of the circuit, it can be seen that in fact the consumption of the combinatorial part is prevalent.
 
 \pagebreak
