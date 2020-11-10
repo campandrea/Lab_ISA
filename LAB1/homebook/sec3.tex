@@ -59,7 +59,7 @@ In \autoref{fig:IIR_final} the optimized architecture of the IIR filter can be o
 \pagebreak
 
 \subsection{Simulation}
-For the simulation of the circuit has been used the same testbench since the external entity of the circuit has not been modified with respect to the previous implementation.
+For the simulation of the circuit has been used the same test-bench since the external entity of the circuit has not been modified with respect to the previous implementation.
 In \autoref{fig:wave_start_j} the timing with the signals of the DUT is shown.In this case when the $VIN$ signal becomes valid 4 clock periods are required until the first result is available at the output; the explanation for this longer latency is due to the pipeline stages introduced in the circuit.
 
 \begin{figure}[h]
@@ -74,11 +74,11 @@ Finally in \autoref{fig:wave_vin_j} it is observed the correct operation of the 
 \begin{figure}[h]
 	\center
 	\includegraphics[width=1\textwidth]{images/wave_vin_0_1_j_look_ahead.png}
-	\caption{Simulation of $VIN$ signal trnsition}
+	\caption{Simulation of $VIN$ signal transition}
 	\label{fig:wave_vin_j}
 \end{figure}
 
-Once the correct timing of the circuit has been verified, the output data has been compared with the corresponding C implementation of the realized model. With the same set of data used for the testbench of the previous architecture, the same output results were obtained. You can refer to the data shown in \autoref{tab:tab_results} to have an outline of the results.
+Once the correct timing of the circuit has been verified, the output data has been compared with the corresponding C implementation of the realized model. With the same set of data used for the test-bench of the previous architecture, the same output results were obtained. You can refer to the data shown in \autoref{tab:tab_results} to have an outline of the results.
 
 
 \subsection{Logic Synthesis}
@@ -102,7 +102,7 @@ $T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 \label{tab:timing_rep_j}
 \end{table}
 
-Subsequently the netlist generated was used to determine the switiching activity using Modelsim and obtain in this way an accurate estimation of the power consumption of the circuit. The results are shown in \autoref{fig:pow_rep_x4_j}.
+Subsequently the net-list generated was used to determine the switching activity using Modelsim and obtain in this way an accurate estimation of the power consumption of the circuit. The results are shown in \autoref{fig:pow_rep_x4_j}.
 
 \begin{figure}[h]
 	\center
@@ -112,7 +112,7 @@ Subsequently the netlist generated was used to determine the switiching activity
 \end{figure}
 
 Also in this case it is noted that the power consumption is mainly produced by the combinatorial part consisting of 3 adders and 4 multipliers.
-Confrontando i risultati delle due architetture implementate si notano delle notevoli differenze in termini di periodo minimo, infatti nella soluzione classica $T_{min}=\SI{4.10}{\nano\second}$ mentre nella soluzione J-look-ahead $T_{min}=\SI{2.15}{\nano\second}$ che corrisponde ad un incremento della frequenza operativa del $48\%$. Questa riduzione è data dalla diminuzione del critical path che passa da 2 sommatori e 2 moltiplicatori ad un solo moltiplicatore. Il miglioramento delle prestazioni si paga però in termini di area, con un aumento del $40\%$ e in termini di potenza. Mettendo a confronto i dati presenti in \autoref{fig:pow_rep_x4} e \autoref{fig:pow_rep_x4_j} si evince un aumento del $80\%$ della potenza totale; entrando nello specifico i contributi di potenza che cambiano sensibilmente sono quelli legati alla switching power, $\SI{2.3}{\micro\watt}$ contro $\SI{107.1}{\micro\watt}$, e alla internal power, $\SI{18.6}{\micro\watt}$ contro $\SI{149.6}{\micro\watt}$. L'incremento di questi contributi è dato dal fatto che nella seconda architettura sono presenti più blocchi logici.
+Comparing the results of the two architectures implemented there are significant differences in terms of minimum period, in fact in the classic solution $T_{min}=\SI{4.10}{\nano\second}$, while in the J-look-ahead solution $T_{min}=\SI{2.15}{\nano\second}$, which corresponds to an increase in operating frequency of $48\%$. The performance enhancement is achieved thanks to the reduction of the critical path from 2 adders and 2 multipliers to only one multiplier. The improvement in performance, however, is paid for in terms of area, with an increase of $40\%$, and in terms of power. Comparing the data in \autoref{fig:pow_rep_x4} and \autoref{fig:pow_rep_x4_j} reveals an increase of $80\%$ in total power; specifically, the power contributions that change significantly are those related to the switching power, $\SI{2.3}{\micro\watt}$ versus $\SI{107.1}{\micro\watt}$, and to the internal power, $\SI{18.6}{\micro\watt}$ versus $\SI{149.6}{\micro\watt}$. The increase of these contributions is given by the fact that in the second architecture there are more logical blocks.
 
 \subsection{Place \& Route}
 The Place \& Route with the innovus software has been carried out following the previous procedure. The generated circuit is the one shown in \autoref{fig:layout_j}, it has an area equal to $\SI{3186}{\micro\meter}^2$ according to the one obtained from the Synopsys report, with a total of 1588 cells and 3993 gates. The values obtained are plausible if compared to those of the previous architecture because in this case there are more physical elements (registers, summers and multipliers) and consequently the need for more area to allocate all the necessary gates is expected.
