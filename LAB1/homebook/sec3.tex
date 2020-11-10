@@ -1,35 +1,66 @@
 \section{Advanced architecture development}
-In questa sezione viene analizzato il progetto dello stesso filtro IIR visto in precedenza ma con un'architettura avanzata, sviluppata con la tecnica del J-look-ahead. L'equazione di base del filtro è la seguente:
+In this section is analyzed the design of the same IIR filter seen previously but with an advanced architecture, developed with the J-look-ahead technique. The basic equation of the filter is the following:
 $$ y[n] = b_0x[n] + b_1x[n-1] + a_1y[n-1]$$
 
-La tecnica del J-look-ahead prevede di riscrivere l'equazione andando a sostituire il termine $y[n-1]$ valutandolo in funzione di $y[n-2]$.
+The J-look-ahead technique involves rewriting the equation by replacing the term $y[n-1]$ by evaluating it as a function of $y[n-2]$.
 $$ y[n-1] = b_0x[n-1] + b_1x[n-2] + a_1y[n-2]$$
 
-Quindi è possibile sostituire nell'equazione di partenza il risultato ottenuto:
+Then it is possible to replace the result obtained in the starting equation:
 $$ y[n] = b_0x[n] + b_1x[n-1] + a_1(b_0x[n-1] + b_1x[n-2] + a_1y[n-2])$$
 $$ y[n] = b_0x[n] + (b_1 + a_1)x[n-1] + a_1b_1x[n-2] + {a_1}^{2}y[n-2]$$
 
-Mantenendo l'architettura classica del filtro IIR direct form II, si nota che l'equazione risultante può essere implementata attraverso lo schema di un filtro di secondo ordine.
+While keeping the classical architecture of the IIR direct form II filter, the resulting equation can be implemented through the scheme of a second-order filter.
 
 \begin{figure}[h]
 	\center
-	\includegraphics[width=0.7\textwidth]{IIR_2.png}
+	\includegraphics[width=0.65\textwidth]{IIR_2.png}
 	\caption{IIR filter with J-look-ahead technique}
 	\label{fig:IIR_advanced}
 \end{figure}
 
-Questa struttura può essere, al contrario di quella precedente, migliorata in termini di prestazioni. Il percorso critico di questo schema è composto da 4 blocchi combinatori, due moltiplicatori e due sommatori ma attraverso le opportune trasformazioni è possibile ridurre il percorso combinatorio più lungo. In \autoref{fig:IIR_advanced_2} è stato identificato il primo cut-set che permette di spostare il registro modificando la lunghezza del percorso critico portandola da 4 a 3.
+This structure can be, as opposed to the previous version, improved in terms of performance. The critical path of this scheme consists of 4 combinatorial blocks, two multipliers and two adders, though by means of the appropriate transformations it is possible to reduce the longest combinatorial path.  In \autoref{fig:IIR_advanced_2} it has been identified the first cut-set that allows to move the register by changing the length of the critical path from 4 to 3.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\center
-	\includegraphics[width=0.7\textwidth]{IIR_2_1.png}
+	\includegraphics[width=0.55\textwidth]{IIR_2_1.png}
 	\caption{Advanced architecture with $1^{st}$ transformation}
 	\label{fig:IIR_advanced_2}
 \end{figure}
 
+In \autoref{fig:IIR_advanced_3} a feed-forward cut-set has been identified where it is possible to insert a pipeline stage on all three branches. In this way the combinatorial path including the $b_0$ multiplier is no longer part of the critical path. The longest combinatorial path includes the multiplier for the term $b_1 + a_1b_0$, the intermediate adder and the final adder. A further transformation allows to move the register from one side of the multiplier to the other without altering the behavior of the circuit, as in \autoref{fig:IIR_advanced_4}.
+
+\begin{figure}[ht]
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{IIR_2_2.png}
+		\caption{Advanced architecture with $2^{nd}$ transformation}
+		\label{fig:IIR_advanced_3}
+	\end{minipage}
+	\hspace{0.5cm}
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{IIR_2_3.png}
+		\caption{Advanced architecture with $3^{rd}$ transformation}
+		\label{fig:IIR_advanced_4}
+	\end{minipage}
+\end{figure}
+
+The latter transformation in \autoref{fig:IIR_advanced_4} takes into account the feed-forward cut-set on the two input branches at the last adder and through the insertion of a pipeline stage bring the critical path to be equal to the delay of a single multiplier.
+
+In \autoref{fig:IIR_final} the optimized architecture of the IIR filter can be observed, in which a pipeline stage has been inserted between each combinatorial block. These transformations allow the circuit to reach the maximum throughput at the expense of latency, which compared to the initial circuit has increased from $2\,T_{ck}$ to $4\,T_{ck}$. 
+
+\begin{figure}[htb]
+	\center
+	\includegraphics[width=0.65\textwidth]{IIR_final.png}
+	\caption{Optimized architecture of J-look-ahead IIR filter}
+	\label{fig:IIR_final}
+	\end{figure}
+
+\pagebreak
+
 \subsection{Simulation}
-Per la simulazione del circuito è stata utilizzato lo stesso testbench precedente in quanto l'entity esterna del cirucito non è cambiata rispetto all'implementazione precedente.
-In \autoref{fig:wave_start_j} è mostrato il con i segnali del DUT. In questo caso quando il segnale $VIN$ diventa valido sono necessari 4 colpi di clock prima che il primo risultato sia disponibile in uscita; il motivo di questa latenza più lunga è dato dal tipo diverso di architettura implementata.
+For the simulation of the circuit has been used the same testbench since the external entity of the circuit has not been modified with respect to the previous implementation.
+In \autoref{fig:wave_start_j} the timing with the signals of the DUT is shown.In this case when the $VIN$ signal becomes valid 4 clock periods are required until the first result is available at the output; the explanation for this longer latency is due to the pipeline stages introduced in the circuit.
 
 \begin{figure}[h]
 	\center
@@ -38,21 +69,21 @@ In \autoref{fig:wave_start_j} è mostrato il con i segnali del DUT. In questo ca
 	\label{fig:wave_start_j}
 \end{figure}
 
-Infine in \autoref{fig:wave_vin_j} si nota il correttamento funzionamento del circuito quando $VIN$ diventa basso e successivamente alto. Infatti il segnale $d\_out$ in un primo momento non cambia e da quando il filtro riprende a campionare passano 4 colpi di clock prima di avere i giusti risultati in uscita.
+Finally in \autoref{fig:wave_vin_j} it is observed the correct operation of the circuit when $VIN$ becomes low and then high. The internal registers do not sample when $VIN$ is not asserted, so the output data does not change, keeping the output valid. When $VIN$ returns to $1$, only one clock period is required before the output changes value because the registers are already full. 
 
 \begin{figure}[h]
 	\center
 	\includegraphics[width=1\textwidth]{images/wave_vin_0_1_j_look_ahead.png}
-	\caption{Simulation of the change of $VIN$ signal}
+	\caption{Simulation of $VIN$ signal trnsition}
 	\label{fig:wave_vin_j}
 \end{figure}
 
-Appurato il corretto timing del circuito è stato effettutato il controllo dei dati in uscita confrantondoli conla corrispondente implementazione in C del modello realizzato. A fronte dello stesso set di dati usati per il testbench dell'architettura precedente sono stati ottenuti gli stessi risultati in uscita. Si può fare riferimento ai dati mostrati in \autoref{tab:tab_results} per avere un idea dei risultati.
+Once the correct timing of the circuit has been verified, the output data has been compared with the corresponding C implementation of the realized model. With the same set of data used for the testbench of the previous architecture, the same output results were obtained. You can refer to the data shown in \autoref{tab:tab_results} to have an outline of the results.
 
 
 \subsection{Logic Synthesis}
-Verificato il corretto funzionamento del filtro con Modelsim si è passati alla sintesi con Synopsys. Gli obiettivi sonno quelli di cercare la frequenza massima di funzionamento e successivamente impostando $T_{CLK} = 4 T_{min}$ cercare l'area e la potenza consumata, utilizzando i dati sulla switching activity prodotti con Modelsim.
-I risultati relativi al periodo di clock, il relativo slack e l'area sono mostrati in \autoref{tab:timing_rep_j}.
+Having verified the correct functioning of the filter with Modelsim, Synopsys has been used for synthesis. The objective is to calculate the maximum frequency of operation of the circuit and then setting $T_{CLK} = 4 T_{min}$, compute the area and the dissipated power, using the data on switching activity produced by Modelsim.
+The results related to the clock period, the associated slack and the area are shown in \autoref{tab:timing_rep_j}.
 
 \begin{table}[h]
 \begin{center}
@@ -71,7 +102,7 @@ $T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 \label{tab:timing_rep_j}
 \end{table}
 
-Successivamente è stata utilizzata netlist generata per calcolare la switiching activity con Modelsim e ottenere in questo modo una stima accurata della potenza consumata dal circuito. I risultati sono mostrati in \autoref{fig:pow_rep_x4_j}.
+Subsequently the netlist generated was used to determine the switiching activity using Modelsim and obtain in this way an accurate estimation of the power consumption of the circuit. The results are shown in \autoref{fig:pow_rep_x4_j}.
 
 \begin{figure}[h]
 	\center
@@ -80,10 +111,10 @@ Successivamente è stata utilizzata netlist generata per calcolare la switiching
 	\label{fig:pow_rep_x4_j}
 \end{figure}
 
-Anche in questo caso si nota come il consumo di potenza sia dato maggiormente dalla parte combinatoria costituita da N sommatori e M moltilicatori.
+Also in this case it is noted that the power consumption is mainly produced by the combinatorial part consisting of 3 adders and 4 multipliers.
 
 \subsection{Place \& Route}
-Finally è stato effettutato il placing and routing con il software innovus seguendo la procedura precedente. Il circuito generato è quello mostrato in \autoref{fig:layout_j}, ha un'area pari a $\SI{3186}{\micro\meter}^2$ in accordo con quello ottenuto dal report di Synopsys, con totale di 1588 cells and 3993 gates. I valori ottenuti sono plausibili se rapportati a quelli dell'architettura precedente in quanto in questo caso sono presenti più elementi fisici (registri, sommatori e moltiplicatori) e di conseguenza ci si aspetta la necessità di area maggiore per allocare tutti i gate necessari.
+The Place \& Route with the innovus software has been carried out following the previous procedure. The generated circuit is the one shown in \autoref{fig:layout_j}, it has an area equal to $\SI{3186}{\micro\meter}^2$ according to the one obtained from the Synopsys report, with a total of 1588 cells and 3993 gates. The values obtained are plausible if compared to those of the previous architecture because in this case there are more physical elements (registers, summers and multipliers) and consequently the need for more area to allocate all the necessary gates is expected.
 
 \begin{figure}[h]
 	\center
@@ -92,7 +123,7 @@ Finally è stato effettutato il placing and routing con il software innovus segu
 	\label{fig:layout_j}
 \end{figure}
 
-Successivamente è stata lancia la timing analysis, la verifica della connectivity e della geometria che hanno evidenziato l'assenza di qualsiasi violazione. Infine è stata un ulteriore stima del consumo di potenza utilizzando la switching activity calcolata con Modelsim. I risultati sono mostrati in \autoref{fig:cadence_pow_rep_x4_j}, anche in questo caso i risultati ottenuti sono in linea con quelli ottenuti dal report di potenza di Synopsys.
+Subsequently it was launched the timing analysis, the verification of connectivity and geometry, which showed the absence of any violation. Starting from the switching activity data obtained from Modelsim, an estimation of the power has been performed. The results are shown in \autoref{fig:cadence_pow_rep_x4_j}, also in this case the results obtained are in line with those obtained from the Synopsys power report.
 
 \begin{figure}[h]
 	\center

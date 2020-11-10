@@ -90,7 +90,7 @@ $T_{CLK}$ (ns) & slack (ns) & area $(\SI{}{\micro\meter})^2$ \\
 
 Il secondo obiettivo è quello di trovare area e consumo di potenza impostando $T_{CLK} = 4 T_{min}$. Per quanto riguarda l'area si può fare riferimento to \autoref{tab:timing_rep}. Per il calcolo della potenza invece è stato generato in primis un record della switching activity tramite una simulazione Modelsim è salvato su un vcd file, successivamente convertito in saif file. La presenza di questi dati serve durante il calcolo del corretto consumo di potenza nell'ambiente Synopsys. I risultati sono mostrati in \autoref{fig:pow_rep_x4}.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\center
 	\includegraphics[width=0.8\textwidth]{images/rep_power_x4_mod.png}
 	\caption{Power Report}
@@ -102,7 +102,14 @@ Si nota come la potenza sia suddivisa tra i registri e la parte combinatoria con
 \subsection{Place \& Route}
 Finally si è passati al placing and routing con l'ausilio del software Innovus. E' stata utilizata la netlist generata da Synopsys con $T_{CLK} = 4 T_{min}$ come punto di partenza e le librerie standard fornite. Dopo le varie fasi richieste si è giunti al circuto finale mostrato in \autoref{fig:layout}.
 
-\begin{figure}[h]
+\begin{figure}[htb]
+	\center
+	\includegraphics[width=0.7\textwidth]{images/rep_power_x4_cadence_mod.png}
+	\caption{Post place \& route power report}
+	\label{fig:cadence_pow_rep_x4}
+\end{figure}
+
+\begin{figure}[htb]
 	\center
 	\includegraphics[width=0.6\textwidth]{images/IIR_filter_period_min_x4_place.jpg}
 	\caption{Resulting layout}
@@ -111,11 +118,7 @@ Finally si è passati al placing and routing con l'ausilio del software Innovus.
 
 Il layout prodotto ha un area pari a $\SI{1959}{\micro\meter}^2$, dato concorde con quello stimato da Synopsys mostrato in \autoref{tab:timing_rep}, con un totale di 986 cells and 2455 gates. Succesivamente è stata lanciata la timing analysis per verificare che i timing constraints fossero corretti, con esito positivo quindi è stata verificata la connectivity e la geometria anch'esse con esito positivo. Infine sfruttando la switching activity calcolata con Modelsim è stato stimato nuovamente il consumo di potenza. I risultati ottenuti sono mostrati in \autoref{fig:cadence_pow_rep_x4}.
 
-\begin{figure}[h]
-	\center
-	\includegraphics[width=0.8\textwidth]{images/rep_power_x4_cadence_mod.png}
-	\caption{Post place \& route power report}
-	\label{fig:cadence_pow_rep_x4}
-\end{figure}
 
 I valori di potenza ottenuti sono concordi con quelli ottenuti da Synopsys in \autoref{fig:pow_rep_x4}. Inoltre, essendo il calcolo a questo livello molto più accurato in quanto prende in considerazione il layout fisico del circuito, infatti si nota come in realtà il consumo della parte combinatoria sia predominate.
+
+\pagebreak
