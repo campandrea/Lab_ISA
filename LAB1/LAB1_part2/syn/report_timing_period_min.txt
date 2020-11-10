@@ -1,30 +1,140 @@
  
 ****************************************
-Report : area
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
 Design : IIR_filter
 Version: O-2018.06-SP4
-Date   : Mon Nov  9 12:03:41 2020
+Date   : Wed Oct 28 10:57:28 2020
 ****************************************
 
-Library(s) Used:
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
 
-    NangateOpenCellLibrary (File: /software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm_nowlm.db)
+  Startpoint: a1[3] (input port clocked by CLK_min)
+  Endpoint: DOUT_reg/Q_reg[0]
+            (rising edge-triggered flip-flop clocked by CLK_min)
+  Path Group: CLK_min
+  Path Type: max
 
-Number of ports:                         1021
-Number of nets:                          3287
-Number of cells:                         2112
-Number of combinational cells:           1945
-Number of sequential cells:               134
-Number of macros/black boxes:               0
-Number of buf/inv:                        334
-Number of references:                      23
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  IIR_filter         5K_hvratio_1_1        NangateOpenCellLibrary
 
-Combinational area:               2936.374008
-Buf/Inv area:                      199.234000
-Noncombinational area:             606.479978
-Macro/Black Box area:                0.000000
-Net Interconnect area:      undefined  (Wire load has zero net area)
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK_min (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 r
+  a1[3] (in)                                              0.00       0.50 r
+  mult_a0/B[3] (multiplier_N12_1)                         0.00       0.50 r
+  mult_a0/mult_15/b[3] (multiplier_N12_1_DW_mult_tc_0)
+                                                          0.00       0.50 r
+  mult_a0/mult_15/U489/ZN (XNOR2_X1)                      0.05       0.55 r
+  mult_a0/mult_15/U487/ZN (OAI22_X1)                      0.04       0.59 f
+  mult_a0/mult_15/U81/S (HA_X1)                           0.08       0.68 f
+  mult_a0/mult_15/U460/ZN (INV_X1)                        0.03       0.71 r
+  mult_a0/mult_15/U461/ZN (OAI222_X1)                     0.05       0.76 f
+  mult_a0/mult_15/U439/ZN (NAND2_X1)                      0.04       0.80 r
+  mult_a0/mult_15/U370/ZN (NAND3_X1)                      0.05       0.85 f
+  mult_a0/mult_15/U434/ZN (NAND2_X1)                      0.04       0.89 r
+  mult_a0/mult_15/U329/ZN (AND3_X1)                       0.05       0.94 r
+  mult_a0/mult_15/U601/ZN (OAI222_X1)                     0.05       0.99 f
+  mult_a0/mult_15/U341/ZN (AND2_X1)                       0.04       1.03 f
+  mult_a0/mult_15/U339/ZN (NOR3_X1)                       0.06       1.09 r
+  mult_a0/mult_15/U600/ZN (OAI222_X1)                     0.06       1.15 f
+  mult_a0/mult_15/U357/ZN (NAND2_X1)                      0.04       1.20 r
+  mult_a0/mult_15/U360/ZN (NAND3_X1)                      0.04       1.24 f
+  mult_a0/mult_15/U406/ZN (NAND2_X1)                      0.04       1.28 r
+  mult_a0/mult_15/U408/ZN (NAND3_X1)                      0.04       1.32 f
+  mult_a0/mult_15/U402/ZN (NAND2_X1)                      0.04       1.36 r
+  mult_a0/mult_15/U404/ZN (NAND3_X1)                      0.04       1.40 f
+  mult_a0/mult_15/U410/ZN (NAND2_X1)                      0.03       1.43 r
+  mult_a0/mult_15/U412/ZN (NAND3_X1)                      0.04       1.47 f
+  mult_a0/mult_15/U414/ZN (NAND2_X1)                      0.04       1.52 r
+  mult_a0/mult_15/U416/ZN (NAND3_X1)                      0.04       1.55 f
+  mult_a0/mult_15/U420/ZN (NAND2_X1)                      0.04       1.59 r
+  mult_a0/mult_15/U422/ZN (NAND3_X1)                      0.04       1.63 f
+  mult_a0/mult_15/U383/ZN (NAND2_X1)                      0.04       1.67 r
+  mult_a0/mult_15/U385/ZN (NAND3_X1)                      0.04       1.71 f
+  mult_a0/mult_15/U377/ZN (NAND2_X1)                      0.03       1.74 r
+  mult_a0/mult_15/U373/ZN (NAND3_X1)                      0.04       1.79 f
+  mult_a0/mult_15/U388/ZN (NAND2_X1)                      0.03       1.82 r
+  mult_a0/mult_15/U391/ZN (NAND3_X1)                      0.03       1.85 f
+  mult_a0/mult_15/U8/CO (FA_X1)                           0.10       1.95 f
+  mult_a0/mult_15/U427/ZN (NAND2_X1)                      0.04       1.99 r
+  mult_a0/mult_15/U428/ZN (NAND3_X1)                      0.05       2.04 f
+  mult_a0/mult_15/U367/ZN (XNOR2_X1)                      0.06       2.10 r
+  mult_a0/mult_15/product[20] (multiplier_N12_1_DW_mult_tc_0)
+                                                          0.00       2.10 r
+  mult_a0/R[20] (multiplier_N12_1)                        0.00       2.10 r
+  add_a0/B[11] (adder_N12_1)                              0.00       2.10 r
+  add_a0/add_16/B[11] (adder_N12_1_DW01_add_0)            0.00       2.10 r
+  add_a0/add_16/U20/ZN (XNOR2_X1)                         0.06       2.16 r
+  add_a0/add_16/U45/Z (XOR2_X1)                           0.07       2.22 r
+  add_a0/add_16/SUM[11] (adder_N12_1_DW01_add_0)          0.00       2.22 r
+  add_a0/U2/Z (CLKBUF_X3)                                 0.06       2.28 r
+  add_a0/R[11] (adder_N12_1)                              0.00       2.28 r
+  mult_b0/A[11] (multiplier_N12_0)                        0.00       2.28 r
+  mult_b0/mult_15/a[11] (multiplier_N12_0_DW_mult_tc_0)
+                                                          0.00       2.28 r
+  mult_b0/mult_15/U433/Z (XOR2_X1)                        0.08       2.36 r
+  mult_b0/mult_15/U486/ZN (NAND2_X1)                      0.04       2.40 f
+  mult_b0/mult_15/U678/ZN (OAI21_X1)                      0.06       2.45 r
+  mult_b0/mult_15/U61/S (HA_X1)                           0.10       2.56 r
+  mult_b0/mult_15/U344/ZN (XNOR2_X1)                      0.07       2.63 r
+  mult_b0/mult_15/U376/ZN (XNOR2_X1)                      0.06       2.69 r
+  mult_b0/mult_15/U375/ZN (XNOR2_X1)                      0.04       2.74 f
+  mult_b0/mult_15/U383/Z (XOR2_X1)                        0.08       2.81 f
+  mult_b0/mult_15/U384/Z (XOR2_X1)                        0.08       2.90 f
+  mult_b0/mult_15/product[11] (multiplier_N12_0_DW_mult_tc_0)
+                                                          0.00       2.90 f
+  mult_b0/R[11] (multiplier_N12_0)                        0.00       2.90 f
+  add_b0/A[2] (adder_N12_0)                               0.00       2.90 f
+  add_b0/add_16/A[2] (adder_N12_0_DW01_add_0)             0.00       2.90 f
+  add_b0/add_16/U43/ZN (NAND2_X1)                         0.03       2.93 r
+  add_b0/add_16/U44/ZN (NAND3_X1)                         0.04       2.97 f
+  add_b0/add_16/U1_3/CO (FA_X1)                           0.10       3.07 f
+  add_b0/add_16/U7/ZN (NAND2_X1)                          0.03       3.10 r
+  add_b0/add_16/U10/ZN (NAND3_X1)                         0.04       3.14 f
+  add_b0/add_16/U1_5/CO (FA_X1)                           0.10       3.24 f
+  add_b0/add_16/U14/ZN (NAND2_X1)                         0.03       3.27 r
+  add_b0/add_16/U16/ZN (NAND3_X1)                         0.04       3.31 f
+  add_b0/add_16/U1_7/CO (FA_X1)                           0.10       3.41 f
+  add_b0/add_16/U26/ZN (NAND2_X1)                         0.05       3.45 r
+  add_b0/add_16/U27/ZN (NAND3_X1)                         0.04       3.49 f
+  add_b0/add_16/U32/ZN (NAND2_X1)                         0.04       3.53 r
+  add_b0/add_16/U18/ZN (NAND3_X1)                         0.04       3.57 f
+  add_b0/add_16/U47/ZN (NAND2_X1)                         0.03       3.60 r
+  add_b0/add_16/U50/ZN (NAND3_X1)                         0.03       3.63 f
+  add_b0/add_16/U3/ZN (XNOR2_X1)                          0.07       3.70 r
+  add_b0/add_16/SUM[11] (adder_N12_0_DW01_add_0)          0.00       3.70 r
+  add_b0/R[11] (adder_N12_0)                              0.00       3.70 r
+  saturation/NUM_IN[11] (Saturator_N_in12_N_out10)        0.00       3.70 r
+  saturation/U27/ZN (INV_X1)                              0.03       3.73 f
+  saturation/U24/ZN (OAI33_X1)                            0.06       3.78 r
+  saturation/U15/ZN (INV_X1)                              0.03       3.82 f
+  saturation/U3/ZN (NAND2_X1)                             0.06       3.87 r
+  saturation/U26/ZN (OAI21_X1)                            0.04       3.92 f
+  saturation/NUM_OUT[0] (Saturator_N_in12_N_out10)        0.00       3.92 f
+  DOUT_reg/D[0] (RegisterSigned_N10)                      0.00       3.92 f
+  DOUT_reg/U24/ZN (AOI22_X1)                              0.04       3.96 r
+  DOUT_reg/U10/ZN (INV_X1)                                0.02       3.98 f
+  DOUT_reg/Q_reg[0]/D (DFF_X1)                            0.01       3.99 f
+  data arrival time                                                  3.99
 
-Total cell area:                  3542.853986
-Total area:                 undefined
+  clock CLK_min (rise edge)                               4.10       4.10
+  clock network delay (ideal)                             0.00       4.10
+  clock uncertainty                                      -0.07       4.03
+  DOUT_reg/Q_reg[0]/CK (DFF_X1)                           0.00       4.03 r
+  library setup time                                     -0.04       3.99
+  data required time                                                 3.99
+  --------------------------------------------------------------------------
+  data required time                                                 3.99
+  data arrival time                                                 -3.99
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
 1
