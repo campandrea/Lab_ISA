@@ -1,0 +1,30 @@
+\section{Advanced architecture development}
+\graphicspath{{sec3/images/}}
+In this section is analyzed the design of the same IIR filter seen previously but with an advanced architecture, developed with the J-look-ahead technique. The basic equation of the filter is the following:
+$$ y[n] = b_0x[n] + b_1x[n-1] + a_1y[n-1]$$
+
+The J-look-ahead technique involves rewriting the equation by replacing the term $y[n-1]$ by evaluating it as a function of $y[n-2]$.
+$$ y[n-1] = b_0x[n-1] + b_1x[n-2] + a_1y[n-2]$$
+
+Then it is possible to replace the result obtained in the starting equation:
+$$ y[n] = b_0x[n] + b_1x[n-1] + a_1(b_0x[n-1] + b_1x[n-2] + a_1y[n-2])$$
+$$ y[n] = b_0x[n] + (b_1 + a_1)x[n-1] + a_1b_1x[n-2] + {a_1}^{2}y[n-2]$$
+
+While keeping the classical architecture of the IIR direct form II filter, the resulting equation can be implemented through the scheme of a second-order filter.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.65\textwidth]{IIR_2.png}
+	\caption{IIR filter with J-look-ahead technique}
+	\label{fig:IIR_advanced}
+\end{figure}
+
+\subsection{C model}
+
+For the circuit, a C model was created for Fixed point analysis; for this model a new script written ad hoc was used, which uses a vector of 7 components to simulate the pipelined architecture of the component. The script name is \textit{J-look-ahead.c} and was included in the report delivery.The output signal from the filter was then analyzed on Matlab to evaluate its effectiveness. Then it was evaluated the Total Harmonic Distortion that, as you can observe from the \autoref{fig:THD_5_bit_IIR_JLA}, remained perfectly within the specifications.
+
+\input{sec3/desing_optimization}
+\input{sec3/comparing_desing}
+\input{sec3/simulation}
+\input{sec3/synthesis}
+

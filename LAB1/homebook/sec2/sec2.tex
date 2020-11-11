@@ -1,0 +1,17 @@
+\section{VLSI implementation}
+\graphicspath{{sec2/images/}}
+The purpose of this section is to present the implementation of the designed IIR filter, which in this case is an IIR filter with an accuracy of 10 bits and order of 1. In \autoref{fig:filter_generic} the filter interface is shown, where the parallelism $n_b$ is set to 10 and since the order of the filter is 1, the necessary coefficients are $a_0, a_1, b_0, b_1$.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.4\textwidth]{filtro_generic.png}
+	\caption{Filter pinout}
+	\label{fig:filtro_generic}
+\end{figure}
+
+\input{sec2/VHDL_model}
+\input{sec2/Simulation}
+\input{sec2/synthesis}
+
+
+\pagebreak
