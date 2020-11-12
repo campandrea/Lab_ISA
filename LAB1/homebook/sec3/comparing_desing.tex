@@ -1,4 +1,8 @@
-\subsubsection{Comparing Direct form II and J-Look-Ahead}
+\subsection{C model}
+
+For the circuit, a C model was created for Fixed point analysis; for this model a new script written ad hoc was used, which uses a vector of 7 components to simulate the pipelined architecture of the component. The script name is \textit{J-look-ahead.c} and was included in the report delivery.The output signal from the filter was then analyzed on Matlab to evaluate its effectiveness. Then it was evaluated the Total Harmonic Distortion that, as you can observe from the \autoref{fig:THD_5_bit_IIR_JLA}, remained perfectly within the specifications.
+
+\subsection{Comparing Direct form II and J-Look-Ahead}
 What will be presented now is an analysis of the data obtained from the two filters, with the aim of demonstrating their equivalence in behavior despite the great difference between the two topologies. In particular they will be examined in Matlab environment:
 
 \begin{itemize}
@@ -7,7 +11,7 @@ What will be presented now is an analysis of the data obtained from the two filt
 	\item Variance of the two signals
 \end{itemize}
 
-Notice that the IIR look-ahead filter topology in \autoref{the figure} has two pipeline stages between the input and output signal, this implies that the signal has a higher latency than the Direct form II topology, which corresponds exactly to two clock cycles. The table in \autoref{fig:THD_table} shows the results of the two implementations.
+Notice that the IIR look-ahead filter topology in \autoref{fig:IIR_final} has two pipeline stages between the input and output signal, this implies that the signal has a higher latency than the Direct form II topology, which corresponds exactly to two clock cycles. The table in \autoref{fig:THD_table} shows the results of the two implementations.
 
 \begin{figure}[ht]
 	\begin{minipage}[b]{0.5\linewidth}
@@ -39,15 +43,15 @@ As the J-look-Ahead {THD} graph has anticipated, the two signals are not perfect
 	\end{center}
 \end{table}
 
-The two signals are not perfectly identical, and in fact they present different averages and variance, but they have the same order of magnitude and values consistent with the system under analysis. For a finer analysis it is necessary to use Allan's variance to measure how much the noise degrades the performance and how much the oscillatory behavior of the output is more or less stable. In \autoref{fig:Allan_Var_DF2} the variance of the two signals is represented and in \autoref{fig:Allan_Var_difference} the difference between the two variance to assess how much the stability of Direct Form II differs from that of J-Look-Ahead, both graphs were generated using the Matlab function \textit{allanvar()}:
+The two signals are not perfectly identical, and in fact they present different averages and variance, but they have the same order of magnitude and values consistent with the system under analysis. For a finer analysis it is necessary to use Allan's variance to measure how much the noise degrades the performance and how much the oscillatory behavior of the output is more or less stable. In \autoref{fig:Allan_Var} the variance of the two signals is represented and in \autoref{fig:Allan_Var_difference} the difference between the two variance to assess how much the stability of Direct Form II differs from that of J-Look-Ahead, both graphs were generated using the Matlab function \textit{allanvar()}:
 
 \begin{figure}[ht]
 	\centering
 	\begin{minipage}[b]{0.44\linewidth}
 		\centering
-		\includegraphics[width=\textwidth]{Allan Var DF2.png}
+		\includegraphics[width=\textwidth]{Allan Variance.png}
 		\caption{Allan variance of the Direct Form II  and J-look-ahead IIR Filter}
-		\label{fig:Allan_Var_DF2}
+		\label{fig:Allan_Var}
 	\end{minipage}
 	\hspace{0.5cm}
 	\begin{minipage}[b]{0.48\linewidth}
@@ -57,3 +61,5 @@ The two signals are not perfectly identical, and in fact they present different 
 		\label{fig:Allan_Var_difference}
 	\end{minipage}
 \end{figure}
+
+\pagebreak

@@ -1,0 +1,43 @@
+###########################################
+# 	  Integrated System Architecture	  #
+#                                         #
+#	  	s271232 Campanella Andrea      	  #
+# 	  	s269092 Iacovelli Gianluca     	  #
+# 	  	s276744 Pala Stefano      	  	  #
+###########################################
+
+* LAB1/ 
+	Contains all the files associated to the 
+	first LAB
+	
+* LAB1/LAB1_part1
+	Contains all the files associated to the
+	direct form II implementation
+	
+	- VHDL sources can be found in VHDL_sources/
+	- VHDL and verilog testbench files can be found 
+		in testbench/
+	- In/Out files of the simulations are in 
+		simulation_results/
+	- sim/ Modelsim folder
+	- syn/ Synopsis folder
+	- innovus/ Innovus folder
+	- Matlab_scripts/ contains all the scripts used
+		in the first part of the lab
+	- C_programs/
+	- Python_scripts/ contains the auxiliary testbench
+		program
+		
+		
+* LAB1/LAB1_part2
+	Contains all the files associated to the
+	J-look_ahead implementation
+	
+	The folder has the same structure of the
+	previous part of the lab
+	
+	
+	
+* LAB2/
+	Contains all the files associated to the 
+	second LAB

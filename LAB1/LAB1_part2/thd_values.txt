@@ -1,7 +1,0 @@
-order = 8	 n_bit = 4	 thd = 0.5
-order = 8	 n_bit = 5	 thd = -23.9
-order = 8	 n_bit = 6	 thd = -28.1
-order = 8	 n_bit = 7	 thd = -33.9
-order = 8	 n_bit = 8	 thd = -38.9
-order = 8	 n_bit = 9	 thd = -44.3
-order = 8	 n_bit = 10	 thd = -49.3
