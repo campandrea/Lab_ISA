@@ -67,6 +67,8 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true}
 \hypersetup{linkcolor=black}
+\hypersetup{urlcolor=blue}
+\usepackage{xcolor}
 
 
 
@@ -83,11 +85,13 @@
 \linespread{1.1}
 
 \pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
 \lhead{}
 \chead{Integrated Systems Architecture}
-\lfoot{}
-\cfoot{}
+\lfoot{\footnotesize{\href{https://github.com/campandrea/Lab_ISA/}{\textcolor{black}{Github repository:} here}}}
 \rfoot{}
+\cfoot{}
 \rhead{\thepage}
 
 \usepackage{graphicx}
@@ -149,6 +153,7 @@
 		% Change the name of the Group participants here
 		%
 		\centerline{\large Campanella Andrea, Iacovelli Gianluca, Pala Stefano}
+		\vspace{0.5cm}
 
 		%
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
