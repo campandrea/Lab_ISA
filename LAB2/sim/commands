@@ -1,0 +1,7 @@
+vcom -93 -work ./work ../fpuvhdl/common/*.vhd
+vcom -93 -work ./work ../DaddaVGen/*.vhd
+vcom -93 -work ./work ../fpuvhdl/multiplier/fpmul_stage*.vhd
+vcom -93 -work ./work ../fpuvhdl/multiplier/fpmul_pipeline_reg_mbe.vhd
+vcom -93 -work ./work ../testbench/*.vhd
+vlog -work ./work ../testbench/tb_fpmul_pipeline.v
+vsim work.tb_fpmul_pipeline &

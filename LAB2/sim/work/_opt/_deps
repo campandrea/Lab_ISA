@@ -1,28 +1,36 @@
-H 2141964 11 3 0 14 10 0 0 0 0
+H 2141964 11 3 0 18 14 0 0 0 0
 L 4 ieee 19 $MODEL_TECH/../ieee
 L 3 std 18 $MODEL_TECH/../std
 L 4 work 6 ./work
-D 19 ./work.clk_gen(beh) M3EiTO:0g<SRSDzi7;4ma3 0 1
-D 22 ./work.fpmul(pipeline) acF5[aHgfeFoeGN6caWhT2 12 1
-D 27 ./work.fpmul_stage1(struct) X4C:zJ@ciddRk08ZM8@5W3 5 1
-D 27 ./work.fpmul_stage2(struct) nER_Q>NeJ9I1=42C7YbjO3 6 1
-D 27 ./work.fpmul_stage3(struct) I27kNMf@^_dDF?mX[?UmU0 9 1
-D 27 ./work.fpmul_stage4(struct) zWU>=bEMieo>ZNkD=C?=R2 11 1
-D 31 ./work.fpnormalize(fpnormalize) >ICK?B]ciEBfk9nDK573=3 7 1
-D 23 ./work.fpround(fpround) ;Zlz?mFR7bL6<Si4iO^>;3 8 1
-D 28 ./work.output_sink(behavior) fQGbj;XL:8B2WfQ9S9CaU1 1 1
-D 21 ./work.packfp(packfp) ::WW?]=P6L:iPE`3NNO[O0 10 1
-D 30 ./work.register_std_logic(rtl) 8g15M[VGJ`iZAKZ7Vg;Ph1 3 1
-D 34 ./work.stimuli_generator(behavior) Od;YfWUnMeNUPN3[CBYK11 2 1
-D 24 ./work.tb_fpmul_pipeline V<cKmFTF=BR1hbI_CihIL2 13 0
-D 25 ./work.unpackfp(unpackfp) 5kT:h0NeIW3J8Udf_5WZN2 4 1
-2 0  1 7236A:9:n^BT3iDMbfff;1 0 3 1
-2 0  0 hZB[]C?:GU4=?ORP0hZgT0 3 6 1
-2 0  0 3:AGIjCAMnlMC=zoF>^4o0 8 11 1
-2 4 fast 0 dPnf2DgOM6MY]LK@80ceC3 9 13 1
-2 0  1 h@mA7?[Khh0V26?k5UWE<1 6 9 1
-2 0  0 L]noReBZMWhRPfVkY=2IM3 1 4 1
-2 0  1 IOFoJfLVD]A9O=>jU2V<R2 5 8 1
-2 0  0 i^`^O1TNNJA4n2VI_`0RO0 7 10 1
-2 0  1 HEB3mYJfnDXSBB@l65A5F3 4 7 1
-2 0  0 LdQajE]g^OSlidTCeS87J2 2 5 1
+D 19 ./work.clk_gen(beh) M3EiTO:0g<SRSDzi7;4ma3 8 1
+D 22 ./work.fpmul(pipeline) acF5[aHgfeFoeGN6caWhT2 16 1
+D 27 ./work.fpmul_stage1(struct) X4C:zJ@ciddRk08ZM8@5W3 2 1
+D 27 ./work.fpmul_stage2(struct) `jMMj5kC>gL1[dBNe4K]F0 15 1
+D 27 ./work.fpmul_stage3(struct) I27kNMf@^_dDF?mX[?UmU0 5 1
+D 27 ./work.fpmul_stage4(struct) zWU>=bEMieo>ZNkD=C?=R2 7 1
+D 31 ./work.fpnormalize(fpnormalize) >ICK?B]ciEBfk9nDK573=3 3 1
+D 23 ./work.fpround(fpround) ;Zlz?mFR7bL6<Si4iO^>;3 4 1
+D 27 ./work.full_adder(behavior) kkibF65ReZcieH105j10K0 13 1
+D 23 ./work.half_adder(arch) 91b[aZo[Zk4QQI2aHLS?K3 12 1
+D 20 ./work.mbe_ppg(arch) Rd>9oWjB6B_G;O]4EJVA?3 11 1
+D 25 ./work.mult_dadda32(arch) J7U5RN]dWBnR[@g>[Q_>b0 14 1
+D 28 ./work.output_sink(behavior) fQGbj;XL:8B2WfQ9S9CaU1 9 1
+D 21 ./work.packfp(packfp) ::WW?]=P6L:iPE`3NNO[O0 6 1
+D 30 ./work.register_std_logic(rtl) 8g15M[VGJ`iZAKZ7Vg;Ph1 0 1
+D 34 ./work.stimuli_generator(behavior) Od;YfWUnMeNUPN3[CBYK11 10 1
+D 24 ./work.tb_fpmul_pipeline V<cKmFTF=BR1hbI_CihIL2 17 0
+D 25 ./work.unpackfp(unpackfp) 5kT:h0NeIW3J8Udf_5WZN2 1 1
+2 0  1 7236A:9:n^BT3iDMbfff;1 0 0 1
+2 0  0 L]noReBZMWhRPfVkY=2IM3 1 1 1
+2 0  0 LdQajE]g^OSlidTCeS87J2 2 2 1
+2 0  1 IOFoJfLVD]A9O=>jU2V<R2 4 4 1
+2 0  1 h@mA7?[Khh0V26?k5UWE<1 5 5 1
+2 0  0 i^`^O1TNNJA4n2VI_`0RO0 6 6 1
+2 0  0 3:AGIjCAMnlMC=zoF>^4o0 7 7 1
+2 0  1 HEB3mYJfnDXSBB@l65A5F3 3 3 1
+2 0  1 JhS;XZSGl?>cF=U1LY4GN3 11 14 1
+2 0  0 `NE_28ciB]01A@ZYk`3Ak1 10 13 1
+2 0  1 [dHQoF5^FBWFfeF45UBb61 8 11 1
+2 4 fast 0 ^ZY`z4_@R3`ziCzh=AX_32 13 17 1
+2 0  0 BGSHF5kBjfjR7@ac@iJ0i0 9 12 1
+2 0  1 AHL1BP:E9@afhDec?OD;_2 12 15 1

@@ -9,75 +9,7 @@
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
 # vsim work.tb_fpmul_pipeline 
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Error: ../testbench/tb_fpmul_pipeline.v(21): Module 'clk_gen' is not defined.
-# ** Error: ../testbench/tb_fpmul_pipeline.v(31): Module 'Output_Sink' is not defined.
-# ** Error: ../testbench/tb_fpmul_pipeline.v(42): Module 'Stimuli_generator' is not defined.
-# ** Error: ../fpuvhdl/multiplier/fpmul_pipeline_reg.vhd(45): Vopt Compiler exiting
-# Error loading design
-vlog -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
-# Model Technology ModelSim SE vlog 6.2g Compiler 2007.02 Feb 21 2007
-# -- Skipping entity clk_gen
-# -- Skipping entity fpmul
-# -- Skipping entity fpmul_stage1
-# -- Skipping entity fpmul_stage2
-# -- Skipping entity fpmul_stage3
-# -- Skipping entity fpmul_stage4
-# -- Skipping entity fpnormalize
-# -- Skipping entity fpround
-# -- Skipping entity output_sink
-# -- Skipping entity packfp
-# -- Skipping entity register_std_logic
-# -- Skipping entity stimuli_generator
-# -- Refreshing module tb_fpmul_pipeline
-# -- Skipping entity unpackfp
-vcom -work /home/isa24/Lab_ISA/LAB2/sim/work -refresh
-# Model Technology ModelSim SE vcom 6.2g Compiler 2007.02 Feb 21 2007
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_arith
-# -- Loading package std_logic_unsigned
-# -- Compiling entity clk_gen
-# -- Compiling architecture beh of clk_gen
-# -- Compiling entity fpmul
-# -- Compiling architecture pipeline of fpmul
-# -- Loading entity fpmul_stage1
-# -- Loading entity fpmul_stage2
-# -- Loading entity fpmul_stage3
-# -- Loading entity fpmul_stage4
-# -- Compiling entity fpmul_stage1
-# -- Compiling architecture struct of fpmul_stage1
-# -- Loading entity unpackfp
-# -- Compiling entity fpmul_stage2
-# -- Compiling architecture struct of fpmul_stage2
-# -- Compiling entity fpmul_stage3
-# -- Compiling architecture struct of fpmul_stage3
-# -- Loading entity fpnormalize
-# -- Loading entity fpround
-# -- Compiling entity fpmul_stage4
-# -- Compiling architecture struct of fpmul_stage4
-# -- Loading entity packfp
-# -- Compiling entity fpnormalize
-# -- Compiling architecture fpnormalize of fpnormalize
-# -- Compiling entity fpround
-# -- Compiling architecture fpround of fpround
-# -- Loading package numeric_std
-# -- Loading package textio
-# -- Loading package std_logic_textio
-# -- Compiling entity output_sink
-# -- Compiling architecture behavior of output_sink
-# -- Compiling entity packfp
-# -- Compiling architecture packfp of packfp
-# -- Compiling entity register_std_logic
-# -- Compiling architecture rtl of register_std_logic
-# -- Compiling entity stimuli_generator
-# -- Compiling architecture behavior of stimuli_generator
-# -- Skipping module tb_fpmul_pipeline
-# -- Compiling entity unpackfp
-# -- Compiling architecture unpackfp of unpackfp
-vsim work.tb_fpmul_pipeline
-# vsim work.tb_fpmul_pipeline 
-# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.tb_fpmul_pipeline(fast)
 # ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
 #         Region: /tb_fpmul_pipeline
@@ -95,14 +27,18 @@ vsim work.tb_fpmul_pipeline
 # Loading work.register_std_logic(rtl)#1
 # Loading work.fpmul_stage1(struct)
 # Loading work.unpackfp(unpackfp)
-# Loading work.fpmul_stage2(struct)
+# Loading work.fpmul_stage2(struct)#1
+# Loading work.mult_dadda32(arch)#1
+# Loading work.mbe_ppg(arch)#1
+# Loading work.half_adder(arch)
+# Loading work.full_adder(behavior)
 # Loading work.fpmul_stage3(struct)#1
 # Loading work.fpnormalize(fpnormalize)#1
 # Loading work.fpround(fpround)#1
 # Loading work.fpmul_stage4(struct)
 # Loading work.packfp(packfp)
 add wave sim:/tb_fpmul_pipeline/DUT/*
-run 100 us
+run 5 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -118,10 +54,6 @@ run 100 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
@@ -129,10 +61,6 @@ run 100 us
 #    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -146,57 +74,11 @@ run 100 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+#    Time: 24 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-restart
-# Loading work.tb_fpmul_pipeline(fast)
-# ** Warning: (vsim-PLI-3003) ../testbench/tb_fpmul_pipeline.v(63): [TOFD] - System task or function '$toggle_stop' is not defined.
-#         Region: /tb_fpmul_pipeline
-run 100 us
+#    Time: 24 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
+#    Time: 40 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i3/i11
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 0  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ns  Iteration: 1  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 8 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 24 ns  Iteration: 3  Instance: /tb_fpmul_pipeline/DUT/i2
+#    Time: 40 ns  Iteration: 4  Instance: /tb_fpmul_pipeline/DUT/i3/i11
+quit

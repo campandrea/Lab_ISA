@@ -56,7 +56,7 @@ ARCHITECTURE pipeline OF FPmul IS
    SIGNAL SIG_in_samp :     std_logic_vector (27 DOWNTO 0);
    SIGNAL isINF_stage2_samp    :     std_logic ;
    SIGNAL isNaN_stage2_samp    :     std_logic ;
-   SIGNAL isZ_tab_stage2_samp  :     std_logic 
+   SIGNAL isZ_tab_stage2_samp  :     std_logic;
    
    SIGNAL A_EXP           : std_logic_vector(7 DOWNTO 0);
    SIGNAL A_SIG           : std_logic_vector(31 DOWNTO 0);
@@ -86,7 +86,7 @@ ARCHITECTURE pipeline OF FPmul IS
 
    -- Component Declarations
    
-   COMPONENT register_std_logic is
+   COMPONENT register_std_logic
     generic (
         N : natural
 	);
@@ -98,6 +98,16 @@ ARCHITECTURE pipeline OF FPmul IS
         Q   : out std_logic_vector(N-1 downto 0)
 	);
 	END COMPONENT;
+	
+	COMPONENT FF
+    port(
+        clk : in std_logic;
+        en  : in std_logic;
+        rst : in std_logic;
+        D   : in std_logic;
+        Q   : out std_logic
+    );
+	end component;
    
    COMPONENT FPmul_stage1
    PORT (
@@ -251,8 +261,7 @@ BEGIN
         D   => EXP_in,
         Q   => EXP_in_samp
 	);
-   EXP_neg_stage2_reg : register_std_logic
-    generic map ( N => 1 )
+   EXP_neg_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
@@ -260,8 +269,7 @@ BEGIN
         D   => EXP_neg_stage2,
         Q   => EXP_neg_stage2_samp
 	);
-   EXP_pos_stage2_reg : register_std_logic
-    generic map ( N => 1 )
+   EXP_pos_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
@@ -269,8 +277,7 @@ BEGIN
         D   => EXP_pos_stage2,
         Q   => EXP_pos_stage2_samp
 	);
-   SIGN_out_stage2_reg : register_std_logic
-    generic map ( N => 1 )
+   SIGN_out_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
@@ -287,8 +294,7 @@ BEGIN
         D   => SIG_in,
         Q   => SIG_in_samp
 	);
-   isINF_stage2_reg : register_std_logic
-    generic map ( N => 1 )
+   isINF_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
@@ -296,8 +302,7 @@ BEGIN
         D   => isINF_stage2,
         Q   => isINF_stage2_samp
 	);
-   isNaN_stage2_reg : register_std_logic
-    generic map ( N => 1 )
+   isNaN_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
@@ -305,8 +310,7 @@ BEGIN
         D   => isNaN_stage2,
         Q   => isNaN_stage2_samp
 	);
-   isZ_tab_stage2_reg : register_std_logic
-    generic map ( N => 32 )
+   isZ_tab_stage2_reg : FF
     PORT MAP(
         clk => clk,
         en  => '1',
