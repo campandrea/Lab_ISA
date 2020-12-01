@@ -14,7 +14,7 @@ USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 
 ENTITY FPmul_stage2 IS
-   PORT( 
+   PORT(
       A_EXP           : IN     std_logic_vector (7 DOWNTO 0);
       A_SIG           : IN     std_logic_vector (31 DOWNTO 0);
       B_EXP           : IN     std_logic_vector (7 DOWNTO 0);
@@ -59,6 +59,12 @@ USE ieee.std_logic_arith.all;
 ARCHITECTURE struct OF FPmul_stage2 IS
 
    -- Architecture declarations
+   component Mult_Dadda32 is
+   	generic(N : natural := 32);
+   port(x : in std_logic_vector(N - 1 downto 0);
+   	y: in std_logic_vector(N - 1 downto 0);
+   	z : out std_logic_vector(2*N - 1 downto 0));
+end component;
 
    -- Internal signal declarations
    SIGNAL EXP_in_int  : std_logic_vector(7 DOWNTO 0);
@@ -83,7 +89,7 @@ BEGIN
 
    -- HDL Embedded Text Block 3 latch
    -- eb2 2
-   
+
    PROCESS(clk)
    BEGIN
       IF RISING_EDGE(clk) THEN
@@ -128,12 +134,19 @@ BEGIN
    END PROCESS I4combo;
 
    -- ModuleWare code(v1.1) for instance 'I2' of 'mult'
-   I2combo : PROCESS (A_SIG, B_SIG)
-   VARIABLE dtemp : unsigned(63 DOWNTO 0);
-   BEGIN
-      dtemp := (unsigned(A_SIG) * unsigned(B_SIG));
-      prod <= std_logic_vector(dtemp);
-   END PROCESS I2combo;
+   --I2combo : PROCESS (A_SIG, B_SIG)
+   --VARIABLE dtemp : unsigned(63 DOWNTO 0);
+   --BEGIN
+    --  dtemp := (unsigned(A_SIG) * unsigned(B_SIG));
+    --  prod <= std_logic_vector(dtemp);
+   --END PROCESS I2combo;
+
+   mbe_multiplier: Mult_Dadda32
+    PORT MAP (
+        x => A_SIG,
+        y => B_SIG,
+        z => prod
+    );
 
    -- ModuleWare code(v1.1) for instance 'I6' of 'vdd'
    dout <= '1';
