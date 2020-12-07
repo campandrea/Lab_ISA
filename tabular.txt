@@ -1,6 +1,4 @@
-\section{Second Section}
-\todo{insert the second section here}
-begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|}
 	\hline
 	Architercture & period_min ns & area (um^2)\\
 	\hline
