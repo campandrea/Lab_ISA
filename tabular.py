@@ -8,17 +8,23 @@ tab = [["Architercture", "classic", "csa", "pparch", "stage2 reg+compile", "stag
 
 
 fp = open("tabular.txt","w")
+fp.write("\\begin{table}[h]\n")
+fp.write("\\begin{center}\n")
 fp.write("\\begin{tabular}{")
 for i in tab:
 	fp.write("|l")
 fp.write("|}\n")
 for row in range(len(tab[0])):
-	fp.write("\t\\hline\n\t")
+	fp.write("\\hline\n")
 	for col in range(len(tab)):
 		fp.write("{}".format(tab[col][row]))
 		if col != len(tab)-1:
 			fp.write(" & ")
 	fp.write("\\\\\n")
-fp.write("\t\\hline\n")
-fp.write("\\end{tabular}")
+fp.write("\\hline\n")
+fp.write("\\end{tabular}\n")
+fp.write("\\end{center}\n")
+fp.write("\\caption{Questa e' la caption}\n")
+fp.write("\\label{tab:tab_label}\n")
+fp.write("\\end{table}\n")
 print("Done")

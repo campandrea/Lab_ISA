@@ -1,19 +1,25 @@
+\begin{table}[h]
+\begin{center}
 \begin{tabular}{|l|l|l|}
-	\hline
-	Architercture & period_min ns & area (um^2)\\
-	\hline
-	classic & 1.56 & 4047.7\\
-	\hline
-	csa & 4.28 & 4851.6\\
-	\hline
-	pparch & 1.45 & 4088.4\\
-	\hline
-	stage2 reg+compile & 0.79 & 4924.7\\
-	\hline
-	stage2 reg+compile_ultra & 1.52 & 4188.2\\
-	\hline
-	mbe compile & 1.94 & 5360.4\\
-	\hline
-	mbe compile ultra & 1.64 & 5327.7\\
-	\hline
+\hline
+Architercture & period_min ns & area (um^2)\\
+\hline
+classic & 1.56 & 4047.7\\
+\hline
+csa & 4.28 & 4851.6\\
+\hline
+pparch & 1.45 & 4088.4\\
+\hline
+stage2 reg+compile & 0.79 & 4924.7\\
+\hline
+stage2 reg+compile_ultra & 1.52 & 4188.2\\
+\hline
+mbe compile & 1.94 & 5360.4\\
+\hline
+mbe compile ultra & 1.64 & 5327.7\\
+\hline
 \end{tabular}
+\end{center}
+\caption{Questa e' la caption}
+\label{tab:tab_label}
+\end{table}
