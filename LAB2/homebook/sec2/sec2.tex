@@ -1,29 +1,41 @@
-\section{Results}
-\todo{tabella e commenti}
+\section{Synthesis}
+Per tutte le architetture descritte è stata effettuata la sintesi con il software Synopsys allo scopo di trovare la massima frequenza di funzionamento e la corrispondente area. Per trovare questi risultati è stato imposto in un primo momento il periodo di clock pari zero; successivamente è stato aumentato tale valore fino ad ottenere slack nullo.
 
+\subsection{Results}
+
+I risultati ottenuti dalle varie sintesi sono mostrati in \autoref{tab:syn_results}.
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
 Architercture & period\_min (ns) & area ($\SI{}{\micro\meter}^2$)\\
 \hline
-classic & 1.56 & 4047.7\\
+standard & 1.56 & 4047.7\\
 \hline
 csa & 4.28 & 4851.6\\
 \hline
 pparch & 1.45 & 4088.4\\
 \hline
-stage2 reg and compile & 0.79 & 4924.7\\
+fine grain pipelining & 0.79 & 4924.7\\
 \hline
-stage2 reg and compile\_ultra & 1.52 & 4188.2\\
+fine grain pipelining (compile\_ultra) & 1.52 & 4188.2\\
 \hline
-mbe compile & 1.94 & 5360.4\\
+mbe & 1.94 & 5360.4\\
 \hline
-mbe compile ultra & 1.64 & 5327.7\\
+mbe (compile ultra) & 1.64 & 5327.7\\
 \hline
-
 \end{tabular}
 \end{center}
-\caption{Questa e' la caption}
-\label{tab:tab_label}
+\caption{Syntesis Results}
+\label{tab:syn_results}
 \end{table}
+Una prima osservazione che si può fare è quella riguardante l'architettura standard: i risulati mostrano dei valori non tanto lontani dalle altre architetture segno che lasciare libertà al sintetizzatore non sempre è una cattiva scelta.
+
+La soluzione combinata invece nella quale si impone l'implementazione del sommatore ,presente nel moltiplicatore del secondo stage, può portare a risultati totalmente diversi e a volte controproducenti; infatti scegliendo un carry save adder il periodo minimo aumenta molto, circa il 175\%, e con esso anche l'area mentre scegliendo un parallel-prefix adder abbiamo un leggero miglioramento della frequenza, l'8\% mantendo l'area circa uguale all'implemetazione standard.
+
+La soluzione con il fine grain pipelining è quella che ha il periodo di clock più piccolo in assoluto, questo perchè con questa soluzione si riduce al minimo il percorso combinatorio più lungo. Nonostante ciò si ottengono due risultati completamenti diversi se si sceglie di forzare il retiming (comando \texttt{optimize\_register}) con conseguente compilazione classica oppure utilizzando solamente il comando \texttt{compile\_ultra} che abilita diversi meccanismi di ottimizzazione come l'automatic ungrouping che permette di ottimizzare il timing del circuito. \todo{necessario?} Nel primo caso si osserva una netta riduzione del periodo di clock, circa il 50\% a scapito di un aumento dell'area del 22\%. Nel secondo caso invece si osserva una riduzione solo del 3\% del periodo di clock e anche qui un leggero aumento dell'area, comunque inferiore al caso precedente. Si potrebbe quindi concludere che in questa particolare situazione non risulta conveniente utilizzare questa tecnica a meno che non si abbiano dei vincoli stringenti sull'area da occupare.
+
+Infine implementando il moltiplicatore del secondo stage con la tecnica del modified Booth Encoding non si notano particolari vantaggi, anzi il periodo di clock aumenta del 24\% e l'area del 32\%, risultato dovuto probabilmente all'incremento del percorso combinatorio per l'aggiunta del Dadda tree. Si riescono ad ottenere dei risultati leggermente migliori utilizzando il comando \texttt{compile\_ultra}.
+\\
+\\
+Concludendo si potrebbe affermare che un buon compromesso per migliorare le prestazioni del circuito sia quello di implementare il sommatore come parallel-prefix che mantiene l'area invariata, oppure utilizzando il fine grain pipelining se si ha la possibilità di occupare un'area maggiore.
