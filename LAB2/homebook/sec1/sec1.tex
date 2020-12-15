@@ -34,59 +34,61 @@ A fronte di questa modifica è stato effettuato un secondo testbench, funzionalm
 
 %%%%%%%%%%%%%%STAGE 2 MANIPULATION%%%%%%%%%%%%%%%
 
+<<<<<<< HEAD
 \subsection{Carry Save Adder (CSA)}
 \todo{Descrivere CSA}
 \subsection{Parallel Prefix Architecture (PPARCH)}
 \todo{Descrivere PPARCH}
 In this section a few optimizations was done. In fact, respect to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{pipelined} version of the stage 2. These variations can be carried out by simply using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and to do that the following commands were used in the synthesis process:
+=======
+\subsection{Stage 2 CSA PPARCH}
+In this section a few optimizations were done. In fact, compared to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{Parallel Prefix} version of the stage 2. These variations can be simply carried out by using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and in order to do that the following commands were used in the synthesis process:
+>>>>>>> 761084f50474e5f1b6a3633306cc1d146eeac2c7
 \begin{itemize}
 \item ungroup -all flatten
 \item set\_implementation DW02\_mult/csa [find cell *mult] 
 \end{itemize}
-For the PPARCH the same commands were used, but with a difference in the mult options:
+For the PPARCH the same commands were used, but with one difference in the mult options:
 \begin{itemize}
 \item ungroup -all flatten
 \item set\_implementation DW02\_mult/pparch [find cell *mult] 
 \end{itemize}
-The area and the minimum period estimation was the goals of the synthesis process. The results obtained from the commands \textit{report\_area} e \textit{report\_timing} are showed in \autoref{tab:syn_results}. The \textit{CSA} architecture is roughly three times slower and the area is much greater than the \textit{PPARCH} one. Although the higher latency, the \textit{PPARCH} is a better architecture respect to the \textit{CSA} one.
-Both architectures were tested in order to check the correct behavior. A testbench was used to do that and the following table shows what the output gave:
+The goals of the synthesis process was the area and the minimum period estimation and the results obtained from the commands \textit{report\_area} e \textit{report\_timing} are showed in \autoref{tab:syn_results}: the \textit{CSA} architecture is roughly three times slower and the area is much greater than the \textit{PPARCH} one and the \textit{PPARCH} is a better architecture respect to the \textit{CSA} one.
+To check the correct behavior, a testbench was performed on both architectures, and the otuput is shown in the following table:
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|c|c|}				\hline
 CSA		 	  & PPARCH 					\\ \hline
 00000000   	  & 00000000               	\\ \hline
-3DC3910D      & 00000000                \\ \hline
-0BC80005      & 00000000                \\ \hline
-3F278DDF      & 00000000                \\ \hline
-0B100005      & 00000000                  \\ \hline
-3F800000      & 00000000                  \\ \hline
-0C440004      & 00000000                   \\ \hline
-3F278DDF      & 3DC3910D                  \\ \hline
-0DA20000      & 0BC80005                   \\ \hline
-3DC3910D      & 3F278DDF                  \\ \hline
-3DC3910D      & 3F800000                   \\ \hline
-3DC3910D      & 0C440004                   \\ \hline
-3DC3910D      & 3F278DDF                   \\ \hline
-3DC3910D      & 0DA20000                   \\ \hline
+3DC3910D      & 3DC3910D                \\ \hline
+0BC80005      & 0BC80005                \\ \hline
+3F278DDF      & 3F278DDF                \\ \hline
+0B100005      & 0B100005                  \\ \hline
+3F800000      & 3F800000              \\ \hline
+0C440004      & 0C440004                 \\ \hline
+3F278DDF      & 3F278DDF                 \\ \hline
+0DA20000      & 0DA20000                   \\ \hline
+3DC3910D      & 3DC3910D                 \\ \hline
 3DC3910D      & 3DC3910D                   \\ \hline
 3DC3910D      & 3DC3910D                   \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
-The \textit{PPARCH} architecture has a greater latency due to the pipe stages and as the table illustrates six more sets of zeros than the CSA architecture are present in output. Once the input stream reaches the end of file, the output remains the same as long as the simulation runs, in fact the output remains equal to the string \textit{3DC3910D}. In conclusion both the architectures work, but they work in a different way due to the internal structure.
+
+As the table illustrates, the behavior of both architecture is the same; in addiction, once the input stream reaches the end of file, the output remains the same as long as the simulation runs, in fact the output remains equal to the string \textit{3DC3910D}. In conclusion both architectures work, but in a different way due to the internal structure.
 
 %%%%%%%%%FINE-GRAIN PIPELINING%%%%%%%%%%%%%
 
 \subsection{Fine grain pipelining}
-The next aim is to modify the VHDL file by inserting a \textit{pipeline stage} in output of the stage 2, as the following image shows:
+The next aim is to modify the VHDL file by inserting a \textit{pipeline stage} in stage 2 output, as shown in the following image:
 \begin{figure}[H]
 	\center
 	\includegraphics[width=0.9\textwidth]{Fine grain pipelining.png}
 	\caption{Fine grain pipelining block diagram}
 	\label{fig:mult_struct}
 \end{figure}
-The output register has been implemented in the VHDL file by using several registers and \textit{flip-flops} in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using two different commands per time. In the first run, the compile command was launched after \textit{optimize\_registers} command. In the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead other ones. The results in terms of timing and area are showed in \autoref{tab:syn_results}.The \textit{compile\_ultra} gave a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.
+The output register has been implemented in the VHDL file by using several registers and \textit{flip-flops} in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using different commands per time: in the first run, the compile command was launched after \textit{optimize\_registers} command and in the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead of other ones, according to the choosen command. The results in terms of timing and area are showed in \autoref{tab:syn_results}: the \textit{compile\_ultra} give a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.
 
 
 \subsection{Modified Booth Encoding (MBE)}
