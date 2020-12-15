@@ -71,8 +71,6 @@ CSA		 	  & PPARCH 					\\ \hline
 \end{tabular}
 \end{center}
 \end{table}
-
-\subsection{Modified Booth Encoding (MBE)}
 The \textit{PPARCH} architecture has a greater latency due to the pipe stages and as the table illustrates six more sets of zeros than the CSA architecture are present in output. Once the input stream reaches the end of file, the output remains the same as long as the simulation runs, in fact the output remains equal to the string \textit{3DC3910D}. In conclusion both the architectures work, but they work in a different way due to the internal structure.
 
 %%%%%%%%%FINE-GRAIN PIPELINING%%%%%%%%%%%%%
@@ -86,8 +84,9 @@ The next aim is to modify the VHDL file by inserting a \textit{pipeline stage} i
 	\label{fig:mult_struct}
 \end{figure}
 The output register has been implemented in the VHDL file by using several registers and \textit{flip-flops} in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using two different commands per time. In the first run, the compile command was launched after \textit{optimize\_registers} command. In the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead other ones. The results in terms of timing and area are showed in \autoref{tab:syn_results}.The \textit{compile\_ultra} gave a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.
-\subsection{MBE}
-\todo{spigare struttura MBE , Dadda}
+
+
+\subsection{Modified Booth Encoding (MBE)}
 The Modified Booth Encoding Multiplier is an extension of the Radix-2 approach, where a Radix-4 approach is used in order to produce half partial products. In generale considerando \textbf{a} e \textbf{b} come due numeri unsigned nella forma seguente:
 $$
 \textbf{a} = \sum_{i=0}^{n-1}a_i2^i\ \ \ \ \ \ \  \textbf{b} = \sum_{i=0}^{n-1}b_i2^i
@@ -176,6 +175,6 @@ In \autoref{tab:adders_count} sono riassunti il numero di half-adder e di full-a
 	\label{tab:adders_count}
 	\caption{Number of adders used}
 \end{table}
-
 Una volta che è stata definita la struttura ci si è avvalsi di un programma scritto in C++, \footnote{citare}\todo{citare fonte c++} per generare il codice vhdl relativo al MBE multiplier.
+
 \subsubsection{Testbench}
