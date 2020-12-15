@@ -38,6 +38,96 @@ A fronte di questa modifica è stato effettuato un secondo testbench, funzionalm
 \subsection{Fine grain pipelining}
 \todo{compile and compile ultra spiegare}
 
-\subsection{MBE}
+\subsection{Modified Booth Encoding (MBE)}
 \todo{spigare struttura MBE , Dadda}
+The Modified Booth Encoding Multiplier is an extension of the Radix-2 approach, where a Radix-4 approach is used in order to produce half partial products. In generale considerando \textbf{a} e \textbf{b} come due numeri unsigned nella forma seguente:
+$$
+\textbf{a} = \sum_{i=0}^{n-1}a_i2^i\ \ \ \ \ \ \  \textbf{b} = \sum_{i=0}^{n-1}b_i2^i
+$$
+The product \textbf{c} is obtained:
+$$
+\textbf{c} = \sum_{i=0}^{n-1}\sum_{i=0}^{n-1}a_ib_i2^{i+j}
+$$
+Radix-2 approach produces \textbf{n} partial products in the form:
+$$
+p_j = 
+\begin{cases}
+0 \ \textrm{  if   } \overline{b}_j\\
+a \ \textrm{  if   } {b}_j
+\end{cases}
+$$
+On the other hand MBE produces only \textbf{n/2} partial products because more bits are analyzed simultaneously. The multiplier is divided in 3-bit slices (with $b_{-1} = 0$), where two consecutive slices feature a 1-bit overlap. Then, each triplet of bits is exploited to encode the multiplicand according to the \autoref{tab:MBE}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{cc}
+		$b_{2j+1}b_{2j}b_{2j-1}$ & $p_j$ \\ 
+		\hline 
+		000 & 0 \\ 
+		001 & a \\ 
+		010 & a \\ 
+		011 & 2a \\ 
+		100 & -2a \\ 
+		101 & -a \\ 
+		110 & -a \\ 
+		111 & 0 \\ 
+	\end{tabular}  
+	\label{tab:MBE}
+	\caption{Modified Booth Encoding}
+\end{table}
+The expression to evaluate $p_j$ is $p_j = (b_{2j+1} \oplus q_j) + b_{2j+1}$ where
+$$ q_j=
+\begin{cases}
+0 \ \textbf{  if   } (\overline{b_{2j} \oplus b_{2j-1}})(\overline{b_{2j+1} \oplus b_{2j}})\\
+a \ \textbf{  if   } b_{2j} \oplus b_{2j-1}\\
+2a \ \textbf{  if   } (\overline{b_{2j} \oplus b_{2j-1}})(b_{2j+1} \oplus b_{2j})
+\end{cases}
+$$
+Sono stati utilizzati 16 blocchi combinatori per valutare tutti i prodotti parziali che devono essere sommati. Una visione d'insieme della struttura con na visualizzazione a punti si può osservare in \autoref{fig:Dadda_1}
+
+\begin{figure}[htb]
+	\center
+	\includegraphics[width=1\textwidth]{Dadda_Tree_1.png}
+	\caption{Partial products representation}
+	\label{fig:Dadda_1}
+\end{figure}
+Per coprire i bit si è usato un Dadda Tree in modo da usare un numero ottimale di stadi e quindi una velocità elevata nell'eseguire le operazioni. L'approccio consiste nel ridurre l'altezza ad ogni stadio fino a raggiungere un numero di bit prefissato utilizzando half-adder e full-adder. Le altezze seguono la sequenza:
+$$
+d_1 = 2 \ \ \ \ \ \ \ \ d_{j+1} = \lfloor(1.5d_j)\rfloor
+$$
+L'altezza iniziale della struttura è pari a 16, quindi la sequenza sarà:
+$$
+d_1 = 2,\ d_2 = 3,\ d_3 = 4,\ 
+d_4 = 6,\ d_5 = 9,\ d_6 = 13,\ d_7 = 16
+$$
+Avendo lo step successivo un'altezza di 13, tutte le colonne che presentano un numero maggiore di bit devono essere ridotte. Partendo da destra, sulla prima colonna che ha 14 bit è stato inserito un half-adder che a partire da due bit genera un nuovo bit sulla stessa colonna e uno di carry sulla colonna successiva. La colonna adiacente che ha ancora 14 bit, considerando il riporto proveniente dal half-adder precedente, necessita un full-adder che a sua volta genera un bit di somma sulla stessa colonna e un bit di carry sulla colonna successiva partendo da tre bit. Questo ragionamento è stato ripetuto su tutta la struttura e il risultato finale è osservabile in \autoref{fig:Dadda_1} in cui sono stati impiegati 6 half-adder (in arancio) e 33 full-adder (in verde).\\
+Lo stesso meccanismo viene applicato ad ogni stadio per ridurre il numero di bit rispettando la sequenza. In \autoref{fig:Dadda_2} è possibile osservare la copertura di ogni stadio fino ad avere un'altezza di due bit, dove grazie ad un sommatore si può computare il risultato finale. 
+
+\begin{figure}[htb]
+	\center
+	\includegraphics[width=1\textwidth]{Dadda_Tree_2.png}
+	\caption{Dadda Tree }
+	\label{fig:Dadda_2}
+\end{figure}
+
+In \autoref{tab:adders_count} sono riassunti il numero di half-adder e di full-adder per ogni stadio. L'ultimo stadio può essere implementato in diversi modi; per avere un'idea del risultato finale è stato considerato un ripple-carry adder.
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{ccc}
+		stage & HA & FA \\ 
+		\hline 
+		1 & 6 & 33\\ 
+		2 & 8 & 84\\ 
+		3 & 6 & 105\\ 
+		4 & 4 & 90\\ 
+		5 & 2 & 51\\ 
+		6 & 2 & 55\\ 
+		7 & 2 & 58\\ 
+		Tot & 30 & 476\\ 
+	\end{tabular}  
+	\label{tab:adders_count}
+	\caption{Number of adders used}
+\end{table}
+
+Una volta che è stata definita la struttura ci si è avvalsi di un programma scritto in C++, \footnote{citare}\todo{citare fonte c++} per generare il codice vhdl relativo al MBE multiplier.
 \subsubsection{Testbench}
