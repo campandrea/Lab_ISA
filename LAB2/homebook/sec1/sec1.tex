@@ -34,7 +34,10 @@ A fronte di questa modifica è stato effettuato un secondo testbench, funzionalm
 
 %%%%%%%%%%%%%%STAGE 2 MANIPULATION%%%%%%%%%%%%%%%
 
-\subsection{Stage 2 CSA PPARCH}
+\subsection{Carry Save Adder (CSA)}
+\todo{Descrivere CSA}
+\subsection{Parallel Prefix Architecture (PPARCH)}
+\todo{Descrivere PPARCH}
 In this section a few optimizations was done. In fact, respect to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{pipelined} version of the stage 2. These variations can be carried out by simply using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and to do that the following commands were used in the synthesis process:
 \begin{itemize}
 \item ungroup -all flatten
@@ -158,7 +161,7 @@ Lo stesso meccanismo viene applicato ad ogni stadio per ridurre il numero di bit
 \end{figure}
 
 In \autoref{tab:adders_count} sono riassunti il numero di half-adder e di full-adder per ogni stadio. L'ultimo stadio può essere implementato in diversi modi; per avere un'idea del risultato finale è stato considerato un ripple-carry adder.
-\begin{table}[htb]
+\begin{table}[htb!]
 	\centering
 	\begin{tabular}{ccc}
 		stage & HA & FA \\ 
