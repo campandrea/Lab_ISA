@@ -1,5 +1,5 @@
 \section{Architectures}
-This first section will examine the various architectures that have been designed and synthesised for the floating point multiplier.
+This first section will examine the various architectures that have been designed and synthesized for the floating point multiplier.
 
 \subsection{Classic Architecture}
 The starting point for the design was the 32-bit floating point pipelined multiplier, for which vhdl code was provided.
@@ -54,7 +54,7 @@ The basic single block is shown in the image below:
 	\center
 	\includegraphics[width=0.3\textwidth]{CSA.png}
 	\caption{Carry Save Adder basic block}
-	\label{fig:timing_reg}
+	\label{fig:CSA}
 \end{figure}
 
 In general, the \textit{carry save adder} block has no difference in terms of logic gates if compared to the \textit{full adder}, but they are used in a diffenent way. \\
@@ -63,12 +63,10 @@ The \textit{CSA} allows to compute some addition parts in parallel, and after, t
 	\center
 	\includegraphics[width=0.35\textwidth]{CSA_tree.png}
 	\caption{Carry Save Adder tree}
-	\label{fig:timing_reg}
+	\label{fig:CSA_tree}
 \end{figure}
 There are a lot of algorithms that exploit the power of this device, and there are several approaches used to speed up the execution of an addition or a multiplication, the mains are the Wallace and Dadda ones, this last will be analysed and simulated later, in this laboratory.
 \subsection{Parallel Prefix Architecture (PPARCH)}
-
-\todo{Descrivere PPARCH}
 In this section a few optimizations was done. In fact, respect to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{pipelined} version of the stage 2. These variations can be carried out by simply using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and to do that the following commands were used in the synthesis process:
 
 
@@ -94,7 +92,6 @@ $C_i = G_{i-1} + P_{i-1} \cdot C_{i-1}$\\
 All these computations require a lot of hardware to be computed and there is an issue called a \textit{Parallel Prefix} problem: the generate-propagate network can be very long and this can develop problem in terms of the critical path. In fact, a several algorithm has been invented in order to improve the performance of this newtork, for example: Kogge-Stone , Ladner-Fishner, Brent-Kung. Synopsys can arbitrarily use one these optimizations in order to minimize the hardware required to develop the generate-propagate carry generation network.
 \subsection{Stage 2 CSA PPARCH}
 In this section a few optimizations were done. In fact, compared to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{Parallel Prefix} version of the stage 2. These variations can be simply carried out by using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and in order to do that the following commands were used in the synthesis process:
->>>>>>> 4f59752bb703450706aee88c4a1a1cdb17f76179
 
 \begin{itemize}
 \item ungroup -all flatten
@@ -110,35 +107,29 @@ To check the correct behavior, a testbench was performed on both architectures, 
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{|c|c|c|c|}				\hline
+\begin{tabular}{cc}				
 CSA		 	  & PPARCH 					\\ \hline
-00000000   	  & 00000000               	\\ \hline
-3DC3910D      & 3DC3910D                \\ \hline
-0BC80005      & 0BC80005                \\ \hline
-3F278DDF      & 3F278DDF                \\ \hline
-0B100005      & 0B100005                  \\ \hline
-3F800000      & 3F800000              \\ \hline
-0C440004      & 0C440004                 \\ \hline
-3F278DDF      & 3F278DDF                 \\ \hline
-0DA20000      & 0DA20000                   \\ \hline
-3DC3910D      & 3DC3910D                 \\ \hline
-3DC3910D      & 3DC3910D                   \\ \hline
-3DC3910D      & 3DC3910D                   \\ \hline
+00000000   	  & 00000000               	\\ 
+3DC3910D      & 3DC3910D                \\ 
+0BC80005      & 0BC80005                \\ 
+3F278DDF      & 3F278DDF                \\ 
+0B100005      & 0B100005                  \\ 
+3F800000      & 3F800000              \\ 
+0C440004      & 0C440004 
 \end{tabular}
 \end{center}
 \end{table}
-
 As the table illustrates, the behavior of both architecture is the same; in addiction, once the input stream reaches the end of file, the output remains the same as long as the simulation runs, in fact the output remains equal to the string \textit{3DC3910D}. In conclusion both architectures work, but in a different way due to the internal structure.
 
 %%%%%%%%%FINE-GRAIN PIPELINING%%%%%%%%%%%%%
 
 \subsection{Fine grain pipelining}
 The next aim is to modify the VHDL file by inserting a \textit{pipeline stage} in stage 2 output, as shown in the following image:
-\begin{figure}[H]
+\begin{figure}[htb]
 	\center
 	\includegraphics[width=0.9\textwidth]{Fine grain pipelining.png}
 	\caption{Fine grain pipelining block diagram}
-	\label{fig:mult_struct}
+	\label{fig:fine_pipe}
 \end{figure}
 The output register has been implemented in the VHDL file by using several registers in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using different commands per time: in the first run, the compile command was launched after \textit{optimize\_registers} command and in the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead of other ones, according to the choosen command. The results in terms of timing and area are showed in \autoref{tab:syn_results}: the \textit{compile\_ultra} give a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.
 
@@ -171,7 +162,6 @@ a \ \textrm{  if   } {b}_j
 \end{cases}
 $$
 On the other hand MBE produces only \textbf{n/2} partial products because more bits are analyzed simultaneously. The multiplier is divided in 3-bit slices (with $b_{-1} = 0$), where two consecutive slices feature a 1-bit overlap. Then, each triplet of bits is exploited to encode the multiplicand according to the \autoref{tab:MBE}.
-
 \begin{table}[htb]
 	\centering
 	\begin{tabular}{cc}
@@ -197,34 +187,31 @@ a \ \textbf{  if   } b_{2j} \oplus b_{2j-1}\\
 2a \ \textbf{  if   } (\overline{b_{2j} \oplus b_{2j-1}})(b_{2j+1} \oplus b_{2j})
 \end{cases}
 $$
-Sono stati utilizzati 16 blocchi combinatori per valutare tutti i prodotti parziali che devono essere sommati. Una visione d'insieme della struttura con na visualizzazione a punti si può osservare in \autoref{fig:Dadda_1}
-
+A total of 16 combinatorial blocks were used to evaluate all partial products that have to be summed. An overview of the structure with a dot view can be seen in \autoref{fig:Dadda_1}.
 \begin{figure}[htb]
 	\center
 	\includegraphics[width=1\textwidth]{Dadda_Tree_1.png}
 	\caption{Partial products representation}
 	\label{fig:Dadda_1}
 \end{figure}
-Per coprire i bit si è usato un Dadda Tree in modo da usare un numero ottimale di stadi e quindi una velocità elevata nell'eseguire le operazioni. L'approccio consiste nel ridurre l'altezza ad ogni stadio fino a raggiungere un numero di bit prefissato utilizzando half-adder e full-adder. Le altezze seguono la sequenza:
+A Dadda Tree was used to cover the bits in order to use an optimal number of stages and thus high speed in performing the operations. The approach is to reduce the height at each stage until a predetermined number of bits is reached using half-adders and full-adders. The heights follow the sequence:
 $$
 d_1 = 2 \ \ \ \ \ \ \ \ d_{j+1} = \lfloor(1.5d_j)\rfloor
 $$
-L'altezza iniziale della struttura è pari a 16, quindi la sequenza sarà:
+The initial height of the structure is 16, so the sequence will be:
 $$
 d_1 = 2,\ d_2 = 3,\ d_3 = 4,\
 d_4 = 6,\ d_5 = 9,\ d_6 = 13,\ d_7 = 16
 $$
-Avendo lo step successivo un'altezza di 13, tutte le colonne che presentano un numero maggiore di bit devono essere ridotte. Partendo da destra, sulla prima colonna che ha 14 bit è stato inserito un half-adder che a partire da due bit genera un nuovo bit sulla stessa colonna e uno di carry sulla colonna successiva. La colonna adiacente che ha ancora 14 bit, considerando il riporto proveniente dal half-adder precedente, necessita un full-adder che a sua volta genera un bit di somma sulla stessa colonna e un bit di carry sulla colonna successiva partendo da tre bit. Questo ragionamento è stato ripetuto su tutta la struttura e il risultato finale è osservabile in \autoref{fig:Dadda_1} in cui sono stati impiegati 6 half-adder (in arancio) e 33 full-adder (in verde).\\
-Lo stesso meccanismo viene applicato ad ogni stadio per ridurre il numero di bit rispettando la sequenza. In \autoref{fig:Dadda_2} è possibile osservare la copertura di ogni stadio fino ad avere un'altezza di due bit, dove grazie ad un sommatore si può computare il risultato finale.
-
+Since the next step has a height of 13, all columns that have a higher number of bits must be reduced. Starting from the right, on the first column that has 14 bits a half-adder has been inserted that starting from two bits generates a new bit on the same column and a carry bit on the next column. The adjacent column that still has 14 bits, considering the carry from the previous half-adder, requires a full-adder which, from three bits, generates a sum bit on the same column and a carry bit on the next column. This reasoning has been repeated on the whole structure and the final result can be observed in \autoref{fig:Dadda_1} where 6 half-adders (in orange) and 33 full-adders (in green) have been used.
+The same mechanism is applied to each stage to reduce the number of bits while respecting the sequence. In \autoref{fig:Dadda_2} it is possible to observe the coverage of each stage up to a height of two bits, where thanks to a adder the final result can be computed.
 \begin{figure}[htb]
 	\center
 	\includegraphics[width=1\textwidth]{Dadda_Tree_2.png}
 	\caption{Dadda Tree }
 	\label{fig:Dadda_2}
 \end{figure}
-
-In \autoref{tab:adders_count} sono riassunti il numero di half-adder e di full-adder per ogni stadio. L'ultimo stadio può essere implementato in diversi modi; per avere un'idea del risultato finale è stato considerato un ripple-carry adder.
+The number of half-adders and full-adders for each stage are summarized in \autoref{tab:adders_count}. The last stage can be implemented in different ways; to get an idea of the final result it has been considered as a ripple-carry adder.
 \begin{table}[htb!]
 	\centering
 	\begin{tabular}{ccc}
@@ -242,7 +229,9 @@ In \autoref{tab:adders_count} sono riassunti il numero di half-adder e di full-a
 	\label{tab:adders_count}
 	\caption{Number of adders used}
 \end{table}
-Una volta che è stata definita la struttura ci si è avvalsi di un programma scritto in C++, \footnote{citare}\todo{citare fonte c++} per generare il codice vhdl relativo al MBE multiplier.
+Once the structure was defined a program written in C++ \footnote{\href{https://github.com/HSOgawa/fast-multipliers}{\textcolor{black}{Source: } here}} \thispagestyle{empty}, was used to generate the vhdl code related to the MBE multiplier.
 
+\pagebreak
 \subsubsection{Testbench}
 The correct functioning of the circuit was verified using the previously written testbench. Comparing the results obtained with those expected has confirmed the correctness of the implementation and when looking at the timing no differences were noticed compared to \autoref{fig:timing_reg}.
+\pagebreak
