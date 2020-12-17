@@ -34,9 +34,9 @@ Finally, by comparing the results obtained with those provided as an example, it
 \end{figure}
 
 Afterwards, the VHDL code was modified so that registers were added to the input signals; this correction helps to decouple the timing of the inputs, with possible glitches, from the internal timing of the circuit, thus avoiding unexpected errors.
-This modification was followed by a second testbench, which is functionally the same as the previous one, and again showed that the device under test worked correctly. As can be seen in \autoref{timing_reg} the only difference with the previous implementation is that the latency of the circuit increases by moving to five clock cycles.
+This modification was followed by a second testbench, which is functionally the same as the previous one, and again showed that the device under test worked correctly. As can be seen in \autoref{fig:timing_reg} the only difference with the previous implementation is that the latency of the circuit increases by moving to five clock cycles.
 
-\begin{figure}[h]
+\begin{figure}[htbp!]
 	\center
 	\includegraphics[width=1\textwidth]{timing_reg.png}
 	\caption{Timing of the standard implementation with input registers}
@@ -57,7 +57,7 @@ The basic single block is shown in the image below:
 	\label{fig:CSA}
 \end{figure}
 
-In general, the \textit{carry save adder} block has no difference in terms of logic gates if compared to the \textit{full adder}, but they are used in a diffenent way. \\
+\noindent In general, the \textit{carry save adder} block has no difference in terms of logic gates if compared to the \textit{full adder}, but they are used in a different way. \\
 The \textit{CSA} allows to compute some addition parts in parallel, and after, the partial results are combined in order to reach the complete summation of the numbers in input. The image below shows an example of the \textit{CSA tree}:
 \begin{figure}[H]
 	\center
@@ -65,13 +65,19 @@ The \textit{CSA} allows to compute some addition parts in parallel, and after, t
 	\caption{Carry Save Adder tree}
 	\label{fig:CSA_tree}
 \end{figure}
-There are a lot of algorithms that exploit the power of this device, and there are several approaches used to speed up the execution of an addition or a multiplication, the mains are the Wallace and Dadda ones, this last will be analysed and simulated later, in this laboratory.
-\subsection{Parallel Prefix Architecture (PPARCH)}
-In this section a few optimizations was done. In fact, respect to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{pipelined} version of the stage 2. These variations can be carried out by simply using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and to do that the following commands were used in the synthesis process:
+\noindent There are a lot of algorithms that exploit the power of this device, and there are several approaches used to speed up the execution of an addition or a multiplication, the mains are the Wallace and Dadda ones.
+\\
+The adder present in the second stage of the multiplier was forced to be synthesized as CSA and in order to do that the following commands were used in the synthesis process:
 
+\begin{itemize}
+\item ungroup -all flatten
+\item set\_implementation DW02\_mult/csa [find cell *mult]
+\end{itemize}
+
+\subsection{Parallel Prefix Architecture (PPARCH)}
 
 The \textit{PPARCH} analysed in this lab has been previously improved by using two particular techniques: the \textit{carry look ahead} and the \textit{parallel prefix}. The first one uses a combination of \textit{generate} and \textit{propagate} to compute the carries faster than a \textit{ripple carry adder} architecture. Generate and Propagate are computed by combinating the binary input signals:
-\begin{itemize} 
+\begin{itemize}
 \item Generate $G_i = A_i \cdot B_i$
 \item Propagate $P_i = A_i \oplus B_i$
 \end{itemize}
@@ -90,48 +96,27 @@ and in general: \\
 $C_i = G_{i-1} + P_{i-1} \cdot C_{i-1}$\\
 \noindent
 All these computations require a lot of hardware to be computed and there is an issue called a \textit{Parallel Prefix} problem: the generate-propagate network can be very long and this can develop problem in terms of the critical path. In fact, a several algorithm has been invented in order to improve the performance of this newtork, for example: Kogge-Stone , Ladner-Fishner, Brent-Kung. Synopsys can arbitrarily use one these optimizations in order to minimize the hardware required to develop the generate-propagate carry generation network.
-\subsection{Stage 2 CSA PPARCH}
-In this section a few optimizations were done. In fact, compared to the classic architecture there are several differences that change the circuit behavior. The CSA architecture is implemented by using the \textit{Carry Save Adders} and in the PPARCH architecture there is a \textit{Parallel Prefix} version of the stage 2. These variations can be simply carried out by using different commands during the compilation process. The stage 2 was forced to be syntetized as CSA and in order to do that the following commands were used in the synthesis process:
+\\
+The adder present in the second stage of the multiplier was forced to be synthesized as PPARCH and in order to do that the following commands were used in the synthesis process:
 
-\begin{itemize}
-\item ungroup -all flatten
-\item set\_implementation DW02\_mult/csa [find cell *mult]
-\end{itemize}
-For the PPARCH the same commands were used, but with one difference in the mult options:
 \begin{itemize}
 \item ungroup -all flatten
 \item set\_implementation DW02\_mult/pparch [find cell *mult]
 \end{itemize}
-The goals of the synthesis process was the area and the minimum period estimation and the results obtained from the commands \textit{report\_area} e \textit{report\_timing} are showed in \autoref{tab:syn_results}: the \textit{CSA} architecture is roughly three times slower and the area is much greater than the \textit{PPARCH} one and the \textit{PPARCH} is a better architecture respect to the \textit{CSA} one.
-To check the correct behavior, a testbench was performed on both architectures, and the otuput is shown in the following table:
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{cc}				
-CSA		 	  & PPARCH 					\\ \hline
-00000000   	  & 00000000               	\\ 
-3DC3910D      & 3DC3910D                \\ 
-0BC80005      & 0BC80005                \\ 
-3F278DDF      & 3F278DDF                \\ 
-0B100005      & 0B100005                  \\ 
-3F800000      & 3F800000              \\ 
-0C440004      & 0C440004 
-\end{tabular}
-\end{center}
-\end{table}
-As the table illustrates, the behavior of both architecture is the same; in addiction, once the input stream reaches the end of file, the output remains the same as long as the simulation runs, in fact the output remains equal to the string \textit{3DC3910D}. In conclusion both architectures work, but in a different way due to the internal structure.
 
 %%%%%%%%%FINE-GRAIN PIPELINING%%%%%%%%%%%%%
-
+\newpage
 \subsection{Fine grain pipelining}
 The next aim is to modify the VHDL file by inserting a \textit{pipeline stage} in stage 2 output, as shown in the following image:
-\begin{figure}[htb]
+
+\begin{figure}[H]
 	\center
 	\includegraphics[width=0.9\textwidth]{Fine grain pipelining.png}
 	\caption{Fine grain pipelining block diagram}
 	\label{fig:fine_pipe}
 \end{figure}
-The output register has been implemented in the VHDL file by using several registers in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using different commands per time: in the first run, the compile command was launched after \textit{optimize\_registers} command and in the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead of other ones, according to the choosen command. The results in terms of timing and area are showed in \autoref{tab:syn_results}: the \textit{compile\_ultra} give a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.
+
+\noindent The output register has been implemented in the VHDL file by using several registers in order to ensure the correct behavior and timing.  After the VHDL manipulation, two different synthesis processes were made by using different commands per time: in the first run, the compile command was launched after \textit{optimize\_registers} command and in the second run  \textit{compile\_ultra} was used rather than \textit{optimize\_registers} and \textit{compile}. The Synthetizer elaborates the structures in a different way, by using some algorithms instead of other ones, according to the choosen command. %The results in terms of timing and area are showed in \autoref{tab:syn_results}: the \textit{compile\_ultra} give a lower area but the circuit is clearly slower respect to the one obtained by using \textit{optimize\_registers}.%
 
 \subsubsection{Testbench}
 To verify the correct behaviour, a Modelsim simulation was launched prior to the synthesis, which again showed proper functioning. As can be seen in \autoref{fig:timing_fine_grain} the latency of the circuit is correctly increased by changing to six clock cycles.
@@ -145,7 +130,7 @@ To verify the correct behaviour, a Modelsim simulation was launched prior to the
 
 
 \subsection{Modified Booth Encoding (MBE)}
-The Modified Booth Encoding Multiplier is an extension of the Radix-2 approach, where a Radix-4 approach is used in order to produce half partial products. In generale considerando \textbf{a} e \textbf{b} come due numeri unsigned nella forma seguente:
+The Modified Booth Encoding Multiplier is an extension of the Radix-2 approach, where a Radix-4 approach is used in order to produce half partial products. In general, considering \textbf{a} and \textbf{b} as two unsigned numbers in the following form:
 $$
 \textbf{a} = \sum_{i=0}^{n-1}a_i2^i\ \ \ \ \ \ \  \textbf{b} = \sum_{i=0}^{n-1}b_i2^i
 $$
@@ -207,7 +192,7 @@ Since the next step has a height of 13, all columns that have a higher number of
 The same mechanism is applied to each stage to reduce the number of bits while respecting the sequence. In \autoref{fig:Dadda_2} it is possible to observe the coverage of each stage up to a height of two bits, where thanks to a adder the final result can be computed.
 \begin{figure}[htb]
 	\center
-	\includegraphics[width=1\textwidth]{Dadda_Tree_2.png}
+	\includegraphics[width=0.95\textwidth]{Dadda_Tree_2.png}
 	\caption{Dadda Tree }
 	\label{fig:Dadda_2}
 \end{figure}
@@ -231,7 +216,6 @@ The number of half-adders and full-adders for each stage are summarized in \auto
 \end{table}
 Once the structure was defined a program written in C++ \footnote{\href{https://github.com/HSOgawa/fast-multipliers}{\textcolor{black}{Source: } here}} \thispagestyle{empty}, was used to generate the vhdl code related to the MBE multiplier.
 
-\pagebreak
 \subsubsection{Testbench}
 The correct functioning of the circuit was verified using the previously written testbench. Comparing the results obtained with those expected has confirmed the correctness of the implementation and when looking at the timing no differences were noticed compared to \autoref{fig:timing_reg}.
 \pagebreak
