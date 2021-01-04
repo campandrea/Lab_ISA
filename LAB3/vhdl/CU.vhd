@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity CU is
   PORT(
-    OpCode : IN std_logic_vector (6 downto 0);
+    Instruction : IN std_logic_vector (31 downto 0);
     PCSel : OUT std_logic;
     BrEq : IN std_logic;
     MemRead : OUT std_logic;
@@ -16,12 +16,13 @@ entity CU is
     ALUSrcB : OUT std_logic;
     RegWrite : OUT std_logic
   )
-END CU;
+end CU;
 
 architecture behaviour of CU is
+	signal OpCode : std_logic_vector (6 downto 0);
+	OpCode <= Instruction(6 downto 0);
 
-
-process(OpCode, PCSel)
+process(OpCode, BrEq)
 begin
   PCSel <= '0';
   MemRead <= '0';
@@ -76,7 +77,7 @@ begin
         PCSel <= '1';
       else 
         PCSel <= '0';
-      END if;
+      end if;
       ALUSrcA <= '1'; -- prende immediate
       ALUSrcB <= '1'; -- prende PC
       ImmSel <= "010";
@@ -107,7 +108,7 @@ begin
 
     when others => report "OpCode not found" severity failure;
 
-  END case;
-END process;
+  end case;
+end process;
 
-END behaviour;
+end behaviour;
