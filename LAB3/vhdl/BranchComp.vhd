@@ -5,7 +5,7 @@ entity BranchComp is
 port(
   data_in_A : in std_logic_vector (31 downto 0);
   data_in_B : in std_logic_vector (31 downto 0);
-  BrEq      : in std_logic
+  BrEq      : out std_logic
 
 );
 end BranchComp;

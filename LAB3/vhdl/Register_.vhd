@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity Register is
+entity Register_ is
 generic( N : natural := 32);
 port(
       data_in  : in std_logic_vector (N-1 downto 0);
@@ -11,9 +11,9 @@ port(
       reg_en   : in std_logic;
       data_out : out std_logic_vector (N-1 downto 0)
 );
-end Register;
+end Register_;
 
-architecture rtl of Register is
+architecture rtl of Register_ is
 begin
     proc_reg: process(clk)
     begin

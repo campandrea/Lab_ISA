@@ -4,8 +4,6 @@ use ieee.std_logic_1164.all;
 component CU
   port(
     Instruction : IN std_logic_vector (31 downto 0);
-    PCSel       : OUT std_logic;
-    BrEq        : IN std_logic;
     MemRead     : OUT std_logic;
     MemWrite    : OUT std_logic;
     WBSel       : OUT std_logic_vector (1 downto 0);
@@ -13,11 +11,12 @@ component CU
     ALUOp       : OUT std_logic_vector (1 downto 0);
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
+	BrInstr		: OUT std_logic;
     RegWrite    : OUT std_logic
   );
 end component;
 
-component Register
+component Register_
 generic( N : natural := 32);
 port(
       data_in  : in std_logic_vector (N-1 downto 0);

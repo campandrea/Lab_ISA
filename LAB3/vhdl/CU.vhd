@@ -5,8 +5,6 @@ use ieee.numeric_std.all;
 entity CU is
   PORT(
     Instruction : IN std_logic_vector (31 downto 0);
-    PCSel       : OUT std_logic;
-    BrEq        : IN std_logic;
     MemRead     : OUT std_logic;
     MemWrite    : OUT std_logic;
     WBSel       : OUT std_logic_vector (1 downto 0);
@@ -14,6 +12,7 @@ entity CU is
     ALUOp       : OUT std_logic_vector (1 downto 0);
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
+	BrInstr		: OUT std_logic;
     RegWrite    : OUT std_logic
   )
 end CU;
@@ -22,7 +21,7 @@ architecture behaviour of CU is
 	signal OpCode : std_logic_vector (6 downto 0);
 	OpCode <= Instruction(6 downto 0);
 begin
-	process(OpCode, BrEq)
+	process(OpCode)
 	begin
 	  PCSel <= '0';
 	  MemRead <= '0';
@@ -46,6 +45,7 @@ begin
 		-- 11 -> Bypass A
 	  ALUSrcA <= '0';
 	  ALUSrcB <= '0';
+	  BrInstr <= '0';
 	  RegWrite <= '0';
 
 	  case OpCode is
@@ -73,13 +73,9 @@ begin
 		  RegWrite <= '1';
 
 		when "1100011" => -- BEQ (B-type)
-		  if (BrEq = '1') then
-			PCSel <= '1';
-		  else
-			PCSel <= '0';
-		  end if;
 		  ALUSrcA <= '1'; -- prende immediate
 		  ALUSrcB <= '1'; -- prende PC
+		  BrInstr <= '1'; -- avvisa hazard detection unit
 		  ImmSel <= "010";
 		  ALUOp <= "00"; -- ADD
 
