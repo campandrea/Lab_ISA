@@ -15,7 +15,7 @@ end mux4to1;
 
 architecture behavior of mux4to1 is
 begin
-	process(sel)
+	process(sel, data_00_in, data_01_in, data_10_in, data_11_in)
     begin
         case sel is
             when "00" =>

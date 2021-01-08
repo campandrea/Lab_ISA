@@ -13,7 +13,7 @@ end mux2to1;
 
 architecture behavior of mux2to1 is
 begin
-	process(sel)
+	process(sel, data_0_in, data_1_in)
     begin
         case sel is
             when "0" =>

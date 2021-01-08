@@ -10,7 +10,7 @@ port(
   RegWrite_EX : in std_logic;
   RegWrite_MEM : in std_logic;
   ForwardA : out std_logic_vector (1 downto 0);
-  ForwardB : out std_logic_vector (1 downto 0);
+  ForwardB : out std_logic_vector (1 downto 0)
 );
 end ForwardUnit;
 

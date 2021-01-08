@@ -23,7 +23,6 @@ architecture behaviour of CU is
 begin
 	process(OpCode)
 	begin
-	  PCSel <= '0';
 	  MemRead <= '0';
 	  MemWrite <= '0';
 	  WBSel <= "00";
@@ -88,7 +87,6 @@ begin
 		  RegWrite <= '1';
 
 		when "1101111" => -- JAL (J-type)
-		  PCSel <= '1';
 		  WBSel <= "10"; -- PC + 4
 		  ALUSrcA <= '1'; -- prende immediate
 		  ALUSrcB <= '1'; -- prende PC
@@ -101,6 +99,9 @@ begin
 		  ALUSrcA <= '1';
 		  ALUOp <= "00"; -- ADD
 		  ImmSel <= "001";
+		  
+		when "0000000" =>
+		
 
 		when others => report "OpCode not found" severity failure;
 
