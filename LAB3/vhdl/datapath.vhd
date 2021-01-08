@@ -189,15 +189,80 @@ signal  MemRead_ID : std_logic;
 signal  BrEq : std_logic;
 signal  BrInstr_ID : std_logic;
 signal  ID_RegSel : std_logic;
+signal funct3_IF : std_logic_vector (2 downto 0);
 
 signal Instruction_imm_IF : std_logic_vector (24 downto 0);
 signal Immediate_IF : std_logic_vector (31 downto 0);
 
 signal MEM_pipe_data_out : std_logic_vector (31 downto 0);
-signal MEM_pipe_addr_out : std_logic_vector (4 downto 0);
 signal RegFile_dataA_out : std_logic_vector (31 downto 0);
 signal RegFile_dataB_out : std_logic_vector (31 downto 0);
 signal RegWrite_MEM : std_logic;
+
+signal ID_pipe_MemRead_in : std_logic;
+signal ID_pipe_MemWrite_in : std_logic;
+signal ID_pipe_ALUOp_in : std_logic_vector (1 downto 0);
+signal ID_pipe_BrInstr_in : std_logic;
+signal ID_pipe_RegWrite_in : std_logic;
+
+---------------------------------
+------- IF pipeline stage -------
+---------------------------------
+
+signal PC_ID : std_logic_vector (31 downto 0);
+signal MemRead_ID : std_logic;
+signal MemWrite_ID : std_logic;
+signal ALUOp_ID : std_logic_vector (1 downto 0);
+signal BrInstr_ID : std_logic;
+signal RegWrite_ID : std_logic;
+signal WBSel_ID : std_logic_vector (1 downto 0);
+signal ImmSel_ID : std_logic_vector (2 downto 0);
+signal ALUSrcA_ID : std_logic;
+signal ALUSrcB_ID : std_logic;
+
+signal ID_pipe_dataA_out : std_logic_vector (31 downto 0);
+signal ID_pipe_dataB_out : std_logic_vector (31 downto 0);
+signal Rs1_ID : std_logic_vector (4 downto 0);
+signal Rs2_ID : std_logic_vector (4 downto 0);
+signal Rd_ID : std_logic_vector (4 downto 0);
+signal Immediate_ID : std_logic_vector (31 downto 0);
+signal funct3_ID : std_logic_vector (2 downto 0);
+
+-------------------------------------------------
+-------------------------------------------------
+
+signal ALUSrcA_mux_out : std_logic_vector (31 downto 0);
+signal ALUSrcB_mux_out : std_logic_vector (31 downto 0);
+signal ForwardA : std_logic_vector (1 downto 0);
+signal ForwardB : std_logic_vector (1 downto 0);
+signal ALUDataA_in, ALUDataB_in : std_logic_vector (31 downto 0);
+
+signal ALUCtrl : std_logic_vector (3 downto 0);
+signal ALUData_out : std_logic_vector (31 downto 0);
+
+---------------------------------
+------- EX pipeline stage -------
+---------------------------------
+
+signal MemRead_EX : std_logic;
+signal MemWrite_EX : std_logic;
+signal WBSel_EX : std_logic_vector(1 downto 0);
+signal RegWrite_EX : std_logic;
+signal PC_ID_inc : std_logic_vector (31 downto 0);
+signal PCInc_ex : std_logic_vector (31 downto 0);
+signal ALU_data_out_EX : std_logic_vector (31 downto 0);
+signal EX_pipe_DataB_out : std_logic_vector (31 downto 0);
+signal Rd_EX : std_logic_vector (4 downto 0);
+
+---------------------------------------------------------
+---------------------------------------------------------
+
+---------------------------------
+------ MEM pipeline stage -------
+---------------------------------
+
+signal Rd_MEM : std_logic_vector (4 downto 0);
+signal MEM_pipe_data_in : std_logic_vector (31 downto 0);
 
 
 begin
@@ -300,12 +365,13 @@ port map(
 Rs1_IF <= IF_pipe_instr_out (19 downto 15);
 Rs2_IF <= IF_pipe_instr_out (24 downto 20);
 Rd_IF <= IF_pipe_instr_out (11 downto 7);
+funct3_IF <= IF_pipe_instr_out (14 downto 12);
 
 Register_file : RegisterFile
 port map(
   clk         => clk,
   data_in     => MEM_pipe_data_out,
-  write_addr  => MEM_pipe_addr_out,
+  write_addr  => Rd_MEM,
   data_out_A  => RegFile_dataA_out,
   data_out_B  => RegFile_dataB_out,
   read_A_addr => Rs1_IF,
@@ -328,7 +394,7 @@ port map(
   data_0_in => MemRead_IF,
   data_1_in => '0',
   sel       => ID_RegSel,
-  data_out  => ID_pipe_Memread_in
+  data_out  => ID_pipe_MemRead_in
 );
 
 ID_MemWrite_sel_mux : mux2to1
@@ -339,7 +405,6 @@ port map(
   sel       => ID_RegSel,
   data_out  => ID_pipe_MemWrite_in
 );
-
 
 ID_ALUOp_sel_mux : mux2to1
 generic map (N => 2)
@@ -368,24 +433,388 @@ port map(
   data_out  => ID_pipe_RegWrite_in
 );
 
- : mux2to1
+---------------------------------
+------- ID pipeline stage -------
+---------------------------------
+
+ID_pipe_PC : Register_
+generic map(N => 32)
 port map(
-  data_0_in => 
-  data_1_in => 
-  sel       => ID_RegSel,
-  data_out  => 
+	data_in  => IF_pipe_PC_out,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => PC_ID
+);
+
+ID_pipe_MemRead : Register_
+generic map(N => 1)
+port map(
+	data_in  => ID_pipe_MemRead_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => MemRead_ID
+);
+
+ID_pipe_MemWrite : Register_
+generic map(N => 1)
+port map(
+	data_in  => ID_pipe_MemWrite_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => MemWrite_ID
+);
+
+ID_pipe_ALUOp : Register_
+generic map(N => 2)
+port map(
+	data_in  => ID_pipe_ALUOp_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ALUOp_ID
+);
+
+ID_pipe_BrInstr : Register_
+generic map(N => 1)
+port map(
+	data_in  => ID_pipe_BrInstr_in
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => BrInstr_ID
+);
+
+ID_pipe_RegWrite : Register_
+generic map(N => 1)
+port map(
+	data_in  => ID_pipe_RegWrite_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => RegWrite_ID
+);
+
+ID_pipe_WBSel : Register_
+generic map(N => 2)
+port map(
+	data_in  => WBSel_IF,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => WBSel_ID
+);
+
+ID_pipe_ImmSel : Register_
+generic map(N => 3)
+port map(
+	data_in  => ImmSel_IF
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ImmSel_ID
+);
+
+ID_pipe_ALUSrcA : Register_
+generic map(N => 1)
+port map(
+	data_in  => ALUSrcA_IF
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ALUSrcA_ID
+);
+
+ID_pipe_ALUSrcB : Register_
+generic map(N => 1)
+port map(
+	data_in  => ALUSrcB_IF
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ALUSrcB_ID
+);
+
+ID_pipe_dataA : Register_
+generic map(N => 32)
+port map(
+	data_in  => RegFile_dataA_out,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ID_pipe_dataA_out
+);
+
+ID_pipe_dataB : Register_
+generic map(N => 32)
+port map(
+	data_in  => RegFile_dataB_out,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ID_pipe_dataB_out
+);
+
+ID_pipe_Rs1 : Register_
+generic map(N => 5)
+port map(
+	data_in  => Rs1_IF,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Rs1_ID
+);
+
+ID_pipe_Rs2 : Register_
+generic map(N => 5)
+port map(
+	data_in  => Rs2_IF,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Rs2_ID
+);
+
+ID_pipe_Rd : Register_
+generic map(N => 5)
+port map(
+	data_in  => Rd_IF
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Rd_ID
+);
+
+ID_pipe_Immediate : Register_
+generic map(N => 32)
+port map(
+	data_in  => Immediate_IF
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Immediate_ID
+);
+
+ID_pipe_funct3 : Register_
+generic map(N => 3)
+port map(
+	data_in  => funct3_IF,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => funct3_ID
 );
 
 
+---------------------------------------
+---------------------------------------
 
- : Register_
-generic map(N => )
+ALUSrcA_mux : mux2to1
 port map(
-	data_in  => 
+  data_0_in => ID_pipe_dataA_out,
+  data_1_in => Immediate_ID,
+  sel       => ALUSrcA_ID,
+  data_out  => ALUSrcA_mux_out
+);
+
+ALUSrcB_mux : mux2to1
+port map(
+  data_0_in => ID_pipe_dataB_out,
+  data_1_in => PC_ID,
+  sel       => ALUSrcB_ID,
+  data_out  => ALUSrcB_mux_out
+);
+
+ForwardA_mux : mux4to1
+generic map(N => 32);
+port map(
+  data_00_in => ALUSrcA_mux_out,
+  data_01_in => (others => '0'),
+  data_10_in => ALU_data_out_EX,
+  data_11_in => MEM_data_out_MEM,
+  sel        => ForwardA,
+  data_out   => ALUDataA_in
+);
+
+ForwardB_mux : mux4to1
+generic map(N => 32);
+port map(
+  data_00_in => ALUSrcB_mux_out,
+  data_01_in => (others => '0'),
+  data_10_in => ALU_data_out_EX,
+  data_11_in => MEM_data_out_MEM,
+  sel        => ForwardB,
+  data_out   => ALUDataB_in
+);
+
+ALU_ : ALU 
+port map(
+  data_in_A => ALUDataA_in,
+  data_in_B => ALUDataB_in,
+  ALUCtrl   => ALUCtrl,
+  data_out  => ALUData_out
+);
+
+
+ALU__CU : ALU_CU
+port map(
+  ALUOp   => ALUOp_ID,
+  funct3  => funct3_ID,
+  ALUCtrl => ALUCtrl
+);
+
+Branch_Comp : BranchComp
+port map(
+  data_in_A => ID_pipe_dataA_out,
+  data_in_B => ID_pipe_dataB_out,
+  BrEq      => BrEq
+);
+
+
+Forward_Unit : ForwardUnit
+port map(
+  Rs1_ID 		=> Rs1_ID,
+  Rs2_ID		=> Rs2_ID,
+  Rd_EX  		=> Rd_EX,
+  Rd_MEM 		=> Rd_MEM,
+  RegWrite_EX 	=> RegWrite_EX,
+  RegWrite_MEM	=> RegWrite_MEM,
+  ForwardA 		=> ForwardA,
+  ForwardB 		=> ForwardB
+);
+
+PCInc_ex : PCInc
+port map(
+	PC_in  => PC_ID,
+	PC_out => PC_ID_inc
+);
+
+---------------------------------
+------- EX pipeline stage -------
+---------------------------------
+
+EX_pipe_MemRead : Register_
+generic map(N => 1)
+port map(
+	data_in  => MemRead_ID
 	clk      => clk,
-	reg_rst  => 
-	reg_en   => 
-	data_out => 
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => MemRead_EX
+);
+
+EX_pipe_MemWrite : Register_
+generic map(N => 1)
+port map(
+	data_in  => MemWrite_ID,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => MemWrite_EX
+);
+
+EX_pipe_WBSel : Register_
+generic map(N => 2)
+port map(
+	data_in  => WBSel_ID,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => WBSel_EX
+);
+
+EX_pipe_RegWrite : Register_
+generic map(N => 1)
+port map(
+	data_in  => RegWrite_ID,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => RegWrite_EX
+);
+
+EX_pipe_PC_inc : Register_
+generic map(N => 32)
+port map(
+	data_in  => PC_ID_inc
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => PC_inc_EX
+);
+
+EX_pipe_ALU_out : Register_
+generic map(N => 32)
+port map(
+	data_in  => ALUData_out
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => ALU_data_out_EX
+);
+
+EX_pipe_DataB : Register_
+generic map(N => 5)
+port map(
+	data_in  => ID_pipe_dataB_out
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => EX_pipe_DataB_out
+);
+
+EX_pipe_Rd : Register_
+generic map(N => 5)
+port map(
+	data_in  => Rd_ID
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Rd_EX
+);
+
+-----------------------------------------------
+-----------------------------------------------
+DataMemRead <= MemRead_EX;
+DataMemWrite <= MemWrite_EX;
+DataMemAddr <= EX_pipe_ALU_out;
+DataMemDataIn <= EX_pipe_DataB_out;
+
+WBSel_mux : mux4to1
+generic map(N => 32);
+port map(
+  data_00_in => EX_pipe_ALU_out,
+  data_01_in => DataMemDataOut,
+  data_10_in => PC_inc_EX,
+  data_11_in => (others => '0'),
+  sel        => WBSel_EX,
+  data_out   => MEM_pipe_data_in
+);
+
+---------------------------------
+------ MEM pipeline stage -------
+---------------------------------
+
+MEM_pipe_data : Register_
+generic map(N => 32)
+port map(
+	data_in  => MEM_pipe_data_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => MEM_pipe_data_out
+);
+
+MEM_pipe_Rd : Register_
+generic map(N => 5)
+port map(
+	data_in  => Rd_EX,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => Rd_MEM
 );
 
 
