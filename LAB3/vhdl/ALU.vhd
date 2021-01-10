@@ -28,12 +28,12 @@ ARCHITECTURE structural OF ALU IS
 					WHEN "0001" =>  data_out <= data_in_A XOR data_in_B;				--XOR
 					WHEN "0000" =>  data_out <= data_in_A AND data_in_B;				--AND
 					
-					WHEN "0011" =>	if data_in_A= data_in_B THEN						--COMPARE
+					WHEN "0011" =>	if data_in_A < data_in_B THEN						--COMPARE
 										data_out <=	"00000000000000000000000000000001";
 									ELSE
 										data_out <= "00000000000000000000000000000000";
 									END IF;
-					WHEN "0100" =>	data_out <= data_in_A(31) & data_in_A(31 downto 1) ;	--R shift
+					WHEN "0100" =>	data_out <= std_logic_vector(shift_right(unsigned(A_tmp), to_integer(B_tmp)));					
 					WHEN "0101" =>	data_out <= data_in_A;
 					WHEN OTHERS =>  data_out <= (OTHERS => '0');
 				END CASE;
