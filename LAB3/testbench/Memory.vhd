@@ -33,7 +33,7 @@ begin
 		end if;
 	end process;
 
-    read_proc: process(addr)
+    read_proc: process(rd, addr)
     begin
         if rd = '1' then
             data_out <= memory(to_integer(unsigned(addr(31 downto 2))));

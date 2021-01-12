@@ -198,7 +198,7 @@ Abehaviour
 R2
 R3
 R4
-Z40 DEx4 work 2 cu 0 22 ^]X`?mb09]f_i6T5]J4N02
+DEx4 work 2 cu 0 22 ^]X`?mb09]f_i6T5]J4N02
 l22
 L20
 VEJO=n^LAAKJ^IljZV>Uzc0
@@ -214,23 +214,23 @@ R39
 R12
 R13
 Edatapath
-Z41 w1610450969
+Z40 w1610450969
 R3
 R4
 R0
-Z42 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd
-Z43 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd
+Z41 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd
+Z42 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd
 l0
 L4
 V[JK;g^N:boYH<R_C2S][Y1
 !s100 @8]ECVfRRB^MGJK[jVMnn0
 R7
 32
-Z44 !s110 1610452040
+Z43 !s110 1610452040
 !i10b 1
-Z45 !s108 1610452040.000000
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd|
-Z47 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd|
+Z44 !s108 1610452040.000000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd|
+Z46 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd|
 !i113 1
 R12
 R13
@@ -244,32 +244,32 @@ VFXIDPcU[IzVSeWSijcnPd0
 !s100 WaHL<=E05o0nPN@89FW[i2
 R7
 32
-R44
+R43
 !i10b 1
+R44
 R45
 R46
-R47
 !i113 1
 R12
 R13
 Eforwardunit
-Z48 w1610447848
+Z47 w1610447848
 R3
 R4
 R0
-Z49 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd
-Z50 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd
+Z48 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd
+Z49 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd
 l0
 L4
 VNQ;DKIJSH3GTVc=bE[YEl0
 !s100 9WBFKTL0WRkd=HdUoWiHE3
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd|
-Z52 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd|
+R44
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd|
+Z51 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd|
 !i113 1
 R12
 R13
@@ -283,11 +283,11 @@ V>F@h8_FUI?_?@H`cFzCml1
 !s100 D`[T?ZngZJoE2YhJE<3AR1
 R7
 32
-R44
+R43
 !i10b 1
-R45
+R44
+R50
 R51
-R52
 !i113 1
 R12
 R13
@@ -296,8 +296,8 @@ R20
 R3
 R4
 R0
-Z53 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd
-Z54 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd
+Z52 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd
+Z53 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd
 l0
 L4
 V6klTfJd[Zk4_zG:zZmCMU3
@@ -307,8 +307,8 @@ R7
 R17
 !i10b 1
 R23
-Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd|
-Z56 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd|
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd|
+Z55 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd|
 !i113 1
 R12
 R13
@@ -325,18 +325,18 @@ R7
 R17
 !i10b 1
 R23
+R54
 R55
-R56
 !i113 1
 R12
 R13
 Eimmgen
-Z57 w1610449154
+Z56 w1610449154
 R3
 R4
 R0
-Z58 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd
-Z59 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd
+Z57 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd
+Z58 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd
 l0
 L4
 V9f[B67Z8jZf537j4o_=eQ0
@@ -346,8 +346,8 @@ R7
 R17
 !i10b 1
 R23
-Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd|
-Z61 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd|
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd|
+Z60 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd|
 !i113 1
 R12
 R13
@@ -364,30 +364,30 @@ R7
 R17
 !i10b 1
 R23
+R59
 R60
-R61
 !i113 1
 R12
 R13
 Ememory
-Z62 w1610447896
+Z61 w1610473769
 R2
 R3
 R4
 R0
-Z63 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd
-Z64 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd
+Z62 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd
+Z63 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd
 l0
 L5
 VM@m]8^`VaCR5k9AT389zX2
 !s100 DhI4FB47JaVm`?4M_zl_11
 R7
 32
-R44
+Z64 !s110 1610473875
 !i10b 1
-R45
-Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd|
-Z66 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd|
+Z65 !s108 1610473875.000000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd|
+Z67 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Memory.vhd|
 !i113 1
 R12
 R13
@@ -398,36 +398,36 @@ R4
 DEx4 work 6 memory 0 22 M@m]8^`VaCR5k9AT389zX2
 l24
 L19
-VJKL47L>:lHQU5kklAZYg<2
-!s100 U3GhZbVF`2A9X1T@Hlg:=1
+V3@E]2JbObB8a`zioDX21?1
+!s100 ?nS7VkNo]>fJTnd;F7CgZ2
 R7
 32
-R44
+R64
 !i10b 1
-R45
 R65
 R66
+R67
 !i113 1
 R12
 R13
 Emux2to1
-Z67 w1610447463
+Z68 w1610447463
 R3
 R4
 R0
-Z68 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd
-Z69 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd
+Z69 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd
+Z70 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd
 l0
 L4
 V6fDZ8YdTD3czUDRXJcG5G1
 !s100 @5iJZf`1iUakJWiiNn@h_2
 R7
 32
-Z70 !s110 1610447489
+Z71 !s110 1610447489
 !i10b 1
-Z71 !s108 1610447489.000000
-Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd|
-Z73 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd|
+Z72 !s108 1610447489.000000
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd|
+Z74 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1.vhd|
 !i113 1
 R12
 R13
@@ -441,32 +441,32 @@ VjV@kn^BY6S03BlH87SE3[3
 !s100 iKzgeg>X9ObFLiX36dA112
 R7
 32
-R70
-!i10b 1
 R71
+!i10b 1
 R72
 R73
+R74
 !i113 1
 R12
 R13
 Emux2to1_std
-Z74 w1610449557
+Z75 w1610449557
 R3
 R4
 R0
-Z75 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd
-Z76 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd
+Z76 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd
+Z77 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd
 l0
 L4
 VM@J::9ZegW39^o1T2F7c[3
 !s100 6`dGiU>z4ADY4^>k@YVXT1
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd|
-Z78 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd|
+R44
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd|
+Z79 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd|
 !i113 1
 R12
 R13
@@ -480,32 +480,32 @@ Vh`?UaLe;UaAh]blCl029`3
 !s100 <dNDgVh21aZ<KW^lZ2l6?3
 R7
 32
-R44
+R43
 !i10b 1
-R45
-R77
+R44
 R78
+R79
 !i113 1
 R12
 R13
 Emux2to1_vec
-R74
+R75
 R3
 R4
 R0
-Z79 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd
-Z80 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd
+Z80 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd
+Z81 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd
 l0
 L4
 VaZ1ne7g309>[V0jS<C<;A3
 !s100 Z0bFRaHln=?meM;4W>cV]3
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd|
-Z82 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd|
+R44
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd|
+Z83 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd|
 !i113 1
 R12
 R13
@@ -519,21 +519,21 @@ Vld[5P9ai6>jjE;J9lj=Ol1
 !s100 7b_iYgI`Q7PG;DI_WhnA21
 R7
 32
-R44
+R43
 !i10b 1
-R45
-R81
+R44
 R82
+R83
 !i113 1
 R12
 R13
 Emux4to1
-Z83 w1610119482
+Z84 w1610119482
 R3
 R4
 R0
-Z84 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd
-Z85 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd
+Z85 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd
+Z86 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd
 l0
 L4
 V>CFKV2Uf<F@i1aA2RUOY43
@@ -543,8 +543,8 @@ R7
 R17
 !i10b 1
 R23
-Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd|
-Z87 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd|
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd|
+Z88 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd|
 !i113 1
 R12
 R13
@@ -561,20 +561,20 @@ R7
 R17
 !i10b 1
 R23
-R86
 R87
+R88
 !i113 1
 R12
 R13
 Eoutput_sink
-Z88 w1609931016
-Z89 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+Z89 w1609931016
+Z90 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
 R2
 R3
 R4
 R0
-Z90 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd
-Z91 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd
+Z91 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd
+Z92 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd
 l0
 L9
 V_OD^;b?35g@coadQV[[132
@@ -584,13 +584,13 @@ R7
 R17
 !i10b 1
 R23
-Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd|
-Z93 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd|
+Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd|
+Z94 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Output_Sink.vhd|
 !i113 1
 R12
 R13
 Abehavior
-R89
+R90
 R2
 R3
 R4
@@ -604,30 +604,30 @@ R7
 R17
 !i10b 1
 R23
-R92
 R93
+R94
 !i113 1
 R12
 R13
 Epcinc
-Z94 w1610447670
+Z95 w1610447670
 R2
 R3
 R4
 R0
-Z95 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd
-Z96 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd
+Z96 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd
+Z97 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd
 l0
 L5
 VJLA3BYa:3WZ9^]U?:B<]n0
 !s100 h=WYK42<VYDSUWLiY]8^91
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z97 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd|
-Z98 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd|
+R44
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd|
+Z99 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd|
 !i113 1
 R12
 R13
@@ -642,33 +642,33 @@ VLOazNTW3CaHSlXLj@GV?90
 !s100 1HFDDiSbdif<JzZzTVF:20
 R7
 32
-R44
+R43
 !i10b 1
-R45
-R97
+R44
 R98
+R99
 !i113 1
 R12
 R13
 Eregister_a
-Z99 w1610447779
+Z100 w1610447779
 R2
 R3
 R4
 R0
-Z100 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd
-Z101 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd
+Z101 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd
+Z102 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd
 l0
 L5
 V`51gdm6H3FAL<go_R`69[2
 !s100 2d85UnJS8VEkg;h2b@hSF1
 R7
 32
-Z102 !s110 1610447784
+Z103 !s110 1610447784
 !i10b 1
-Z103 !s108 1610447784.000000
-Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd|
-Z105 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd|
+Z104 !s108 1610447784.000000
+Z105 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd|
+Z106 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_a.vhd|
 !i113 1
 R12
 R13
@@ -683,33 +683,33 @@ V949n6@aC[Xf`hmiMFC5T=0
 !s100 ln1U4T`UFH2dBXL=B4BY<1
 R7
 32
-R102
-!i10b 1
 R103
+!i10b 1
 R104
 R105
+R106
 !i113 1
 R12
 R13
 Eregister_std
-Z106 w1610450621
+Z107 w1610450621
 R2
 R3
 R4
 R0
-Z107 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd
-Z108 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd
+Z108 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd
+Z109 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd
 l0
 L5
 V19GG6z88G]H]5>6Ih;7X?1
 !s100 :=1TXMRPGZhCcI]8nlCHW2
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd|
-Z110 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd|
+R44
+Z110 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd|
+Z111 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd|
 !i113 1
 R12
 R13
@@ -724,33 +724,33 @@ Va1PUg:^2E=:KTh5=TUH7z0
 !s100 Mg]_JfO@C0;o6W0<iaHcX2
 R7
 32
-R44
+R43
 !i10b 1
-R45
-R109
+R44
 R110
+R111
 !i113 1
 R12
 R13
 Eregister_vec
-R74
+R75
 R2
 R3
 R4
 R0
-Z111 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd
-Z112 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd
+Z112 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd
+Z113 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd
 l0
 L5
 VDYT`0C?LaiPeJKbnjl4@;2
 !s100 T2LoH_`P=GZG>B<<;lY6U2
 R7
 32
-R44
+R43
 !i10b 1
-R45
-Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd|
-Z114 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd|
+R44
+Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd|
+Z115 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd|
 !i113 1
 R12
 R13
@@ -765,22 +765,22 @@ V>3HT4^1?aXAH;G8;FBER^2
 !s100 :2Ea_Em8B_V]jEO8HV3K:1
 R7
 32
-R44
+R43
 !i10b 1
-R45
-R113
+R44
 R114
+R115
 !i113 1
 R12
 R13
 Eregisterfile
-Z115 w1610271805
+Z116 w1610271805
 R2
 R3
 R4
 R0
-Z116 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
-Z117 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
+Z117 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
+Z118 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
 l0
 L5
 V8mfUng[JS2HDhn1H7Z[@O3
@@ -790,8 +790,8 @@ R7
 R17
 !i10b 1
 R23
-Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
-Z119 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
+Z119 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
+Z120 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
 !i113 1
 R12
 R13
@@ -809,20 +809,20 @@ R7
 R17
 !i10b 1
 R23
-R118
 R119
+R120
 !i113 1
 R12
 R13
 Estimuli_generator
-Z120 w1609930774
-R89
+Z121 w1609930774
+R90
 R2
 R3
 R4
 R0
-Z121 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd
-Z122 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd
+Z122 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd
+Z123 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd
 l0
 L9
 VYzz2i9D5^J[KkbG:EmOJh2
@@ -832,13 +832,13 @@ R7
 R17
 !i10b 1
 R23
-Z123 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd|
-Z124 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd|
+Z124 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd|
+Z125 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/Stimuli_generator.vhd|
 !i113 1
 R12
 R13
 Abehavior
-R89
+R90
 R2
 R3
 R4
@@ -852,29 +852,29 @@ R7
 R17
 !i10b 1
 R23
-R123
 R124
+R125
 !i113 1
 R12
 R13
 vtb_riscV
-R8
+!s110 1610474661
 !i10b 1
-!s100 5fPnoR8>6EMWnFCRjG@]J1
-I=[ONW3eF]O@Z4EmJlh0Xh1
+!s100 <7]P=H=:]R6JQoeNazzeM2
+IVaB;Don?XF73036ahcTMd1
 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1610452031
-8C:\Users\gianl\Desktop\POLITO\SECONDO ANNO\INTEGRATED SYSTEM ARCHITECTURE\Lab_ISA\LAB3\testbench\tb_riscV.v
-FC:\Users\gianl\Desktop\POLITO\SECONDO ANNO\INTEGRATED SYSTEM ARCHITECTURE\Lab_ISA\LAB3\testbench\tb_riscV.v
+w1610474654
+8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v
+FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v
 L0 1
 OV;L;10.5b;63
 r1
 !s85 0
 31
-R9
-!s107 C:\Users\gianl\Desktop\POLITO\SECONDO ANNO\INTEGRATED SYSTEM ARCHITECTURE\Lab_ISA\LAB3\testbench\tb_riscV.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\gianl\Desktop\POLITO\SECONDO ANNO\INTEGRATED SYSTEM ARCHITECTURE\Lab_ISA\LAB3\testbench\tb_riscV.v|
+!s108 1610474661.000000
+!s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v|
 !i113 1
 o-work work
 tCvgOpt 0
