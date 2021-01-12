@@ -1,17 +1,17 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
-entity mux2to1 is
+entity mux2to1_std is
     generic(N : natural := 32);
     port(
-      data_0_in : in std_logic_vector (N-1 downto 0);
-      data_1_in : in std_logic_vector (N-1 downto 0);
+      data_0_in : in std_logic;
+      data_1_in : in std_logic;
       sel : in std_logic;
-      data_out : out  std_logic_vector (N-1 downto 0)
+      data_out : out  std_logic
     );
-end mux2to1;
+end mux2to1_std;
 
-architecture behavior of mux2to1 is
+architecture behavior of mux2to1_std is
 begin
 	process(sel, data_0_in, data_1_in)
     begin
@@ -21,8 +21,6 @@ begin
             when '1' =>
                 data_out <= data_1_in;
             when others =>
-                data_out <= (others => '1');
-                report "sel not valid" severity warning;
         end case;
     end process;
 end behavior;

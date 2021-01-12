@@ -31,7 +31,17 @@ component CU
   );
 end component;
 
-component Register_a
+component Register_std
+port(
+      data_in  : in std_logic:
+      clk      : in std_logic;
+      reg_rst  : in std_logic;
+      reg_en   : in std_logic;
+      data_out : out std_logic:
+);
+end component;
+
+component Register_vec
 generic( N : natural := 32);
 port(
       data_in  : in std_logic_vector (N-1 downto 0);
@@ -42,7 +52,16 @@ port(
 );
 end component;
 
-component mux2to1
+component mux2to1_std
+port(
+  data_0_in : in std_logic;
+  data_1_in : in std_logic;
+  sel       : in std_logic;
+  data_out  : out  std_logic;
+);
+end component;
+
+component mux2to1_vec
 generic(N : natural := 32);
 port(
   data_0_in : in std_logic_vector (N-1 downto 0);
@@ -286,7 +305,7 @@ port map(
     RegWrite 	=> RegWrite_IF
 );
 
-PC_reg : Register_a
+PC_reg : Register_vec
 port map(
 	data_in  => PC_reg_in,
 	clk      => clk,
@@ -297,7 +316,7 @@ port map(
 
 PCOut <= PC_reg_out;
 
-PC_sel_mux : mux2to1
+PC_sel_mux : mux2to1_vec
 port map(
   data_0_in => PC_inc_out,
   data_1_in => ALU_out,
@@ -311,7 +330,7 @@ port map(
   PC_out => PC_inc_out
 );
 
-IF_instr_sel_mux : mux2to1
+IF_instr_sel_mux : mux2to1_vec
 port map(
   data_0_in => Instruction,
   data_1_in => NOP_instruction,
@@ -323,7 +342,7 @@ port map(
 ------- IF pipeline stage -------
 ---------------------------------
 
-IF_pipe_PC : Register_a
+IF_pipe_PC : Register_vec
 port map(
 	data_in  => PC_reg_out,
 	clk      => clk,
@@ -332,7 +351,7 @@ port map(
 	data_out => IF_pipe_PC_out
 );
 
-IF_pipe_instr : Register_a
+IF_pipe_instr : Register_vec
 port map(
 	data_in  => Instruction_mux_out,
 	clk      => clk,
@@ -387,8 +406,7 @@ port map(
   Immediate   => Immediate_IF
 );
 
-ID_MemRead_sel_mux : mux2to1
-generic map (N => 1)
+ID_MemRead_sel_mux : mux2to1_std
 port map(
   data_0_in => MemRead_IF,
   data_1_in => '0',
@@ -396,8 +414,7 @@ port map(
   data_out  => ID_pipe_MemRead_in
 );
 
-ID_MemWrite_sel_mux : mux2to1
-generic map (N => 1)
+ID_MemWrite_sel_mux : mux2to1_std
 port map(
   data_0_in => MemWrite_IF,
   data_1_in => '0',
@@ -405,7 +422,7 @@ port map(
   data_out  => ID_pipe_MemWrite_in
 );
 
-ID_ALUOp_sel_mux : mux2to1
+ID_ALUOp_sel_mux : mux2to1_vec
 generic map (N => 2)
 port map(
   data_0_in => ALUOp_IF,
@@ -414,8 +431,7 @@ port map(
   data_out  => ID_pipe_ALUOp_in
 );
 
-ID_BrInstr_sel_mux : mux2to1
-generic map (N => 1)
+ID_BrInstr_sel_mux : mux2to1_std
 port map(
   data_0_in => BrInstr_IF,
   data_1_in => '0',
@@ -423,8 +439,7 @@ port map(
   data_out  => ID_pipe_BrInstr_in
 );
 
-ID_RegWrite_sel_mux : mux2to1
-generic map (N => 1)
+ID_RegWrite_sel_mux : mux2to1_std
 port map(
   data_0_in => RegWrite_IF,
   data_1_in => '0',
@@ -436,7 +451,7 @@ port map(
 ------- ID pipeline stage -------s
 ---------------------------------
 
-ID_pipe_PC : Register_a
+ID_pipe_PC : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => IF_pipe_PC_out,
@@ -446,8 +461,7 @@ port map(
 	data_out => PC_ID
 );
 
-ID_pipe_MemRead : Register_a
-generic map(N => 1)
+ID_pipe_MemRead : Register_std
 port map(
 	data_in  => ID_pipe_MemRead_in,
 	clk      => clk,
@@ -456,8 +470,7 @@ port map(
 	data_out => MemRead_ID
 );
 
-ID_pipe_MemWrite : Register_a
-generic map(N => 1)
+ID_pipe_MemWrite : Register_std
 port map(
 	data_in  => ID_pipe_MemWrite_in,
 	clk      => clk,
@@ -466,7 +479,7 @@ port map(
 	data_out => MemWrite_ID
 );
 
-ID_pipe_ALUOp : Register_a
+ID_pipe_ALUOp : Register_vec
 generic map(N => 2)
 port map(
 	data_in  => ID_pipe_ALUOp_in,
@@ -476,8 +489,7 @@ port map(
 	data_out => ALUOp_ID
 );
 
-ID_pipe_BrInstr : Register_a
-generic map(N => 1)
+ID_pipe_BrInstr : Register_std
 port map(
 	data_in  => ID_pipe_BrInstr_in
 	clk      => clk,
@@ -486,8 +498,7 @@ port map(
 	data_out => BrInstr_ID
 );
 
-ID_pipe_RegWrite : Register_a
-generic map(N => 1)
+ID_pipe_RegWrite : Register_std
 port map(
 	data_in  => ID_pipe_RegWrite_in,
 	clk      => clk,
@@ -496,7 +507,7 @@ port map(
 	data_out => RegWrite_ID
 );
 
-ID_pipe_WBSel : Register_a
+ID_pipe_WBSel : Register_vec
 generic map(N => 2)
 port map(
 	data_in  => WBSel_IF,
@@ -506,7 +517,7 @@ port map(
 	data_out => WBSel_ID
 );
 
-ID_pipe_ImmSel : Register_a
+ID_pipe_ImmSel : Register_vec
 generic map(N => 3)
 port map(
 	data_in  => ImmSel_IF
@@ -516,8 +527,7 @@ port map(
 	data_out => ImmSel_ID
 );
 
-ID_pipe_ALUSrcA : Register_a
-generic map(N => 1)
+ID_pipe_ALUSrcA : Register_std
 port map(
 	data_in  => ALUSrcA_IF
 	clk      => clk,
@@ -526,8 +536,7 @@ port map(
 	data_out => ALUSrcA_ID
 );
 
-ID_pipe_ALUSrcB : Register_a
-generic map(N => 1)
+ID_pipe_ALUSrcB : Register_std
 port map(
 	data_in  => ALUSrcB_IF
 	clk      => clk,
@@ -536,7 +545,7 @@ port map(
 	data_out => ALUSrcB_ID
 );
 
-ID_pipe_dataA : Register_a
+ID_pipe_dataA : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => RegFile_dataA_out,
@@ -546,7 +555,7 @@ port map(
 	data_out => ID_pipe_dataA_out
 );
 
-ID_pipe_dataB : Register_a
+ID_pipe_dataB : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => RegFile_dataB_out,
@@ -556,7 +565,7 @@ port map(
 	data_out => ID_pipe_dataB_out
 );
 
-ID_pipe_Rs1 : Register_a
+ID_pipe_Rs1 : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => Rs1_IF,
@@ -566,7 +575,7 @@ port map(
 	data_out => Rs1_ID
 );
 
-ID_pipe_Rs2 : Register_a
+ID_pipe_Rs2 : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => Rs2_IF,
@@ -576,7 +585,7 @@ port map(
 	data_out => Rs2_ID
 );
 
-ID_pipe_Rd : Register_a
+ID_pipe_Rd : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => Rd_IF
@@ -586,7 +595,7 @@ port map(
 	data_out => Rd_ID
 );
 
-ID_pipe_Immediate : Register_a
+ID_pipe_Immediate : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => Immediate_IF
@@ -596,7 +605,7 @@ port map(
 	data_out => Immediate_ID
 );
 
-ID_pipe_funct3 : Register_a
+ID_pipe_funct3 : Register_vec
 generic map(N => 3)
 port map(
 	data_in  => funct3_IF,
@@ -610,7 +619,7 @@ port map(
 ---------------------------------------
 ---------------------------------------
 
-ALUSrcA_mux : mux2to1
+ALUSrcA_mux : mux2to1_vec
 port map(
   data_0_in => ID_pipe_dataA_out,
   data_1_in => Immediate_ID,
@@ -618,7 +627,7 @@ port map(
   data_out  => ALUSrcA_mux_out
 );
 
-ALUSrcB_mux : mux2to1
+ALUSrcB_mux : mux2to1_vec
 port map(
   data_0_in => ID_pipe_dataB_out,
   data_1_in => PC_ID,
@@ -694,8 +703,7 @@ port map(
 ------- EX pipeline stage -------
 ---------------------------------
 
-EX_pipe_MemRead : Register_a
-generic map(N => 1)
+EX_pipe_MemRead : Register_std
 port map(
 	data_in  => MemRead_ID
 	clk      => clk,
@@ -704,8 +712,7 @@ port map(
 	data_out => MemRead_EX
 );
 
-EX_pipe_MemWrite : Register_a
-generic map(N => 1)
+EX_pipe_MemWrite : Register_std
 port map(
 	data_in  => MemWrite_ID,
 	clk      => clk,
@@ -714,7 +721,7 @@ port map(
 	data_out => MemWrite_EX
 );
 
-EX_pipe_WBSel : Register_a
+EX_pipe_WBSel : Register_vec
 generic map(N => 2)
 port map(
 	data_in  => WBSel_ID,
@@ -724,8 +731,7 @@ port map(
 	data_out => WBSel_EX
 );
 
-EX_pipe_RegWrite : Register_a
-generic map(N => 1)
+EX_pipe_RegWrite : Register_std
 port map(
 	data_in  => RegWrite_ID,
 	clk      => clk,
@@ -734,7 +740,7 @@ port map(
 	data_out => RegWrite_EX
 );
 
-EX_pipe_PC_inc : Register_a
+EX_pipe_PC_inc : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => PC_ID_inc
@@ -744,7 +750,7 @@ port map(
 	data_out => PC_inc_EX
 );
 
-EX_pipe_ALU_out : Register_a
+EX_pipe_ALU_out : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => ALUData_out
@@ -754,7 +760,7 @@ port map(
 	data_out => ALU_data_out_EX
 );
 
-EX_pipe_DataB : Register_a
+EX_pipe_DataB : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => ID_pipe_dataB_out
@@ -764,7 +770,7 @@ port map(
 	data_out => EX_pipe_DataB_out
 );
 
-EX_pipe_Rd : Register_a
+EX_pipe_Rd : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => Rd_ID
@@ -796,7 +802,7 @@ port map(
 ------ MEM pipeline stage -------
 ---------------------------------
 
-MEM_pipe_data : Register_a
+MEM_pipe_data : Register_vec
 generic map(N => 32)
 port map(
 	data_in  => MEM_pipe_data_in,
@@ -806,7 +812,7 @@ port map(
 	data_out => MEM_pipe_data_out
 );
 
-MEM_pipe_Rd : Register_a
+MEM_pipe_Rd : Register_vec
 generic map(N => 5)
 port map(
 	data_in  => Rd_EX,
