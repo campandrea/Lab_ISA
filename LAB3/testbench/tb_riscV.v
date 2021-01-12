@@ -3,12 +3,46 @@ module tb_riscV
  (output wire END_SIM_i);
 
 wire CLK;
-wire RST_n
+wire RST_n;
 reg END_SIM_reg;
+wire Instruction_module_out;
+wire Instruction_module_eof;
+reg[31:0] Instruction_memory_addr;
+reg Instruction_module_wr_n;
+reg rst_DUT;
 
+reg[31:0] PCout;
+wire[31:0] Instruction;
+wire DUT_DataMemRead;
+wire DUT_DataMemWrite;
+wire DUT_DataMemWrite;
+wire[31:0] DUT_DataMemAddr;
+wire[31:0] DUT_DataMemDataIn;
+wire[31:0] DUT_DataMemDataOut;
+
+reg Data_module_rd;
+reg Data_module_wr_n;
+reg[31:0] Data_module_addr;
+reg[31:0] Data_module_data_in;
+reg[31:0] Data_module_data_out;
+
+reg Write_Data_Module_en;
+reg[31:0] Write_Data_Module_data_in;
+
+integer count;
 
 initial begin
 	#1 END_SIM_reg <= 0;
+  #1 count <= 0;
+  #1 rst_DUT <= 1;
+  while (!$feof(file)) begin
+    Instruction_module_wr_n <= 1'b0;
+    @ (posedge CLK)
+    count <= count + 4;
+    Instruction_memory_addr <= count;
+  end
+    Instruction_memory_addr <= PCout;
+    rst_DUT <= 0;
   //parte il clock e il suo enable
   // parte la lettura del file e la scrittura nell'instruction memory
   // quando finisce dare il reset alla dut e farla partire
@@ -17,22 +51,36 @@ initial begin
 end
 
 //task per controllare a chi dare il comando della data memory
-task write_data_memory_handler();
-  input END_sim_i;
-  output //aggiungere i segnali utili
+always @ (END_SIM_i)
   begin
     if(END_sim_i == 0)
       begin
       // il comando della data mem deve essere della DUT
+      Data_module_rd <= DUT_DataMemRead;
+      Data_module_wr_n <= ~ DUT_DataMemWrite;
+      Data_module_addr <= DUT_DataMemAddr;
+      Data_module_data_in <= DUT_DataMemDataIn;
+      DUT_DataMemDataOut <= Data_module_data_out;
+      Write_Data_Module_en <= 0;
+      Write_Data_Module_data_in <= 32'h000000000;
       end
     else if(END_sim_i == 1)
       begin
-      //il comando deve averlo il dut
+      //il comando deve averlo il testbench
+      count = 268500992;
+      while (count < 268500992 + 1024 ) begin
+        Data_module_rd <= 1'b0;
+        Data_module_wr_n <= 0;
+        Data_module_addr <= count;
+        Data_module_data_in <= 32'h000000000;
+        Write_Data_Module_en <= 1;
+        Write_Data_Module_data_in <= Data_module_data_out;
+        @ (posedge CLK)
+        count <= count + 4;
       end
-endtask
+      end
+end
 
-//effettuare sempre il controllo
-always write_data_memory_handler();
 
 
 //Clock generator
@@ -47,28 +95,28 @@ clk_gen
  ///Read instruction from file
  //AGGIUSTARE
 Stimuli_generator
-#(.filename(""))
+#(.filename("")) //Inserire Instruction file
 	Read_Instruction_Module(
 		.clk(CLK),
-		.en(),
-		.data_out(),
-		.eof(EOF)
+		.en(~ Instruction_module_wr_n),
+		.data_out(Instruction_module_out),
+		.eof(Instruction_module_eof)
 	);
 
 //Instruction memory
 //AGGIUSTARE
 Memory
-#(.word_size(8),
+#(.word_size(32),
   .addr_size(32),
-  .line_size(4)
   )
   Instruction_mem_module(
-      .chip_sel(),
-      .rd(),
-      .wr_n(),
-      .addr(),
-      .data_in(),
-      .data_out()
+      .clk(CLK)
+      .chip_sel(1'b1),
+      .rd(1'b1),
+      .wr_n(Instruction_module_wr_n),
+      .addr(Instruction_memory_addr),
+      .data_in(Instruction_module_out),
+      .data_out(Instruction)
   );
 
 //DUT riscV processor
@@ -76,30 +124,30 @@ Memory
 datapath
     DUT_module(
         .clk(CLK),
-        .rst(),
-        .PCOut(),
-        .Instruction(),
-        .DataMemRead(),
-        .DataMemWrite(),
-        .DataMemAddr(),
-        .DataMemDataIn(),
-        .DataMemDataOut()
+        .rst(rst_DUT),
+        .PCOut(PCout),
+        .Instruction(Instruction),
+        .DataMemRead(DUT_DataMemRead),
+        .DataMemWrite(DUT_DataMemWrite),
+        .DataMemAddr(DUT_DataMemAddr),
+        .DataMemDataIn(DUT_DataMemDataIn),
+        .DataMemDataOut(DUT_DataMemDataOut)
     );
 
 //Data memory
 //AGGIUSTARE
 Memory
-#(.word_size(8),
+#(.word_size(32),
   .addr_size(32),
-  .line_size(4)
   )
   Data_mem_module(
-      .chip_sel(),
-      .rd(),
-      .wr_n(),
-      .addr(),
-      .data_in(),
-      .data_out()
+      .clk(CLK),
+      .chip_sel(1'b1),
+      .rd(Data_module_rd),
+      .wr_n(Data_module_wr_n),
+      .addr(Data_module_addr),
+      .data_in(Data_module_data_in),
+      .data_out(Data_module_data_out)
   );
 
 //Write result data on file
@@ -108,8 +156,8 @@ Output_Sink
 #(.filename(""))
 	Write_Data_Module(
 		.clk(CLK),
-		.en(),
-		.data_in()
+		.en(Write_Data_Module_en),
+		.data_in(Write_Data_Module_data_in)
 	);
 
 
