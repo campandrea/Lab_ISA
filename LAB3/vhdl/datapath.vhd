@@ -390,7 +390,7 @@ port map(
 ID_MemRead_sel_mux : mux2to1
 generic map (N => 1)
 port map(
-  data_0_in => std_logic_vector(MemRead_IF),
+  data_0_in => MemRead_IF,
   data_1_in => '0',
   sel       => ID_RegSel,
   data_out  => ID_pipe_MemRead_in
