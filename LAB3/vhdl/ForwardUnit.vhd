@@ -59,7 +59,7 @@ end architecture;
 --xxxx
 --sub t5, t0
 
---add t0, 
+--add t0,
 --add t0,
 --add t5, t0, t4
 
@@ -67,7 +67,6 @@ end architecture;
 --add t1, ....
 --add t5, t1, t0 */
 
-/* CASI NON RISOLTI
-ld t0, ...
-add t5, t0, ...
-*/
+-- CASI NON RISOLTI
+--ld t0, ...
+--add t5, t0, ...

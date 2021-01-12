@@ -12,7 +12,7 @@ entity Memory is
         wr_n     : in std_logic;
   		  addr	   : in std_logic_vector(addr_size - 1 downto 0);
   		  data_in  : in std_logic_vector(word_size - 1 downto 0);
-  		  data_out : in std_logic_vector(word_size - 1 downto 0)
+  		  data_out : out std_logic_vector(word_size - 1 downto 0)
          );
 end Memory;
 

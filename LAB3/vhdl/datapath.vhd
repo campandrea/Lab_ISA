@@ -14,6 +14,7 @@ port(
 	DataMemDataOut : in std_logic_vector (31 downto 0)
 );
 end datapath;
+architecture structure of datapath is
 
 component CU
   port(
@@ -30,7 +31,7 @@ component CU
   );
 end component;
 
-component Register_
+component Register_a
 generic( N : natural := 32);
 port(
       data_in  : in std_logic_vector (N-1 downto 0);
@@ -131,7 +132,7 @@ port(
 end component;
 
 component HazardDetUnit
-port( 
+port(
   Rs1_IF : in std_logic_vector (4 downto 0);
   Rs2_IF : in std_logic_vector (4 downto 0);
   Rd_ID : in std_logic_vector (4 downto 0);
@@ -146,7 +147,6 @@ port(
 );
 end component;
 
-architecture structure of datapath is
 
 signal pipe_reg_rst : std_logic;
 signal NOP_instruction : std_logic_vector (31 downto 0);
@@ -210,10 +210,8 @@ signal ID_pipe_RegWrite_in : std_logic;
 ---------------------------------
 
 signal PC_ID : std_logic_vector (31 downto 0);
-signal MemRead_ID : std_logic;
 signal MemWrite_ID : std_logic;
 signal ALUOp_ID : std_logic_vector (1 downto 0);
-signal BrInstr_ID : std_logic;
 signal RegWrite_ID : std_logic;
 signal WBSel_ID : std_logic_vector (1 downto 0);
 signal ImmSel_ID : std_logic_vector (2 downto 0);
@@ -224,9 +222,10 @@ signal ID_pipe_dataA_out : std_logic_vector (31 downto 0);
 signal ID_pipe_dataB_out : std_logic_vector (31 downto 0);
 signal Rs1_ID : std_logic_vector (4 downto 0);
 signal Rs2_ID : std_logic_vector (4 downto 0);
-signal Rd_ID : std_logic_vector (4 downto 0);
+
 signal Immediate_ID : std_logic_vector (31 downto 0);
 signal funct3_ID : std_logic_vector (2 downto 0);
+signal Instruction_mux_out : std_logic_vector (31 downto 0);
 
 -------------------------------------------------
 -------------------------------------------------
@@ -287,9 +286,9 @@ port map(
     RegWrite 	=> RegWrite_IF
 );
 
-PC_reg : Register_
+PC_reg : Register_a
 port map(
-	data_in  => PC_reg_in
+	data_in  => PC_reg_in,
 	clk      => clk,
 	reg_rst  => PC_reg_rst,
 	reg_en   => PC_RegEn,
@@ -324,7 +323,7 @@ port map(
 ------- IF pipeline stage -------
 ---------------------------------
 
-IF_pipe_PC : Register_
+IF_pipe_PC : Register_a
 port map(
 	data_in  => PC_reg_out,
 	clk      => clk,
@@ -333,7 +332,7 @@ port map(
 	data_out => IF_pipe_PC_out
 );
 
-IF_pipe_instr : Register_
+IF_pipe_instr : Register_a
 port map(
 	data_in  => Instruction_mux_out,
 	clk      => clk,
@@ -348,7 +347,7 @@ port map(
 -----------------------------------
 
 HazardDetectionUnit : HazardDetUnit
-port map( 
+port map(
   Rs1_IF 		=> Rs1_IF,
   Rs2_IF 		=> Rs2_IF,
   Rd_ID 		=> Rd_ID,
@@ -367,7 +366,7 @@ Rs2_IF <= IF_pipe_instr_out (24 downto 20);
 Rd_IF <= IF_pipe_instr_out (11 downto 7);
 funct3_IF <= IF_pipe_instr_out (14 downto 12);
 
-Register_file : RegisterFile
+Register_afile : RegisterFile
 port map(
   clk         => clk,
   data_in     => MEM_pipe_data_out,
@@ -391,7 +390,7 @@ port map(
 ID_MemRead_sel_mux : mux2to1
 generic map (N => 1)
 port map(
-  data_0_in => MemRead_IF,
+  data_0_in => std_logic_vector(MemRead_IF),
   data_1_in => '0',
   sel       => ID_RegSel,
   data_out  => ID_pipe_MemRead_in
@@ -434,10 +433,10 @@ port map(
 );
 
 ---------------------------------
-------- ID pipeline stage -------
+------- ID pipeline stage -------s
 ---------------------------------
 
-ID_pipe_PC : Register_
+ID_pipe_PC : Register_a
 generic map(N => 32)
 port map(
 	data_in  => IF_pipe_PC_out,
@@ -447,7 +446,7 @@ port map(
 	data_out => PC_ID
 );
 
-ID_pipe_MemRead : Register_
+ID_pipe_MemRead : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ID_pipe_MemRead_in,
@@ -457,7 +456,7 @@ port map(
 	data_out => MemRead_ID
 );
 
-ID_pipe_MemWrite : Register_
+ID_pipe_MemWrite : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ID_pipe_MemWrite_in,
@@ -467,7 +466,7 @@ port map(
 	data_out => MemWrite_ID
 );
 
-ID_pipe_ALUOp : Register_
+ID_pipe_ALUOp : Register_a
 generic map(N => 2)
 port map(
 	data_in  => ID_pipe_ALUOp_in,
@@ -477,7 +476,7 @@ port map(
 	data_out => ALUOp_ID
 );
 
-ID_pipe_BrInstr : Register_
+ID_pipe_BrInstr : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ID_pipe_BrInstr_in
@@ -487,7 +486,7 @@ port map(
 	data_out => BrInstr_ID
 );
 
-ID_pipe_RegWrite : Register_
+ID_pipe_RegWrite : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ID_pipe_RegWrite_in,
@@ -497,7 +496,7 @@ port map(
 	data_out => RegWrite_ID
 );
 
-ID_pipe_WBSel : Register_
+ID_pipe_WBSel : Register_a
 generic map(N => 2)
 port map(
 	data_in  => WBSel_IF,
@@ -507,7 +506,7 @@ port map(
 	data_out => WBSel_ID
 );
 
-ID_pipe_ImmSel : Register_
+ID_pipe_ImmSel : Register_a
 generic map(N => 3)
 port map(
 	data_in  => ImmSel_IF
@@ -517,7 +516,7 @@ port map(
 	data_out => ImmSel_ID
 );
 
-ID_pipe_ALUSrcA : Register_
+ID_pipe_ALUSrcA : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ALUSrcA_IF
@@ -527,7 +526,7 @@ port map(
 	data_out => ALUSrcA_ID
 );
 
-ID_pipe_ALUSrcB : Register_
+ID_pipe_ALUSrcB : Register_a
 generic map(N => 1)
 port map(
 	data_in  => ALUSrcB_IF
@@ -537,7 +536,7 @@ port map(
 	data_out => ALUSrcB_ID
 );
 
-ID_pipe_dataA : Register_
+ID_pipe_dataA : Register_a
 generic map(N => 32)
 port map(
 	data_in  => RegFile_dataA_out,
@@ -547,7 +546,7 @@ port map(
 	data_out => ID_pipe_dataA_out
 );
 
-ID_pipe_dataB : Register_
+ID_pipe_dataB : Register_a
 generic map(N => 32)
 port map(
 	data_in  => RegFile_dataB_out,
@@ -557,7 +556,7 @@ port map(
 	data_out => ID_pipe_dataB_out
 );
 
-ID_pipe_Rs1 : Register_
+ID_pipe_Rs1 : Register_a
 generic map(N => 5)
 port map(
 	data_in  => Rs1_IF,
@@ -567,7 +566,7 @@ port map(
 	data_out => Rs1_ID
 );
 
-ID_pipe_Rs2 : Register_
+ID_pipe_Rs2 : Register_a
 generic map(N => 5)
 port map(
 	data_in  => Rs2_IF,
@@ -577,7 +576,7 @@ port map(
 	data_out => Rs2_ID
 );
 
-ID_pipe_Rd : Register_
+ID_pipe_Rd : Register_a
 generic map(N => 5)
 port map(
 	data_in  => Rd_IF
@@ -587,7 +586,7 @@ port map(
 	data_out => Rd_ID
 );
 
-ID_pipe_Immediate : Register_
+ID_pipe_Immediate : Register_a
 generic map(N => 32)
 port map(
 	data_in  => Immediate_IF
@@ -597,7 +596,7 @@ port map(
 	data_out => Immediate_ID
 );
 
-ID_pipe_funct3 : Register_
+ID_pipe_funct3 : Register_a
 generic map(N => 3)
 port map(
 	data_in  => funct3_IF,
@@ -649,7 +648,7 @@ port map(
   data_out   => ALUDataB_in
 );
 
-ALU_ : ALU 
+ALU_ : ALU
 port map(
   data_in_A => ALUDataA_in,
   data_in_B => ALUDataB_in,
@@ -695,7 +694,7 @@ port map(
 ------- EX pipeline stage -------
 ---------------------------------
 
-EX_pipe_MemRead : Register_
+EX_pipe_MemRead : Register_a
 generic map(N => 1)
 port map(
 	data_in  => MemRead_ID
@@ -705,7 +704,7 @@ port map(
 	data_out => MemRead_EX
 );
 
-EX_pipe_MemWrite : Register_
+EX_pipe_MemWrite : Register_a
 generic map(N => 1)
 port map(
 	data_in  => MemWrite_ID,
@@ -715,7 +714,7 @@ port map(
 	data_out => MemWrite_EX
 );
 
-EX_pipe_WBSel : Register_
+EX_pipe_WBSel : Register_a
 generic map(N => 2)
 port map(
 	data_in  => WBSel_ID,
@@ -725,7 +724,7 @@ port map(
 	data_out => WBSel_EX
 );
 
-EX_pipe_RegWrite : Register_
+EX_pipe_RegWrite : Register_a
 generic map(N => 1)
 port map(
 	data_in  => RegWrite_ID,
@@ -735,7 +734,7 @@ port map(
 	data_out => RegWrite_EX
 );
 
-EX_pipe_PC_inc : Register_
+EX_pipe_PC_inc : Register_a
 generic map(N => 32)
 port map(
 	data_in  => PC_ID_inc
@@ -745,7 +744,7 @@ port map(
 	data_out => PC_inc_EX
 );
 
-EX_pipe_ALU_out : Register_
+EX_pipe_ALU_out : Register_a
 generic map(N => 32)
 port map(
 	data_in  => ALUData_out
@@ -755,7 +754,7 @@ port map(
 	data_out => ALU_data_out_EX
 );
 
-EX_pipe_DataB : Register_
+EX_pipe_DataB : Register_a
 generic map(N => 5)
 port map(
 	data_in  => ID_pipe_dataB_out
@@ -765,7 +764,7 @@ port map(
 	data_out => EX_pipe_DataB_out
 );
 
-EX_pipe_Rd : Register_
+EX_pipe_Rd : Register_a
 generic map(N => 5)
 port map(
 	data_in  => Rd_ID
@@ -797,7 +796,7 @@ port map(
 ------ MEM pipeline stage -------
 ---------------------------------
 
-MEM_pipe_data : Register_
+MEM_pipe_data : Register_a
 generic map(N => 32)
 port map(
 	data_in  => MEM_pipe_data_in,
@@ -807,7 +806,7 @@ port map(
 	data_out => MEM_pipe_data_out
 );
 
-MEM_pipe_Rd : Register_
+MEM_pipe_Rd : Register_a
 generic map(N => 5)
 port map(
 	data_in  => Rd_EX,

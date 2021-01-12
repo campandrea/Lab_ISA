@@ -14,13 +14,13 @@ entity CU is
     ALUSrcB     : OUT std_logic;
 	BrInstr		: OUT std_logic;
     RegWrite    : OUT std_logic
-  )
+  );
 end CU;
 
 architecture behaviour of CU is
 	signal OpCode : std_logic_vector (6 downto 0);
-	OpCode <= Instruction(6 downto 0);
 begin
+  OpCode <= Instruction(6 downto 0);
 	process(OpCode)
 	begin
 	  MemRead <= '0';
@@ -54,7 +54,7 @@ begin
 		  ALUOp <= "10";
 
 		when "0010011" => -- ADDI, SRAI, ANDI (I-type)
-		  ImmSel <= "000"
+		  ImmSel <= "000";
 		  ALUOp <= "10";
 		  ALUSrcA <= '1';
 		  RegWrite <= '1';
@@ -99,9 +99,9 @@ begin
 		  ALUSrcA <= '1';
 		  ALUOp <= "00"; -- ADD
 		  ImmSel <= "001";
-		  
+
 		when "0000000" =>
-		
+
 
 		when others => report "OpCode not found" severity failure;
 

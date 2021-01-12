@@ -16,9 +16,9 @@ begin
 	process(sel, data_0_in, data_1_in)
     begin
         case sel is
-            when "0" =>
+            when '0' =>
                 data_out <= data_0_in;
-            when "1" =>
+            when '1' =>
                 data_out <= data_1_in;
             when others =>
                 data_out <= (others => '1');

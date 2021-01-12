@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity PCInc is
 port(
@@ -11,7 +12,10 @@ end PCInc;
 architecture behaviour of PCInc is
 begin
     process(PC_in)
+    variable PC : signed(31 downto 0);
     begin
-        PC_out <= PC_in + 4;
+        PC := signed(PC_in);
+        PC := PC + 4;
+        PC_out <= std_logic_vector(PC);
     end process;
 end behaviour;
