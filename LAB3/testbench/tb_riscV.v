@@ -5,6 +5,7 @@ module tb_riscV
 wire CLK;
 wire RST_n;
 reg END_SIM_reg;
+reg Stimuli_en;
 wire[31:0] Instruction_module_out;
 wire Instruction_module_eof;
 reg[31:0] Instruction_memory_addr;
@@ -34,15 +35,9 @@ initial begin
 	 END_SIM_reg <= 1'b0;
    count <= 32'b0;
    rst_DUT <= 1'b1;
-   Instruction_memory_addr <= count;
-   Instruction_module_wr_n <= 1'b0;
-  while (!Instruction_module_eof) begin
-    @ (posedge CLK)
-    count <= count + 4;
-    Instruction_memory_addr <= count;
-  end
-    Instruction_memory_addr <= PCout;
-    rst_DUT <= 1'b0;
+   Instruction_memory_addr <= 32'b0;
+   Instruction_module_wr_n <= 1'b1;
+   Stimuli_en <= 1'b1;
   //parte il clock e il suo enable
   // parte la lettura del file e la scrittura nell'instruction memory
   // quando finisce dare il reset alla dut e farla partire
@@ -50,9 +45,21 @@ initial begin
   // mettere end_sim_i a 1
 end
 
+always @ (negedge CLK)
+begin
+  if( Instruction_module_eof == 1'b0) begin
+    Instruction_module_wr_n <= 1'b0;
+    count <= count + 32'd4;
+    Instruction_memory_addr <= count;
+  end
+  else begin
+  Instruction_memory_addr <= PCout;
+  rst_DUT <= 1'b0;
+  end
+end
 
 //task per controllare a chi dare il comando della data memory
-always @ (END_SIM_i)
+/*always @ (END_SIM_i)
   begin
     if(END_SIM_i == 0)
       begin
@@ -74,12 +81,12 @@ always @ (END_SIM_i)
         Data_module_data_in <= 32'h00000000;
         Write_Data_Module_en <= 1'b1;
         @ (posedge CLK)
-        count <= count + 4;
+        count <= count + 32'd4;
       end
       end
 end
 
-
+*/
 
 //Clock generator
 //AGGIUSTARE
@@ -96,7 +103,7 @@ Stimuli_generator
 #(.filename("../Files/instruction_1.txt")) //Inserire Instruction file
 	Read_Instruction_Module(
 		.clk(CLK),
-		.en(~ Instruction_module_wr_n),
+		.en(Stimuli_en),
 		.data_out(Instruction_module_out),
 		.eof(Instruction_module_eof)
 	);
@@ -104,19 +111,16 @@ Stimuli_generator
 //Instruction memory
 //AGGIUSTARE
 Memory
-#(.word_size(32),
-  .addr_size(32)
-  )
   Instruction_mem_module(
       .clk(CLK),
       .chip_sel(1'b1),
-      .rd(1'b1),
+      .rd(1'b0),
       .wr_n(Instruction_module_wr_n),
       .addr(Instruction_memory_addr),
       .data_in(Instruction_module_out),
       .data_out(Instruction)
   );
-/*
+
 //DUT riscV processor
 //AGGIUSTARE
 datapath
@@ -147,7 +151,7 @@ Memory
       .data_in(Data_module_data_in),
       .data_out(Data_module_data_out)
   );
-
+/*
 //Write result data on file
 //AGGIUSTARE
 Output_Sink
