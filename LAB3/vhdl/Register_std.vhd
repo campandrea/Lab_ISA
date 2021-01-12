@@ -18,7 +18,7 @@ begin
     begin
         if rising_edge(clk) then
         	if reg_rst = '1' then
-        	    data_out <= (others => '0');
+        	    data_out <= '0';
             elsif reg_en = '1' then
                 data_out <= data_in;
             end if;

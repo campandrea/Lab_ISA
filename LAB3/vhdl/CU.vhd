@@ -103,7 +103,7 @@ begin
 		when "0000000" =>
 
 
-		when others => report "OpCode not found" severity failure;
+		when others => report "OpCode not found" severity warning;
 
 	  end case;
 	end process;

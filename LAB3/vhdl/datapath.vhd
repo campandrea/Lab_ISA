@@ -5,7 +5,7 @@ entity datapath is
 port(
 	clk : in std_logic;
 	rst : in std_logic;
-	PCOut : out std_logic_vector (4 downto 0);
+	PCOut : out std_logic_vector (31 downto 0);
 	Instruction : in std_logic_vector (31 downto 0);
 	DataMemRead : out std_logic;
 	DataMemWrite : out std_logic;
@@ -33,11 +33,11 @@ end component;
 
 component Register_std
 port(
-      data_in  : in std_logic:
+      data_in  : in std_logic;
       clk      : in std_logic;
       reg_rst  : in std_logic;
       reg_en   : in std_logic;
-      data_out : out std_logic:
+      data_out : out std_logic
 );
 end component;
 
@@ -57,7 +57,7 @@ port(
   data_0_in : in std_logic;
   data_1_in : in std_logic;
   sel       : in std_logic;
-  data_out  : out  std_logic;
+  data_out  : out  std_logic
 );
 end component;
 
@@ -166,7 +166,7 @@ port(
 );
 end component;
 
-
+signal pipe_reg_en : std_logic;
 signal pipe_reg_rst : std_logic;
 signal NOP_instruction : std_logic_vector (31 downto 0);
 
@@ -258,6 +258,7 @@ signal ALUDataA_in, ALUDataB_in : std_logic_vector (31 downto 0);
 signal ALUCtrl : std_logic_vector (3 downto 0);
 signal ALUData_out : std_logic_vector (31 downto 0);
 
+
 ---------------------------------
 ------- EX pipeline stage -------
 ---------------------------------
@@ -271,6 +272,7 @@ signal PCInc_ex : std_logic_vector (31 downto 0);
 signal ALU_data_out_EX : std_logic_vector (31 downto 0);
 signal EX_pipe_DataB_out : std_logic_vector (31 downto 0);
 signal Rd_EX : std_logic_vector (4 downto 0);
+signal EX_pipe_ALU_out : std_logic_vector (31 downto 0);
 
 ---------------------------------------------------------
 ---------------------------------------------------------
@@ -278,13 +280,14 @@ signal Rd_EX : std_logic_vector (4 downto 0);
 ---------------------------------
 ------ MEM pipeline stage -------
 ---------------------------------
-
+signal MEM_data_out_MEM : std_logic_vector (31 downto 0);
 signal Rd_MEM : std_logic_vector (4 downto 0);
 signal MEM_pipe_data_in : std_logic_vector (31 downto 0);
 
 
 begin
 
+pipe_reg_en <= not rst;
 pipe_reg_rst <= rst;
 PC_reg_rst <= rst;
 
@@ -491,7 +494,7 @@ port map(
 
 ID_pipe_BrInstr : Register_std
 port map(
-	data_in  => ID_pipe_BrInstr_in
+	data_in  => ID_pipe_BrInstr_in,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -520,7 +523,7 @@ port map(
 ID_pipe_ImmSel : Register_vec
 generic map(N => 3)
 port map(
-	data_in  => ImmSel_IF
+	data_in  => ImmSel_IF,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -529,7 +532,7 @@ port map(
 
 ID_pipe_ALUSrcA : Register_std
 port map(
-	data_in  => ALUSrcA_IF
+	data_in  => ALUSrcA_IF,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -538,7 +541,7 @@ port map(
 
 ID_pipe_ALUSrcB : Register_std
 port map(
-	data_in  => ALUSrcB_IF
+	data_in  => ALUSrcB_IF,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -588,7 +591,7 @@ port map(
 ID_pipe_Rd : Register_vec
 generic map(N => 5)
 port map(
-	data_in  => Rd_IF
+	data_in  => Rd_IF,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -598,7 +601,7 @@ port map(
 ID_pipe_Immediate : Register_vec
 generic map(N => 32)
 port map(
-	data_in  => Immediate_IF
+	data_in  => Immediate_IF,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -636,7 +639,7 @@ port map(
 );
 
 ForwardA_mux : mux4to1
-generic map(N => 32);
+generic map(N => 32)
 port map(
   data_00_in => ALUSrcA_mux_out,
   data_01_in => (others => '0'),
@@ -647,7 +650,7 @@ port map(
 );
 
 ForwardB_mux : mux4to1
-generic map(N => 32);
+generic map(N => 32)
 port map(
   data_00_in => ALUSrcB_mux_out,
   data_01_in => (others => '0'),
@@ -657,7 +660,7 @@ port map(
   data_out   => ALUDataB_in
 );
 
-ALU_ : ALU
+ALU_a : ALU
 port map(
   data_in_A => ALUDataA_in,
   data_in_B => ALUDataB_in,
@@ -666,7 +669,7 @@ port map(
 );
 
 
-ALU__CU : ALU_CU
+ALU_CU_a : ALU_CU
 port map(
   ALUOp   => ALUOp_ID,
   funct3  => funct3_ID,
@@ -693,7 +696,7 @@ port map(
   ForwardB 		=> ForwardB
 );
 
-PCInc_ex : PCInc
+PCInc_1 : PCInc
 port map(
 	PC_in  => PC_ID,
 	PC_out => PC_ID_inc
@@ -705,7 +708,7 @@ port map(
 
 EX_pipe_MemRead : Register_std
 port map(
-	data_in  => MemRead_ID
+	data_in  => MemRead_ID,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -743,17 +746,17 @@ port map(
 EX_pipe_PC_inc : Register_vec
 generic map(N => 32)
 port map(
-	data_in  => PC_ID_inc
+	data_in  => PC_ID_inc,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
-	data_out => PC_inc_EX
+	data_out => PCInc_EX
 );
 
-EX_pipe_ALU_out : Register_vec
+EX_pipe_ALU_out_reg : Register_vec
 generic map(N => 32)
 port map(
-	data_in  => ALUData_out
+	data_in  => ALUData_out,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -761,9 +764,9 @@ port map(
 );
 
 EX_pipe_DataB : Register_vec
-generic map(N => 5)
+generic map(N => 32)
 port map(
-	data_in  => ID_pipe_dataB_out
+	data_in  => ID_pipe_dataB_out,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -773,7 +776,7 @@ port map(
 EX_pipe_Rd : Register_vec
 generic map(N => 5)
 port map(
-	data_in  => Rd_ID
+	data_in  => Rd_ID,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
@@ -788,11 +791,11 @@ DataMemAddr <= EX_pipe_ALU_out;
 DataMemDataIn <= EX_pipe_DataB_out;
 
 WBSel_mux : mux4to1
-generic map(N => 32);
+generic map(N => 32)
 port map(
   data_00_in => EX_pipe_ALU_out,
   data_01_in => DataMemDataOut,
-  data_10_in => PC_inc_EX,
+  data_10_in => PCInc_EX,
   data_11_in => (others => '0'),
   sel        => WBSel_EX,
   data_out   => MEM_pipe_data_in

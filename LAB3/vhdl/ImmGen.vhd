@@ -27,7 +27,7 @@ begin
 
             when "001" => -- Sign extension
                 Immediate (4 downto 0) <= Instruction (4 downto 0);
-                Immediate (11 downto 5) <= Instruction (24 downto 19);
+                Immediate (11 downto 5) <= Instruction (24 downto 18);
                 Immediate (31 downto 12) <= (others => Instruction (24));
 
             when "010" => -- Sign extension and shift 1 bit

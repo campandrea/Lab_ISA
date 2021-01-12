@@ -5,29 +5,28 @@ module tb_riscV
 wire CLK;
 wire RST_n;
 reg END_SIM_reg;
-wire Instruction_module_out;
+wire[31:0] Instruction_module_out;
 wire Instruction_module_eof;
 reg[31:0] Instruction_memory_addr;
 reg Instruction_module_wr_n;
 reg rst_DUT;
 
-reg[31:0] PCout;
+wire[31:0] PCout;
 wire[31:0] Instruction;
 wire DUT_DataMemRead;
 wire DUT_DataMemWrite;
-wire DUT_DataMemWrite;
 wire[31:0] DUT_DataMemAddr;
 wire[31:0] DUT_DataMemDataIn;
-wire[31:0] DUT_DataMemDataOut;
+
 
 reg Data_module_rd;
 reg Data_module_wr_n;
 reg[31:0] Data_module_addr;
 reg[31:0] Data_module_data_in;
-reg[31:0] Data_module_data_out;
+wire[31:0] Data_module_data_out;
 
 reg Write_Data_Module_en;
-reg[31:0] Write_Data_Module_data_in;
+
 
 integer count;
 
@@ -35,7 +34,7 @@ initial begin
 	#1 END_SIM_reg <= 0;
   #1 count <= 0;
   #1 rst_DUT <= 1;
-  while (!$feof(file)) begin
+  while (!Instruction_module_eof) begin
     Instruction_module_wr_n <= 1'b0;
     @ (posedge CLK)
     count <= count + 4;
@@ -53,18 +52,16 @@ end
 //task per controllare a chi dare il comando della data memory
 always @ (END_SIM_i)
   begin
-    if(END_sim_i == 0)
+    if(END_SIM_i == 0)
       begin
       // il comando della data mem deve essere della DUT
       Data_module_rd <= DUT_DataMemRead;
       Data_module_wr_n <= ~ DUT_DataMemWrite;
       Data_module_addr <= DUT_DataMemAddr;
       Data_module_data_in <= DUT_DataMemDataIn;
-      DUT_DataMemDataOut <= Data_module_data_out;
       Write_Data_Module_en <= 0;
-      Write_Data_Module_data_in <= 32'h000000000;
       end
-    else if(END_sim_i == 1)
+    else if(END_SIM_i == 1)
       begin
       //il comando deve averlo il testbench
       count = 268500992;
@@ -72,9 +69,8 @@ always @ (END_SIM_i)
         Data_module_rd <= 1'b0;
         Data_module_wr_n <= 0;
         Data_module_addr <= count;
-        Data_module_data_in <= 32'h000000000;
+        Data_module_data_in <= 32'h00000000;
         Write_Data_Module_en <= 1;
-        Write_Data_Module_data_in <= Data_module_data_out;
         @ (posedge CLK)
         count <= count + 4;
       end
@@ -95,7 +91,7 @@ clk_gen
  ///Read instruction from file
  //AGGIUSTARE
 Stimuli_generator
-#(.filename("")) //Inserire Instruction file
+#(.filename("../Files/instruction1.txt")) //Inserire Instruction file
 	Read_Instruction_Module(
 		.clk(CLK),
 		.en(~ Instruction_module_wr_n),
@@ -107,10 +103,10 @@ Stimuli_generator
 //AGGIUSTARE
 Memory
 #(.word_size(32),
-  .addr_size(32),
+  .addr_size(32)
   )
   Instruction_mem_module(
-      .clk(CLK)
+      .clk(CLK),
       .chip_sel(1'b1),
       .rd(1'b1),
       .wr_n(Instruction_module_wr_n),
@@ -131,14 +127,14 @@ datapath
         .DataMemWrite(DUT_DataMemWrite),
         .DataMemAddr(DUT_DataMemAddr),
         .DataMemDataIn(DUT_DataMemDataIn),
-        .DataMemDataOut(DUT_DataMemDataOut)
+        .DataMemDataOut(Data_module_data_out)
     );
 
 //Data memory
 //AGGIUSTARE
 Memory
 #(.word_size(32),
-  .addr_size(32),
+  .addr_size(32)
   )
   Data_mem_module(
       .clk(CLK),
@@ -153,11 +149,11 @@ Memory
 //Write result data on file
 //AGGIUSTARE
 Output_Sink
-#(.filename(""))
+#(.filename("../Files/data_tb1.txt"))
 	Write_Data_Module(
 		.clk(CLK),
 		.en(Write_Data_Module_en),
-		.data_in(Write_Data_Module_data_in)
+		.data_in(Data_module_data_out)
 	);
 
 
@@ -168,7 +164,7 @@ always @ (END_SIM_i) begin
     //trascrivere il contenuto della data memory sul file
     // per il segnale di rd che dovrebbe essere dato solo da DUT
     // potrebbero esserci dei conflitti
-		$toggle_stop;
+		//$toggle_stop;
 	end
 end
 
