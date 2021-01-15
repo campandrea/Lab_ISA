@@ -24,7 +24,7 @@ port(
 end component;
 
 signal clk, rst : std_logic;
-signal Instruction_in, DataMemDataIn : std_logic_vector (31 downto 0);
+signal Instruction_in, DataMemDataOut : std_logic_vector (31 downto 0);
 
 begin
   Dut: datapath
@@ -36,8 +36,8 @@ begin
 	DataMemRead => open,
 	DataMemWrite => open,
 	DataMemAddr => open,
-	DataMemDataIn => DataMemDataIn,
-	DataMemDataOut => open
+	DataMemDataIn => open,
+	DataMemDataOut => DataMemDataOut
   );
 
 clk_proc :	process
@@ -48,8 +48,8 @@ begin
 	wait for 2 ns;
 	clk <= clk_v;
 end process;
-	
-	
+
+
 
 
   process
@@ -57,9 +57,9 @@ end process;
     wait for 2 ns;
 	rst <= '1';
     Instruction_in <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-	DataMemDataIn <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+	DataMemDataOut <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     wait for 7 ns;
     Instruction_in <= "00000011100000101000001011111111";
-	DataMemDataIn <= (others => '0');
+	DataMemDataOut <= (others => '0');
   end process;
 end architecture;

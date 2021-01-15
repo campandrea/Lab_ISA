@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity ForwardUnit is
 port(
@@ -24,12 +25,12 @@ begin
   process (Rs1_ID, Rd_EX, RegWrite_EX, Rd_MEM, RegWrite_MEM)
   begin
     ForwardA <= "00";
-    if (Rs1_ID = Rd_EX) then
-      if (RegWrite_EX = '1' and Rd_EX /= "00000") then
+    if (unsigned(Rs1_ID) = unsigned(Rd_EX)) then
+      if (RegWrite_EX = '1' and unsigned(Rd_EX) /= "00000") then
         ForwardA <= "10";
       end if;
-    elsif (Rs1_ID = Rd_MEM) then
-      if (RegWrite_MEM = '1' and Rd_EX /= "00000") then
+    elsif (unsigned(Rs1_ID) = unsigned(Rd_MEM)) then
+      if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
         ForwardA <= "11";
       end if;
     end if;
@@ -38,12 +39,12 @@ begin
   process (Rs2_ID, Rd_EX, RegWrite_EX, Rd_MEM, RegWrite_MEM)
   begin
     ForwardB <= "00";
-    if (Rs2_ID = Rd_EX) then
-      if (RegWrite_EX = '1' and Rd_EX /= "00000") then
+    if (unsigned(Rs2_ID) = unsigned(Rd_EX)) then
+      if (RegWrite_EX = '1' and unsigned(Rd_EX) /= "00000") then
         ForwardB <= "10";
       end if;
-    elsif (Rs2_ID = Rd_MEM) then
-      if (RegWrite_MEM = '1' and Rd_EX /= "00000") then
+    elsif (unsigned(Rs2_ID) = unsigned(Rd_MEM)) then
+      if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
         ForwardB <= "11";
       end if;
     end if;

@@ -1,8 +1,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 
 entity HazardDetUnit is
-port( 
+port(
   Rs1_IF : in std_logic_vector (4 downto 0);
   Rs2_IF : in std_logic_vector (4 downto 0);
   Rd_ID : in std_logic_vector (4 downto 0);
@@ -25,8 +27,8 @@ begin
     PCSel <= '0';
     PC_RegEn <= '1';
     IF_RegEn <= '1';
-    if (Rs1_IF = Rd_ID or Rs2_IF = Rd_ID) then
-      if (MemRead_ID = '1' and Rd_ID /= "00000") then
+    if (unsigned(Rs1_IF) = unsigned(Rd_ID) or unsigned(Rs2_IF) = unsigned(Rd_ID)) then
+      if (MemRead_ID = '1' and unsigned(Rd_ID) /= "00000") then
         ID_RegSel <= '1';
         PC_RegEn <= '0';
         IF_RegEn <= '0';

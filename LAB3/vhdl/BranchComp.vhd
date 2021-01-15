@@ -12,13 +12,15 @@ port(
 end BranchComp;
 
 architecture behaviour of BranchComp is
+
 begin
-    process(data_in_A, data_in_B)
-	begin
-        if(unsigned(data_in_A) = unsigned(data_in_B)) then
-            BrEq <= '1';
-        else
-            BrEq <= '0';
-        end if;
-	end process;
+process(data_in_A, data_in_B)
+
+begin
+  if(unsigned(data_in_A) = unsigned(data_in_B)) then
+    BrEq <= '1';
+  else
+    BrEq <= '0';
+  end if;
+end process;
 end behaviour;

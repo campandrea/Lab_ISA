@@ -22,38 +22,4 @@
 # Compile of mux2to1_vec.vhd was successful.
 # Compile of Register_std.vhd was successful.
 # Compile of Register_PC.vhd was successful.
-vsim work.tb_riscV
-# vsim work.tb_riscV 
-# Start time: 21:17:56 on Jan 14,2021
-# Loading work.tb_riscV
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.clk_gen(beh)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_textio(body)
-# Loading work.stimuli_generator(behavior)
-# Loading ieee.math_real(body)
-# Loading work.memory(behavior)
-# Loading work.datapath(structure)
-# Loading work.cu(behaviour)
-# Loading work.register_pc(rtl)
-# Loading work.mux2to1_vec(behavior)
-# Loading work.pcinc(behaviour)
-# Loading work.register_vec(rtl)
-# Loading work.hazarddetunit(behaviour)
-# Loading work.registerfile(behavior)
-# Loading work.immgen(behaviour)
-# Loading work.mux2to1_std(behavior)
-# Loading work.register_std(rtl)
-# Loading work.mux4to1(behavior)
-# Loading work.alu(structural)
-# Loading work.alu_cu(behaviour)
-# Loading work.branchcomp(behaviour)
-# Loading work.forwardunit(behaviour)
-run 1 us
-# ** Error (suppressible): (vsim-3601) Iteration limit 10000000 reached at time 0 ps.
-# End time: 21:19:57 on Jan 14,2021, Elapsed time: 0:02:01
-# Errors: 1, Warnings: 0
+# Load canceled

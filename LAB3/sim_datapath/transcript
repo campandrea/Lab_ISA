@@ -1,0 +1,100 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_datapath/test_datapath.mpf}
+# Loading project test_datapath
+# Compile of test_datapath.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_CU.vhd was successful.
+# Compile of BranchComp.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of ForwardUnit.vhd was successful.
+# Compile of HazardDetUnit.vhd was successful.
+# Compile of ImmGen.vhd was successful.
+# Compile of mux2to1_std.vhd was successful.
+# Compile of mux2to1_vec.vhd was successful.
+# Compile of mux4to1.vhd was successful.
+# Compile of PCInc.vhd was successful.
+# Compile of Register_PC.vhd was successful.
+# Compile of Register_std.vhd was successful.
+# Compile of Register_vec.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+vsim -gui work.test_datapath
+# vsim -gui work.test_datapath 
+# Start time: 21:58:04 on Jan 15,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.test_datapath(behavior)
+# Loading work.datapath(structure)
+# Loading ieee.numeric_std(body)
+# Loading work.cu(behaviour)
+# Loading work.register_pc(rtl)
+# Loading work.mux2to1_vec(behavior)
+# Loading work.pcinc(behaviour)
+# Loading work.register_vec(rtl)
+# Loading work.hazarddetunit(behaviour)
+# Loading work.registerfile(behavior)
+# Loading work.immgen(behaviour)
+# Loading work.mux2to1_std(behavior)
+# Loading work.register_std(rtl)
+# Loading work.mux4to1(behavior)
+# Loading work.alu(structural)
+# Loading work.alu_cu(behaviour)
+# Loading work.branchcomp(behaviour)
+# Loading work.forwardunit(behaviour)
+run 500 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 0 ps.
+# Compile of datapath.vhd was successful.
+restart
+# Loading work.datapath(structure)
+run 500 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 0 ps.
+# Compile of ALU.vhd was successful.
+restart
+# Loading work.alu(structural)
+run 500 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /test_datapath/Dut/HazardDetectionUnit
+# ** Error (suppressible): (vsim-3601) Iteration limit 5000 reached at time 0 ps.
