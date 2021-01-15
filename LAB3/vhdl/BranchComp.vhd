@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity BranchComp is
 port(
@@ -14,7 +15,7 @@ architecture behaviour of BranchComp is
 begin
     process(data_in_A, data_in_B)
 	begin
-        if(data_in_A = data_in_B) then
+        if(unsigned(data_in_A) = unsigned(data_in_B)) then
             BrEq <= '1';
         else
             BrEq <= '0';
