@@ -33,7 +33,7 @@ integer count;
 
 initial begin
 	 END_SIM_reg <= 1'b0;
-   count <= 32'b0;
+   count <= 32'h400000;
    rst_DUT <= 1'b1;
    Instruction_memory_addr <= 32'b0;
    Instruction_module_wr_n <= 1'b1;
@@ -45,15 +45,16 @@ initial begin
   // mettere end_sim_i a 1
 end
 
-always @ (negedge CLK)
+always @ (posedge CLK)
 begin
   if( Instruction_module_eof == 1'b0) begin
     Instruction_module_wr_n <= 1'b0;
     count <= count + 32'd4;
     Instruction_memory_addr <= count;
   end
-  else begin
+  else if ( Instruction_module_eof == 1'b1) begin
   Instruction_memory_addr <= PCout;
+  Instruction_module_wr_n <= 1'b1;
   rst_DUT <= 1'b0;
   end
 end
@@ -111,6 +112,11 @@ Stimuli_generator
 //Instruction memory
 //AGGIUSTARE
 Memory
+#(.word_size(32),
+  .addr_size(32),
+  .start_addr(32'h400000),
+  .stop_addr(32'h40001f)
+  )
   Instruction_mem_module(
       .clk(CLK),
       .chip_sel(1'b1),
@@ -140,7 +146,9 @@ datapath
 //AGGIUSTARE
 Memory
 #(.word_size(32),
-  .addr_size(32)
+  .addr_size(32),
+  .start_addr(32'h10010000),
+  .stop_addr(32'h10010ffc)
   )
   Data_mem_module(
       .clk(CLK),

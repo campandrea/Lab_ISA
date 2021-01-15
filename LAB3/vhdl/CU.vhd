@@ -12,7 +12,7 @@ entity CU is
     ALUOp       : OUT std_logic_vector (1 downto 0);
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
-	BrInstr		: OUT std_logic;
+	  BrInstr		: OUT std_logic;
     RegWrite    : OUT std_logic
   );
 end CU;
@@ -101,9 +101,9 @@ begin
 		  ImmSel <= "001";
 
 		when "0000000" =>
+    MemRead <= '0';
 
-
-		when others => report "OpCode not found" severity warning;
+    when others =>
 
 	  end case;
 	end process;

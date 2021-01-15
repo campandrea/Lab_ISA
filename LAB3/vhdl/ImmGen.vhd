@@ -50,7 +50,7 @@ begin
 
             when others =>
                 Immediate <= (others => '1');
-                report "ImmSel not valid" severity warning;
+                --report "ImmSel not valid" severity warning;
         end case;
     end process;
 

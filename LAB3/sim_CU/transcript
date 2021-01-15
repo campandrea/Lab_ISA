@@ -1,0 +1,23 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_CU/test_CU.mpf}
+# Loading project test_CU
+# Compile of test_CU.vhd was successful.
+vsim work.test_CU
+# vsim work.test_CU 
+# Start time: 21:21:06 on Jan 14,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.test_cu(behavior)
+# Loading ieee.numeric_std(body)
+# Loading work.cu(behaviour)
+run 45 ns
+add wave sim:/test_cu/*
+restart
+run 50 ns
+add wave  \
+sim:/test_cu/Dut/OpCode
+restart
+run 50 ns

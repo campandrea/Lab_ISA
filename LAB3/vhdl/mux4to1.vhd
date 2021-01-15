@@ -27,8 +27,6 @@ begin
             when "11" =>
                 data_out <= data_11_in;
             when others =>
-                data_out <= (others => '1');
-                report "sel not valid" severity warning;
         end case;
     end process;
 end behavior;

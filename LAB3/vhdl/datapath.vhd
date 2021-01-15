@@ -52,6 +52,17 @@ port(
 );
 end component;
 
+component Register_PC
+generic( N : natural := 32);
+port(
+      data_in  : in std_logic_vector (N-1 downto 0);
+      clk      : in std_logic;
+      reg_rst  : in std_logic;
+      reg_en   : in std_logic;
+      data_out : out std_logic_vector (N-1 downto 0)
+);
+end component;
+
 component mux2to1_std
 port(
   data_0_in : in std_logic;
@@ -308,7 +319,7 @@ port map(
     RegWrite 	=> RegWrite_IF
 );
 
-PC_reg : Register_vec
+PC_reg : Register_PC
 port map(
 	data_in  => PC_reg_in,
 	clk      => clk,

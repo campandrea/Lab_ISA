@@ -1,10 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.all;
 
 entity Memory is
 	generic (word_size 	: integer := 32;
-			     addr_size 	: integer := 32
+			     addr_size 	: integer := 32;
+           start_addr : integer := 0;
+           stop_addr  : integer := 1024
             );
 	port (clk	   : in std_logic;
   		  chip_sel : in std_logic;
@@ -17,7 +20,7 @@ entity Memory is
 end Memory;
 
 architecture Behavior of Memory is
-	type memory_type is array(0 to 1020 ) of std_logic_vector(word_size -1 downto 0);
+	type memory_type is array(start_addr/4 to stop_addr/4) of std_logic_vector(word_size -1 downto 0);
 
 	signal memory_data : memory_type;
 begin
