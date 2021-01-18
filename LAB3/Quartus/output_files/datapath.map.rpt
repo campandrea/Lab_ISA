@@ -1,0 +1,1219 @@
+Analysis & Synthesis report for datapath
+Sat Jan 16 12:54:14 2021
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Logic Cells Representing Combinational Loops
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated
+ 14. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated
+ 15. Parameter Settings for User Entity Instance: Register_PC:PC_reg
+ 16. Parameter Settings for User Entity Instance: mux2to1_vec:PC_sel_mux
+ 17. Parameter Settings for User Entity Instance: mux2to1_vec:IF_instr_sel_mux
+ 18. Parameter Settings for User Entity Instance: Register_vec:IF_pipe_PC
+ 19. Parameter Settings for User Entity Instance: Register_vec:IF_pipe_instr
+ 20. Parameter Settings for User Entity Instance: mux2to1_std:ID_MemRead_sel_mux
+ 21. Parameter Settings for User Entity Instance: mux2to1_std:ID_MemWrite_sel_mux
+ 22. Parameter Settings for User Entity Instance: mux2to1_vec:ID_ALUOp_sel_mux
+ 23. Parameter Settings for User Entity Instance: mux2to1_std:ID_BrInstr_sel_mux
+ 24. Parameter Settings for User Entity Instance: mux2to1_std:ID_RegWrite_sel_mux
+ 25. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_PC
+ 26. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_ALUOp
+ 27. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_WBSel
+ 28. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_ImmSel
+ 29. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_dataA
+ 30. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_dataB
+ 31. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rs1
+ 32. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rs2
+ 33. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rd
+ 34. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Immediate
+ 35. Parameter Settings for User Entity Instance: Register_vec:ID_pipe_funct3
+ 36. Parameter Settings for User Entity Instance: mux2to1_vec:ALUSrcA_mux
+ 37. Parameter Settings for User Entity Instance: mux2to1_vec:ALUSrcB_mux
+ 38. Parameter Settings for User Entity Instance: mux4to1:ForwardA_mux
+ 39. Parameter Settings for User Entity Instance: mux4to1:ForwardB_mux
+ 40. Parameter Settings for User Entity Instance: Register_vec:EX_pipe_WBSel
+ 41. Parameter Settings for User Entity Instance: Register_vec:EX_pipe_PC_inc
+ 42. Parameter Settings for User Entity Instance: Register_vec:EX_pipe_ALU_out_reg
+ 43. Parameter Settings for User Entity Instance: Register_vec:EX_pipe_DataB
+ 44. Parameter Settings for User Entity Instance: Register_vec:EX_pipe_Rd
+ 45. Parameter Settings for User Entity Instance: mux4to1:WBSel_mux
+ 46. Parameter Settings for User Entity Instance: Register_vec:MEM_pipe_data
+ 47. Parameter Settings for User Entity Instance: Register_vec:MEM_pipe_Rd
+ 48. Parameter Settings for Inferred Entity Instance: RegisterFile:Register_afile|altsyncram:reg_file_rtl_0
+ 49. Parameter Settings for Inferred Entity Instance: RegisterFile:Register_afile|altsyncram:reg_file_rtl_1
+ 50. altsyncram Parameter Settings by Entity Instance
+ 51. Port Connectivity Checks: "mux4to1:WBSel_mux"
+ 52. Port Connectivity Checks: "mux4to1:ForwardB_mux"
+ 53. Port Connectivity Checks: "mux4to1:ForwardA_mux"
+ 54. Port Connectivity Checks: "Register_vec:ID_pipe_ImmSel"
+ 55. Port Connectivity Checks: "mux2to1_std:ID_RegWrite_sel_mux"
+ 56. Port Connectivity Checks: "mux2to1_std:ID_BrInstr_sel_mux"
+ 57. Port Connectivity Checks: "mux2to1_vec:ID_ALUOp_sel_mux"
+ 58. Port Connectivity Checks: "mux2to1_std:ID_MemWrite_sel_mux"
+ 59. Port Connectivity Checks: "mux2to1_std:ID_MemRead_sel_mux"
+ 60. Port Connectivity Checks: "mux2to1_vec:IF_instr_sel_mux"
+ 61. Post-Synthesis Netlist Statistics for Top Partition
+ 62. Elapsed Time Per Partition
+ 63. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat Jan 16 12:54:14 2021       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; datapath                                    ;
+; Top-level Entity Name           ; datapath                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 389                                         ;
+; Total pins                      ; 164                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,048                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C6U19C6     ;                    ;
+; Top-level entity name                                                           ; datapath           ; datapath           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                             ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path               ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                                  ; Library ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../vhdl/RegisterFile.vhd                       ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd                                  ;         ;
+; ../vhdl/Register_vec.vhd                       ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd                                  ;         ;
+; ../vhdl/Register_std.vhd                       ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd                                  ;         ;
+; ../vhdl/Register_PC.vhd                        ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd                                   ;         ;
+; ../vhdl/PCInc.vhd                              ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd                                         ;         ;
+; ../vhdl/mux4to1.vhd                            ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd                                       ;         ;
+; ../vhdl/mux2to1_vec.vhd                        ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd                                   ;         ;
+; ../vhdl/mux2to1_std.vhd                        ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd                                   ;         ;
+; ../vhdl/ImmGen.vhd                             ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd                                        ;         ;
+; ../vhdl/HazardDetUnit.vhd                      ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd                                 ;         ;
+; ../vhdl/ForwardUnit.vhd                        ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd                                   ;         ;
+; ../vhdl/datapath.vhd                           ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd                                      ;         ;
+; ../vhdl/CU.vhd                                 ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd                                            ;         ;
+; ../vhdl/BranchComp.vhd                         ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd                                    ;         ;
+; ../vhdl/ALU_CU.vhd                             ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU_CU.vhd                                        ;         ;
+; ../vhdl/ALU.vhd                                ; yes             ; User VHDL File                                        ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd                                           ;         ;
+; altsyncram.tdf                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                         ;         ;
+; stratix_ram_block.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                  ;         ;
+; lpm_mux.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                            ;         ;
+; lpm_decode.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                         ;         ;
+; aglobal181.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                                         ;         ;
+; a_rdenreg.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                          ;         ;
+; altrom.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                                             ;         ;
+; altram.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                                             ;         ;
+; altdpram.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                                           ;         ;
+; db/altsyncram_v5v1.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_v5v1.tdf                         ;         ;
+; db/datapath.ram0_registerfile_878b6b30.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/datapath.ram0_registerfile_878b6b30.hdl.mif ;         ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 454       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 591       ;
+;     -- 7 input functions                    ; 8         ;
+;     -- 6 input functions                    ; 283       ;
+;     -- 5 input functions                    ; 140       ;
+;     -- 4 input functions                    ; 60        ;
+;     -- <=3 input functions                  ; 100       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 389       ;
+;                                             ;           ;
+; I/O pins                                    ; 164       ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 2048      ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 453       ;
+; Total fan-out                               ; 5316      ;
+; Average fan-out                             ; 3.87      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |datapath                                 ; 591 (0)             ; 389 (0)                   ; 2048              ; 0          ; 164  ; 0            ; |datapath                                                                                      ; datapath        ; work         ;
+;    |ALU:ALU_a|                            ; 262 (262)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ALU:ALU_a                                                                            ; ALU             ; work         ;
+;    |ALU_CU:ALU_CU_a|                      ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ALU_CU:ALU_CU_a                                                                      ; ALU_CU          ; work         ;
+;    |BranchComp:Branch_Comp|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|BranchComp:Branch_Comp                                                               ; BranchComp      ; work         ;
+;    |CU:ControlUnit|                       ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|CU:ControlUnit                                                                       ; CU              ; work         ;
+;    |ForwardUnit:Forward_Unit|             ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ForwardUnit:Forward_Unit                                                             ; ForwardUnit     ; work         ;
+;    |HazardDetUnit:HazardDetectionUnit|    ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|HazardDetUnit:HazardDetectionUnit                                                    ; HazardDetUnit   ; work         ;
+;    |ImmGen:Imm_gen|                       ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ImmGen:Imm_gen                                                                       ; ImmGen          ; work         ;
+;    |PCInc:PCInc_1|                        ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|PCInc:PCInc_1                                                                        ; PCInc           ; work         ;
+;    |PCInc:PC_inc|                         ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|PCInc:PC_inc                                                                         ; PCInc           ; work         ;
+;    |RegisterFile:Register_afile|          ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile                                                          ; RegisterFile    ; work         ;
+;       |altsyncram:reg_file_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_v5v1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated ; altsyncram_v5v1 ; work         ;
+;       |altsyncram:reg_file_rtl_1|         ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_1                                ; altsyncram      ; work         ;
+;          |altsyncram_v5v1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated ; altsyncram_v5v1 ; work         ;
+;    |Register_PC:PC_reg|                   ; 5 (5)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_PC:PC_reg                                                                   ; Register_PC     ; work         ;
+;    |Register_std:EX_pipe_MemRead|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_MemRead                                                         ; Register_std    ; work         ;
+;    |Register_std:EX_pipe_MemWrite|        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_MemWrite                                                        ; Register_std    ; work         ;
+;    |Register_std:EX_pipe_RegWrite|        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_RegWrite                                                        ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_ALUSrcA|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_ALUSrcA                                                         ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_ALUSrcB|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_ALUSrcB                                                         ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_BrInstr|         ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_BrInstr                                                         ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_MemRead|         ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_MemRead                                                         ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_MemWrite|        ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_MemWrite                                                        ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_RegWrite|        ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_RegWrite                                                        ; Register_std    ; work         ;
+;    |Register_std:MEM_pipe_RegWrite|       ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:MEM_pipe_RegWrite                                                       ; Register_std    ; work         ;
+;    |Register_vec:EX_pipe_ALU_out_reg|     ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_ALU_out_reg                                                     ; Register_vec    ; work         ;
+;    |Register_vec:EX_pipe_DataB|           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_DataB                                                           ; Register_vec    ; work         ;
+;    |Register_vec:EX_pipe_PC_inc|          ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_PC_inc                                                          ; Register_vec    ; work         ;
+;    |Register_vec:EX_pipe_Rd|              ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_Rd                                                              ; Register_vec    ; work         ;
+;    |Register_vec:EX_pipe_WBSel|           ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_WBSel                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_ALUOp|           ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_ALUOp                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_Immediate|       ; 4 (4)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Immediate                                                       ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_PC|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_PC                                                              ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_Rd|              ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Rd                                                              ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_Rs1|             ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Rs1                                                             ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_Rs2|             ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Rs2                                                             ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_WBSel|           ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_WBSel                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_dataA|           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_dataA                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_dataB|           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_dataB                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_funct3|          ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_funct3                                                          ; Register_vec    ; work         ;
+;    |Register_vec:IF_pipe_PC|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:IF_pipe_PC                                                              ; Register_vec    ; work         ;
+;    |Register_vec:IF_pipe_instr|           ; 25 (25)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:IF_pipe_instr                                                           ; Register_vec    ; work         ;
+;    |Register_vec:MEM_pipe_Rd|             ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:MEM_pipe_Rd                                                             ; Register_vec    ; work         ;
+;    |Register_vec:MEM_pipe_data|           ; 33 (33)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:MEM_pipe_data                                                           ; Register_vec    ; work         ;
+;    |mux4to1:ForwardA_mux|                 ; 70 (70)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardA_mux                                                                 ; mux4to1         ; work         ;
+;    |mux4to1:ForwardB_mux|                 ; 67 (67)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardB_mux                                                                 ; mux4to1         ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                              ;
++-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; Name                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                            ;
++-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
+; RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
++-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; ImmGen:Imm_gen|Mux11~0                                 ;   ;
+; ImmGen:Imm_gen|Mux9~0                                  ;   ;
+; ImmGen:Imm_gen|Mux10~0                                 ;   ;
+; ImmGen:Imm_gen|Mux8~0                                  ;   ;
+; ImmGen:Imm_gen|Mux7~0                                  ;   ;
+; Number of logic cells representing combinational loops ; 5 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 389   ;
+; Number of registers using Synchronous Clear  ; 373   ;
+; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 88    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                      ;
++-----------------------------------------------+--------------------------------------------+------+
+; Register Name                                 ; Megafunction                               ; Type ;
++-----------------------------------------------+--------------------------------------------+------+
+; RegisterFile:Register_afile|data_out_A[0..31] ; RegisterFile:Register_afile|reg_file_rtl_0 ; RAM  ;
+; RegisterFile:Register_afile|data_out_B[0..31] ; RegisterFile:Register_afile|reg_file_rtl_1 ; RAM  ;
++-----------------------------------------------+--------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_PC|data_out[24]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |datapath|Register_PC:PC_reg|data_out[0]             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_std:ID_pipe_BrInstr|data_out      ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |datapath|Register_vec:MEM_pipe_data|data_out[27]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[5] ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_instr|data_out[12]    ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |datapath|Register_PC:PC_reg|data_out[7]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[4] ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|ImmGen:Imm_gen|Mux24                       ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; No         ; |datapath|ImmGen:Imm_gen|Mux10                       ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardA_mux|Mux23                 ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardB_mux|Mux13                 ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |datapath|ImmGen:Imm_gen|Mux15                       ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux7                             ;
+; 15:1               ; 12 bits   ; 120 LEs       ; 96 LEs               ; 24 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux22                            ;
+; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|Add0                             ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; No         ; |datapath|ALU:ALU_a|Mux30                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_PC:PC_reg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; n              ; 32    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_vec:PC_sel_mux ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_vec:IF_instr_sel_mux ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n              ; 32    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:IF_pipe_PC ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:IF_pipe_instr ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_std:ID_MemRead_sel_mux ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; N              ; 32    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_std:ID_MemWrite_sel_mux ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; N              ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_vec:ID_ALUOp_sel_mux ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n              ; 2     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_std:ID_BrInstr_sel_mux ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; N              ; 32    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_std:ID_RegWrite_sel_mux ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; N              ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_PC ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_ALUOp ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 2     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_WBSel ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 2     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_ImmSel ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_dataA ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_dataB ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rs1 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 5     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rs2 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 5     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Rd ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 5     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_Immediate ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; n              ; 32    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:ID_pipe_funct3 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 3     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_vec:ALUSrcA_mux ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1_vec:ALUSrcB_mux ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux4to1:ForwardA_mux ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; n              ; 32    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux4to1:ForwardB_mux ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; n              ; 32    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:EX_pipe_WBSel ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 2     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:EX_pipe_PC_inc ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:EX_pipe_ALU_out_reg ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:EX_pipe_DataB ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:EX_pipe_Rd ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 5     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux4to1:WBSel_mux ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; n              ; 32    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:MEM_pipe_data ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_vec:MEM_pipe_Rd ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 5     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: RegisterFile:Register_afile|altsyncram:reg_file_rtl_0 ;
++------------------------------------+------------------------------------------------+------------------+
+; Parameter Name                     ; Value                                          ; Type             ;
++------------------------------------+------------------------------------------------+------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped          ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY     ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE   ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped          ;
+; OPERATION_MODE                     ; DUAL_PORT                                      ; Untyped          ;
+; WIDTH_A                            ; 32                                             ; Untyped          ;
+; WIDTHAD_A                          ; 5                                              ; Untyped          ;
+; NUMWORDS_A                         ; 32                                             ; Untyped          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped          ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped          ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped          ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped          ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped          ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped          ;
+; WIDTH_B                            ; 32                                             ; Untyped          ;
+; WIDTHAD_B                          ; 5                                              ; Untyped          ;
+; NUMWORDS_B                         ; 32                                             ; Untyped          ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped          ;
+; RDCONTROL_REG_B                    ; CLOCK0                                         ; Untyped          ;
+; ADDRESS_REG_B                      ; CLOCK0                                         ; Untyped          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped          ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped          ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped          ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped          ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped          ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped          ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped          ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped          ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped          ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped          ;
+; BYTE_SIZE                          ; 8                                              ; Untyped          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
+; INIT_FILE                          ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ; Untyped          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped          ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped          ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped          ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped          ;
+; DEVICE_FAMILY                      ; Cyclone V                                      ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_v5v1                                ; Untyped          ;
++------------------------------------+------------------------------------------------+------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: RegisterFile:Register_afile|altsyncram:reg_file_rtl_1 ;
++------------------------------------+------------------------------------------------+------------------+
+; Parameter Name                     ; Value                                          ; Type             ;
++------------------------------------+------------------------------------------------+------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped          ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY     ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE   ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped          ;
+; OPERATION_MODE                     ; DUAL_PORT                                      ; Untyped          ;
+; WIDTH_A                            ; 32                                             ; Untyped          ;
+; WIDTHAD_A                          ; 5                                              ; Untyped          ;
+; NUMWORDS_A                         ; 32                                             ; Untyped          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped          ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped          ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped          ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped          ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped          ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped          ;
+; WIDTH_B                            ; 32                                             ; Untyped          ;
+; WIDTHAD_B                          ; 5                                              ; Untyped          ;
+; NUMWORDS_B                         ; 32                                             ; Untyped          ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped          ;
+; RDCONTROL_REG_B                    ; CLOCK0                                         ; Untyped          ;
+; ADDRESS_REG_B                      ; CLOCK0                                         ; Untyped          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped          ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped          ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped          ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped          ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped          ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped          ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped          ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped          ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped          ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped          ;
+; BYTE_SIZE                          ; 8                                              ; Untyped          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
+; INIT_FILE                          ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ; Untyped          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped          ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped          ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped          ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped          ;
+; DEVICE_FAMILY                      ; Cyclone V                                      ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_v5v1                                ; Untyped          ;
++------------------------------------+------------------------------------------------+------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                  ;
++-------------------------------------------+-------------------------------------------------------+
+; Name                                      ; Value                                                 ;
++-------------------------------------------+-------------------------------------------------------+
+; Number of entity instances                ; 2                                                     ;
+; Entity Instance                           ; RegisterFile:Register_afile|altsyncram:reg_file_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                             ;
+;     -- WIDTH_A                            ; 32                                                    ;
+;     -- NUMWORDS_A                         ; 32                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 32                                                    ;
+;     -- NUMWORDS_B                         ; 32                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                              ;
+; Entity Instance                           ; RegisterFile:Register_afile|altsyncram:reg_file_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                             ;
+;     -- WIDTH_A                            ; 32                                                    ;
+;     -- NUMWORDS_A                         ; 32                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 32                                                    ;
+;     -- NUMWORDS_B                         ; 32                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                              ;
++-------------------------------------------+-------------------------------------------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "mux4to1:WBSel_mux" ;
++------------+-------+----------+---------------+
+; Port       ; Type  ; Severity ; Details       ;
++------------+-------+----------+---------------+
+; data_11_in ; Input ; Info     ; Stuck at GND  ;
++------------+-------+----------+---------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux4to1:ForwardB_mux" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; data_01_in ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux4to1:ForwardA_mux" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; data_01_in ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Register_vec:ID_pipe_ImmSel"                                                            ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_std:ID_RegWrite_sel_mux" ;
++-----------+-------+----------+------------------------------+
+; Port      ; Type  ; Severity ; Details                      ;
++-----------+-------+----------+------------------------------+
+; data_1_in ; Input ; Info     ; Stuck at GND                 ;
++-----------+-------+----------+------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_std:ID_BrInstr_sel_mux" ;
++-----------+-------+----------+-----------------------------+
+; Port      ; Type  ; Severity ; Details                     ;
++-----------+-------+----------+-----------------------------+
+; data_1_in ; Input ; Info     ; Stuck at GND                ;
++-----------+-------+----------+-----------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_vec:ID_ALUOp_sel_mux" ;
++-----------+-------+----------+---------------------------+
+; Port      ; Type  ; Severity ; Details                   ;
++-----------+-------+----------+---------------------------+
+; data_1_in ; Input ; Info     ; Stuck at VCC              ;
++-----------+-------+----------+---------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_std:ID_MemWrite_sel_mux" ;
++-----------+-------+----------+------------------------------+
+; Port      ; Type  ; Severity ; Details                      ;
++-----------+-------+----------+------------------------------+
+; data_1_in ; Input ; Info     ; Stuck at GND                 ;
++-----------+-------+----------+------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_std:ID_MemRead_sel_mux" ;
++-----------+-------+----------+-----------------------------+
+; Port      ; Type  ; Severity ; Details                     ;
++-----------+-------+----------+-----------------------------+
+; data_1_in ; Input ; Info     ; Stuck at GND                ;
++-----------+-------+----------+-----------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_vec:IF_instr_sel_mux" ;
++------------------+-------+----------+--------------------+
+; Port             ; Type  ; Severity ; Details            ;
++------------------+-------+----------+--------------------+
+; data_1_in[1..0]  ; Input ; Info     ; Stuck at VCC       ;
+; data_1_in[31..5] ; Input ; Info     ; Stuck at GND       ;
+; data_1_in[3..2]  ; Input ; Info     ; Stuck at GND       ;
+; data_1_in[4]     ; Input ; Info     ; Stuck at VCC       ;
++------------------+-------+----------+--------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 389                         ;
+;     ENA               ; 2                           ;
+;     ENA SCLR          ; 57                          ;
+;     ENA SCLR SLD      ; 29                          ;
+;     SCLR              ; 287                         ;
+;     SLD               ; 1                           ;
+;     plain             ; 13                          ;
+; arriav_lcell_comb     ; 591                         ;
+;     arith             ; 93                          ;
+;         1 data inputs ; 60                          ;
+;         3 data inputs ; 1                           ;
+;         5 data inputs ; 32                          ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 490                         ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 60                          ;
+;         5 data inputs ; 108                         ;
+;         6 data inputs ; 283                         ;
+; boundary_port         ; 164                         ;
+; stratixv_ram_block    ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 5.11                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Jan 16 12:53:57 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off datapath -c datapath
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/registerfile.vhd
+    Info (12022): Found design unit 1: RegisterFile-behavior File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd Line: 19
+    Info (12023): Found entity 1: RegisterFile File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/register_vec.vhd
+    Info (12022): Found design unit 1: Register_vec-rtl File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd Line: 16
+    Info (12023): Found entity 1: Register_vec File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/register_std.vhd
+    Info (12022): Found design unit 1: Register_std-rtl File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd Line: 15
+    Info (12023): Found entity 1: Register_std File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/register_pc.vhd
+    Info (12022): Found design unit 1: Register_PC-rtl File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd Line: 16
+    Info (12023): Found entity 1: Register_PC File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/pcinc.vhd
+    Info (12022): Found design unit 1: PCInc-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd Line: 12
+    Info (12023): Found entity 1: PCInc File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/mux4to1.vhd
+    Info (12022): Found design unit 1: mux4to1-behavior File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd Line: 16
+    Info (12023): Found entity 1: mux4to1 File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/mux2to1_vec.vhd
+    Info (12022): Found design unit 1: mux2to1_vec-behavior File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd Line: 14
+    Info (12023): Found entity 1: mux2to1_vec File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/mux2to1_std.vhd
+    Info (12022): Found design unit 1: mux2to1_std-behavior File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd Line: 14
+    Info (12023): Found entity 1: mux2to1_std File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/immgen.vhd
+    Info (12022): Found design unit 1: ImmGen-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd Line: 12
+    Info (12023): Found entity 1: ImmGen File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/hazarddetunit.vhd
+    Info (12022): Found design unit 1: HazardDetUnit-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd Line: 22
+    Info (12023): Found entity 1: HazardDetUnit File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/forwardunit.vhd
+    Info (12022): Found design unit 1: ForwardUnit-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd Line: 23
+    Info (12023): Found entity 1: ForwardUnit File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/datapath.vhd
+    Info (12022): Found design unit 1: datapath-structure File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 19
+    Info (12023): Found entity 1: datapath File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/cu.vhd
+    Info (12022): Found design unit 1: CU-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd Line: 20
+    Info (12023): Found entity 1: CU File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/branchcomp.vhd
+    Info (12022): Found design unit 1: BranchComp-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd Line: 14
+    Info (12023): Found entity 1: BranchComp File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/alu_cu.vhd
+    Info (12022): Found design unit 1: ALU_CU-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU_CU.vhd Line: 13
+    Info (12023): Found entity 1: ALU_CU File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU_CU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/alu.vhd
+    Info (12022): Found design unit 1: ALU-structural File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd Line: 15
+    Info (12023): Found entity 1: ALU File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd Line: 5
+Info (12127): Elaborating entity "datapath" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(249): object "ImmSel_ID" assigned a value but never read File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 249
+Info (12128): Elaborating entity "CU" for hierarchy "CU:ControlUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 309
+Info (12128): Elaborating entity "Register_PC" for hierarchy "Register_PC:PC_reg" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 323
+Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:PC_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 334
+Info (12128): Elaborating entity "PCInc" for hierarchy "PCInc:PC_inc" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 342
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:IF_pipe_PC" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 360
+Info (12128): Elaborating entity "HazardDetUnit" for hierarchy "HazardDetUnit:HazardDetectionUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 383
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:Register_afile" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 403
+Info (12128): Elaborating entity "ImmGen" for hierarchy "ImmGen:Imm_gen" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 417
+Info (12128): Elaborating entity "mux2to1_std" for hierarchy "mux2to1_std:ID_MemRead_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 424
+Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:ID_ALUOp_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 440
+Info (12128): Elaborating entity "Register_std" for hierarchy "Register_std:ID_pipe_MemRead" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 479
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ALUOp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 497
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ImmSel" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 535
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_Rs1" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 583
+Info (12128): Elaborating entity "mux4to1" for hierarchy "mux4to1:ForwardA_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 653
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 675
+Info (12128): Elaborating entity "ALU_CU" for hierarchy "ALU_CU:ALU_CU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 684
+Info (12128): Elaborating entity "BranchComp" for hierarchy "BranchComp:Branch_Comp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 691
+Info (12128): Elaborating entity "ForwardUnit" for hierarchy "ForwardUnit:Forward_Unit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 699
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "RegisterFile:Register_afile|reg_file_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/datapath.ram0_RegisterFile_878b6b30.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "RegisterFile:Register_afile|reg_file_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/datapath.ram0_RegisterFile_878b6b30.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+Info (12130): Elaborated megafunction instantiation "RegisterFile:Register_afile|altsyncram:reg_file_rtl_0"
+Info (12133): Instantiated megafunction "RegisterFile:Register_afile|altsyncram:reg_file_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/datapath.ram0_RegisterFile_878b6b30.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v5v1.tdf
+    Info (12023): Found entity 1: altsyncram_v5v1 File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_v5v1.tdf Line: 27
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Instruction[25]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[26]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[27]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[28]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[29]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[30]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+    Warning (15610): No output dependent on input pin "Instruction[31]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
+Info (21057): Implemented 1076 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 66 input pins
+    Info (21059): Implemented 98 output pins
+    Info (21061): Implemented 848 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4879 megabytes
+    Info: Processing ended: Sat Jan 16 12:54:14 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:33
+
+

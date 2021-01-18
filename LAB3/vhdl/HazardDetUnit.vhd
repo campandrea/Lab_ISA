@@ -21,32 +21,28 @@ end HazardDetUnit;
 
 architecture behaviour of HazardDetUnit is
 begin
-  LoadHazard_proc : process(Rs1_IF, Rs2_IF, Rd_ID, MemRead_ID)
+  Hazard_proc : process(Rs1_IF, Rs2_IF, Rd_ID, MemRead_ID, BrEq, BrInstr_ID)
   begin
-    ID_RegSel <= '0';
-    PCSel <= '0';
     PC_RegEn <= '1';
     IF_RegEn <= '1';
-    if (unsigned(Rs1_IF) = unsigned(Rd_ID) or unsigned(Rs2_IF) = unsigned(Rd_ID)) then
+	 IF_RegSel <= '0';
+	 ID_RegSel <= '0';
+    PCSel <= '0';
+    LoadHazard_if: if (unsigned(Rs1_IF) = unsigned(Rd_ID) or unsigned(Rs2_IF) = unsigned(Rd_ID)) then
       if (MemRead_ID = '1' and unsigned(Rd_ID) /= "00000") then
         ID_RegSel <= '1';
         PC_RegEn <= '0';
         IF_RegEn <= '0';
       end if;
     end if;
-  end process;
-
-  BranchTaken_proc : process(BrEq, BrInstr_ID)
-  begin
-    IF_RegSel <= '0';
-    PCSel <= '0';
-    ID_RegSel <= '0';
-    PC_RegEn <= '1';
-    IF_RegEn <= '1';
-    if (BrInstr_ID = '1' and BrEq = '1') then
+	 
+	 BranchTaken_if: if (BrInstr_ID = '1' and BrEq = '1') then
       IF_RegSel <= '1';
       PCSel <= '1';
       ID_RegSel <= '1';
     end if;
+	 
   end process;
+
+
 end architecture;

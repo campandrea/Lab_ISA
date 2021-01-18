@@ -16,7 +16,7 @@ ARCHITECTURE structural OF ALU IS
 
 	BEGIN
 
-		Comb_Proc: process(ALUCtrl)
+		Comb_Proc: process(ALUCtrl, data_in_A, data_in_B)
 			BEGIN
 				CASE ALUCtrl IS
 					WHEN "0010" => 	data_out <= std_logic_vector(SIGNED(data_in_A) + SIGNED(data_in_B));		--Add

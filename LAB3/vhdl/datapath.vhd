@@ -226,7 +226,7 @@ signal funct3_IF : std_logic_vector (2 downto 0);
 signal Instruction_imm_IF : std_logic_vector (24 downto 0);
 signal Immediate_IF : std_logic_vector (31 downto 0);
 
-signal MEM_pipe_data_out : std_logic_vector (31 downto 0);
+
 signal RegFile_dataA_out : std_logic_vector (31 downto 0);
 signal RegFile_dataB_out : std_logic_vector (31 downto 0);
 signal RegWrite_MEM : std_logic;
@@ -282,7 +282,6 @@ signal WBSel_EX : std_logic_vector(1 downto 0);
 signal RegWrite_EX : std_logic;
 signal PC_ID_inc : std_logic_vector (31 downto 0);
 signal PCInc_ex : std_logic_vector (31 downto 0);
-signal ALU_data_out_EX : std_logic_vector (31 downto 0);
 signal EX_pipe_DataB_out : std_logic_vector (31 downto 0);
 signal Rd_EX : std_logic_vector (4 downto 0);
 signal EX_pipe_ALU_out : std_logic_vector (31 downto 0);
@@ -293,9 +292,9 @@ signal EX_pipe_ALU_out : std_logic_vector (31 downto 0);
 ---------------------------------
 ------ MEM pipeline stage -------
 ---------------------------------
-signal MEM_data_out_MEM : std_logic_vector (31 downto 0);
 signal Rd_MEM : std_logic_vector (4 downto 0);
 signal MEM_pipe_data_in : std_logic_vector (31 downto 0);
+signal MEM_pipe_data_out : std_logic_vector (31 downto 0);
 
 
 begin
@@ -309,7 +308,7 @@ NOP_instruction (6 downto 0) <= "0010011"; -- addi x0, x0, 0
 
 ControlUnit : CU
 port map(
-	Instruction	=> Instruction_IF,
+	Instruction	=> IF_pipe_instr_out,
 	MemRead 	=> MemRead_IF,
 	MemWrite 	=> MemWrite_IF,
 	WBSel 		=> WBSel_IF,
@@ -335,7 +334,7 @@ PCOut <= PC_reg_out;
 PC_sel_mux : mux2to1_vec
 port map(
   data_0_in => PC_inc_out,
-  data_1_in => ALU_out,
+  data_1_in => ALUData_out,
   sel       => PCSel,
   data_out  => PC_reg_in
 );
@@ -656,8 +655,8 @@ generic map(N => 32)
 port map(
   data_00_in => ALUSrcA_mux_out,
   data_01_in => (others => '0'),
-  data_10_in => ALU_data_out_EX,
-  data_11_in => MEM_data_out_MEM,
+  data_10_in => EX_pipe_ALU_out,
+  data_11_in => MEM_pipe_data_out,
   sel        => ForwardA,
   data_out   => ALUDataA_in
 );
@@ -667,8 +666,8 @@ generic map(N => 32)
 port map(
   data_00_in => ALUSrcB_mux_out,
   data_01_in => (others => '0'),
-  data_10_in => ALU_data_out_EX,
-  data_11_in => MEM_data_out_MEM,
+  data_10_in => EX_pipe_ALU_out,
+  data_11_in => MEM_pipe_data_out,
   sel        => ForwardB,
   data_out   => ALUDataB_in
 );
@@ -773,7 +772,7 @@ port map(
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
-	data_out => ALU_data_out_EX
+	data_out => EX_pipe_ALU_out
 );
 
 EX_pipe_DataB : Register_vec
@@ -837,6 +836,16 @@ port map(
 	reg_en   => pipe_reg_en,
 	data_out => Rd_MEM
 );
+
+MEM_pipe_RegWrite : Register_std
+port map(
+	data_in  => RegWrite_EX,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => RegWrite_MEM
+);
+
 
 
 end architecture;
