@@ -17,19 +17,19 @@ ENTITY RegisterFile IS
 END ENTITY;
 
 ARCHITECTURE behavior OF RegisterFile IS
-	
+
 	TYPE Register_file IS ARRAY (0 TO 31) OF std_logic_vector(31 downto 0);
 	signal reg_file : Register_file := (OTHERS =>(OTHERS => '0'));
 	BEGIN
 		CLK_proc : process(clk)
 			BEGIN
 				IF Rising_Edge(clk) THEN
-					IF write_en = '0' THEN
-						data_out_A <= reg_file(to_integer(unsigned(read_A_addr)));
-						data_out_B <= reg_file(to_integer(unsigned(read_B_addr)));
-					ELSE 
+					IF write_en = '1' THEN
 						reg_file(to_integer(unsigned(write_addr))) <= data_in;
 					END IF;
 				END IF;
 		END process CLK_proc;
+
+    data_out_A <= reg_file(to_integer(unsigned(read_A_addr)));
+    data_out_B <= reg_file(to_integer(unsigned(read_B_addr)));
 END behavior;

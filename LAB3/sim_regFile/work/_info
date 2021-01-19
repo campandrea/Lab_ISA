@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_PCinc
+Eregisterfile
+Z0 w1611046242
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_regFile
+Z5 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
+Z6 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd
+l0
+L5
+V8mfUng[JS2HDhn1H7Z[@O3
+!s100 A0CzC6fUF@Y7aAJ]_;0a22
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1611046250
+!i10b 1
+Z9 !s108 1611046250.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
+Z11 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Abehavior
+R1
+R2
+R3
+Z14 DEx4 work 12 registerfile 0 22 8mfUng[JS2HDhn1H7Z[@O3
+l23
+L19
+Ve4KgFd4zH6:]jn90YWT0L3
+!s100 HdYm84R;EGc]YBc6FnIk@0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etest_regfile
+Z15 w1611046100
+Z16 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R2
+R3
+R4
+Z18 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_regFile/test_regFile.vhd
+Z19 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_regFile/test_regFile.vhd
+l0
+L6
+VXzH5V9K8B>_C7dDHhSgY50
+!s100 m@d5faLDEHnSRhnGZZGNk3
+R7
+32
+Z20 !s110 1611046134
+!i10b 1
+Z21 !s108 1611046134.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_regFile/test_regFile.vhd|
+Z23 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_regFile/test_regFile.vhd|
+!i113 1
+R12
+R13
+Abehaviour
+R16
+R17
+R2
+R3
+DEx4 work 12 test_regfile 0 22 XzH5V9K8B>_C7dDHhSgY50
+l30
+L10
+V=24W4OlNeLYmEEdMXe3B63
+!s100 9<7NSN1Me1]`?FJU@`2:K2
+R7
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R12
+R13

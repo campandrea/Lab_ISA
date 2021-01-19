@@ -17,20 +17,40 @@ architecture behavior of test_immgen is
   );
 end component;
 
-signal data_in_A, data_in_B : std_logic_vector (31 downto 0);
-signal BrEq     : std_logic;
+signal Instruction : std_logic_vector(24 downto 0);
+signal ImmSel : std_logic_vector (2 downto 0);
+signal Immediate : std_logic_vector(31 downto 0);
 
 begin
 
-
+  DUT: ImmGen
+  port map(
+    Instruction => Instruction,
+    ImmSel => ImmSel,
+    Immediate => Immediate
+  );
 
   process
   begin
-    wait for 2 ns;
-    data_in_A <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    data_in_B <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    wait for 7 ns;
-    data_in_A <= "00000000000000000111010100001100";
-    data_in_B <= "00000000000000000111010100001100";
+    Instruction <= "UUUUUUUUUUUUUUUUUUUUUUUUU";
+    ImmSel <= "UUU";
+    wait for 3 ns;
+    Instruction <= "XXXXXXXXXXXXXXXXXXXXXXXXX";
+    ImmSel <= "XXX";
+    wait for 3 ns;
+    ImmSel <= "000";
+    wait for 3 ns;
+    Instruction <= "0000000000111010100001100";
+    wait for 3 ns;
+    ImmSel <= "001";
+    wait for 3 ns;
+    ImmSel <= "010";
+    wait for 3 ns;
+    ImmSel <= "011";
+    wait for 3 ns;
+    ImmSel <= "100";
+    wait for 3 ns;
+    ImmSel <= "101";
+    wait;
   end process;
 end architecture;

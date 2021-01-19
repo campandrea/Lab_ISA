@@ -40,8 +40,8 @@ begin
 		read_B_addr => read_B_addr,
 		write_en    => write_en
 	);
-	
-	clk_proc : process 
+
+	clk_proc : process
 	begin
 		clk <= 'U';
 		wait for 2 ns;
@@ -54,13 +54,13 @@ begin
 			wait for 2 ns;
 		end loop;
 	end process;
-	
-	data_proc : process 
+
+	data_proc : process
 	begin
 		data_in <= (others => 'U');
 		write_addr <= (others => 'U');
-		read_A_addr <= (others => 'U);
-		read_B_addr <= (others => 'U);
+		read_A_addr <= (others => 'U');
+		read_B_addr <= (others => 'U');
 		write_en <= 'X';
 		wait for 3 ns;
 		data_in <= (others => 'X');
@@ -68,18 +68,19 @@ begin
 		read_A_addr <= (others => 'X');
 		read_B_addr <= (others => 'X');
 		write_en <= 'X';
-		wait for 3 ns; 
+		wait for 3 ns;
 		data_in <= (others => '1');
 		write_addr <= "00001";
 		write_en <= '1';
-		wait for 4 ns; 
+		wait for 4 ns;
 		data_in <= (others => '0');
-		write_addr <= "000010";
+		write_addr <= "00000";
 		write_en <= '1';
 		read_A_addr <= "00001";
 		wait for 4 ns;
 		read_B_addr <= "00000";
+    write_en <= '0';
 		wait;
-		
+
 	end process;
 end behaviour;
