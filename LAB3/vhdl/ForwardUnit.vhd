@@ -12,7 +12,8 @@ port(
   RegWrite_EX : in std_logic;
   RegWrite_MEM : in std_logic;
   ForwardA : out std_logic_vector (1 downto 0);
-  ForwardB : out std_logic_vector (1 downto 0)
+  ForwardB : out std_logic_vector (1 downto 0);
+  ForwardMem : out std_logic_vector (1 downto 0)
 );
 end ForwardUnit;
 
@@ -56,6 +57,22 @@ begin
   end process;
 
 end architecture;
+
+process (ImmSel_ID, Rs2_ID, Rd_EX, Rd_MEM, RegWrite_EX, RegWrite_MEM)
+begin
+	ForwardMem <= "00";
+	if (unsigned(ImmSel_ID) = "001") then --SB type Instruction
+		if (unsigned(Rs2_ID) = unsigned(Rd_EX)) then
+			if (RegWrite_EX = '1' and unsigned(Rd_EX) /= "00000") then
+				ForwardMem <= "10";
+			end if;
+		elsif (unsigned(Rs2_ID) = unsigned(Rd_MEM)) then
+			if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				ForwardMem <= "11";
+			end if;
+		end if;
+	end if;
+end process;
 
 -- CASI RISOLTI
 --add t0, t1, t2

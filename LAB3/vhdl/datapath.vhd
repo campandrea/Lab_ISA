@@ -160,7 +160,8 @@ port(
   RegWrite_EX : in std_logic;
   RegWrite_MEM : in std_logic;
   ForwardA : out std_logic_vector (1 downto 0);
-  ForwardB : out std_logic_vector (1 downto 0)
+  ForwardB : out std_logic_vector (1 downto 0);
+  ForwardMem : out std_logic_vector (1 downto 0)
 );
 end component;
 
@@ -268,6 +269,8 @@ signal ALUSrcA_mux_out : std_logic_vector (31 downto 0);
 signal ALUSrcB_mux_out : std_logic_vector (31 downto 0);
 signal ForwardA : std_logic_vector (1 downto 0);
 signal ForwardB : std_logic_vector (1 downto 0);
+signal ForwardMem : std_logic_vector (1 downto 0);
+signal ForwardMemMux_out : std_logic_vector (31 downto 0);
 signal ALUDataA_in, ALUDataB_in : std_logic_vector (31 downto 0);
 
 signal ALUCtrl : std_logic_vector (3 downto 0);
@@ -674,6 +677,17 @@ port map(
   data_out   => ALUDataB_in
 );
 
+ForwardMEM_mux : mux4to1
+generic map(N => 32)
+port map(
+  data_00_in => ID_pipe_dataB_out,
+  data_01_in => (others => '0'),
+  data_10_in => EX_pipe_ALU_out,
+  data_11_in => MEM_pipe_data_out,
+  sel        => ForwardMem,
+  data_out   => ForwardMemMux_out
+);
+
 ALU_a : ALU
 port map(
   data_in_A => ALUDataA_in,
@@ -708,7 +722,8 @@ port map(
   RegWrite_EX 	=> RegWrite_EX,
   RegWrite_MEM	=> RegWrite_MEM,
   ForwardA 		=> ForwardA,
-  ForwardB 		=> ForwardB
+  ForwardB 		=> ForwardB,
+  ForwardMem	=> ForwardMem
 );
 
 PCInc_1 : PCInc
@@ -781,7 +796,7 @@ port map(
 EX_pipe_DataB : Register_vec
 generic map(N => 32)
 port map(
-	data_in  => ID_pipe_dataB_out,
+	data_in  => ForwardMemMux_out,
 	clk      => clk,
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
