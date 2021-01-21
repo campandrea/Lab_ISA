@@ -1,4 +1,14 @@
-{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd}
+{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_datapath/test_datapath.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_datapath/test_datapath.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity test_datapath
+-- Compiling architecture behavior of test_datapath
+
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -103,6 +113,67 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity mux2to1_std
 -- Compiling architecture behavior of mux2to1_std
 
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ForwardUnit
+-- Compiling architecture behaviour of ForwardUnit
+
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:01 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity PCInc
+-- Compiling architecture behaviour of PCInc
+End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:00 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ForwardUnit
+-- Compiling architecture behaviour of ForwardUnit
+End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:00 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity BranchComp
+-- Compiling architecture behaviour of BranchComp
+End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:01 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RegisterFile
+-- Compiling architecture behavior of RegisterFile
+End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
 } {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -120,88 +191,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity ImmGen
 -- Compiling architecture behaviour of ImmGen
 
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity RegisterFile
--- Compiling architecture behavior of RegisterFile
-End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:00 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/BranchComp.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity BranchComp
--- Compiling architecture behaviour of BranchComp
-End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:00 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity ForwardUnit
--- Compiling architecture behaviour of ForwardUnit
-End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/PCInc.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity PCInc
--- Compiling architecture behaviour of PCInc
-End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd}
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity ForwardUnit
--- Compiling architecture behaviour of ForwardUnit
-
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Register_PC
--- Compiling architecture rtl of Register_PC
-
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Register_std
--- Compiling architecture rtl of Register_std
-End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
+-- Compiling entity datapath
+-- Compiling architecture structure of datapath
 
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -216,14 +213,27 @@ vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLIT
 End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd}
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:01 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_std.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Register_std
+-- Compiling architecture rtl of Register_std
+End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity datapath
--- Compiling architecture structure of datapath
+-- Compiling entity Register_PC
+-- Compiling architecture rtl of Register_PC
 
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU_CU.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU_CU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -238,25 +248,27 @@ vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLIT
 End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Register_vec
--- Compiling architecture rtl of Register_vec
-
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd 
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Register_vec
--- Compiling architecture rtl of Register_vec
+-- Compiling entity mux4to1
+-- Compiling architecture behavior of mux4to1
+End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:01 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2to1_std
+-- Compiling architecture behavior of mux2to1_std
 End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
@@ -273,46 +285,39 @@ vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLIT
 End time: 09:31:00 on Jan 20,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd}
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_std.vhd 
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity mux2to1_std
--- Compiling architecture behavior of mux2to1_std
+-- Loading package NUMERIC_STD
+-- Compiling entity Register_vec
+-- Compiling architecture rtl of Register_vec
 End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux4to1.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity mux4to1
--- Compiling architecture behavior of mux4to1
-End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_vec.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity RegisterFile
--- Compiling architecture behavior of RegisterFile
+-- Compiling entity Register_vec
+-- Compiling architecture rtl of Register_vec
 
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}
+} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 09:31:01 on Jan 20,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity mux2to1_vec
 -- Compiling architecture behavior of mux2to1_vec
+End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
 
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ImmGen.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -326,16 +331,21 @@ vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLIT
 End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
 
-} {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-Start time: 09:31:01 on Jan 20,2021
-vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/mux2to1_vec.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity mux2to1_vec
 -- Compiling architecture behavior of mux2to1_vec
-End time: 09:31:01 on Jan 20,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/RegisterFile.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RegisterFile
+-- Compiling architecture behavior of RegisterFile
 
 } {} {}}
