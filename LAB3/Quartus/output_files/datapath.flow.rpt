@@ -1,5 +1,5 @@
 Flow report for datapath
-Sat Jan 16 12:57:39 2021
+Wed Jan 20 13:23:44 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Jan 16 12:57:27 2021       ;
+; Flow Status                     ; Successful - Wed Jan 20 13:23:30 2021       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; datapath                                    ;
 ; Top-level Entity Name           ; datapath                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CGXFC7C6U19C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 426 / 56,480 ( < 1 % )                      ;
-; Total registers                 ; 389                                         ;
+; Logic utilization (in ALMs)     ; 505 / 56,480 ( < 1 % )                      ;
+; Total registers                 ; 549                                         ;
 ; Total pins                      ; 164 / 268 ( 61 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048 / 7,024,640 ( < 1 % )                 ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/16/2021 12:53:58 ;
+; Start date & time ; 01/20/2021 13:20:47 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; datapath            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 1097262010015.161079803819348          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 1097262010015.161114524711924          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -93,11 +93,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 4879 MB             ; 00:00:33                           ;
-; Fitter               ; 00:02:58     ; 1.0                     ; 7016 MB             ; 00:09:43                           ;
-; Assembler            ; 00:00:12     ; 1.0                     ; 4836 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:11     ; 1.6                     ; 5221 MB             ; 00:00:14                           ;
-; Total                ; 00:03:38     ; --                      ; --                  ; 00:10:39                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4881 MB             ; 00:00:24                           ;
+; Fitter               ; 00:02:15     ; 1.1                     ; 6943 MB             ; 00:07:23                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4834 MB             ; 00:00:08                           ;
+; Timing Analyzer      ; 00:00:13     ; 1.5                     ; 5223 MB             ; 00:00:14                           ;
+; Total                ; 00:02:52     ; --                      ; --                  ; 00:08:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

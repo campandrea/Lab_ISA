@@ -46,7 +46,7 @@ signal data_in_std : std_logic;
 signal clk      : std_logic;
 signal reg_rst  : std_logic;
 signal reg_en   : std_logic;
-signal data_out_vec, data_out_pc : std_logic_vector (31 downto 0)
+signal data_out_vec, data_out_pc : std_logic_vector (31 downto 0);
 signal data_out_std : std_logic;
 
 
@@ -78,6 +78,7 @@ port map(
     reg_rst => reg_rst,
     reg_en => reg_en,
     data_out => data_out_vec
+    );
 
     clk_proc : process
   	begin
@@ -113,10 +114,10 @@ begin
   reg_rst <= '0';
   reg_en <= '1';
 	wait for 2 ns;
-  data_in_vec <= "1010110011110000101010101111010";
-	data_in_pc <=  "1111111110000001111111100011110";
+  data_in_vec <= "11010110011110000101010101111010";
+	data_in_pc <=  "10111111110000001111111100011110";
 	data_in_std <= '1';
-	wait for 2 ns;
+	wait for 4 ns;
   reg_en <= '0';
 	wait;
 end process;

@@ -36,6 +36,7 @@ begin
 		-- 010 -> B-type
 		-- 011 -> U-type
 		-- 100 -> J-type
+    -- 111 -> R-type (for forwarding unit)
 
 	  ALUOp <= "00";
 		-- 00 -> ADD
@@ -50,30 +51,31 @@ begin
 	  case OpCode is
 
 		when "0110011" => -- ADD, XOR, SLT (R-type)
+      ImmSel <= "111";
 		  RegWrite <= '1';
 		  ALUOp <= "10";
 
 		when "0010011" => -- ADDI, SRAI, ANDI (I-type)
 		  ImmSel <= "000";
 		  ALUOp <= "10";
-		  ALUSrcA <= '1';
+		  ALUSrcB <= '1';
 		  RegWrite <= '1';
 
 		when "0010111" => -- AUIPC (U-type) add immediate to PC
 		  ImmSel <= "011";
-		  ALUSrcA <= '1'; -- prende immediate
-		  ALUSrcB <= '1'; -- prende il PC
+		  ALUSrcA <= '1'; -- prende il PC
+		  ALUSrcB <= '1'; -- prende immediate
 		  RegWrite <= '1';
 
 		when "0110111" => -- LUI (U-type) load upper immediate
 		  ImmSel <= "011";
 		  ALUOp <= "11";
-		  ALUSrcA <= '1';
+		  ALUSrcB <= '1';
 		  RegWrite <= '1';
 
 		when "1100011" => -- BEQ (B-type)
-		  ALUSrcA <= '1'; -- prende immediate
-		  ALUSrcB <= '1'; -- prende PC
+		  ALUSrcA <= '1'; -- prende PC
+		  ALUSrcB <= '1'; -- prende immediate
 		  BrInstr <= '1'; -- avvisa hazard detection unit
 		  ImmSel <= "010";
 		  ALUOp <= "00"; -- ADD
@@ -82,21 +84,21 @@ begin
 		  MemRead <= '1';
 		  WBSel <= "01";
 		  ImmSel <= "000";
-		  ALUSrcA <= '1';
+		  ALUSrcB <= '1';
 		  ALUOp <= "00"; -- ADD
 		  RegWrite <= '1';
 
 		when "1101111" => -- JAL (J-type)
 		  WBSel <= "10"; -- PC + 4
-		  ALUSrcA <= '1'; -- prende immediate
-		  ALUSrcB <= '1'; -- prende PC
+      ALUSrcA <= '1'; -- prende PC
+		  ALUSrcB <= '1'; -- prende immediate
 		  ImmSel <= "100";
 		  ALUOp <= "00"; -- ADD
 		  RegWrite <= '1';
 
 		when "0100011" => -- SW (S-type)
 		  MemWrite <= '1';
-		  ALUSrcA <= '1';
+		  ALUSrcB <= '1';---------------------------------------------------------------------------------------------------
 		  ALUOp <= "00"; -- ADD
 		  ImmSel <= "001";
 

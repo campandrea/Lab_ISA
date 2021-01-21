@@ -24,14 +24,16 @@ port(
 end component;
 
 signal clk, rst : std_logic;
-signal Instruction_in, DataMemDataOut : std_logic_vector (31 downto 0);
+signal Instruction_in, DataMemDataOut, PCOut : std_logic_vector (31 downto 0);
 
 begin
+
+
   Dut: datapath
   port map(
     clk => clk,
 	rst => rst,
-	PCOut => open,
+	PCOut => PCOut,
 	Instruction => Instruction_in,
 	DataMemRead => open,
 	DataMemWrite => open,
@@ -40,14 +42,19 @@ begin
 	DataMemDataOut => DataMemDataOut
   );
 
-clk_proc :	process
-variable clk_v : std_logic;
-begin
-	clk_v := clk;
-	clk_v := not clk_v;
-	wait for 2 ns;
-	clk <= clk_v;
-end process;
+  clk_proc : process
+	begin
+		clk <= 'U';
+		wait for 2 ns;
+		clk <= 'X';
+		wait for 3 ns;
+		for i in 0 to 1024 loop
+			clk <= '0';
+			wait for 2 ns;
+			clk <= '1';
+			wait for 2 ns;
+		end loop;
+	end process;
 
 
 
@@ -55,11 +62,46 @@ end process;
   process
   begin
     wait for 2 ns;
-	rst <= '1';
+    rst <= '1';
     Instruction_in <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-	DataMemDataOut <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    wait for 7 ns;
-    Instruction_in <= "00000011100000101000001011111111";
-	DataMemDataOut <= (others => '0');
+    DataMemDataOut <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    wait for 8 ns;
+    rst <= '0';
+    Instruction_in (31 downto 7) <= "0000000000010000100000001";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
+	  DataMemDataOut <= (others => '0');
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000001010000000000100";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x4, x0, 5
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000001110000000000101";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x5, x0, 7
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000001110000000000110";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x6, x0, 7
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000001001100010100000000";
+    Instruction_in (6 downto 0) <= "1100011"; -- beq x5, x6, 16
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000010000100000001";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000010000100000001";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000010000100000001";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000010000100000001";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000010000001000001";
+    Instruction_in (6 downto 0) <= "0100011"; -- sw x0, x1, 1
+    wait for 4 ns;
+    Instruction_in (31 downto 7) <= "0000000000000000000000000";
+    Instruction_in (6 downto 0) <= "0010011"; -- addi x0, x0, 0
+
+
+  wait;
   end process;
 end architecture;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for datapath
-Sat Jan 16 12:54:14 2021
+Wed Jan 20 13:21:02 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,12 +14,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Logic Cells Representing Combinational Loops
- 10. General Register Statistics
- 11. Registers Packed Into Inferred Megafunctions
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Registers Added for RAM Pass-Through Logic
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated
- 14. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated
+ 13. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_bpn1:auto_generated
+ 14. Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_bpn1:auto_generated
  15. Parameter Settings for User Entity Instance: Register_PC:PC_reg
  16. Parameter Settings for User Entity Instance: mux2to1_vec:PC_sel_mux
  17. Parameter Settings for User Entity Instance: mux2to1_vec:IF_instr_sel_mux
@@ -59,16 +59,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  51. Port Connectivity Checks: "mux4to1:WBSel_mux"
  52. Port Connectivity Checks: "mux4to1:ForwardB_mux"
  53. Port Connectivity Checks: "mux4to1:ForwardA_mux"
- 54. Port Connectivity Checks: "Register_vec:ID_pipe_ImmSel"
- 55. Port Connectivity Checks: "mux2to1_std:ID_RegWrite_sel_mux"
- 56. Port Connectivity Checks: "mux2to1_std:ID_BrInstr_sel_mux"
- 57. Port Connectivity Checks: "mux2to1_vec:ID_ALUOp_sel_mux"
- 58. Port Connectivity Checks: "mux2to1_std:ID_MemWrite_sel_mux"
- 59. Port Connectivity Checks: "mux2to1_std:ID_MemRead_sel_mux"
- 60. Port Connectivity Checks: "mux2to1_vec:IF_instr_sel_mux"
- 61. Post-Synthesis Netlist Statistics for Top Partition
- 62. Elapsed Time Per Partition
- 63. Analysis & Synthesis Messages
+ 54. Port Connectivity Checks: "mux2to1_std:ID_RegWrite_sel_mux"
+ 55. Port Connectivity Checks: "mux2to1_std:ID_BrInstr_sel_mux"
+ 56. Port Connectivity Checks: "mux2to1_vec:ID_ALUOp_sel_mux"
+ 57. Port Connectivity Checks: "mux2to1_std:ID_MemWrite_sel_mux"
+ 58. Port Connectivity Checks: "mux2to1_std:ID_MemRead_sel_mux"
+ 59. Port Connectivity Checks: "mux2to1_vec:IF_instr_sel_mux"
+ 60. Post-Synthesis Netlist Statistics for Top Partition
+ 61. Elapsed Time Per Partition
+ 62. Analysis & Synthesis Messages
 
 
 
@@ -94,13 +93,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Jan 16 12:54:14 2021       ;
+; Analysis & Synthesis Status     ; Successful - Wed Jan 20 13:21:02 2021       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; datapath                                    ;
 ; Top-level Entity Name           ; datapath                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 389                                         ;
+; Total registers                 ; 549                                         ;
 ; Total pins                      ; 164                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048                                       ;
@@ -252,8 +251,8 @@ refer to the applicable agreement for further details.
 ; altrom.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                                             ;         ;
 ; altram.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                                             ;         ;
 ; altdpram.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                                           ;         ;
-; db/altsyncram_v5v1.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_v5v1.tdf                         ;         ;
-; db/datapath.ram0_registerfile_878b6b30.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/datapath.ram0_registerfile_878b6b30.hdl.mif ;         ;
+; db/altsyncram_bpn1.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_bpn1.tdf                         ;         ;
+; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;         ;
 +------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -262,16 +261,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 454       ;
+; Estimate of Logic utilization (ALMs needed) ; 572       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 591       ;
-;     -- 7 input functions                    ; 8         ;
-;     -- 6 input functions                    ; 283       ;
-;     -- 5 input functions                    ; 140       ;
-;     -- 4 input functions                    ; 60        ;
-;     -- <=3 input functions                  ; 100       ;
+; Combinational ALUT usage for logic          ; 758       ;
+;     -- 7 input functions                    ; 16        ;
+;     -- 6 input functions                    ; 337       ;
+;     -- 5 input functions                    ; 147       ;
+;     -- 4 input functions                    ; 137       ;
+;     -- <=3 input functions                  ; 121       ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 389       ;
+; Dedicated logic registers                   ; 549       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 164       ;
 ; Total MLAB memory bits                      ; 0         ;
@@ -280,9 +279,9 @@ refer to the applicable agreement for further details.
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 453       ;
-; Total fan-out                               ; 5316      ;
-; Average fan-out                             ; 3.87      ;
+; Maximum fan-out                             ; 613       ;
+; Total fan-out                               ; 6355      ;
+; Average fan-out                             ; 3.74      ;
 +---------------------------------------------+-----------+
 
 
@@ -291,30 +290,30 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |datapath                                 ; 591 (0)             ; 389 (0)                   ; 2048              ; 0          ; 164  ; 0            ; |datapath                                                                                      ; datapath        ; work         ;
-;    |ALU:ALU_a|                            ; 262 (262)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ALU:ALU_a                                                                            ; ALU             ; work         ;
+; |datapath                                 ; 758 (0)             ; 549 (0)                   ; 2048              ; 0          ; 164  ; 0            ; |datapath                                                                                      ; datapath        ; work         ;
+;    |ALU:ALU_a|                            ; 266 (266)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ALU:ALU_a                                                                            ; ALU             ; work         ;
 ;    |ALU_CU:ALU_CU_a|                      ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ALU_CU:ALU_CU_a                                                                      ; ALU_CU          ; work         ;
-;    |BranchComp:Branch_Comp|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|BranchComp:Branch_Comp                                                               ; BranchComp      ; work         ;
-;    |CU:ControlUnit|                       ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|CU:ControlUnit                                                                       ; CU              ; work         ;
-;    |ForwardUnit:Forward_Unit|             ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ForwardUnit:Forward_Unit                                                             ; ForwardUnit     ; work         ;
-;    |HazardDetUnit:HazardDetectionUnit|    ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|HazardDetUnit:HazardDetectionUnit                                                    ; HazardDetUnit   ; work         ;
-;    |ImmGen:Imm_gen|                       ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ImmGen:Imm_gen                                                                       ; ImmGen          ; work         ;
+;    |BranchComp:Branch_Comp|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|BranchComp:Branch_Comp                                                               ; BranchComp      ; work         ;
+;    |CU:ControlUnit|                       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|CU:ControlUnit                                                                       ; CU              ; work         ;
+;    |ForwardUnit:Forward_Unit|             ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ForwardUnit:Forward_Unit                                                             ; ForwardUnit     ; work         ;
+;    |HazardDetUnit:HazardDetectionUnit|    ; 21 (21)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|HazardDetUnit:HazardDetectionUnit                                                    ; HazardDetUnit   ; work         ;
+;    |ImmGen:Imm_gen|                       ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|ImmGen:Imm_gen                                                                       ; ImmGen          ; work         ;
 ;    |PCInc:PCInc_1|                        ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|PCInc:PCInc_1                                                                        ; PCInc           ; work         ;
 ;    |PCInc:PC_inc|                         ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|PCInc:PC_inc                                                                         ; PCInc           ; work         ;
-;    |RegisterFile:Register_afile|          ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile                                                          ; RegisterFile    ; work         ;
+;    |RegisterFile:Register_afile|          ; 70 (70)             ; 150 (150)                 ; 2048              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile                                                          ; RegisterFile    ; work         ;
 ;       |altsyncram:reg_file_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_0                                ; altsyncram      ; work         ;
-;          |altsyncram_v5v1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated ; altsyncram_v5v1 ; work         ;
+;          |altsyncram_bpn1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_bpn1:auto_generated ; altsyncram_bpn1 ; work         ;
 ;       |altsyncram:reg_file_rtl_1|         ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_1                                ; altsyncram      ; work         ;
-;          |altsyncram_v5v1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated ; altsyncram_v5v1 ; work         ;
+;          |altsyncram_bpn1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |datapath|RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_bpn1:auto_generated ; altsyncram_bpn1 ; work         ;
 ;    |Register_PC:PC_reg|                   ; 5 (5)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_PC:PC_reg                                                                   ; Register_PC     ; work         ;
 ;    |Register_std:EX_pipe_MemRead|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_MemRead                                                         ; Register_std    ; work         ;
 ;    |Register_std:EX_pipe_MemWrite|        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_MemWrite                                                        ; Register_std    ; work         ;
 ;    |Register_std:EX_pipe_RegWrite|        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:EX_pipe_RegWrite                                                        ; Register_std    ; work         ;
 ;    |Register_std:ID_pipe_ALUSrcA|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_ALUSrcA                                                         ; Register_std    ; work         ;
 ;    |Register_std:ID_pipe_ALUSrcB|         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_ALUSrcB                                                         ; Register_std    ; work         ;
-;    |Register_std:ID_pipe_BrInstr|         ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_BrInstr                                                         ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_BrInstr|         ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_BrInstr                                                         ; Register_std    ; work         ;
 ;    |Register_std:ID_pipe_MemRead|         ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_MemRead                                                         ; Register_std    ; work         ;
-;    |Register_std:ID_pipe_MemWrite|        ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_MemWrite                                                        ; Register_std    ; work         ;
+;    |Register_std:ID_pipe_MemWrite|        ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_MemWrite                                                        ; Register_std    ; work         ;
 ;    |Register_std:ID_pipe_RegWrite|        ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:ID_pipe_RegWrite                                                        ; Register_std    ; work         ;
 ;    |Register_std:MEM_pipe_RegWrite|       ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_std:MEM_pipe_RegWrite                                                       ; Register_std    ; work         ;
 ;    |Register_vec:EX_pipe_ALU_out_reg|     ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_ALU_out_reg                                                     ; Register_vec    ; work         ;
@@ -322,8 +321,9 @@ refer to the applicable agreement for further details.
 ;    |Register_vec:EX_pipe_PC_inc|          ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_PC_inc                                                          ; Register_vec    ; work         ;
 ;    |Register_vec:EX_pipe_Rd|              ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_Rd                                                              ; Register_vec    ; work         ;
 ;    |Register_vec:EX_pipe_WBSel|           ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:EX_pipe_WBSel                                                           ; Register_vec    ; work         ;
-;    |Register_vec:ID_pipe_ALUOp|           ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_ALUOp                                                           ; Register_vec    ; work         ;
-;    |Register_vec:ID_pipe_Immediate|       ; 4 (4)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Immediate                                                       ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_ALUOp|           ; 5 (5)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_ALUOp                                                           ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_ImmSel|          ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_ImmSel                                                          ; Register_vec    ; work         ;
+;    |Register_vec:ID_pipe_Immediate|       ; 29 (29)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Immediate                                                       ; Register_vec    ; work         ;
 ;    |Register_vec:ID_pipe_PC|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_PC                                                              ; Register_vec    ; work         ;
 ;    |Register_vec:ID_pipe_Rd|              ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Rd                                                              ; Register_vec    ; work         ;
 ;    |Register_vec:ID_pipe_Rs1|             ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_Rs1                                                             ; Register_vec    ; work         ;
@@ -333,11 +333,11 @@ refer to the applicable agreement for further details.
 ;    |Register_vec:ID_pipe_dataB|           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_dataB                                                           ; Register_vec    ; work         ;
 ;    |Register_vec:ID_pipe_funct3|          ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:ID_pipe_funct3                                                          ; Register_vec    ; work         ;
 ;    |Register_vec:IF_pipe_PC|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:IF_pipe_PC                                                              ; Register_vec    ; work         ;
-;    |Register_vec:IF_pipe_instr|           ; 25 (25)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:IF_pipe_instr                                                           ; Register_vec    ; work         ;
+;    |Register_vec:IF_pipe_instr|           ; 32 (32)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:IF_pipe_instr                                                           ; Register_vec    ; work         ;
 ;    |Register_vec:MEM_pipe_Rd|             ; 0 (0)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:MEM_pipe_Rd                                                             ; Register_vec    ; work         ;
 ;    |Register_vec:MEM_pipe_data|           ; 33 (33)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|Register_vec:MEM_pipe_data                                                           ; Register_vec    ; work         ;
-;    |mux4to1:ForwardA_mux|                 ; 70 (70)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardA_mux                                                                 ; mux4to1         ; work         ;
-;    |mux4to1:ForwardB_mux|                 ; 67 (67)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardB_mux                                                                 ; mux4to1         ; work         ;
+;    |mux4to1:ForwardA_mux|                 ; 114 (114)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardA_mux                                                                 ; mux4to1         ; work         ;
+;    |mux4to1:ForwardB_mux|                 ; 82 (82)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|mux4to1:ForwardB_mux                                                                 ; mux4to1         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -347,24 +347,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
 ; Name                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                            ;
 +-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
-; RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
-; RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
+; RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_bpn1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
+; RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_bpn1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ;
 +-------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
-
-
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; ImmGen:Imm_gen|Mux11~0                                 ;   ;
-; ImmGen:Imm_gen|Mux9~0                                  ;   ;
-; ImmGen:Imm_gen|Mux10~0                                 ;   ;
-; ImmGen:Imm_gen|Mux8~0                                  ;   ;
-; ImmGen:Imm_gen|Mux7~0                                  ;   ;
-; Number of logic cells representing combinational loops ; 5 ;
-+--------------------------------------------------------+---+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -372,57 +357,278 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 389   ;
-; Number of registers using Synchronous Clear  ; 373   ;
+; Total registers                              ; 549   ;
+; Number of registers using Synchronous Clear  ; 371   ;
 ; Number of registers using Synchronous Load   ; 30    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 88    ;
+; Number of registers using Clock Enable       ; 85    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                                      ;
-+-----------------------------------------------+--------------------------------------------+------+
-; Register Name                                 ; Megafunction                               ; Type ;
-+-----------------------------------------------+--------------------------------------------+------+
-; RegisterFile:Register_afile|data_out_A[0..31] ; RegisterFile:Register_afile|reg_file_rtl_0 ; RAM  ;
-; RegisterFile:Register_afile|data_out_B[0..31] ; RegisterFile:Register_afile|reg_file_rtl_1 ; RAM  ;
-+-----------------------------------------------+--------------------------------------------+------+
++-----------------------------------------------------------------+
+; Inverted Register Statistics                                    ;
++-------------------------------------------------------+---------+
+; Inverted Register                                     ; Fan out ;
++-------------------------------------------------------+---------+
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[44] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[48] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[46] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[50] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[14] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[12] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[60] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[64] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[62] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[66] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[52] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[56] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[54] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[58] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[68] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[72] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[70] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[74] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[18] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[16] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[46] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[68] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[56] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[58] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[60] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[62] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[66] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[64] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[70] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[72] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[32] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[34] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[38] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[36] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[54] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[22] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[24] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[26] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[30] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[28] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[40] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[42] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[44] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[48] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[52] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[50] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[12] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[16] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[14] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[18] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[28] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[32] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[30] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[34] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[20] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[24] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[22] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[26] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[36] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[40] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[38] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[42] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[20] ; 1       ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[74] ; 1       ;
+; Total number of inverted registers = 64               ;         ;
++-------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_PC|data_out[24]       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |datapath|Register_PC:PC_reg|data_out[0]             ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_std:ID_pipe_BrInstr|data_out      ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |datapath|Register_vec:MEM_pipe_data|data_out[27]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[5] ;
-; 4:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_instr|data_out[12]    ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |datapath|Register_PC:PC_reg|data_out[7]             ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[4] ;
-; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                      ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|ImmGen:Imm_gen|Mux24                       ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; No         ; |datapath|ImmGen:Imm_gen|Mux10                       ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardA_mux|Mux23                 ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardB_mux|Mux13                 ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |datapath|ImmGen:Imm_gen|Mux15                       ;
-; 12:1               ; 16 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux7                             ;
-; 15:1               ; 12 bits   ; 120 LEs       ; 96 LEs               ; 24 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux22                            ;
-; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|Add0                             ;
-; 18:1               ; 3 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; No         ; |datapath|ALU:ALU_a|Mux30                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                         ;
++-------------------------------------------------------+--------------------------------------------+
+; Register Name                                         ; RAM Name                                   ;
++-------------------------------------------------------+--------------------------------------------+
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[0]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[1]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[2]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[3]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[4]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[5]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[6]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[7]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[8]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[9]  ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[10] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[11] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[12] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[13] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[14] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[15] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[16] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[17] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[18] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[19] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[20] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[21] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[22] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[23] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[24] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[25] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[26] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[27] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[28] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[29] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[30] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[31] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[32] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[33] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[34] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[35] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[36] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[37] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[38] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[39] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[40] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[41] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[42] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[43] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[44] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[45] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[46] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[47] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[48] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[49] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[50] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[51] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[52] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[53] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[54] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[55] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[56] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[57] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[58] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[59] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[60] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[61] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[62] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[63] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[64] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[65] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[66] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[67] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[68] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[69] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[70] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[71] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[72] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[73] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_0_bypass[74] ; RegisterFile:Register_afile|reg_file_rtl_0 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[0]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[1]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[2]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[3]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[4]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[5]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[6]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[7]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[8]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[9]  ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[10] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[11] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[12] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[13] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[14] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[15] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[16] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[17] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[18] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[19] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[20] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[21] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[22] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[23] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[24] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[25] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[26] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[27] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[28] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[29] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[30] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[31] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[32] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[33] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[34] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[35] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[36] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[37] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[38] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[39] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[40] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[41] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[42] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[43] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[44] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[45] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[46] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[47] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[48] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[49] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[50] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[51] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[52] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[53] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[54] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[55] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[56] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[57] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[58] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[59] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[60] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[61] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[62] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[63] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[64] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[65] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[66] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[67] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[68] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[69] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[70] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[71] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[72] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[73] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
+; RegisterFile:Register_afile|reg_file_rtl_1_bypass[74] ; RegisterFile:Register_afile|reg_file_rtl_1 ;
++-------------------------------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_PC|data_out[24]        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |datapath|Register_PC:PC_reg|data_out[0]              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_ALUOp|data_out[0]      ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |datapath|Register_vec:MEM_pipe_data|data_out[27]     ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[30] ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |datapath|Register_vec:IF_pipe_instr|data_out[9]      ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |datapath|Register_PC:PC_reg|data_out[2]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[2]  ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[24] ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |datapath|Register_vec:ID_pipe_Immediate|data_out[15] ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|ShiftRight0                       ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|Register_vec:IF_pipe_instr|data_out         ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardA_mux|Mux17                  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |datapath|mux4to1:ForwardB_mux|Mux22                  ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux0                              ;
+; 15:1               ; 12 bits   ; 120 LEs       ; 96 LEs               ; 24 LEs                 ; No         ; |datapath|ALU:ALU_a|Mux26                             ;
+; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |datapath|ALU:ALU_a|Add0                              ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; No         ; |datapath|ALU:ALU_a|Mux29                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------+
-; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_v5v1:auto_generated ;
+; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_0|altsyncram_bpn1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                            ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
@@ -431,7 +637,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 
 
 +-------------------------------------------------------------------------------------------------------------+
-; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_v5v1:auto_generated ;
+; Source assignments for RegisterFile:Register_afile|altsyncram:reg_file_rtl_1|altsyncram_bpn1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                            ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
@@ -795,7 +1001,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; NUMWORDS_B                         ; 32                                             ; Untyped          ;
 ; INDATA_REG_B                       ; CLOCK1                                         ; Untyped          ;
 ; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped          ;
-; RDCONTROL_REG_B                    ; CLOCK0                                         ; Untyped          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped          ;
 ; ADDRESS_REG_B                      ; CLOCK0                                         ; Untyped          ;
 ; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped          ;
 ; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped          ;
@@ -809,7 +1015,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped          ;
 ; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped          ;
 ; BYTE_SIZE                          ; 8                                              ; Untyped          ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ; Untyped          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
 ; INIT_FILE                          ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ; Untyped          ;
@@ -825,7 +1031,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped          ;
 ; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped          ;
 ; DEVICE_FAMILY                      ; Cyclone V                                      ; Untyped          ;
-; CBXI_PARAMETER                     ; altsyncram_v5v1                                ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_bpn1                                ; Untyped          ;
 +------------------------------------+------------------------------------------------+------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -856,7 +1062,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; NUMWORDS_B                         ; 32                                             ; Untyped          ;
 ; INDATA_REG_B                       ; CLOCK1                                         ; Untyped          ;
 ; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped          ;
-; RDCONTROL_REG_B                    ; CLOCK0                                         ; Untyped          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped          ;
 ; ADDRESS_REG_B                      ; CLOCK0                                         ; Untyped          ;
 ; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped          ;
 ; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped          ;
@@ -870,7 +1076,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped          ;
 ; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped          ;
 ; BYTE_SIZE                          ; 8                                              ; Untyped          ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ; Untyped          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped          ;
 ; INIT_FILE                          ; db/datapath.ram0_RegisterFile_878b6b30.hdl.mif ; Untyped          ;
@@ -886,7 +1092,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped          ;
 ; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped          ;
 ; DEVICE_FAMILY                      ; Cyclone V                                      ; Untyped          ;
-; CBXI_PARAMETER                     ; altsyncram_v5v1                                ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_bpn1                                ; Untyped          ;
 +------------------------------------+------------------------------------------------+------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -907,7 +1113,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- ADDRESS_REG_B                      ; CLOCK0                                                ;
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
 ; Entity Instance                           ; RegisterFile:Register_afile|altsyncram:reg_file_rtl_1 ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                             ;
 ;     -- WIDTH_A                            ; 32                                                    ;
@@ -918,7 +1124,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- ADDRESS_REG_B                      ; CLOCK0                                                ;
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
 +-------------------------------------------+-------------------------------------------------------+
 
 
@@ -947,15 +1153,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+-------+----------+------------------+
 ; data_01_in ; Input ; Info     ; Stuck at GND     ;
 +------------+-------+----------+------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Register_vec:ID_pipe_ImmSel"                                                            ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------+
@@ -1020,31 +1217,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 389                         ;
+; arriav_ff             ; 549                         ;
 ;     ENA               ; 2                           ;
-;     ENA SCLR          ; 57                          ;
+;     ENA SCLR          ; 54                          ;
 ;     ENA SCLR SLD      ; 29                          ;
-;     SCLR              ; 287                         ;
+;     SCLR              ; 288                         ;
 ;     SLD               ; 1                           ;
-;     plain             ; 13                          ;
-; arriav_lcell_comb     ; 591                         ;
+;     plain             ; 175                         ;
+; arriav_lcell_comb     ; 758                         ;
 ;     arith             ; 93                          ;
 ;         1 data inputs ; 60                          ;
 ;         3 data inputs ; 1                           ;
 ;         5 data inputs ; 32                          ;
-;     extend            ; 8                           ;
-;         7 data inputs ; 8                           ;
-;     normal            ; 490                         ;
-;         2 data inputs ; 20                          ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 60                          ;
-;         5 data inputs ; 108                         ;
-;         6 data inputs ; 283                         ;
+;     extend            ; 16                          ;
+;         7 data inputs ; 16                          ;
+;     normal            ; 649                         ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 137                         ;
+;         5 data inputs ; 115                         ;
+;         6 data inputs ; 337                         ;
 ; boundary_port         ; 164                         ;
 ; stratixv_ram_block    ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 5.11                        ;
+; Max LUT depth         ; 9.10                        ;
+; Average LUT depth     ; 4.85                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1063,7 +1260,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Jan 16 12:53:57 2021
+    Info: Processing started: Wed Jan 20 13:20:47 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off datapath -c datapath
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -1098,7 +1295,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: HazardDetUnit-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd Line: 22
     Info (12023): Found entity 1: HazardDetUnit File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/HazardDetUnit.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/forwardunit.vhd
-    Info (12022): Found design unit 1: ForwardUnit-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd Line: 23
+    Info (12022): Found design unit 1: ForwardUnit-behaviour File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd Line: 24
     Info (12023): Found entity 1: ForwardUnit File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ForwardUnit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/gianl/desktop/polito/secondo anno/integrated system architecture/lab_isa/lab3/vhdl/datapath.vhd
     Info (12022): Found design unit 1: datapath-structure File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 19
@@ -1116,26 +1313,27 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: ALU-structural File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd Line: 15
     Info (12023): Found entity 1: ALU File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd Line: 5
 Info (12127): Elaborating entity "datapath" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(249): object "ImmSel_ID" assigned a value but never read File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 249
-Info (12128): Elaborating entity "CU" for hierarchy "CU:ControlUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 309
-Info (12128): Elaborating entity "Register_PC" for hierarchy "Register_PC:PC_reg" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 323
-Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:PC_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 334
-Info (12128): Elaborating entity "PCInc" for hierarchy "PCInc:PC_inc" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 342
-Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:IF_pipe_PC" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 360
-Info (12128): Elaborating entity "HazardDetUnit" for hierarchy "HazardDetUnit:HazardDetectionUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 383
-Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:Register_afile" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 403
-Info (12128): Elaborating entity "ImmGen" for hierarchy "ImmGen:Imm_gen" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 417
-Info (12128): Elaborating entity "mux2to1_std" for hierarchy "mux2to1_std:ID_MemRead_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 424
-Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:ID_ALUOp_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 440
-Info (12128): Elaborating entity "Register_std" for hierarchy "Register_std:ID_pipe_MemRead" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 479
-Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ALUOp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 497
-Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ImmSel" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 535
-Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_Rs1" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 583
-Info (12128): Elaborating entity "mux4to1" for hierarchy "mux4to1:ForwardA_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 653
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 675
-Info (12128): Elaborating entity "ALU_CU" for hierarchy "ALU_CU:ALU_CU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 684
-Info (12128): Elaborating entity "BranchComp" for hierarchy "BranchComp:Branch_Comp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 691
-Info (12128): Elaborating entity "ForwardUnit" for hierarchy "ForwardUnit:Forward_Unit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 699
+Info (12128): Elaborating entity "CU" for hierarchy "CU:ControlUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 311
+Info (12128): Elaborating entity "Register_PC" for hierarchy "Register_PC:PC_reg" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 325
+Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:PC_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 336
+Info (12128): Elaborating entity "PCInc" for hierarchy "PCInc:PC_inc" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 344
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:IF_pipe_PC" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 362
+Info (12128): Elaborating entity "HazardDetUnit" for hierarchy "HazardDetUnit:HazardDetectionUnit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 385
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:Register_afile" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 405
+Info (12128): Elaborating entity "ImmGen" for hierarchy "ImmGen:Imm_gen" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 419
+Info (12128): Elaborating entity "mux2to1_std" for hierarchy "mux2to1_std:ID_MemRead_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 426
+Info (12128): Elaborating entity "mux2to1_vec" for hierarchy "mux2to1_vec:ID_ALUOp_sel_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 442
+Info (12128): Elaborating entity "Register_std" for hierarchy "Register_std:ID_pipe_MemRead" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 481
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ALUOp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 499
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_ImmSel" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 537
+Info (12128): Elaborating entity "Register_vec" for hierarchy "Register_vec:ID_pipe_Rs1" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 585
+Info (12128): Elaborating entity "mux4to1" for hierarchy "mux4to1:ForwardA_mux" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 655
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 677
+Info (12128): Elaborating entity "ALU_CU" for hierarchy "ALU_CU:ALU_CU_a" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 686
+Info (12128): Elaborating entity "BranchComp" for hierarchy "BranchComp:Branch_Comp" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 693
+Info (12128): Elaborating entity "ForwardUnit" for hierarchy "ForwardUnit:Forward_Unit" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 701
+Warning (276020): Inferred RAM node "RegisterFile:Register_afile|reg_file_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Warning (276020): Inferred RAM node "RegisterFile:Register_afile|reg_file_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "RegisterFile:Register_afile|reg_file_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -1153,8 +1351,6 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to db/datapath.ram0_RegisterFile_878b6b30.hdl.mif
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
     Info (276029): Inferred altsyncram megafunction from the following design logic: "RegisterFile:Register_afile|reg_file_rtl_1" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 32
@@ -1171,8 +1367,6 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to db/datapath.ram0_RegisterFile_878b6b30.hdl.mif
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
 Info (12130): Elaborated megafunction instantiation "RegisterFile:Register_afile|altsyncram:reg_file_rtl_0"
 Info (12133): Instantiated megafunction "RegisterFile:Register_afile|altsyncram:reg_file_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1190,30 +1384,20 @@ Info (12133): Instantiated megafunction "RegisterFile:Register_afile|altsyncram:
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/datapath.ram0_RegisterFile_878b6b30.hdl.mif"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v5v1.tdf
-    Info (12023): Found entity 1: altsyncram_v5v1 File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_v5v1.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_bpn1.tdf
+    Info (12023): Found entity 1: altsyncram_bpn1 File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/Quartus/db/altsyncram_bpn1.tdf Line: 27
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Instruction[25]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[26]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[27]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[28]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[29]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[30]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-    Warning (15610): No output dependent on input pin "Instruction[31]" File: C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd Line: 11
-Info (21057): Implemented 1076 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1311 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 66 input pins
     Info (21059): Implemented 98 output pins
-    Info (21061): Implemented 848 logic cells
+    Info (21061): Implemented 1083 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4879 megabytes
-    Info: Processing ended: Sat Jan 16 12:54:14 2021
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:33
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4881 megabytes
+    Info: Processing ended: Wed Jan 20 13:21:02 2021
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:24
 
 

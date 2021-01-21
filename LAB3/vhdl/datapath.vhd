@@ -154,6 +154,7 @@ component ForwardUnit
 port(
   Rs1_ID : in std_logic_vector (4 downto 0);
   Rs2_ID : in std_logic_vector (4 downto 0);
+  ImmSel_ID : in std_logic_vector (2 downto 0);
   Rd_EX : in std_logic_vector (4 downto 0);
   Rd_MEM : in std_logic_vector (4 downto 0);
   RegWrite_EX : in std_logic;
@@ -183,7 +184,6 @@ signal pipe_reg_en : std_logic;
 signal pipe_reg_rst : std_logic;
 signal NOP_instruction : std_logic_vector (31 downto 0);
 
-signal Instruction_IF : std_logic_vector(31 downto 0);
 signal MemRead_IF, MemWrite_IF : std_logic;
 signal WBSel_IF : std_logic_vector (1 downto 0);
 signal ImmSel_IF : std_logic_vector (2 downto 0);
@@ -258,6 +258,8 @@ signal Rs2_ID : std_logic_vector (4 downto 0);
 signal Immediate_ID : std_logic_vector (31 downto 0);
 signal funct3_ID : std_logic_vector (2 downto 0);
 signal Instruction_mux_out : std_logic_vector (31 downto 0);
+
+
 
 -------------------------------------------------
 -------------------------------------------------
@@ -412,7 +414,7 @@ port map(
   write_en    => RegWrite_MEM
 );
 
-Instruction_imm_IF <= Immediate_IF (31 downto 7);
+Instruction_imm_IF <= IF_pipe_instr_out (31 downto 7);
 
 Imm_gen : ImmGen
 port map(
@@ -637,7 +639,7 @@ port map(
 ALUSrcA_mux : mux2to1_vec
 port map(
   data_0_in => ID_pipe_dataA_out,
-  data_1_in => Immediate_ID,
+  data_1_in => PC_ID,
   sel       => ALUSrcA_ID,
   data_out  => ALUSrcA_mux_out
 );
@@ -645,7 +647,7 @@ port map(
 ALUSrcB_mux : mux2to1_vec
 port map(
   data_0_in => ID_pipe_dataB_out,
-  data_1_in => PC_ID,
+  data_1_in => Immediate_ID,
   sel       => ALUSrcB_ID,
   data_out  => ALUSrcB_mux_out
 );
@@ -700,6 +702,7 @@ Forward_Unit : ForwardUnit
 port map(
   Rs1_ID 		=> Rs1_ID,
   Rs2_ID		=> Rs2_ID,
+  ImmSel_ID => ImmSel_ID,
   Rd_EX  		=> Rd_EX,
   Rd_MEM 		=> Rd_MEM,
   RegWrite_EX 	=> RegWrite_EX,

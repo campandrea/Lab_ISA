@@ -34,7 +34,7 @@ begin
 DUT : HazardDetUnit
 port map(
   Rs1_IF => Rs1_IF ,
-  Rs2_IF => Rs2_IF
+  Rs2_IF => Rs2_IF,
   Rd_ID => Rd_ID,
   MemRead_ID => MemRead_ID,
   BrEq => BrEq,
@@ -62,16 +62,16 @@ begin
   BrEq <= 'X';
   BrInstr_ID <= 'X';
 	wait for 2 ns;
-  Rs1_IF <= '101011';
-  Rs1_ID <= '101011';
+  Rs1_IF <= "10011";
+  Rd_ID <= "10011";
   MemRead_ID <= '1';
 	wait for 2 ns;
   Rs1_IF <= (others => 'X');
   Rd_ID <= (others => 'X');
   MemRead_ID <= 'X';
 	wait for 2 ns;
-  Rs2_IF <= '101110';
-  Rs1_ID <= '101110';
+  Rs2_IF <= "10111";
+  Rd_ID <= "10111";
   MemRead_ID <= '1';
 	wait for 2 ns;
   BrInstr_ID <= '1';
