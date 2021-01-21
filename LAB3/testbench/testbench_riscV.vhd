@@ -1,5 +1,6 @@
 LIBRARY ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 ENTITY testbench_riscV IS
 	PORT
@@ -22,7 +23,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 	
 	
 	COMPONENT Stimuli_generator 
-	  generic ( filename  : string);
+		generic ( filename  : string);
 
 	  port( clk      : IN  std_logic;
 			en       : IN  std_logic;
@@ -30,6 +31,17 @@ ARCHITECTURE behavior OF testbench_riscV IS
 			eof      : OUT std_logic
 		  );
 	end COMPONENT;
+	
+	
+	
+	COMPONENT Output_Sink 
+		generic ( filename  : string);
+		port( clk      : IN  std_logic;
+			en       : IN  std_logic;
+			data_in  : IN  std_logic_vector(31 downto 0)
+		);
+	end COMPONENT;
+	
 	
 	
 	
@@ -77,7 +89,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 	signal DUT_DataMemRead, DUT_DataMemWrite : std_logic;
 	signal Data_module_wr_n, Data_module_rd :std_logic;
 	signal Data_module_addr, Data_module_data_in : std_logic_vector(31 downto 0);
-	
+	signal count :	integer;
 	
 	BEGIN
 
@@ -120,6 +132,30 @@ ARCHITECTURE behavior OF testbench_riscV IS
 		 Data_module_addr, Data_module_data_in, Data_module_data_out);
 		
 		
+		
+		Output_sink_module :	Output_Sink
+		GENERIC MAP("../Files/data_tb1.txt")
+		PORT MAP
+		(CLK, '1', Data_module_data_out);
+		
+		
+		--Process di scrittura in memoria
+		Init_mem_process : process(CLK)
+			BEGIN
+				If (Instruction_module_eof = '0') THEN
+					Instruction_module_wr_n <= '0' ;
+					count <= count + 4;
+					Instruction_memory_addr <= std_logic_vector(to_unsigned(count, Instruction_memory_addr'length));
+			
+				ELSE
+					Instruction_memory_addr <= PCout;
+					Instruction_module_wr_n <= '1';
+					rst_DUT <= '0';
+				END IF;
+		END process Init_mem_process;
+		
+		
+		--Enabling writing on file process
 		
 
 END behavior;
