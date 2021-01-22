@@ -56,7 +56,6 @@ begin
   end if;
   end process;
 
-end architecture;
 
 process (ImmSel_ID, Rs2_ID, Rd_EX, Rd_MEM, RegWrite_EX, RegWrite_MEM)
 begin
@@ -74,6 +73,8 @@ begin
 	end if;
 end process;
 
+
+end architecture;
 -- CASI RISOLTI
 --add t0, t1, t2
 --sub t5, t0, t4

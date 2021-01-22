@@ -80,8 +80,8 @@ begin
     Instruction_in (31 downto 7) <= "0000000001110000000000110";
     Instruction_in (6 downto 0) <= "0010011"; -- addi x6, x0, 7
     wait for 4 ns;
-    Instruction_in (31 downto 7) <= "0000001001100010100000000";
-    Instruction_in (6 downto 0) <= "1100011"; -- beq x5, x6, 16
+    Instruction_in (31 downto 7) <= "0000001001100010100000110";
+    Instruction_in (6 downto 0) <= "1100011"; -- beq x5, x6, 19
     wait for 4 ns;
     Instruction_in (31 downto 7) <= "0000000000010000100000001";
     Instruction_in (6 downto 0) <= "0010011"; -- addi x1, x1, 1
