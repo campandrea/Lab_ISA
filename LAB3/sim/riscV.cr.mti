@@ -66,6 +66,15 @@ vcom -reportprogress 300 -work work -2002 -explicit C:/Users/gianl/Desktop/POLIT
 End time: 09:41:21 on Jan 23,2021, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity CU
+-- Compiling architecture behaviour of CU
+
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/CU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 Start time: 09:41:21 on Jan 23,2021
@@ -87,6 +96,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity ALU_CU
 -- Compiling architecture behaviour of ALU_CU
+
+} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/ALU.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ALU
+-- Compiling architecture structural of ALU
 
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v}} {1 {vlog -work work {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/tb_riscV.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -202,15 +220,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity clk_gen
 -- Compiling architecture beh of clk_gen
-
-} {} {}} {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/datapath.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity datapath
--- Compiling architecture structure of datapath
 
 } {} {}} {{C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/vhdl/Register_PC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
