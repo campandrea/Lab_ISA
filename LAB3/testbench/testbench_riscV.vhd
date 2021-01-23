@@ -124,6 +124,13 @@ ARCHITECTURE behavior OF testbench_riscV IS
   signal Sink_en : std_logic;
   signal Sink_data_in : std_logic_vector(31 downto 0);
 
+  constant start_addr_instruction_mem : integer := 16#00400000#;
+  constant stop_addr_instruction_mem : integer := start_addr_instruction_mem + 512;
+
+  constant start_addr_data_mem : integer := 16#10010000#;
+  constant stop_addr_data_mem : integer := start_addr_data_mem + 512;
+
+
 
 
 	BEGIN
@@ -155,6 +162,11 @@ ARCHITECTURE behavior OF testbench_riscV IS
      data_out => Instruction_mem_addr);
 
 		Instruction_mem_module : Memory
+    generic map
+    (word_size => 32,
+  	 addr_size => 32,
+     start_addr => start_addr_instruction_mem,
+     stop_addr => stop_addr_instruction_mem)
 		PORT MAP
 		(clk => clk,
     chip_sel => '1',
@@ -187,7 +199,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
      sel => Rd_Data_mem_mux_sel,
      data_out => Data_mem_rd);
 
-     Data_mem_wr_n <= DataMemWrite_DUT;
+     Data_mem_wr_n <= not DataMemWrite_DUT;
 
      Addr_Data_mem_mux: mux2to1_vec
      port map(
@@ -202,6 +214,11 @@ ARCHITECTURE behavior OF testbench_riscV IS
      Sink_data_in <= Data_mem_data_out;
 
 		Data_mem_module : Memory
+    generic map
+    (word_size => 32,
+  	 addr_size => 32,
+     start_addr => start_addr_data_mem,
+     stop_addr => stop_addr_data_mem)
 		PORT MAP
 		(clk => clk,
      chip_sel => '1',
@@ -225,18 +242,20 @@ ARCHITECTURE behavior OF testbench_riscV IS
     testbench_proc: process
     begin
       Stimuli_en <= '0';
-      Instruction_mem_addr_tb <= (others => '0'); --first address
+      Instruction_mem_addr_tb <= std_logic_vector(to_unsigned(start_addr_instruction_mem, 32)); --first address
       rst <= '1';
-      Data_mem_addr_tb <= (others => '0');
+      Data_mem_addr_tb <= std_logic_vector(to_unsigned(start_addr_data_mem, 32));
       wait for 4 ns;
 
       Stimuli_en <= '1';
       Addr_Instruction_mem_mux_sel <= '0';
-      Instruction_mem_wr_n <= '0';
+
       wait for 4 ns;
+      Instruction_mem_wr_n <= '0';
+      Instruction_mem_rd <= '1';
       while Stimuli_eof = '0' loop
+        wait for 4 ns;
         Instruction_mem_addr_tb <= std_logic_vector(unsigned(Instruction_mem_addr_tb) + 4);
-        wait until clk'event and clk = '1';
       end loop;
       Rd_Data_mem_mux_sel <= '0';
       Addr_Data_mem_mux_sel <= '0';
@@ -250,9 +269,9 @@ ARCHITECTURE behavior OF testbench_riscV IS
       Rd_Data_mem_mux_sel <= '1';
       Addr_Data_mem_mux_sel <= '1';
       Sink_en <= '1';
-      for i in 0 to 1023 loop
+      for i in 0 to 512 loop
+        wait for 4 ns;
         Data_mem_addr_tb <= std_logic_vector(unsigned(Data_mem_addr_tb) + 4);
-        wait until clk'event and clk = '1';
       end loop;
       wait;
     end process;

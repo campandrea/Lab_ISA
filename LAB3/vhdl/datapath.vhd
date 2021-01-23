@@ -200,7 +200,6 @@ signal PC_RegEn : std_logic;
 signal PC_reg_out : std_logic_vector (31 downto 0);
 
 signal PC_inc_out : std_logic_vector (31 downto 0);
-signal ALU_out : std_logic_vector (31 downto 0);
 signal PCSel : std_logic;
 
 signal IF_RegSel : std_logic;

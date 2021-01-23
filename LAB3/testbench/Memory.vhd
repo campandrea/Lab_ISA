@@ -29,7 +29,10 @@ begin
 		if rising_edge(clk) then
 			if chip_sel = '1' then
 				if wr_n = '0' then
-					memory_data(to_integer(unsigned(addr(31 downto 2)))) <= data_in;
+          if (to_integer(unsigned(addr(31 downto 2))) >= start_addr/4
+                and to_integer(unsigned(addr(31 downto 2))) <= stop_addr/4) then
+					             memory_data(to_integer(unsigned(addr(31 downto 2)))) <= data_in;
+          end if;
 				end if;
 			end if;
 		end if;
@@ -38,7 +41,10 @@ begin
     read_proc: process(rd, addr)
     begin
         if rd = '1' then
-            data_out <= memory_data(to_integer(unsigned(addr(31 downto 2))));
+          if (to_integer(unsigned(addr(31 downto 2))) >= start_addr/4
+                and to_integer(unsigned(addr(31 downto 2))) <= stop_addr/4) then
+					             data_out <= memory_data(to_integer(unsigned(addr(31 downto 2))));
+          end if;
         end if;
     end process;
 END architecture Behavior;
