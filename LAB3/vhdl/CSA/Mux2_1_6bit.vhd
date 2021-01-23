@@ -14,10 +14,15 @@ END Mux2_1_6bit;
 
 ARCHITECTURE behavior OF Mux2_1_6bit IS
 	BEGIN
-	
-		Cout <=	Cin(0) WHEN Sel = '0' ELSE
-				Cin(1) WHEN Sel = '1' ;
-				
-		Z	 <=	In_A WHEN Sel = '0' ELSE
-				In_B WHEN Sel = '1';
+		Mux_proc : process(In_A, In_B, Sel, Cin)
+			BEGIN
+			IF (Sel = '0') THEN
+				Cout <= Cin(0);
+				Z <= In_A;
+			END IF;
+			IF (Sel = '1') THEN
+				Cout <= Cin(1);
+				Z <= In_B;
+			END IF;
+		END process Mux_proc;
 END behavior;
