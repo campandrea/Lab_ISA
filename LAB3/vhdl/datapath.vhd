@@ -29,6 +29,7 @@ component CU
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
 	BrInstr		: OUT std_logic;
+	JmpInst		: OUT std_logic;
     RegWrite    : OUT std_logic
   );
 end component;
@@ -177,6 +178,7 @@ port(
   MemRead_ID : in std_logic;
   BrEq : in std_logic;
   BrInstr_ID : in std_logic;
+  JmpInst_ID : in std_logic;
   IF_RegEn : out std_logic;
   PC_RegEn : out std_logic;
   ID_RegSel : out std_logic;
@@ -196,6 +198,7 @@ signal ALUOp_IF : std_logic_vector (1 downto 0);
 signal ALUSrcA_IF : std_logic;
 signal ALUSrcB_IF : std_logic;
 signal BrInstr_IF : std_logic;
+signal JmpInst_IF : std_logic;
 signal RegWrite_IF : std_logic;
 
 signal PC_reg_in : std_logic_vector (31 downto 0);
@@ -224,6 +227,7 @@ signal  Rd_ID : std_logic_vector (4 downto 0);
 signal  MemRead_ID : std_logic;
 signal  BrEq : std_logic;
 signal  BrInstr_ID : std_logic;
+signal	JmpInst_ID : std_logic;
 signal  ID_RegSel : std_logic;
 signal funct3_IF : std_logic_vector (2 downto 0);
 
@@ -239,6 +243,7 @@ signal ID_pipe_MemRead_in : std_logic;
 signal ID_pipe_MemWrite_in : std_logic;
 signal ID_pipe_ALUOp_in : std_logic_vector (1 downto 0);
 signal ID_pipe_BrInstr_in : std_logic;
+signal ID_pipe_JmpInstr_in : std_logic;
 signal ID_pipe_RegWrite_in : std_logic;
 
 ---------------------------------
@@ -331,6 +336,7 @@ port map(
     ALUSrcA 	=> ALUSrcA_IF,
     ALUSrcB 	=> ALUSrcB_IF,
 	BrInstr		=> BrInstr_IF,
+	JmpInst		=> JmpInst_IF,
     RegWrite 	=> RegWrite_IF
 );
 
@@ -402,6 +408,7 @@ port map(
   MemRead_ID	=> MemRead_ID,
   BrEq 			=> BrEq,
   BrInstr_ID 	=> BrInstr_ID,
+  JmpInst_ID	=> JmpInst_ID,
   IF_RegEn 		=> IF_RegEn,
   PC_RegEn 		=> PC_RegEn,
   ID_RegSel 	=> ID_RegSel,
@@ -468,6 +475,14 @@ port map(
   data_out  => ID_pipe_BrInstr_in
 );
 
+ID_JmpInstr_sel_mux : mux2to1_std
+port map(
+  data_0_in => JmpInst_IF,
+  data_1_in => '0',
+  sel       => ID_RegSel,
+  data_out  => ID_pipe_JmpInstr_in
+);
+
 ID_RegWrite_sel_mux : mux2to1_std
 port map(
   data_0_in => RegWrite_IF,
@@ -525,6 +540,15 @@ port map(
 	reg_rst  => pipe_reg_rst,
 	reg_en   => pipe_reg_en,
 	data_out => BrInstr_ID
+);
+
+ID_pipe_JmpInstr : Register_std
+port map(
+	data_in  => ID_pipe_JmpInstr_in,
+	clk      => clk,
+	reg_rst  => pipe_reg_rst,
+	reg_en   => pipe_reg_en,
+	data_out => JmpInst_ID
 );
 
 ID_pipe_RegWrite : Register_std

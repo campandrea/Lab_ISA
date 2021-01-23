@@ -12,7 +12,8 @@ entity CU is
     ALUOp       : OUT std_logic_vector (1 downto 0);
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
-	  BrInstr	   	: OUT std_logic;
+	BrInstr	   	: OUT std_logic;
+	JmpInstr	: OUT std_logic;
     RegWrite    : OUT std_logic
   );
 end CU;
@@ -46,6 +47,7 @@ begin
 	  ALUSrcA <= '0';
 	  ALUSrcB <= '0';
 	  BrInstr <= '0';
+	  JmpInstr <= '0';
 	  RegWrite <= '0';
 
 	  case OpCode is
@@ -90,11 +92,12 @@ begin
 
 		when "1101111" => -- JAL (J-type)
 		  WBSel <= "10"; -- PC + 4
-      ALUSrcA <= '1'; -- prende PC
+		  ALUSrcA <= '1'; -- prende PC
 		  ALUSrcB <= '1'; -- prende immediate
 		  ImmSel <= "100";
 		  ALUOp <= "00"; -- ADD
 		  RegWrite <= '1';
+		  JmpInstr <= '1';
 
 		when "0100011" => -- SW (S-type)
 		  MemWrite <= '1';

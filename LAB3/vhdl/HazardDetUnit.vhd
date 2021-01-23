@@ -11,6 +11,7 @@ port(
   MemRead_ID : in std_logic;
   BrEq : in std_logic;
   BrInstr_ID : in std_logic;
+  JmpInstr_ID : in std_logic;
   IF_RegEn : out std_logic;
   PC_RegEn : out std_logic;
   ID_RegSel : out std_logic;
@@ -25,9 +26,9 @@ begin
   begin
     PC_RegEn <= '1';
     IF_RegEn <= '1';
-	 IF_RegSel <= '0';
-	 ID_RegSel <= '0';
-    PCSel <= '0';
+	IF_RegSel <= '0';
+	ID_RegSel <= '0';
+	PCSel <= '0';
     LoadHazard_if: if (unsigned(Rs1_IF) = unsigned(Rd_ID) or unsigned(Rs2_IF) = unsigned(Rd_ID)) then
       if (MemRead_ID = '1' and unsigned(Rd_ID) /= "00000") then
         ID_RegSel <= '1';
@@ -36,10 +37,10 @@ begin
       end if;
     end if;
 	 
-	 BranchTaken_if: if (BrInstr_ID = '1' and BrEq = '1') then
-      IF_RegSel <= '1';
-      PCSel <= '1';
-      ID_RegSel <= '1';
+	BranchTaken_if: if ((BrInstr_ID = '1' and BrEq = '1') or JmpInstr_ID = '1') then
+		IF_RegSel <= '1';
+		PCSel <= '1';
+		ID_RegSel <= '1';
     end if;
 	 
   end process;
