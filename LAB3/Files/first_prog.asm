@@ -25,7 +25,8 @@ __start:
 	li x16,7          # put 7 in x16
 	sw x16,0(x5)      # store the result
 	sw x16,4(x5)      # store the result
-	sw x16,8(x5)      # store the result
+	add x1, x16, x5
+	sw x1,8(x5)      # store the result
 	sw x16,12(x5)      # store the result
 		
 endc:	

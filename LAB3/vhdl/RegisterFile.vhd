@@ -29,7 +29,18 @@ ARCHITECTURE behavior OF RegisterFile IS
 					END IF;
 				END IF;
 		END process CLK_proc;
+    read_proc: process(read_A_addr, read_B_addr)
+    BEGIN
+      if(unsigned(read_A_addr) = unsigned(write_addr)) then
+          data_out_A <= data_in;
+      else
+          data_out_A <= reg_file(to_integer(unsigned(read_A_addr)));
+      end if;
 
-    data_out_A <= reg_file(to_integer(unsigned(read_A_addr)));
-    data_out_B <= reg_file(to_integer(unsigned(read_B_addr)));
+      if(unsigned(read_B_addr) = unsigned(write_addr)) THEN
+          data_out_B <= data_in;
+      else
+          data_out_B <= reg_file(to_integer(unsigned(read_B_addr)));
+      end if;
+    end process;
 END behavior;

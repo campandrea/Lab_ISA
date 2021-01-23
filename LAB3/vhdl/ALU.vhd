@@ -24,7 +24,7 @@ ARCHITECTURE structural OF ALU IS
 					WHEN "0001" =>  data_out <= data_in_A XOR data_in_B;				--XOR
 					WHEN "0000" =>  data_out <= data_in_A AND data_in_B;				--AND
 
-					WHEN "0011" =>	if unsigned(data_in_A) < unsigned(data_in_B) THEN						--COMPARE
+					WHEN "0011" =>	if signed(data_in_A) < signed(data_in_B) THEN						--COMPARE
 										data_out <=	"00000000000000000000000000000001";
 									ELSE
 										data_out <= "00000000000000000000000000000000";

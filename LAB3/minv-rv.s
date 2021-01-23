@@ -20,18 +20,24 @@ m:
 	.align	2
 	.globl	__start
 __start:
-	li x16,7          # put 7 in x16 
-	la x4,v           # put in x4 the address of v
-	la x5,m           # put in x5 the address of m
+	li x1,0x10010000  #first mem address V
+	li x2, 10
+	sw x2, 0(x1)
+	li x2, -47
+	sw x2, 4(x1)
+	li x2, 22
+	sw x2, 8(x1)
+	li x16,3          # put 3 in x16 
+	li x5,0x10010010 # put in x5 the address of m
 	li x13,0x3fffffff # init x13 with max pos
 loop:	
 	beq x16,x0,done   # check all elements have been tested
-	lw x8,0(x4)       # load new element in x8
+	lw x8,0(x1)       # load new element in x8
 	srai x9,x8,31     # apply shift to get sign mask in x9
 	xor x10,x8,x9     # x10 = sign(x8)^x8
 	andi x9,x9,0x1    # x9 &= 0x1 (carry in)
 	add x10,x10,x9    # x10 += x9 (add the carry in)
-	addi x4,x4,0x4	  # point to next element
+	addi x1,x1,0x4	  # point to next element
 	addi x16,x16,-1   # decrease x16 by 1
 	slt x11,x10,x13   # x11 = (x10 < x13) ? 1 : 0
 	beq x11,x0,loop   # next element

@@ -3,10 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 ENTITY testbench_riscV IS
-	PORT
-	(
-		END_SIM_i : out	std_logic
-	);
+
 END ENTITY;
 
 
@@ -147,7 +144,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 
 
 		Read_Instruction_Module: Stimuli_generator
-		GENERIC MAP("../Files/instruction_1.txt")
+		GENERIC MAP("../Files/min_search.txt")
 		PORT MAP
 		(clk => CLK,
      en => Stimuli_en,

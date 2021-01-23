@@ -277,6 +277,8 @@ signal ForwardBranchCompA : std_logic_vector (1 downto 0);
 signal ForwardBranchCompB : std_logic_vector (1 downto 0);
 signal ForwardMemMux_out : std_logic_vector (31 downto 0);
 signal ALUDataA_in, ALUDataB_in : std_logic_vector (31 downto 0);
+signal BranchCompA_in : std_logic_vector (31 downto 0);
+signal BranchCompB_in : std_logic_vector (31 downto 0);
 
 signal ALUCtrl : std_logic_vector (3 downto 0);
 signal ALUData_out : std_logic_vector (31 downto 0);
@@ -295,7 +297,7 @@ signal PCInc_ex : std_logic_vector (31 downto 0);
 signal EX_pipe_DataB_out : std_logic_vector (31 downto 0);
 signal Rd_EX : std_logic_vector (4 downto 0);
 signal EX_pipe_ALU_out : std_logic_vector (31 downto 0);
-signal ImmSel_EX : std_logic_vector (31 downto 0);
+signal ImmSel_EX : std_logic_vector (2 downto 0);
 
 ---------------------------------------------------------
 ---------------------------------------------------------
@@ -306,7 +308,7 @@ signal ImmSel_EX : std_logic_vector (31 downto 0);
 signal Rd_MEM : std_logic_vector (4 downto 0);
 signal MEM_pipe_data_in : std_logic_vector (31 downto 0);
 signal MEM_pipe_data_out : std_logic_vector (31 downto 0);
-signal ImmSel_MEM : std_logic_vector (31 downto 0);
+signal ImmSel_MEM : std_logic_vector (2 downto 0);
 
 
 begin
@@ -747,7 +749,7 @@ port map(
   Rs2_ID		=> Rs2_ID,
   ImmSel_ID 	=> ImmSel_ID,
   ImmSel_EX		=> ImmSel_EX,
-  ImmSel_MEM	=> ImmSel_MEM
+  ImmSel_MEM	=> ImmSel_MEM,
   Rd_EX  		=> Rd_EX,
   Rd_MEM 		=> Rd_MEM,
   RegWrite_EX 	=> RegWrite_EX,
@@ -847,7 +849,7 @@ port map(
 );
 
 EX_pipe_ImmSel : Register_vec
-generic map(N => 32)
+generic map(N => 3)
 port map(
 	data_in => ImmSel_ID,
 	clk => clk,
@@ -907,7 +909,7 @@ port map(
 );
 
 MEM_pipe_ImmSel : Register_vec
-generic map(N => 32)
+generic map(N => 3)
 port map(
 	data_in => ImmSel_EX,
 	clk => clk,

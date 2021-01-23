@@ -40,7 +40,7 @@ begin
 			end if;
 		elsif (unsigned(Rs1_ID) = unsigned(Rd_MEM)) then
 			if (unsigned(ImmSel_MEM) = "111" or unsigned(ImmSel_MEM) = "000" or unsigned(ImmSel_MEM) = "011" or unsigned(ImmSel_MEM) = "100") then
-				if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				if (RegWrite_MEM = '1' and unsigned(Rd_MEM) /= "00000") then
 					ForwardA <= "11";
 				end if;
 			end if;
@@ -60,7 +60,7 @@ begin
 			end if;
 		elsif (unsigned(Rs2_ID) = unsigned(Rd_MEM)) then
 			if (unsigned(ImmSel_MEM) = "111" or unsigned(ImmSel_MEM) = "000" or unsigned(ImmSel_MEM) = "011" or unsigned(ImmSel_MEM) = "100") then
-				if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				if (RegWrite_MEM = '1' and unsigned(Rd_MEM) /= "00000") then
 				  ForwardB <= "11";
 				end if;
 			end if;
@@ -81,7 +81,7 @@ begin
 			end if;
 		elsif (unsigned(Rs2_ID) = unsigned(Rd_MEM)) then
 			if (unsigned(ImmSel_MEM) = "111" or unsigned(ImmSel_MEM) = "000" or unsigned(ImmSel_MEM) = "011" or unsigned(ImmSel_MEM) = "100") then
-				if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				if (RegWrite_MEM = '1' and unsigned(Rd_MEM) /= "00000") then
 					ForwardMem <= "11";
 				end if;
 			end if;
@@ -101,7 +101,7 @@ begin
 			end if;
 		elsif (unsigned(Rs1_ID) = unsigned(Rd_MEM)) then
 			if (unsigned(ImmSel_MEM) = "111" or unsigned(ImmSel_MEM) = "000" or unsigned(ImmSel_MEM) = "011" or unsigned(ImmSel_MEM) = "100") then
-				if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				if (RegWrite_MEM = '1' and unsigned(Rd_MEM) /= "00000") then
 					ForwardBranchCompA <= "11";
 				end if;
 			end if;
@@ -121,7 +121,7 @@ begin
 			end if;
 		elsif (unsigned(Rs2_ID) = unsigned(Rd_MEM)) then
 			if (unsigned(ImmSel_MEM) = "111" or unsigned(ImmSel_MEM) = "000" or unsigned(ImmSel_MEM) = "011" or unsigned(ImmSel_MEM) = "100") then
-				if (RegWrite_MEM = '1' and unsigned(Rd_EX) /= "00000") then
+				if (RegWrite_MEM = '1' and unsigned(Rd_MEM) /= "00000") then
 					ForwardBranchCompB <= "11";
 				end if;
 			end if;

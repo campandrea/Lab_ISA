@@ -12,7 +12,7 @@ entity CU is
     ALUOp       : OUT std_logic_vector (1 downto 0);
     ALUSrcA     : OUT std_logic;
     ALUSrcB     : OUT std_logic;
-	  BrInstr		: OUT std_logic;
+	  BrInstr	   	: OUT std_logic;
     RegWrite    : OUT std_logic
   );
 end CU;
