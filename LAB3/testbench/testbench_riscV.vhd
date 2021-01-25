@@ -261,7 +261,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
       Instruction_mem_wr_n <= '1';
       rst <= '0';
       --execution
-      wait for 80 ns;
+      wait for 500 ns;
 
       Rd_Data_mem_mux_sel <= '1';
       Addr_Data_mem_mux_sel <= '1';

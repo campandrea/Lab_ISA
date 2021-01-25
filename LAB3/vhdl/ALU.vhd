@@ -16,10 +16,10 @@ ARCHITECTURE structural OF ALU IS
 
 	BEGIN
 
-		Comb_Proc: process(ALUCtrl,data_in_A, data_in_B)
+		Comb_Proc: process(ALUCtrl, data_in_A, data_in_B)
 			BEGIN
 				CASE ALUCtrl IS
-					WHEN "0010" => 	data_out <= std_logic_vector(signed(data_in_A) + signed(data_in_B));		--Add
+					WHEN "0010" => 	data_out <= std_logic_vector(SIGNED(data_in_A) + SIGNED(data_in_B));		--Add
 					WHEN "0110" => 	data_out <= std_logic_vector(SIGNED(data_in_A) - SIGNED(data_in_B));		--SUB
 					WHEN "0001" =>  data_out <= data_in_A XOR data_in_B;				--XOR
 					WHEN "0000" =>  data_out <= data_in_A AND data_in_B;				--AND
@@ -30,7 +30,7 @@ ARCHITECTURE structural OF ALU IS
 										data_out <= "00000000000000000000000000000000";
 									END IF;
 					WHEN "0100" =>	data_out <= std_logic_vector(shift_right(unsigned(data_in_A), to_integer(SIGNED(data_in_B))));
-					WHEN "0101" =>	data_out <= data_in_A;
+					WHEN "0101" =>	data_out <= data_in_B;
 					WHEN OTHERS =>  data_out <= (OTHERS => '0');
 				END CASE;
 		end process Comb_Proc;
