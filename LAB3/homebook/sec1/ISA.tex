@@ -41,3 +41,24 @@ The instructions have a 3-operand format: a target register \textit{Rd} and two 
 		\textsf{jal x4, func}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{pc = pc + offset; x4 = return address}
 	\end{description}
 \end{description}
+When the operation makes use of the immediate extracted directly from the instruction, sign extension is generally performed.\\ \\
+The operations implemented in the lite version of the processor are:
+\begin{description}
+	\item Arithmetic:
+	\texttt{add, addi, auipc, lui}
+	\item Branches:
+	\texttt{beq}
+	\item Loads:
+	\texttt{lw}
+	\item Shift:
+	\texttt{srai}
+	\item Logical:
+	\texttt{andi, xor}
+	\item Compare:
+	\texttt{slt}
+	\item Jump and Link:
+	\texttt{jal}
+	\item Stores:
+	\texttt{sw}
+\end{description}
+
