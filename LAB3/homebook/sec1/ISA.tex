@@ -1,27 +1,43 @@
 \subsection{RISC-V ISA}
 The instructions have a 3-operand format: a target register \textit{Rd} and two source registers \textit{Rs1} and \textit{Rs2}. Instructions are divided into different types according to format:\\
+
 \begin{description}
-	\item \textbf{R-type:}\\
-	Operands : \texttt{Rd, Rs1, Rs2}\\
-	Example : \textsf{ADD x2, x4, x6}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x2 = x4 + x6}\\
-	\item \textbf{I-type:}\\
-	Operands : \texttt{Rd, Rs1, Imm-12}\\
-	Example : \textsf{ADDI x2, x4, 12}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x2 = x4 + 12}\\
-	\textsf{LW x7, 8(x4)}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x7 = MEM(x4 + 8)}\\
-	\item \textbf{S-type:}\\
-	Operands : \texttt{Rd, Rs2, Imm-12}\\
-	Example : \textsf{SW x2, 8(x4)}
-	\item \textbf{R-type:}\\
-	Operands : \texttt{Rd, Rs1, Rs2}\\
-	Example : \textsf{ADD x2, x4, x6}
-	\item \textbf{R-type:}\\
-	Operands : \texttt{Rd, Rs1, Rs2}\\
-	Example : \textsf{ADD x2, x4, x6}
-	\item \textbf{R-type:}\\
-	Operands : \texttt{Rd, Rs1, Rs2}\\
-	Example : \textsf{ADD x2, x4, x6}
-	\item \textbf{R-type:}\\
-	Operands : \texttt{Rd, Rs1, Rs2}\\
-	Example : \textsf{ADD x2, x4, x6}
-	
+	\item \textbf{R-type:}
+	\begin{description}
+		\item Operands:\\
+		\texttt{Rd, Rs1, Rs2}
+		\item Example:\\
+		\textsf{ADD x2, x4, x6}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 + x6}
+	\end{description}
+	\item \textbf{I-type:}
+	\begin{description}
+		\item Operands:\\
+		\texttt{Rd, Rs1, Immed-12}
+		\item Example:\\
+		\textsf{ADDI x2, x4, 12}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 + 12}\\
+		\textsf{LW x7, 8(x4)}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x7 = MEM[x4 + 8]}
+	\end{description}
+	\item \textbf{S-type and B-type:}
+	\begin{description}
+		\item Operands:\\
+		\texttt{Rs1, Rs2, Immed-12}
+		\item Example:\\
+		\textsf{SW x4, 8(x6)}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{MEM[x6 + 8] = x4}\\
+		\textsf{beq x4, x6, loop}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{if x4 < x6, goto offset(pc)}
+	\end{description}
+	\item \textbf{U-type:}
+	\begin{description}
+		\item Operands:\\
+		\texttt{Rd, Immed-20}
+		\item Example:\\
+		\textsf{LUI x4, 0x12AB7}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x4 = value << 12}\\
+		\textsf{AUIPC x4, 0x12AB7}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x4 = (value << 12) + pc}
+	\end{description}
+	\item \textbf{J-type:}
+	\begin{description}
+		\item Operands:\\
+		\texttt{Rd, Immed-20}
+		\item Example:\\
+		\textsf{jal x4, func}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{pc = pc + offset; x4 = return address}
+	\end{description}
 \end{description}
