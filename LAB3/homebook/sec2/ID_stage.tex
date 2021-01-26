@@ -1,1 +1,8 @@
 \subsection{Instruction Decode stage}
+Lo stadio di decode contiene i blocchi che servono a generare i segnali di controllo e dati a partire dall'istruzione. Nello specifico la control unit decodifica l'istruzione partendo dalla conosceza dell'instruction set architecture del processore e genera i segnali di controllo per le altre unità funzionali. Il register file estrae dall'istruzione i campi riguardanti gli indirizzi ad essa dedicati ed emette in maniera asincrona le word associate. In questo stadio è anche presente l'immediate generation unit che a partire dal tipo di instruzione genera il dato di immediate su 32 bit che potrà essere utilizzato nell'execution unit. Infine un altro blocco principale è quello dedicato alla detection degli hazard riguardanti istruzioni di salto o di load. Some units are analysed in detail in the following subsection.
+
+\subsubsection{Control Unit}
+
+\subsubsection{Hazard Detection Unit}
+
+\subsubsection{Immediate generation }
