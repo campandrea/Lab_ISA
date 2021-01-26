@@ -1,2 +1,27 @@
 \subsection{RISC-V ISA}
-Illustrare a grandi linee ISA e instruction format e entrare nel dettaglio di quelle previste nella nostra implementazione
+The instructions have a 3-operand format: a target register \textit{Rd} and two source registers \textit{Rs1} and \textit{Rs2}. Instructions are divided into different types according to format:\\
+\begin{description}
+	\item \textbf{R-type:}\\
+	Operands : \texttt{Rd, Rs1, Rs2}\\
+	Example : \textsf{ADD x2, x4, x6}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x2 = x4 + x6}\\
+	\item \textbf{I-type:}\\
+	Operands : \texttt{Rd, Rs1, Imm-12}\\
+	Example : \textsf{ADDI x2, x4, 12}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x2 = x4 + 12}\\
+	\textsf{LW x7, 8(x4)}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \texttt{x7 = MEM(x4 + 8)}\\
+	\item \textbf{S-type:}\\
+	Operands : \texttt{Rd, Rs2, Imm-12}\\
+	Example : \textsf{SW x2, 8(x4)}
+	\item \textbf{R-type:}\\
+	Operands : \texttt{Rd, Rs1, Rs2}\\
+	Example : \textsf{ADD x2, x4, x6}
+	\item \textbf{R-type:}\\
+	Operands : \texttt{Rd, Rs1, Rs2}\\
+	Example : \textsf{ADD x2, x4, x6}
+	\item \textbf{R-type:}\\
+	Operands : \texttt{Rd, Rs1, Rs2}\\
+	Example : \textsf{ADD x2, x4, x6}
+	\item \textbf{R-type:}\\
+	Operands : \texttt{Rd, Rs1, Rs2}\\
+	Example : \textsf{ADD x2, x4, x6}
+	
+\end{description}
