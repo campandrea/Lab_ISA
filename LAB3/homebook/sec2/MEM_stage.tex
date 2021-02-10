@@ -1,4 +1,3 @@
 \subsection{Memory and Write back stage}
-Gli ultimi due stage riguardano la lettura e la scrittura dalla memoria e il salvataggio dei dati nel register file.
-Nel memory stage è presente la memoria dati alla quale giungono dato, indirizzo e segnali dallo stadio di pipe precedente. E' presente inoltre un mux per decidere quale dato salvare nel register file. La maggior parte delle istruzioni richiedono il salvataggio del dato calcolato dalla ALU, nel caso di una load bisogna salvare il dato letto dalla memoria mentre nel caso di una JAL bisogna salvare il PC incrementato.
-Infine nel write back stage viene effettuata la vera e propria scrittura nel register file.
+The last two stages involve reading and writing from memory and saving data to the register file.
+The memory stage contains the data memory, which receives the data, address and signals from the previous pipe stage to execute the store and load instructions. At the output there is a mux to determine which data must be written inside the register file between the data coming out of the memory, the data coming out of the ALU or the PC.
