@@ -1,14 +1,12 @@
 \subsection{Pipelined Architecture}
-Mostrare e spiegare l'archiettura con pipeline senza entrare nel dettaglio degli hazard
-Spiegare ogni stadio cosa fa
-
-Partendo dall'architettura single cycle è possibile realizzare un'altra versione del processore RISC-V nella quale si inserisce la pipeline, si può quindi sfruttare l'instruction level parallelism per migliorare il throughput. L'esecuzione viene suddivsa in cinque stadi di pipe corrispondenti alle fasi nelle quali può essere suddivisa l'esecuzione di un'istruzione; così facendo possono essere eseguite più instruzioni nello stesso tempo e inoltre la latenza è la stessa per ogni tipo di istruzione.
-Per poter avere un corretto funzionamento del circuito bisogna adottare particolari accorgimenti che possono complicare l'architettura. In prima battuta è necessario appicare la pipeline anche ai segnali di controllo insieme ai dati, in questo modo ad ogni stadio eseguirà le giuste operazioni sui dati presenti poichè ognuno di essi ad ogni colpo di clock opererà su differenti istruzioni.
-Questo però non basta perche bisogna anche occuparsi dei vari tipi di hazard che si possono avere:
+Starting from the single cycle architecture, it is possible to create another version of the RISC-V processor in which the pipeline technique is adopted, so that instruction level parallelism can be exploited to improve throughput.
+Execution is divided into five pipeline stages corresponding to the phases into which the execution of an instruction can be divided; in this way, multiple instructions can be executed simultaneously while maintaining the same latency for each type of instruction.
+In order for the processor to function properly, special measures must be taken that can complicate the architecture. First of all, the pipeline must also be applied to the control signals together with the data, so that the correct operations can be carried out on the data at each stage.
+QHowever, this is not enough because it is also necessary to deal with the various types of hazards that can be encountered:
 \begin{description}
-\item \textbf{Structural hazard:} Due istruzioni hanno necessità della stessa risorsa nello stesso istante. Viene sempre evitato facendo un buon design.
+\item \textbf{Structural hazard:} Two instructions need the same resource at the same time. This can always be avoided by adopting an appropriate design.
 
-\item \textbf{Data Hazard:} Dovuto alle data dependencies presenti tra istruzioni adiacenti.
+\item \textbf{Data Hazard:} Due to data dependencies between adjacent instructions.
 
-\item \textbf{Control Hazard:} Quando il flusso di esecuzione dipende dalle istruzioni precedenti.
+\item \textbf{Control Hazard:} Occurs when the flow of execution depends on previous instructions.
 \end{description}
