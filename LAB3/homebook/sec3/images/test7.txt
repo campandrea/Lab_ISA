@@ -1,0 +1,10 @@
+x5 <= 1
+STORE  x5, 0(x0)
+NOP
+NOP
+LOAD  x6, 0(x0)
+ADDI  x7, x6, 0
+
+
+
+

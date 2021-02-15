@@ -3,8 +3,52 @@ The first program is used to verify that the ALU is capable of carrying out all 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.2\textwidth]{sec3/images/test1.png}
-	\caption{testing ALU and Register File}
+	\caption{Testing ALU and Register File}
 	\label{fig:test1}
 \end{figure}
-The first instructions initialise registers x5 and x6 to two known values, then two NOPs are inserted to avoid data hazard and finally several arithmetic operations are performed and the results saved in registers. As can be seen from \todo{insert figure}, in registers x7, x8, x9 and x10 there are respectively sum, bitwise XOR and AND immediate once with an identical data and once with a different data.\\
+\noindent The first instructions initialise registers x5 and x6 to two known values, then two NOPs are inserted to avoid data hazard and finally several arithmetic operations are performed and the results saved in registers. As can be seen from \todo{insert figure}, in registers x7, x8, x9 and x10 there are respectively sum, bitwise XOR and AND immediate, once with an identical operands and once with  different operands.\\
 It can be seen that all control signals are correctly synchronised and data is written to the Register File.
+
+\subsection{Testing Data Memory}
+This script aims to test the functionality of the data memory in reading and writing mode.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{sec3/images/test2.png}
+	\caption{Testing Data Memory}
+	\label{fig:test2}
+\end{figure}
+\noindent The first instruction initializes the x5 register to the value 1, after which it is stored in the memory cell pointed by x0, i.e. cell 0. Finally, a load is performed to read the same memory cell and save its content in x6.\\
+As shown in the figure \todo{insert figure}, in the Register file the value 1 is present both in position x5 and x6, a sign that the simulation has been successful. In addition, the memory enable signals worked correctly. In this program there were no data hazards in fact NOPs were inserted between one operation and another.
+
+\subsection{Testing jump instructions}
+This script will test the functionality of the hazard detection unit when a jump instruction occurs.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{sec3/images/test3.png}
+	\caption{Testing jump instructions}
+	\label{fig:test3}
+\end{figure}
+\noindent Registers x5 and x6 are both initialised to 0 to make the jump condition true. After the branch instruction, two sums are inserted to modify the contents of registers x7 and x8 in order to check that they are not actually modified. Finally, to confirm that the jump has taken place, as well as checking that the PC has been updated, it can be observed that register x9 has been updated with the value 1, i.e. the first instruction after the jump has been executed correctly.\\
+As shown in the simulation figure /todo{insert figure}, during the Execute stage the signal coming from the branch comparator becomes valid, so the pipeline registers referring to the Fetch and Decode stages are flushed and the PC is updated with the jump address. The hazard detection unit and the jumping mechanism work correctly, the overhead in case of a taken branch is equal to two instructions after which it continues sequentially starting from the jumping address contained in the branch instruction.
+
+\subsection{Testing Forwarding Mechanism}
+The purpose of these scripts is to verify that the forwarding mechanism is working correctly. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{sec3/images/test456.png}
+	\caption{Testing forwarding mechanism}
+	\label{fig:test456}
+\end{figure}
+\noindent In the first script there are two different situations in which a given dependency occurs, one in which the distance between instructions is equal to one clock cycle and a second in which the distance is equal to 2. The first case is solved by forwarding the ALU's output register, while the second by taking the Write Back register. From the figure \todo{insert figure 1}, it can be noticed that the final value of the x5 register is equal to 5, that is the number of times the sum instruction has been executed.\\
+The second script aims to verify a similar case to the previous one adding a complexity factor. The add instruction requires both registers x6 and x5 whose contents have been modified at the previous clock cycle and the one before that, respectively. In the figure \todo{Insert figure 2} it can be read that the value of x7 is correctly equal to 2 and therefore the Forwarding Unit has worked properly.\\
+The purpose of the last script is to forward the data to be saved in the data memory. When the Forwarding Unit recognises the data dependency, it ensures that the data is not taken from the ALU when it enters the memory, but from the Write Back stage.\todo{Insert figure 3}
+
+\subsection{Testing Load Hazard}
+This script checks the operation of the hazard detection unit when a data dependency occurs that cannot be resolved by data forwarding.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{sec3/images/test7.png}
+	\caption{Testing Load Hazard}
+	\label{fig:test7}
+\end{figure}
+\noindent Spiegare
