@@ -31,11 +31,11 @@ ARCHITECTURE structural OF ALU IS
 									END IF;
 					WHEN "0100" =>	data_out <= std_logic_vector(shift_right(unsigned(data_in_A), to_integer(SIGNED(data_in_B))));
 					WHEN "0101" =>	data_out <= data_in_B;
-					WHEN "0111" =>	
-							if signed(data_in_A) > signed("0") then
+					WHEN "0111" =>
+							if signed(data_in_A) > 0 then
 								data_out <= data_in_A;
 							else
-								data_out <= std_logic_vector(signed(data_in_A)*-1));
+								data_out <= std_logic_vector(signed(not data_in_A) + 1);
 							end if;
 					WHEN OTHERS =>  data_out <= (OTHERS => '0');
 				END CASE;
