@@ -1,0 +1,8 @@
+x5 <= 44
+x6 <= 50
+NOP
+NOP
+ADD    x7, x5, x6 
+XOR    x8, x5, x6
+ANDI   x9, x5, 44
+ANDI   x10, x5, 19

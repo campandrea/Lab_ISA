@@ -1,0 +1,14 @@
+x5 <= 0
+x6 <= 0
+NOP
+NOP
+BEQ  x5, x6, taken
+ADDI x7, x0, 10
+ADDI x8, x0, 10
+NOP
+NOP
+taken: 
+        ADDI x9, x0, 1
+        NOP
+        NOP
+

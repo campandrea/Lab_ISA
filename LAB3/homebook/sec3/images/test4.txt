@@ -1,0 +1,9 @@
+x5 <= 1
+ADDI  x5, x5, 1
+NOP
+NOP
+ADDI  x5, x5, 1
+NOP
+ADDI  x5, x5, 1
+ADDI x5, x5, 1
+

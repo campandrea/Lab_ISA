@@ -2,11 +2,11 @@
 Starting from the single cycle architecture, it is possible to create another version of the RISC-V processor in which the pipeline technique is adopted, so that instruction level parallelism can be exploited to improve throughput.
 Execution is divided into five pipeline stages corresponding to the phases into which the execution of an instruction can be divided; in this way, multiple instructions can be executed simultaneously while maintaining the same latency for each type of instruction.
 In order for the processor to function properly, special measures must be taken that can complicate the architecture. First of all, the pipeline must also be applied to the control signals together with the data, so that the correct operations can be carried out on the data at each stage.
-QHowever, this is not enough because it is also necessary to deal with the various types of hazards that can be encountered:
+However, this is not enough because it is also necessary to deal with the various types of hazards that can be encountered:
 \begin{description}
 \item \textbf{Structural hazard:} Two instructions need the same resource at the same time. This can always be avoided by adopting an appropriate design.
 
-\item \textbf{Data Hazard:} Due to data dependencies between adjacent instructions.
+\item \textbf{Data Hazard:} Occurs when different instructions that exhibit a data dependency access the same data in different stages of pipeline.
 
-\item \textbf{Control Hazard:} Occurs when the flow of execution depends on previous instructions.
+\item \textbf{Control Hazard:} Occurs when the pipeline makes wrong decisions on branch prediction and therefore brings instructions that must be discarded. Since it is realised that execution is no longer sequential during the execution stage, the control hazard is solved by inserting two NOPs into the pipeline. The unit responsible for solving this type of hazard is the Hazard Detection Unit, which, when it recognizes a problem, flushes the IF and ID registers, which corresponds to inserting two NOPs. In the meantime, the PC is updated to the jump address.
 \end{description}

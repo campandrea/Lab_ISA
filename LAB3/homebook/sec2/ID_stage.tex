@@ -4,5 +4,8 @@ The decode stage contains the blocks used to generate the control and data signa
 \subsubsection{Control Unit}
 
 \subsubsection{Hazard Detection Unit}
+As described in the \autoref{subs:data_dep}, the Hazard detection unit is primarily concerned with resolving control hazards by inserting NOPs into the pipeline. 
+When the current instruction is of branch type, it checks the output signal of the Branch Comparator so that when a jump occurs, it commands the IF and ID registers to flush and selects the jump address calculated by the ALU to be loaded into the PC.\\
+It also handles load hazards in the same way, i.e. those data dependencies that cannot be resolved by data forwarding. One case is when a load instruction is followed by an operation that refers to data taken from memory. It can only be solved at compile time by changing the instruction order.
 
 \subsubsection{Immediate generation}

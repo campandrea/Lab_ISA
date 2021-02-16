@@ -1,2 +1,6 @@
 \subsection{Data Dependencies}
-Spiegare i vari tipi di data dependency senza entare nel dettaglio di come si risolvono
+\label{subs:data_dep}
+There are different types of data dependency depending on which operand of the instruction the data refers to.\\
+The \textbf{WAW} Write after Write hazard occurs when two instructions attempt to write the result of an operation into the register in the wrong order.This hazard is typical of machines characterized by concurrent execution, so it is not a RISC-V processor problem.\\
+The \textbf{WAR} Write after Read occurs when in a concurrent execution an attempt is made to read data from the register after it has been modified by a subsequent instruction. \\
+The \textbf{RAW} Read after Write is the true data dependency.This occurs when an attempt is made to read a register whose contents have been modified in the previous instruction.  There are several ways to resolve this type of hazard, one of which is to check that the input addresses of the instruction being executed do not match the output address of the previous instruction or two times before. When one of the two conditions occurs then the data can be forwarded avoiding being first written to the register and blocking the pipeline. The data input to the ALU is taken either from the ALU output register or from the data memory output.
