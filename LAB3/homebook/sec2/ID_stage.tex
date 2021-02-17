@@ -3,7 +3,7 @@ The decode stage contains the blocks used to generate the control and data signa
 
 \subsubsection{Control Unit}
 Per il design della control unit è stato progettato un circuito totalmente combinatorio simile ad un decoder. L'unico segnale in ingresso è l'istruzione proveniente dal fetch stage mentre in uscita vengono generati diversi segnali di controllo. Vengono analizzati i sei bit meno significativi che contegono sempre l'opcode dell'istruzione.
-I segnali generati dalla control unit sono quelli relativi ai comandi di lettura e scrittura della memoria dati, riguardante la scrittura del register file e la scelta del relativo dato da scrivere, due flag di controllo per un eventuale istruzione di branch o jump, i comandi per la selezione del dato e il tipo di operazione che la ALU dovrà svolgere e infine un segnale di controllo per il blocco di immediate generation.
+I segnali generati dalla control unit sono relativi ai comandi di lettura e scrittura della memoria dati e riguardanti la scrittura del register file e la scelta del relativo dato da scrivere; due flag di controllo vengono gestiti per segnalare un eventuale istruzione di branch o jump. Vengono inoltre generati i comandi per la selezione del dato e il tipo di operazione che la ALU dovrà svolgere. Infine un segnale di controllo per il blocco di immediate generation viene propriamente setted.
 
 
 \subsubsection{Hazard Detection Unit}
@@ -12,9 +12,9 @@ When the current instruction is of branch type, it checks the output signal of t
 It also handles load hazards in the same way, i.e. those data dependencies that cannot be resolved by data forwarding. One case is when a load instruction is followed by an operation that refers to data taken from memory. It can only be solved at compile time by changing the instruction order.
 
 \subsubsection{Immediate generation}
-Come descritto \autoref{subsection:ISA}, tutti i formati di istruzione tranne il tipo R presentano un dato direttamente nell'istruzione chiamato immediate. Ogni tipo di istruzione però presenta un'organizzazione diversa di questo dato di conseguenza è necessario effettuare delle operazioni diverse per ogni formato. La generazione dell'effettivo dato su 32 bit da mandare successivamente all'execution stage viene fatto da un circuito simile ad un decoder che svolge le seguenti operazioni:
+Come descritto \autoref{subsection:ISA}, tutti i formati di istruzione tranne il tipo R presentano un dato direttamente nell'istruzione chiamato immediate. Ogni tipo di istruzione però presenta un'organizzazione diversa di conseguenza è necessario effettuare delle operazioni diverse per ogni formato. La generazione dell'effettivo dato su 32 bit da mandare successivamente all'execution stage viene fatto da un circuito simile ad un decoder che svolge le seguenti operazioni:
 \begin{description}
-    \item \textbf{I type and S type:} il dato è espresso su 12 bit e viene effettuato l'estensione di segno
+    \item \textbf{I type and S type:} il dato è espresso su 12 bit e viene effettuata l'estensione di segno.
     \item \textbf{B type and J type:} il dato è espresso su 12 bit e viene effettuata l'estensione di segno e la moltiplicazione per 2.
     \item \textbf{U type:} il dato è espresso su 20 bit e viene moltiplicato per 12.
 \end{description}
