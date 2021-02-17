@@ -2,10 +2,19 @@
 The decode stage contains the blocks used to generate the control and data signals from the fetched instruction. The control unit decodes the instruction and generates the control signals for the other functional units. The register file extracts the address fields from the instruction and asynchronously outputs the words associated with the addressed cells. In this stage there is also the immediate generation unit which, starting from the data in the instruction, makes the sign extension and generates the immediate data on 32 bits that can be used in the execution stage. Finally, another main block is dedicated to hazard detection for jump or load instructions.
 
 \subsubsection{Control Unit}
+Per il design della control unit è stato progettato un circuito totalmente combinatorio simile ad un decoder. L'unico segnale in ingresso è l'istruzione proveniente dal fetch stage mentre in uscita vengono generati diversi segnali di controllo. Vengono analizzati i sei bit meno significativi che contegono sempre l'opcode dell'istruzione.
+I segnali generati dalla control unit sono quelli relativi ai comandi di lettura e scrittura della memoria dati, riguardante la scrittura del register file e la scelta del relativo dato da scrivere, due flag di controllo per un eventuale istruzione di branch o jump, i comandi per la selezione del dato e il tipo di operazione che la ALU dovrà svolgere e infine un segnale di controllo per il blocco di immediate generation.
+
 
 \subsubsection{Hazard Detection Unit}
-As described in the \autoref{subs:data_dep}, the Hazard detection unit is primarily concerned with resolving control hazards by inserting NOPs into the pipeline. 
+As described in the \autoref{subs:data_dep}, the Hazard detection unit is primarily concerned with resolving control hazards by inserting NOPs into the pipeline.
 When the current instruction is of branch type, it checks the output signal of the Branch Comparator so that when a jump occurs, it commands the IF and ID registers to flush and selects the jump address calculated by the ALU to be loaded into the PC.\\
 It also handles load hazards in the same way, i.e. those data dependencies that cannot be resolved by data forwarding. One case is when a load instruction is followed by an operation that refers to data taken from memory. It can only be solved at compile time by changing the instruction order.
 
 \subsubsection{Immediate generation}
+Come descritto \autoref{subsection:ISA}, tutti i formati di istruzione tranne il tipo R presentano un dato direttamente nell'istruzione chiamato immediate. Ogni tipo di istruzione però presenta un'organizzazione diversa di questo dato di conseguenza è necessario effettuare delle operazioni diverse per ogni formato. La generazione dell'effettivo dato su 32 bit da mandare successivamente all'execution stage viene fatto da un circuito simile ad un decoder che svolge le seguenti operazioni:
+\begin{description}
+    \item \textbf{I type and S type:} il dato è espresso su 12 bit e viene effettuato l'estensione di segno
+    \item \textbf{B type and J type:} il dato è espresso su 12 bit e viene effettuata l'estensione di segno e la moltiplicazione per 2.
+    \item \textbf{U type:} il dato è espresso su 20 bit e viene moltiplicato per 12.
+\end{description}
