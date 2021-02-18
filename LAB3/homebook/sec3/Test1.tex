@@ -51,4 +51,27 @@ This script checks the operation of the hazard detection unit when a data depend
 	\caption{Testing Load Hazard}
 	\label{fig:test7}
 \end{figure}
-\noindent Spiegare
+\noindent In this case there is a load hazard between the LOAD operation and the ADD Immediate because the output register of the former coincides with the source address of the latter. The LOAD instruction retrieves the data from memory and saves it in the register, so the data will only be visible in the MEM stage. The addition operation, on the other hand, requires the data during the Execute stage, so even though it is forwarding, the hazard would not be eliminated. Then the hazard detection unit operates as if there were a control hazard, i.e. inserting two NOPs but without updating the PC, which remains at the current value in order to pick up again the pointed instruction since it has been flushed. In this way the drawback corresponds to two instructions, although through optimisation it could be reduced to one. In order not to increase the complexity of the machine, the solution described above has been chosen.\\
+The figure shows how the registers are set to NOP and the PC remains set to the current value as soon as the load hazard is detected.\todo{insert figure}
+
+\subsection{Testing a complete program}
+This application searches for the smallest number in absolute value within a vector and saves the result in memory.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{sec3/images/test8.png}
+	\caption{Testing Load Hazard}
+	\label{fig:test8}
+\end{figure}
+\noindent Starting from a vector of 7 elements saved in memory, the algorithm takes one element of the vector from memory each time and compares it with the current minimum. If it finds a new minimum, then it is updated, otherwise it continues. When the whole vector has been analysed, the minimum is saved in memory. Since there is no instruction in the ISA that evaluates the absolute value of a number, the operations are slightly more complicated because the positive value has to be executed first using 3 instruction rather then one. The optimised code with the extended ISA can be found in the \autoref{subs:testAbs}.
+The figure shows the seven executions of the cycle and the correct minimum research.\todo{insert figure}
+
+\subsection{Testing Absolute Value Instruction}
+\label{subs:testAbs}
+To test the correct operation of the new RISC-V with the extended ISA thanks to the addition of the absolute value instruction, the same algorithm as in the previous subsection can be used, slightly modifying the code.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{sec3/images/test9.png}
+	\caption{Testing Load Hazard}
+	\label{fig:test9}
+\end{figure}
+\noindent The operation is identical to the previous case, but the cycle lasts fewer clock cycles and therefore the algorithm in general takes less time. The result is no different from the previous one.
