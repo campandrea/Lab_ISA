@@ -144,7 +144,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 
 
 		Read_Instruction_Module: Stimuli_generator
-		GENERIC MAP("../Files/test1.txt")
+		GENERIC MAP("../Files/test2.txt")
 		PORT MAP
 		(clk => CLK,
      en => Stimuli_en,
