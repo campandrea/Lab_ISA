@@ -20,9 +20,23 @@ m:
 	.align	2
 	.globl	__start
 __start:
-	li x16,7          # put 7 in x16 
-	la x4,v           # put in x4 the address of v
-	la x5,m           # put in x5 the address of m
+	li x4,0x10010000  #first mem address V
+	li x5, 10
+	sw x5, 0(x4)
+	li x5, -47
+	sw x5, 4(x4)
+	li x5, 22
+	sw x5, 8(x4)
+	li x5, -3
+	sw x5, 12(x4)
+	li x5, 15
+	sw x5, 16(x4)
+	li x5, 27
+	sw x5, 20(x4)
+	li x5, -4
+	sw x5, 24(x4)
+	li x16,7      # put 3 in x16 
+	li x6,0x10010100 # put in x5 the address of m
 	li x13,0x3fffffff # init x13 with max pos
 loop:	
 	beq x16,x0,done   # check all elements have been tested
@@ -38,8 +52,7 @@ loop:
 	add x13,x10,x0    # update min
 	jal loop          # next element
 done:	
-	sw x13,0(x5)      # store the result	
+	sw x13,0(x6)      # store the result	
 endc:	
 	jal endc  	  # infinite loop
 	addi x0,x0,0
-	

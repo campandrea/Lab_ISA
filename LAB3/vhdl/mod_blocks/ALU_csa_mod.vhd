@@ -48,7 +48,7 @@ ARCHITECTURE structural OF ALU IS
 										data_out <= "00000000000000000000000000000000";
 									END IF;
 					WHEN "0100" =>	data_out <= std_logic_vector(shift_right(unsigned(data_in_A), to_integer(SIGNED(data_in_B))));
-					WHEN "0101" =>	data_out <= data_in_A;
+					WHEN "0101" =>	data_out <= data_in_B;
                     WHEN "0111" =>
 							if signed(data_in_A) > 0 then
 								data_out <= data_in_A;

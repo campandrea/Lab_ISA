@@ -27,7 +27,15 @@ __start:
 	sw x5, 4(x4)
 	li x5, 22
 	sw x5, 8(x4)
-	li x16,3          # put 3 in x16 
+	li x5, -3
+	sw x5, 12(x4)
+	li x5, 15
+	sw x5, 16(x4)
+	li x5, 27
+	sw x5, 20(x4)
+	li x5, -4
+	sw x5, 24(x4)
+	li x16,7         # put 3 in x16 
 	li x6,0x10010010 # put in x5 the address of m
 	li x13,0x3fffffff # init x13 with max pos
 loop:	
