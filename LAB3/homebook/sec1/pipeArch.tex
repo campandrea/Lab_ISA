@@ -1,4 +1,5 @@
 \subsection{Pipelined Architecture}
+\label{subsection:pipe_arch}
 Starting from the single cycle architecture, it is possible to create another version of the RISC-V processor in which the pipeline technique is adopted, so that instruction level parallelism can be exploited to improve throughput.
 Execution is divided into five pipeline stages corresponding to the phases into which the execution of an instruction can be divided; in this way, multiple instructions can be executed simultaneously while maintaining the same latency for each type of instruction.
 In order for the processor to function properly, special measures must be taken that can complicate the architecture. First of all, the pipeline must also be applied to the control signals together with the data, so that the correct operations can be carried out on the data at each stage.

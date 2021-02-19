@@ -1,0 +1,124 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_with_CSA/sim_with_csa.mpf}
+# Loading project sim_with_csa
+# Compile of testbench_riscV.vhd was successful.
+vsim work.testbech_riscV
+# vsim work.testbech_riscV 
+# Start time: 16:21:49 on Feb 15,2021
+# ** Error: (vsim-3170) Could not find 'testbech_riscV'.
+#         Searched libraries:
+#             C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_with_CSA/work
+# Error loading design
+# End time: 16:21:49 on Feb 15,2021, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim work.testbench_riscV
+# vsim work.testbench_riscV 
+# Start time: 16:21:56 on Feb 15,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_riscv(behavior)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.clk_gen(beh)
+# Loading ieee.std_logic_textio(body)
+# Loading work.stimuli_generator(behavior)
+# Loading work.mux2to1_vec(behavior)
+# Loading ieee.math_real(body)
+# Loading work.memory(behavior)
+# Loading work.datapath(structure)
+# Loading work.cu(behaviour)
+# Loading work.register_pc(rtl)
+# Loading work.pcinc(behaviour)
+# Loading work.register_vec(rtl)
+# Loading work.hazarddetunit(behaviour)
+# Loading work.registerfile(behavior)
+# Loading work.immgen(behaviour)
+# Loading work.mux2to1_std(behavior)
+# Loading work.register_std(rtl)
+# Loading work.mux4to1(behavior)
+# Loading work.alu(structural)
+# Loading work.csa_32bit(behavior)
+# Loading work.full_a(behavior)
+# Loading work.csa_6bit_block(behavior)
+# Loading work.rca_6bit(behavior)
+# Loading work.mux2_1_6bit(behavior)
+# Loading work.alu_cu(behaviour)
+# Loading work.branchcomp(behaviour)
+# Loading work.forwardunit(behaviour)
+# Loading work.output_sink(behavior)
+add wave sim:/testbench_riscv/DUT_module/*
+add wave  \
+sim:/testbench_riscv/DUT_module/Register_afile/reg_file
+run 300 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+add wave -position insertpoint \
+sim:/testbench_riscv/DUT_module/clk \
+sim:/testbench_riscv/DUT_module/rst \
+sim:/testbench_riscv/DUT_module/Instruction 
+# End time: 16:39:42 on Feb 15,2021, Elapsed time: 0:17:46
+# Errors: 0, Warnings: 32

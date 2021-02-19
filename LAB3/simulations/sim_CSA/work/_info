@@ -1024,24 +1024,24 @@ R139
 R12
 R13
 Etestbench_riscv
-Z140 w1613666833
+Z140 w1613402483
 R1
 R2
 R3
-Z141 dC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_CSA
-Z142 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd
-Z143 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd
+R4
+Z141 8C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd
+Z142 FC:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd
 l0
 L5
 V8f[G=[n0G;2Oz;eWOGkN>0
 !s100 OMUEb0ZQ>cY?zi<j`>^MS2
 R7
 32
-Z144 !s110 1613666880
+Z143 !s110 1613402495
 !i10b 1
-Z145 !s108 1613666880.000000
-Z146 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd|
-Z147 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd|
+Z144 !s108 1613402495.000000
+Z145 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd|
+Z146 !s107 C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/testbench/testbench_riscV.vhd|
 !i113 1
 R12
 R13
@@ -1049,18 +1049,18 @@ Abehavior
 R1
 R2
 R3
-Z148 DEx4 work 15 testbench_riscv 0 22 8f[G=[n0G;2Oz;eWOGkN>0
+Z147 DEx4 work 15 testbench_riscv 0 22 8f[G=[n0G;2Oz;eWOGkN>0
 l133
 L10
-VF89d;;:V1a8=d<kj5JdgA1
-!s100 Hnk:oY2GD?dD0iQ:1h83C2
+VNS?_N<9<z0GdVCi4gikfP1
+!s100 U;?FZO7gk9DV2knn69XH72
 R7
 32
-R144
+R143
 !i10b 1
+R144
 R145
 R146
-R147
 !i113 1
 R12
 R13

@@ -1,19 +1,10 @@
 # Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
-# OpenFile {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_with_CSA/sim_with_csa.mpf}
+# OpenFile {C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_CSA/sim_with_csa.mpf}
 # Loading project sim_with_csa
 # Compile of testbench_riscV.vhd was successful.
-vsim work.testbech_riscV
-# vsim work.testbech_riscV 
-# Start time: 16:21:49 on Feb 15,2021
-# ** Error: (vsim-3170) Could not find 'testbech_riscV'.
-#         Searched libraries:
-#             C:/Users/gianl/Desktop/POLITO/SECONDO ANNO/INTEGRATED SYSTEM ARCHITECTURE/Lab_ISA/LAB3/sim_with_CSA/work
-# Error loading design
-# End time: 16:21:49 on Feb 15,2021, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
 vsim work.testbench_riscV
 # vsim work.testbench_riscV 
-# Start time: 16:21:56 on Feb 15,2021
+# Start time: 17:20:44 on Feb 18,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -49,9 +40,207 @@ vsim work.testbench_riscV
 # Loading work.forwardunit(behaviour)
 # Loading work.output_sink(behavior)
 add wave sim:/testbench_riscv/DUT_module/*
-add wave  \
+add wave -position insertpoint  \
 sim:/testbench_riscv/DUT_module/Register_afile/reg_file
 run 300 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+restart
+run 200 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+restart
+run 300 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+restart
+run 200 ns
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
@@ -119,6 +308,965 @@ run 300 ns
 add wave -position insertpoint \
 sim:/testbench_riscv/DUT_module/clk \
 sim:/testbench_riscv/DUT_module/rst \
-sim:/testbench_riscv/DUT_module/Instruction 
-# End time: 16:39:42 on Feb 15,2021, Elapsed time: 0:17:46
-# Errors: 0, Warnings: 32
+sim:/testbench_riscv/DUT_module/Instruction \
+sim:/testbench_riscv/DUT_module/RegWrite_IF \
+sim:/testbench_riscv/DUT_module/Rs1_IF \
+sim:/testbench_riscv/DUT_module/Rs2_IF \
+sim:/testbench_riscv/DUT_module/Rd_IF 
+add wave -position insertpoint \
+sim:/testbench_riscv/DUT_module/ALUDataA_in \
+sim:/testbench_riscv/DUT_module/ALUDataB_in \
+sim:/testbench_riscv/DUT_module/ALUCtrl \
+sim:/testbench_riscv/DUT_module/ALUData_out \
+sim:/testbench_riscv/DUT_module/clk \
+sim:/testbench_riscv/DUT_module/rst \
+sim:/testbench_riscv/DUT_module/Instruction \
+sim:/testbench_riscv/DUT_module/RegWrite_IF \
+sim:/testbench_riscv/DUT_module/Rs1_IF \
+sim:/testbench_riscv/DUT_module/Rs2_IF \
+sim:/testbench_riscv/DUT_module/Rd_IF 
+add wave -position insertpoint sim:/testbench_riscv/DUT_module/*
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/reg_file
+add wave -position insertpoint  \
+sim:/testbench_riscv/Data_mem_module/memory_data
+# Compile of testbench_riscV.vhd was successful.
+restart
+# Loading work.testbench_riscv(behavior)
+run 200 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 94 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 94 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 94 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 94 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+restart
+run 150 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 98 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 102 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+restart
+run 150 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Branch_Comp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 106 ns  Iteration: 4  Instance: /testbench_riscv/DUT_module/Register_afile
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 110 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/HazardDetectionUnit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 114 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 114 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 118 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 118 ns  Iteration: 3  Instance: /testbench_riscv/DUT_module/Forward_Unit
+add wave -position insertpoint  \
+sim:/testbench_riscv/clk \
+sim:/testbench_riscv/rst
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/reg_file
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/DataMemRead
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/DataMemRead
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/DataMemRead \
+sim:/testbench_riscv/DUT_module/DataMemWrite \
+sim:/testbench_riscv/DUT_module/DataMemAddr \
+sim:/testbench_riscv/DUT_module/DataMemDataIn \
+sim:/testbench_riscv/DUT_module/DataMemDataOut
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/clk \
+sim:/testbench_riscv/DUT_module/rst \
+sim:/testbench_riscv/DUT_module/DataMemRead \
+sim:/testbench_riscv/DUT_module/DataMemWrite \
+sim:/testbench_riscv/DUT_module/DataMemAddr \
+sim:/testbench_riscv/DUT_module/DataMemDataIn \
+sim:/testbench_riscv/DUT_module/DataMemDataOut
+add wave -position insertpoint  \
+sim:/testbench_riscv/DUT_module/Register_afile/data_in \
+sim:/testbench_riscv/DUT_module/Register_afile/write_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_A \
+sim:/testbench_riscv/DUT_module/Register_afile/data_out_B \
+sim:/testbench_riscv/DUT_module/Register_afile/read_A_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/read_B_addr \
+sim:/testbench_riscv/DUT_module/Register_afile/write_en \
+sim:/testbench_riscv/DUT_module/Register_afile/reg_file
+add wave -position insertpoint  \
+sim:/testbench_riscv/Data_mem_module/memory_data
