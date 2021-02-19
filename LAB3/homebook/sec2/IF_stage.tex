@@ -1,3 +1,2 @@
 \subsection{Instruction Fetch stage}
 The starting point for executing an instruction is to access the instruction memory cell pointed to by the PC. This step is performed in the fetch stage. In particular, there is the register containing the program counter, which is used as the instruction memory address, the adder to increment this value in case of sequential execution and a mux to save the result coming from the ALU in case there are jump operations to be performed. Finally, the instruction and the program counter enter the first pipe stage. The control signals of the pipeline and PC registers are handled by the Hazard Detection Unit.
-\todo{Insert figure}

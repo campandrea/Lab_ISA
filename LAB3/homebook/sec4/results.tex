@@ -1,0 +1,17 @@
+\subsection{Results}
+The analysed architectures are mainly two, one in which all the blocks have been described from a behavioural point of view and the other in which it has been chosen how to synthesise some more critical combinatorial blocks. The behavioural description allows the Synopsys synthesis tool to perform all optimisations and to choose the best structure based on the given constraints. On the other hand, when choosing a particular structure Synopsys is constrained to use it, but sometimes better results can be achieved.\\
+In the case analysed hereafter, for example, a summator implemented as a Carry-Save-Adder was chosen with regard to the ALU in the constrained version.\\
+The performance analysis was repeated twice, once for the first implementation of the RISC-V processor and again for the processor with the ISA modified by the addition of the absolute value instruction. In the \autoref{tab:results} it can be seen, as expected, that the optimisations performed by Synopsys when fewer restrictions are present are more effective. In particular, this can be noticed when the processor synthesis is carried out with the addition of the new instruction: it performs better than the basic implemetation in terms of frequency. On the other hand, when the CSA is inserted to implement the ALU adder, the results of the two syntheses are equivalent.\\
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c||c|c}
+		& Base model & CSA & Base ABS & ABS  \& CSA \\
+		\hline
+		Clock frequency (ns) & 1.26 & 1.29 & 1.13 & 1.29 \\
+		Area ($\mu m^2$)	& 12902 & 12633 & \\
+	\end{tabular}
+	\caption{Results of the synthesis}
+	\label{tab:results}
+\end{table}
+
+\noindent After deriving the netlist, the DUT was simulated with the input vectors used in the \autoref{sec:test}, and the results were identical to the previous ones. 

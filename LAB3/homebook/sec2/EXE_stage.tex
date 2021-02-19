@@ -1,5 +1,11 @@
 \subsection{Execution stage}
-The execution stage contains the blocks that carry out the calculations, including the ALU, the Forwarding Unit, the PC incrementer and some useful units to manage data flows. Each operation lasts one clock cycle so there are no pipeline stages within the stage but only before and after. In figure \todo{Insert figure} all the blocks and the data path can be seen.\\
+The execution stage contains the blocks that carry out the calculations, including the ALU, the Forwarding Unit, the PC incrementer and some useful units to manage data flows. Each operation lasts one clock cycle so there are no pipeline stages within the stage but only before and after. In \autoref{fig:exe_stage} all the blocks and the data path can be seen.\\
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{sec2/images/execution_stage.png}
+	\caption{Execution stage}
+	\label{fig:exe_stage}
+\end{figure}
 The ALU has two inputs which are partly managed by the instruction decoded by the CU and partly by the forwarding unit in case data dependencies are present. In the case of non-hazardous operation, port "A" of the ALU contains data "A" from the register file or the non-incremented PC, while port "B" contains data from port "B" of the register file or the Immediate from the instruction. In this way all instructions can be handled without ever having an overlap in the port request. On the other hand, when data dependencies are present, these data are ignored and bypassed by the forwarding unit's decision in order to insert the correct data. The management of the branch instruction requires the evaluation of equality between two data and is carried out by a separate unit from the ALU as it is busy in calculating the jump address, i.e. the sum between the PC and the displacement present in the Immediate. Some units are analysed in detail in the following subsections.
 
 \subsubsection{ALU}
@@ -31,7 +37,7 @@ This simple block was used to create a not common and not uniform adder structur
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{sec2/images/C_sel_A.png}
+	\includegraphics[width=0.7\textwidth]{sec2/images/csa.png}
 	\caption{Carry Select Adder main block}
 	\label{fig:carry_sel}
 \end{figure}
@@ -61,7 +67,7 @@ In order to obtain better performances, the cost to be paid is quite high, in fa
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=1\textwidth]{sec2/images/CSA_full.png }
+	\includegraphics[width=1\textwidth]{sec2/images/CSA_full2.png }
 	\caption{Carry Select Adder schematic}
 	\label{fig:CSA_full}
 \end{figure}
