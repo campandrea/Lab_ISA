@@ -1,0 +1,10 @@
+vcom -93 -work ./work ../vhdl/mux2to1_std.vhd
+vcom -93 -work ./work ../vhdl/mux2to1_vec.vhd
+vcom -93 -work ./work ../testbench/clk_gen.vhd
+vcom -93 -work ./work ../testbench/Output_Sink.vhd
+vcom -93 -work ./work ../testbench/Memory.vhd
+vcom -93 -work ./work ../testbench/Stimuli_generator.vhd
+vlog -work ./work ../netlist/riscv_abs.v
+vcom -93 -work ./work ../testbench/testbench_riscV.vhd
+vsim -L /software/dk/nangate45/verilog/msim6.2g work.testbench_riscV
+
