@@ -144,7 +144,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 
 
 		Read_Instruction_Module: Stimuli_generator
-		GENERIC MAP("../Files/test1.txt")
+		GENERIC MAP("../../Files/test9.txt")
 		PORT MAP
 		(clk => CLK,
      en => Stimuli_en,
@@ -228,7 +228,7 @@ ARCHITECTURE behavior OF testbench_riscV IS
 
 
 		Output_sink_module :	Output_Sink
-		GENERIC MAP("../Files/data_tb1.txt")
+		GENERIC MAP("../../Files/data_tb1.txt")
 		PORT MAP
 		(clk => clk,
      en => Sink_en,
