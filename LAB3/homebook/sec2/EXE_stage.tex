@@ -72,6 +72,10 @@ In order to obtain better performances, the cost to be paid is quite high, in fa
 	\label{fig:CSA_full}
 \end{figure}
 
+\subsection{Absolute value}
+In order to carry out the new absolute value instruction, it has been opted to modify the ALU directly, rather than using a dedicated unit since the data access and forwarding infrastructure is basically the same. The modified ALU takes only one value as input, and when the control signal indicates the absolute value, it will compute it and return it as output. Further modifications have been applied to the CU to enable it to recognize the new instruction and to the ALU control logic to generate the correct control signals.\\
+The changes that will have the greatest impact on the performance of the whole machine are certainly those of the ALU because in each case a dedicated unit is added to carry out the new operation.
+
 \subsubsection{Forwarding Unit}
 The forwarding unit is responsible for resolving all data dependencies between the Execute stage and the other pipeline stages. In particular, it looks for situations in which the source register of the current instruction coincides with the destination address of the instruction processed one or two clock cycles earlier.
 \begin{figure}[htbp]
