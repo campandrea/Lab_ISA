@@ -1,6 +1,6 @@
 \subsection{RISC-V ISA}
 \label{subsection:ISA}
-The instructions have a 3-operand format: a target register \textit{Rd} and two source registers \textit{Rs1} and \textit{Rs2}. Instructions are divided into different types according to format:\\
+The instructions have a 3-operand format: a target register \textit{Rd} and two source registers \textit{Rs1} and \textit{Rs2} or one source register \textit{Rs1} and one immediate number. Instructions are divided into different types according to format:\\
 
 \begin{description}
 	\item \textbf{R-type:}
@@ -27,7 +27,8 @@ The instructions have a 3-operand format: a target register \textit{Rd} and two 
 		\item Instructions:\\
 		\textsf{ADDI x2, x4, 20}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 + 20} \\
 		\textsf{LW x7, 8(x4)}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x7 = MEM[x4 + 8]} \\
-    \textsf{ANDI x2, x4, 20}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 $\cdot$ 20}
+        \textsf{SRAI x2, x4, 20}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 >> 20} \\
+        \textsf{ANDI x2, x4, 20}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{x2 = x4 $\cdot$ 20}
 	\end{description}
 	\item \textbf{S-type:}
   \begin{figure}[h]
@@ -49,7 +50,7 @@ The instructions have a 3-operand format: a target register \textit{Rd} and two 
 		\item Operands:\\
 		\texttt{Rs1, Rs2, Immed-12}
 		\item Instruction:\\
-		\textsf{beq x4, x6, loop}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{if x4 < x6, goto offset(pc)}
+		\textsf{BEQ x4, x6, loop}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{if x4 < x6, goto offset(pc)}
 	\end{description}
 	\item \textbf{U-type:}
   \begin{figure}[h]
@@ -72,26 +73,23 @@ The instructions have a 3-operand format: a target register \textit{Rd} and two 
 		\item Instructions:\\
 		\texttt{Rd, Immed-20}
 		\item Example:\\
-		\textsf{jal x4, func}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{pc = pc + offset; x4 = return address}
+		\textsf{JAL x4, func}\ \ \ \ $\longrightarrow$ \ \ \ \ \texttt{pc = pc + offset; x4 = return address}
 	\end{description}
 \end{description}
-When the operation makes use of the immediate extracted directly from the instruction, sign extension is generally performed.\\ \\
-The operations implemented in the lite version of the processor are:
-\begin{description}
-	\item Arithmetic:
-	\texttt{add, addi, auipc, lui}
-	\item Branches:
-	\texttt{beq}
-	\item Loads:
-	\texttt{lw}
-	\item Shift:
-	\texttt{srai}
-	\item Logical:
-	\texttt{andi, xor}
-	\item Compare:
-	\texttt{slt}
-	\item Jump and Link:
-	\texttt{jal}
-	\item Stores:
-	\texttt{sw}
-\end{description}
+%When the operation makes use of the immediate extracted directly from the instruction, sign extension is generally performed.\\ \\
+%\begin{description}
+%	\item Arithmetic:
+%	\texttt{add, addi, auipc, lui}
+%	\item Branches:
+%	\texttt{beq}
+%	\item Loads:
+%	\texttt{lw}
+%	\item Shift:
+%	\texttt{srai}
+%	\item Logical:
+%	\texttt{andi, xor}
+%	\item Compare:
+%	\texttt{slt}
+%	\item Stores:
+%	\texttt{sw}
+%\end{description}

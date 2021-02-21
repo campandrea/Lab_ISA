@@ -1,2 +1,9 @@
 \subsection{Modified ISA}
 Cosa cambia a livello di ISA e di architecture aggiungendo la nuova istruzione
+
+L'Istruction set del processore implementato è stato espanso aggiungendo una nuova istruzione che permetta l'esecuzione dell'operazione \textit{valore assoluto}. Grazie a questa istruzione durante l'execution stage è possibile valutare il modulo di un numero sfruttando il componente hardware dedicato presente nell'ALU. Si ha necessità quindi di specificare solo un source register \textit{Rs1} e un destination register \textit{Rd}. Per rimanere RISC-V compliant si è deciso di sfruttare il formato di istruzioni I-type anche se il campo immediate non verrà utilizzato.
+E' stata scelta la codifica in binario nel seguente modo:
+\begin{description}
+    \item{Opcode:} 0010011
+    \item{func3:} 011
+\end{description}
