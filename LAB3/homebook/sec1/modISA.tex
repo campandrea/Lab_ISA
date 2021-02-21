@@ -1,8 +1,6 @@
 \subsection{Modified ISA}
-Cosa cambia a livello di ISA e di architecture aggiungendo la nuova istruzione
-
-L'Istruction set del processore implementato è stato espanso aggiungendo una nuova istruzione che permetta l'esecuzione dell'operazione \textit{valore assoluto}. Grazie a questa istruzione durante l'execution stage è possibile valutare il modulo di un numero sfruttando il componente hardware dedicato presente nell'ALU. Si ha necessità quindi di specificare solo un source register \textit{Rs1} e un destination register \textit{Rd}. Per rimanere RISC-V compliant si è deciso di sfruttare il formato di istruzioni I-type anche se il campo immediate non verrà utilizzato.
-E' stata scelta la codifica in binario nel seguente modo:
+The Istruction set of the implemented processor has been expanded by adding a new instruction that allows the execution of the operation \textit{absolute value}. Thanks to this instruction, during the execution stage it is possible to evaluate the module of a number using the dedicated hardware component in the ALU. Only a source register \textit{Rs1} and a destination register \textit{Rd} are required to perform the operation. In order to remain RISC-V compliant, the decision was made to exploit the I-type instruction format despite the fact that the immediate field will not be used.
+Binary encoding has been adopted as follows:
 \begin{description}
     \item{Opcode:} 0010011
     \item{func3:} 011
