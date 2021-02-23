@@ -2,7 +2,7 @@
 The execution stage contains the blocks that carry out the calculations, including the ALU, the Forwarding Unit, the PC incrementer and some useful units to manage data flows. Each operation lasts one clock cycle so there are no pipeline stages within the stage but only before and after. In \autoref{fig:exe_stage} all the blocks and the data path can be seen.\\
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.5\textwidth]{sec2/images/execution_stage.png}
+	\includegraphics[width=0.7\textwidth]{sec2/images/execution_stage.png}
 	\caption{Execution stage}
 	\label{fig:exe_stage}
 \end{figure}
@@ -18,10 +18,11 @@ The Arithmetic Logic Unit is one of the most important blocks in a digital syste
 	\item XOR
 	\item Comparison
 	\item Right shift
+	\item Absolute value
 	\item Operand Feedforward
 \end{itemize}
 \noindent
-The first six instructions perform operations between two numbers, the last one directly outputs the second input of the ALU, but they all work with std\_logic inputs. In addition, the control unit of the ALU drives it with four bits and in case of wrong input control, the component gives zeros as output.
+The first six instructions perform operations between two numbers, the last one directly outputs the second input of the ALU, but they all work with std\_logic inputs. The absolute value operation only uses one operand instead. In addition, the control unit of the ALU drives it with four bits and in case of wrong input control, the component gives zeros as output.
 
 \subsubsection{Carry Select Adder}
 The structure of the adder will be analysed in the following in order to reduce its latency. The purpose is to analyse the costs, latency and fanout at some critical nodes. The Carry Select Adder has been developed from the basic cell of the Full Adder, shown in the \autoref{fig:full_adder}
@@ -33,7 +34,7 @@ The structure of the adder will be analysed in the following in order to reduce 
 	\label{fig:full_adder}
 \end{figure}
 \noindent
-This simple block was used to create a not common and not uniform adder structure. In general the adder structure is composed by elementary FA, that are grouped as a power of two: two, four, eight and so on. The implementation was done with six full adders and two full adder at the beginning. The main carry select adder block is showed in \autoref{fig:carry_sel}.
+This simple block was used to create a not common and not uniform adder structure. In general the adder structure is composed by elementary FAs, that are grouped as a power of two. The implementation was done with a group of six full adders and another group of two full adders at the beginning. The main carry select adder block is showed in \autoref{fig:carry_sel}.
 
 \begin{figure}[htbp]
 	\centering
@@ -53,9 +54,9 @@ Now a fanout analysis is going to be done; by looking the \autoref{fig:carry_sel
 	(In_1 \cdot C_{IN}) + (In_2 \cdot \overline{C_{IN}})
 \end{equation}
 
-The selector has to drive:
+\noindent The selector has to drive:
 \begin{equation}
-	F_{OUT} = 2\cdot 6Wires + 2 \cdot 2Wires = 14Wires
+	F_{OUT} = 2\cdot 6\ Gates + 2 \cdot 2\ Gates = 14\ Gates
 \end{equation}
 The selector experiences a very large fanout and it happens in all multiplexers, therefore when the circuit will be synthetized, a driver must be inserted in order to avoid an high load capacitance and an high peak current, in which the first slow the circuit and the second could yield electromigration or burn the logic gates.\\
 \noindent The last parameter that must be analysed is the cost, or to be more precise, the total number of components that have to be used in order to develop the adder:
@@ -67,10 +68,14 @@ In order to obtain better performances, the cost to be paid is quite high, in fa
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=1\textwidth]{sec2/images/CSA_full2.png }
+	\includegraphics[width=1\textwidth]{sec2/images/csa_full2.png}
 	\caption{Carry Select Adder schematic}
 	\label{fig:CSA_full}
 \end{figure}
+
+\subsection{Absolute value}
+In order to carry out the new absolute value instruction, it has been opted to modify the ALU directly, rather than using a dedicated unit, since the data access and the forwarding infrastructure is basically the same. The modified ALU takes only one value as input, and when the control signal indicates the absolute value, it will compute it and return it as output. Further modifications have been applied to the CU to enable it to recognize the new instruction and to the ALU control logic to generate the correct control signals.\\
+The changes that will have the greatest impact on the performance of the whole machine are certainly those of the ALU because in each case a dedicated unit is added to carry out the new operation.
 
 \subsubsection{Forwarding Unit}
 The forwarding unit is responsible for resolving all data dependencies between the Execute stage and the other pipeline stages. In particular, it looks for situations in which the source register of the current instruction coincides with the destination address of the instruction processed one or two clock cycles earlier.

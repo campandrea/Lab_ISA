@@ -1,0 +1,33 @@
+Warning: Design 'datapath' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : area
+Design : datapath
+Version: O-2018.06-SP4
+Date   : Wed Feb 17 12:48:58 2021
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /software/dk/nangate45/synopsys/NangateOpenCellLibrary_typical_ecsm_nowlm.db)
+
+Number of ports:                          164
+Number of nets:                          3654
+Number of cells:                         3262
+Number of combinational cells:           2847
+Number of sequential cells:               406
+Number of macros/black boxes:               0
+Number of buf/inv:                        482
+Number of references:                      46
+
+Combinational area:               2859.766004
+Buf/Inv area:                      280.630001
+Noncombinational area:            1840.719934
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  4700.485939
+Total area:                 undefined
+
+Information: This design contains black box (unknown) components. (RPT-8)
+1

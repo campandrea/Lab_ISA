@@ -1,2 +1,7 @@
 \subsection{Modified ISA}
-Cosa cambia a livello di ISA e di architecture aggiungendo la nuova istruzione
+The Istruction set of the implemented processor has been expanded by adding a new instruction that allows the execution of the operation \textit{absolute value}. Thanks to this instruction, during the execution stage it is possible to evaluate the module of a number using the dedicated hardware component in the ALU. Only a source register \textit{Rs1} and a destination register \textit{Rd} are required to perform the operation. In order to remain RISC-V compliant, the decision was made to exploit the I-type instruction format despite the fact that the immediate field will not be used.
+Binary encoding has been adopted as follows:
+\begin{description}
+    \item{Opcode:} 0010011
+    \item{func3:} 011
+\end{description}
