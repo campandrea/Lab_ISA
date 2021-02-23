@@ -19,3 +19,17 @@ The performance analysis was repeated twice, once for the first implementation o
 \noindent From an area perspective, the main differences between the four analyzed cases concern the occupation of the combinational part of the circuit. In particular, it can be seen that in both cases the area increases by 5\% when the implementation of the adder is done with the CSA and that by inserting the absolute value module inside the ALU the area increases by a further 10\%.
 The area of the non-combinational part, on the other hand, remains more or less constant in all cases since the major changes are in the combinational blocks. In terms of total area, therefore, the differences between the various implementations are halved, having the two contributions a very similar value.\\
 Both after extracting the netlist and after running the place \& route, the DUT was simulated with the input vectors used in the \autoref{sec:test}, and the results were identical to the previous ones. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{sec4/images/place.png}
+	\caption{Layout after place phase}
+	\label{fig:place}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{sec4/images/route.png}
+	\caption{Layout after place\&route}
+	\label{fig:route}
+\end{figure}
