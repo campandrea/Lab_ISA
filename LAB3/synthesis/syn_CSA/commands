@@ -1,13 +1,12 @@
 analyze -f vhdl -lib WORK ../vhdl/CSA/CSA_6bit_block.vhd
-analyze -f vhdl -lib WORK ../vhdl/CSA/csa_32bit.vhd
+analyze -f vhdl -lib WORK ../vhdl/CSA/CSA_32bit.vhd
 analyze -f vhdl -lib WORK ../vhdl/CSA/Full_A.vhd
 analyze -f vhdl -lib WORK ../vhdl/CSA/Mux2_1_6bit.vhd
 analyze -f vhdl -lib WORK ../vhdl/CSA/RCA_6bit.vhd
 analyze -f vhdl -lib WORK ../vhdl/ALU_CU.vhd
-analyze -f vhdl -lib WORK ../vhdl/ALU_csa.vhd
+analyze -f vhdl -lib WORK ../vhdl/mod_blocks/ALU_csa.vhd
 analyze -f vhdl -lib WORK ../vhdl/BranchComp.vhd
 analyze -f vhdl -lib WORK ../vhdl/CU.vhd
-analyze -f vhdl -lib WORK ../vhdl/datapath.vhd
 analyze -f vhdl -lib WORK ../vhdl/ForwardUnit.vhd
 analyze -f vhdl -lib WORK ../vhdl/HazardDetUnit.vhd
 analyze -f vhdl -lib WORK ../vhdl/ImmGen.vhd
@@ -19,9 +18,10 @@ analyze -f vhdl -lib WORK ../vhdl/Register_PC.vhd
 analyze -f vhdl -lib WORK ../vhdl/Register_std.vhd
 analyze -f vhdl -lib WORK ../vhdl/Register_vec.vhd
 analyze -f vhdl -lib WORK ../vhdl/RegisterFile.vhd
+analyze -f vhdl -lib WORK ../vhdl/datapath.vhd
 set power_preserve_rtl_hier_names true
 elaborate datapath -arch structure -lib WORK
-create_clock -name MY_CLK -period 1.29 clk
+create_clock -name MY_CLK -period 1.33 clk
 set_dont_touch_network MY_CLK
 set_clock_uncertainty 0.07 [get_clocks MY_CLK]
 set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] clk]
