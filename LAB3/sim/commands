@@ -1,4 +1,0 @@
-vcom -93 -work ./work ../vhdl/*.vhd
-vcom -93 -work ./work ../testbench/*.vhd
-vlog -work ./work ../testbench/tb_riscV.v
-vsim work.tb_riscV

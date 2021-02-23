@@ -41,3 +41,17 @@
 * LAB2/
 	Contains all the files associated to the 
 	second LAB
+
+* LAB3/
+	Contains all the files associated to the 
+	third LAB
+
+	
+	- VHDL sources can be found in VHDL/
+	- VHDL and verilog testbench files can be found 
+		in testbench/
+	- In/Out files of the simulations are in 
+		simulation_results/
+	- netlist/ generated netlist 
+	- simulatons/ Modelsim folder
+	- synthesis/ Synopsis folder
